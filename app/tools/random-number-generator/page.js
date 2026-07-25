@@ -1,11 +1,8 @@
 import ToolShell from "@/components/ToolShell";
 import RandomNumber from "@/components/tools/RandomNumber";
+import { toolMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Random Number Generator — Pick Numbers in Any Range",
-  description:
-    "Free random number generator. Generate one or many random numbers in any range, with or without duplicates — perfect for draws, games and picks.",
-};
+export const metadata = toolMetadata("random-number-generator");
 
 export default function Page() {
   return (

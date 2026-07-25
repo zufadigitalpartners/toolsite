@@ -1,11 +1,8 @@
 import ToolShell from "@/components/ToolShell";
 import JsonFormatter from "@/components/tools/JsonFormatter";
+import { toolMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "JSON Formatter — Format, Minify & Validate JSON Online",
-  description:
-    "Free JSON formatter and validator. Pretty-print or minify JSON instantly in your browser with clear error messages. Safe for sensitive data — nothing is uploaded.",
-};
+export const metadata = toolMetadata("json-formatter");
 
 export default function Page() {
   return (

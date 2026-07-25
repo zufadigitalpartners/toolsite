@@ -1,11 +1,8 @@
 import ToolShell from "@/components/ToolShell";
 import Base64Tool from "@/components/tools/Base64Tool";
+import { toolMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Base64 Encoder / Decoder — Encode & Decode Online",
-  description:
-    "Free Base64 encoder and decoder with full Unicode support. Convert text to Base64 and back instantly in your browser — nothing is sent to any server.",
-};
+export const metadata = toolMetadata("base64-encoder-decoder");
 
 export default function Page() {
   return (

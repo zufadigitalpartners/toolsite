@@ -1,11 +1,8 @@
 import ToolShell from "@/components/ToolShell";
 import WordCounter from "@/components/tools/WordCounter";
+import { toolMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Word Counter — Count Words & Characters Online Free",
-  description:
-    "Free online word counter. Count words, characters, sentences, paragraphs and reading time instantly. No signup, works in your browser.",
-};
+export const metadata = toolMetadata("word-counter");
 
 export default function Page() {
   return (

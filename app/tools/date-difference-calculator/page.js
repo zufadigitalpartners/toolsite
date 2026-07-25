@@ -1,11 +1,8 @@
 import ToolShell from "@/components/ToolShell";
 import DateDifference from "@/components/tools/DateDifference";
+import { toolMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Date Difference Calculator — Days Between Two Dates",
-  description:
-    "Free date difference calculator. Count the exact days, weeks, months and years between any two dates — for deadlines, countdowns and anniversaries.",
-};
+export const metadata = toolMetadata("date-difference-calculator");
 
 export default function Page() {
   return (

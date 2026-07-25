@@ -4,11 +4,29 @@ import { site } from "@/lib/site";
 import { categories, toolsByCategory } from "@/lib/tools";
 
 export const metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — Free Online Tools`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
+  openGraph: {
+    title: `${site.name} — Free Online Tools`,
+    description: site.description,
+    url: "/",
+    siteName: site.name,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: `${site.name} — Free Online Tools`,
+    description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {

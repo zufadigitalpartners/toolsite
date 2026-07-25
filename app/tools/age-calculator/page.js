@@ -1,11 +1,8 @@
 import ToolShell from "@/components/ToolShell";
 import AgeCalculator from "@/components/tools/AgeCalculator";
+import { toolMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Age Calculator — Exact Age in Years, Months & Days",
-  description:
-    "Free age calculator. Find your exact age in years, months and days from your date of birth, plus total days lived and days until your next birthday.",
-};
+export const metadata = toolMetadata("age-calculator");
 
 export default function Page() {
   return (

@@ -1,11 +1,8 @@
 import ToolShell from "@/components/ToolShell";
 import CaseConverter from "@/components/tools/CaseConverter";
+import { toolMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Case Converter — UPPERCASE, lowercase & Title Case Online",
-  description:
-    "Free online case converter. Change text to UPPERCASE, lowercase, Title Case or Sentence case instantly and copy the result. No signup needed.",
-};
+export const metadata = toolMetadata("case-converter");
 
 export default function Page() {
   return (

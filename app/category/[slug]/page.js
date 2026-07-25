@@ -1,23 +1,22 @@
 import Link from "next/link";
 import ToolCard from "@/components/ToolCard";
+import RichText from "@/components/RichText";
 import { categories, getCategory, toolsByCategory } from "@/lib/tools";
+import { getCategoryContent } from "@/lib/content";
+import { categoryMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return categories.map((cat) => ({ slug: cat.id }));
 }
 
 export function generateMetadata({ params }) {
-  const cat = getCategory(params.slug);
-  if (!cat) return {};
-  return {
-    title: `${cat.name} — Free Online ${cat.name}`,
-    description: `${cat.desc} All ${cat.name.toLowerCase()} are free, run in your browser and need no signup.`,
-  };
+  return categoryMetadata(params.slug);
 }
 
 export default function CategoryPage({ params }) {
   const cat = getCategory(params.slug);
   const list = toolsByCategory(cat.id);
+  const content = getCategoryContent(cat.id);
 
   return (
     <>
@@ -43,6 +42,19 @@ export default function CategoryPage({ params }) {
           </div>
         </div>
       </section>
+
+      {content && (
+        <section className="section">
+          <div className="container">
+            <div className="tool-content" style={{ marginTop: 0 }}>
+              <h2>{content.heading}</h2>
+              {content.paragraphs.map((para, i) => (
+                <RichText key={i} text={para} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container">
