@@ -1,0 +1,71 @@
+import Link from "next/link";
+import ToolCard from "@/components/ToolCard";
+import { categories, getCategory, toolsByCategory } from "@/lib/tools";
+
+export function generateStaticParams() {
+  return categories.map((cat) => ({ slug: cat.id }));
+}
+
+export function generateMetadata({ params }) {
+  const cat = getCategory(params.slug);
+  if (!cat) return {};
+  return {
+    title: `${cat.name} — Free Online ${cat.name}`,
+    description: `${cat.desc} All ${cat.name.toLowerCase()} are free, run in your browser and need no signup.`,
+  };
+}
+
+export default function CategoryPage({ params }) {
+  const cat = getCategory(params.slug);
+  const list = toolsByCategory(cat.id);
+
+  return (
+    <>
+      <section className="cat-hero" style={{ "--cat-color": cat.color }}>
+        <div className="container">
+          <div className="breadcrumb">
+            <Link href="/">Home</Link> › {cat.name}
+          </div>
+          <h1>
+            {cat.emoji} {cat.name}
+            <span className="cat-count-pill">{list.length} tools</span>
+          </h1>
+          <p>{cat.desc}</p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="grid">
+            {list.map((t) => (
+              <ToolCard key={t.slug} tool={t} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <h2>More categories</h2>
+          </div>
+          <div className="cat-grid">
+            {categories.filter((c) => c.id !== cat.id).map((c) => (
+              <Link
+                key={c.id}
+                href={`/category/${c.id}/`}
+                className="cat-card"
+                style={{ "--cat-color": c.color }}
+              >
+                <span className="c-emoji">{c.emoji}</span>
+                <div className="c-name">{c.name}</div>
+                <div className="c-desc">{c.desc}</div>
+                <div className="c-count">{toolsByCategory(c.id).length} tools →</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
