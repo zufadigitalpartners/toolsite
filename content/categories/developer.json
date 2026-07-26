@@ -1,0 +1,16 @@
+{
+  "name": "Developer Tools",
+  "emoji": "👨‍💻",
+  "color": "#7c3aed",
+  "desc": "Format, encode and debug — handy utilities for developers.",
+  "order": 4,
+  "seo": {
+    "heading": "Free developer tools — format, validate, encode and decode",
+    "paragraphs": [
+      "Developer workflows are full of small conversions: an API response that needs pretty-printing, a config file that will not parse, a token payload that needs decoding. The tools in this category handle those conversions instantly — and, unlike most online dev tools, they run entirely in your browser. That is not a minor detail: the JSON and Base64 blobs developers work with routinely contain API keys, auth tokens and customer data, and pasting them into a site that uploads to a server is a quiet security risk. Here, nothing leaves your machine.",
+      "The [JSON formatter](/tools/json-formatter/) pretty-prints, minifies and validates JSON with clear error messages. Paste a single-line API response and get readable, 2-space-indented output; paste a broken config file and the validator points at the trailing comma or single quote that broke it. It handles large payloads quickly because there is no upload round-trip — everything runs on the browser's native parser.",
+      "The [Base64 encoder/decoder](/tools/base64-encoder-decoder/) converts text to Base64 and back with full UTF-8 support, so emoji and non-Latin characters survive the round trip. Base64 is everywhere — Basic Auth headers, data URIs, JWT payloads, Kubernetes secrets, MIME attachments — and being able to decode a blob on sight is a daily debugging skill. The two tools chain naturally: decode a JWT segment here, then pretty-print the resulting JSON in the formatter.",
+      "Adjacent tools round out the workbench. The [case converter](/tools/case-converter/) normalizes identifier and heading case in bulk, the [random number generator](/tools/random-number-generator/) fills test fixtures with fair random values, and the [password generator](/tools/password-generator/) creates throwaway credentials for test accounts using cryptographic randomness. Everything is free, instant and account-free, with no rate limits and no upload size caps — built to be the tab you keep open next to your editor, from the first API call of the morning to the last debugging session of the day."
+    ]
+  }
+}

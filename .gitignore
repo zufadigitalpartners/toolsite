@@ -7,6 +7,11 @@
 
 # local env & tooling
 .env*
+!.env.example
 .claude/
 *.log
 .DS_Store
+
+# tinacms build artifacts (rebuilt by `tinacms build`; tina-lock.json IS committed)
+/public/admin
+/tina/__generated__

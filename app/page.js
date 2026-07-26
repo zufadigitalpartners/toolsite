@@ -33,27 +33,18 @@ export default function Home() {
 
         <div className="container hero-inner">
           <h1>
-            Every tool you need,<br />
-            <span className="accent">free and in your browser</span>
+            {site.hero.heading}<br />
+            <span className="accent">{site.hero.headingAccent}</span>
           </h1>
-          <p className="sub">
-            No signup. No uploads. No limits. Everything runs locally on your
-            device — private by design and instant by default.
-          </p>
+          <p className="sub">{site.hero.subheading}</p>
           <SearchBar />
           <div className="hero-stats">
-            <div className="hero-stat">
-              <div className="hs-num">{tools.length}+</div>
-              <div className="hs-label">Free tools</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hs-num">0</div>
-              <div className="hs-label">Uploads</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hs-num">100%</div>
-              <div className="hs-label">Free forever</div>
-            </div>
+            {site.hero.stats.map((stat, i) => (
+              <div className="hero-stat" key={i}>
+                <div className="hs-num">{stat.value.replace("{toolCount}", tools.length)}</div>
+                <div className="hs-label">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -123,22 +114,12 @@ export default function Home() {
           <div className="why">
             <h2>Why {site.name}?</h2>
             <div className="why-grid">
-              <div className="why-item">
-                <div className="w-title"><span className="w-dot" />100% free, forever</div>
-                <p>Every tool is completely free. No trials, no premium walls, no hidden limits.</p>
-              </div>
-              <div className="why-item">
-                <div className="w-title"><span className="w-dot" />Private by design</div>
-                <p>Your text and files are processed inside your browser. Nothing is uploaded to any server.</p>
-              </div>
-              <div className="why-item">
-                <div className="w-title"><span className="w-dot" />No signup needed</div>
-                <p>Open a tool and start working. No account, no email, no interruptions.</p>
-              </div>
-              <div className="why-item">
-                <div className="w-title"><span className="w-dot" />Works everywhere</div>
-                <p>Fast on mobile and desktop, and new tools are added every week.</p>
-              </div>
+              {site.whyUs.map((item, i) => (
+                <div className="why-item" key={i}>
+                  <div className="w-title"><span className="w-dot" />{item.title}</div>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

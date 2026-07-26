@@ -1,0 +1,69 @@
+{
+  "name": "Word Counter",
+  "emoji": "🔢",
+  "category": "text",
+  "popular": true,
+  "order": 1,
+  "short": "Count words, characters, sentences and reading time instantly.",
+  "seo": {
+    "metaTitle": "Word Counter — Count Words & Characters Online Free",
+    "metaDescription": "Free online word counter. Count words, characters, sentences, paragraphs and reading time instantly. No signup, no uploads — works in your browser.",
+    "keywords": [
+      "word counter",
+      "character counter",
+      "count words online",
+      "word count tool",
+      "reading time calculator",
+      "sentence counter"
+    ]
+  },
+  "intro": [
+    "This free online word counter counts words, characters, sentences and paragraphs the moment you start typing — no button to press, no page reload, no signup. Paste an essay, a blog draft, a tweet or an entire manuscript and you instantly see exactly how long it is, along with an estimated reading time based on average reading speed. Because everything runs directly in your browser, your text is never uploaded to a server, which makes it safe to check confidential documents, unpublished articles or client work. Whether you are trimming a college essay to a strict word limit, keeping a meta description under 160 characters, or checking that a LinkedIn post fits the cap, this word count tool gives you a precise answer in real time."
+  ],
+  "howto": [
+    "Type directly into the text box, or paste your text with Ctrl+V (Cmd+V on Mac). The counters update instantly with every keystroke.",
+    "Read the word count first — this is the number most essays, articles and assignments are measured by.",
+    "Check the character count (with and without spaces) when you are writing for platforms with character limits, such as X/Twitter, SMS or meta descriptions.",
+    "Use the sentence and paragraph counts to judge structure — long paragraphs with many sentences are a signal to break your text up.",
+    "Use the estimated reading time to plan speeches, presentations and blog posts; it is based on an average adult reading speed of 200 words per minute.",
+    "Edit your text right in the box and watch the numbers change until you hit your target length."
+  ],
+  "benefits": [
+    "Most word count tools make you click a button, watch an ad, or upload your document to someone else's server. Ours does none of that. The counts update live as you type, so trimming a 1,050-word essay down to a 1,000-word limit becomes a simple loop: delete, glance at the counter, done. Everything is computed locally in your browser, which means it works at full speed even on huge documents and your text never leaves your device — important when you are working on unpublished content, legal text or client material.",
+    "You also get more than a single number. Words, characters with and without spaces, sentences, paragraphs and reading time are all visible at once, so one tool covers essays, ad copy, subtitles and social posts. And when you finish editing, related utilities are one click away — fix inconsistent capitalization with the [case converter](/tools/case-converter/), or turn your published article's link into a scannable code with the [QR code generator](/tools/qr-code-generator/)."
+  ],
+  "useCases": [
+    "Students and academics rely on word counts daily: admissions essays, coursework with strict limits, abstracts capped at 250 words, dissertations measured in tens of thousands. This tool shows live progress toward any limit, and teachers can use it to check assignment lengths in seconds — or pick a random student for a presentation with the [random number generator](/tools/random-number-generator/).",
+    "Freelance writers and content marketers are often paid or briefed per word, so an accurate count is money. Bloggers use reading time to keep posts skimmable, SEO specialists keep title tags and meta descriptions inside character limits, and social media managers check captions against platform caps before posting. Novelists tracking daily output, translators quoting per source word, and job seekers keeping a cover letter tight all get the same instant answer. If you are also juggling deadlines for all that writing, the [date difference calculator](/tools/date-difference-calculator/) tells you exactly how many days you have left."
+  ],
+  "faqs": [
+    {
+      "q": "Is my text uploaded anywhere?",
+      "a": "No. Everything is counted inside your browser using JavaScript. Your text never leaves your device, so it is safe to paste confidential or unpublished work."
+    },
+    {
+      "q": "How is reading time calculated?",
+      "a": "We divide your word count by 200 words per minute, a widely used average adult reading speed. Slides and speeches are usually delivered slower, around 130 words per minute, so add a margin for spoken content."
+    },
+    {
+      "q": "Is there a word or character limit?",
+      "a": "No limit — you can paste an entire book. Because counting happens locally, even very large documents are processed instantly."
+    },
+    {
+      "q": "Does it count characters with and without spaces?",
+      "a": "Yes, both. Character-with-spaces is what most platforms (like X/Twitter) measure, while some translation and typesetting work is billed on characters without spaces."
+    },
+    {
+      "q": "How are words counted — do hyphenated words count as one?",
+      "a": "Anything separated by spaces or line breaks counts as a word, so 'well-known' counts as one word. This matches how most word processors count."
+    },
+    {
+      "q": "Can I use this on my phone?",
+      "a": "Yes. The counter is fully responsive and works in any modern mobile browser — handy for checking captions and messages on the go."
+    },
+    {
+      "q": "Why does my count differ slightly from Microsoft Word?",
+      "a": "Different tools treat symbols, numbers and stray punctuation slightly differently. Differences are typically a handful of words on very long texts; for limits that strict, always follow the counter your submission system uses."
+    }
+  ]
+}

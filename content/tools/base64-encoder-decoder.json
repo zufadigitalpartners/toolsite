@@ -1,0 +1,70 @@
+{
+  "name": "Base64 Encoder / Decoder",
+  "emoji": "🔣",
+  "category": "developer",
+  "popular": false,
+  "order": 9,
+  "short": "Encode text to Base64 or decode Base64 back to text.",
+  "seo": {
+    "metaTitle": "Base64 Encode & Decode Online — Free Base64 Converter",
+    "metaDescription": "Free Base64 encoder and decoder. Convert text to Base64 or decode Base64 to text instantly, with full UTF-8 support — runs entirely in your browser.",
+    "keywords": [
+      "base64 encode",
+      "base64 decode",
+      "base64 converter",
+      "base64 to text",
+      "text to base64",
+      "base64 decoder online",
+      "utf-8 base64"
+    ]
+  },
+  "intro": [
+    "This free Base64 encoder and decoder converts text to Base64 and back instantly, with full UTF-8 support — so accented characters, non-Latin scripts and emoji survive the round trip intact. Base64 is everywhere in modern computing: it is how email attachments travel, how images get embedded in CSS and HTML as data URIs, how HTTP Basic Auth credentials are transmitted, and how JSON Web Tokens (JWTs) package their payloads. When you need to encode a string for an API, or decode a Base64 blob you found in a config file, a log line or a token, this tool does it in your browser with nothing uploaded or logged. Choose Encode or Decode, paste your text, and the result appears as you type."
+  ],
+  "howto": [
+    "Choose the mode: Encode to convert plain text into Base64, or Decode to turn Base64 back into readable text.",
+    "Paste or type your input — the result appears instantly, no button needed.",
+    "Encoding example: 'Hello' becomes 'SGVsbG8=' — the trailing = signs are padding and are part of the output.",
+    "Decoding: paste the Base64 string exactly, including any = padding at the end.",
+    "If decoding fails, check for missing characters, line breaks inserted by email clients, or URL-safe variants that use - and _ instead of + and /.",
+    "Click Copy to grab the output for your code, API request or config file."
+  ],
+  "benefits": [
+    "The main reason to use this converter is that it runs entirely locally. Base64 strings frequently contain things you should not paste into arbitrary websites — API credentials, auth headers, token payloads, configuration secrets. Here, encoding and decoding happen in your browser and nothing ever leaves your device. Full UTF-8 handling is the second win: many quick converters mangle emoji and non-English characters because they ignore character encoding; this one gets 'héllo 👋' right in both directions.",
+    "It is also honest about what Base64 is: an encoding, not encryption. Anyone can decode it, so it must never be used to protect secrets — for real credentials, generate something strong with the [password generator](/tools/password-generator/). In daily developer work it slots in alongside the [JSON formatter](/tools/json-formatter/) — decode a JWT segment here, then pretty-print the JSON payload there — and alongside the [QR code generator](/tools/qr-code-generator/) when you want to move an encoded snippet from screen to phone."
+  ],
+  "useCases": [
+    "Developers use Base64 constantly: building Basic Auth headers, embedding small images as data URIs in CSS, inspecting the payload of a JWT during authentication debugging, and encoding binary-ish content for JSON APIs that only accept text. DevOps engineers meet it in Kubernetes secrets, which are Base64-encoded by design, and in CI/CD environment variables and certificate bundles.",
+    "QA engineers decode tokens and webhook payloads while reproducing bugs. Security analysts and IT support decode Base64 strings found in email headers, logs and suspicious scripts to see what they actually contain. Students learning web development use it to understand how data URIs and HTTP authentication actually work under the hood. Email administrators troubleshoot MIME-encoded message parts. Even no-code builders occasionally hit an API that demands Base64-encoded input — paste, encode, done. If your work ever touches an API, a token or a config file, you will need this converter sooner rather than later."
+  ],
+  "faqs": [
+    {
+      "q": "Is Base64 encryption?",
+      "a": "No — and this matters. Base64 is a reversible encoding that anyone can decode; it provides zero secrecy. Never use it to protect passwords or sensitive data. Use real encryption for security."
+    },
+    {
+      "q": "Does this support Unicode and emoji?",
+      "a": "Yes — full UTF-8 support in both directions, so accented characters, non-Latin scripts and emoji encode and decode correctly. Many simpler tools get this wrong."
+    },
+    {
+      "q": "Is my data sent to a server?",
+      "a": "No. Encoding and decoding happen entirely in your browser, which makes it safe for tokens, credentials and internal data."
+    },
+    {
+      "q": "What are the = signs at the end of Base64?",
+      "a": "Padding. Base64 works in blocks of 3 input bytes, and = fills the final block when input length is not a multiple of 3. They are part of the string — keep them when copying."
+    },
+    {
+      "q": "Why does Base64 make my data bigger?",
+      "a": "Base64 represents every 3 bytes as 4 text characters, so output is about 33% larger than input. That is the price of making arbitrary data safe to embed in text-only formats."
+    },
+    {
+      "q": "Why won't my Base64 string decode?",
+      "a": "Usual causes: characters missing from the start or end, line breaks added by an email client, or a URL-safe variant that replaces + and / with - and _. Fix those and decode again."
+    },
+    {
+      "q": "What is Base64 actually used for?",
+      "a": "Email attachments (MIME), data URIs for inline images, HTTP Basic Auth, JWT tokens, Kubernetes secrets and any place binary data must travel through text-only channels."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Case Converter",
+  "emoji": "🔠",
+  "category": "text",
+  "popular": true,
+  "order": 2,
+  "short": "Convert text to UPPERCASE, lowercase, Title Case or Sentence case.",
+  "seo": {
+    "metaTitle": "Case Converter — UPPERCASE, lowercase & Title Case Online",
+    "metaDescription": "Free online case converter. Change text to UPPERCASE, lowercase, Title Case or Sentence case instantly. No signup — runs entirely in your browser.",
+    "keywords": [
+      "case converter",
+      "uppercase to lowercase",
+      "title case converter",
+      "sentence case",
+      "capitalization tool",
+      "change text case online"
+    ]
+  },
+  "intro": [
+    "This free case converter changes any text to UPPERCASE, lowercase, Title Case or Sentence case in a single click. Instead of retyping a heading that was pasted in all caps, or manually capitalizing every word of a title, paste the text once and switch between case styles instantly. It is the fastest way to fix text copied from PDFs, emails written with Caps Lock on, or headings that need to follow a style guide. The conversion happens entirely in your browser — nothing is uploaded, stored or logged — and it works with any language that distinguishes upper and lower case letters. Writers, students, developers and social media managers use this capitalization tool to clean up text in seconds rather than minutes."
+  ],
+  "howto": [
+    "Paste or type your text into the input box — anything from a single heading to several pages.",
+    "Click UPPERCASE to capitalize every letter, ideal for acronyms, labels and emphasis.",
+    "Click lowercase to strip all capitals — the quickest fix for text typed with Caps Lock on.",
+    "Click Title Case to capitalize the first letter of every word, the standard for headlines and titles.",
+    "Click Sentence case to capitalize only the first letter of each sentence, the normal style for body text.",
+    "Press Copy to send the converted text to your clipboard, then paste it wherever you need it."
+  ],
+  "benefits": [
+    "Retyping text just to fix its capitalization is one of the most tedious jobs in writing. Our case converter turns it into one click, and because the text converts instantly you can try every style and compare before copying. There are no ads interrupting the flow, no signup wall, and no server round-trip — your text stays on your device, so it is safe for contracts, credentials in config files, or unpublished drafts.",
+    "It also pairs naturally with the rest of your editing workflow. After converting a heading, check your draft's length with the [word counter](/tools/word-counter/) to make sure it fits your brief. Developers cleaning up string constants often follow up in the [JSON formatter](/tools/json-formatter/) to pretty-print the file they are editing, or use the [Base64 encoder](/tools/base64-encoder-decoder/) when the cleaned text needs to be embedded in a data URI or API payload. One browser tab covers the whole clean-up job."
+  ],
+  "useCases": [
+    "Students and academic writers use Sentence case and Title Case constantly — essay titles, headings formatted to APA or MLA style, and reference lists all have strict capitalization rules. Instead of second-guessing every word, convert the line and move on. Copy editors and journalists fixing wire copy or reader submissions save even more time.",
+    "Social media managers and marketers switch between styles daily: Title Case for YouTube titles and email subject lines, UPPERCASE for promo banners, lowercase for a casual brand voice. Virtual assistants and data-entry teams standardizing spreadsheets of names and addresses can normalize hundreds of rows a day with paste-convert-copy. Developers use the converter to tidy UI strings, error messages and documentation headings before committing. Anyone who has ever typed a whole paragraph before noticing Caps Lock was on — which is everyone — gets their minutes back with one click."
+  ],
+  "faqs": [
+    {
+      "q": "What is Title Case?",
+      "a": "Title Case capitalizes the first letter of every word — the common convention for headlines, book titles and section headings. Style guides differ on small words like 'and' or 'of'; our converter capitalizes every word for consistency, so lower small words manually if your guide requires it."
+    },
+    {
+      "q": "What is Sentence case?",
+      "a": "Sentence case capitalizes only the first letter of each sentence, exactly as normal prose is written. It is the standard for body text and increasingly popular for headings in modern web design."
+    },
+    {
+      "q": "Does this work with other languages?",
+      "a": "Yes. It works with any script that has upper and lower case letters — including accented characters like é, ü and ñ in European languages."
+    },
+    {
+      "q": "Is my text stored or sent anywhere?",
+      "a": "No. The conversion runs entirely in your browser with JavaScript. Nothing is uploaded, logged or saved."
+    },
+    {
+      "q": "Is there a length limit?",
+      "a": "No practical limit — you can convert entire documents at once. Everything runs locally, so even long texts convert instantly."
+    },
+    {
+      "q": "Will it break my formatting?",
+      "a": "Line breaks and spacing are preserved — only the letters' case changes. Bold and italic styling from word processors is not carried through plain text, so apply visual formatting after converting."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "WeAreTool",
+  "tagline": "Free online tools that work right in your browser",
+  "description": "Free online tools — word counter, case converter, password generator and more. No signup, no uploads, everything runs in your browser.",
+  "url": "https://wearetool.com",
+  "contactEmail": "hello@example.com",
+  "footer": {
+    "line1": "All tools are free to use.",
+    "line2": "Your files never leave your browser."
+  },
+  "hero": {
+    "heading": "Every tool you need,",
+    "headingAccent": "free and in your browser",
+    "subheading": "No signup. No uploads. No limits. Everything runs locally on your device — private by design and instant by default.",
+    "stats": [
+      {
+        "value": "{toolCount}+",
+        "label": "Free tools"
+      },
+      {
+        "value": "0",
+        "label": "Uploads"
+      },
+      {
+        "value": "100%",
+        "label": "Free forever"
+      }
+    ]
+  },
+  "whyUs": [
+    {
+      "title": "100% free, forever",
+      "desc": "Every tool is completely free. No trials, no premium walls, no hidden limits."
+    },
+    {
+      "title": "Private by design",
+      "desc": "Your text and files are processed inside your browser. Nothing is uploaded to any server."
+    },
+    {
+      "title": "No signup needed",
+      "desc": "Open a tool and start working. No account, no email, no interruptions."
+    },
+    {
+      "title": "Works everywhere",
+      "desc": "Fast on mobile and desktop, and new tools are added every week."
+    }
+  ]
+}

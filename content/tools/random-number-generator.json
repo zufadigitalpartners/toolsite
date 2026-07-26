@@ -1,0 +1,65 @@
+{
+  "name": "Random Number Generator",
+  "emoji": "🎲",
+  "category": "generators",
+  "popular": false,
+  "order": 5,
+  "short": "Generate random numbers in any range — for draws, games and picks.",
+  "seo": {
+    "metaTitle": "Random Number Generator — Pick Numbers in Any Range Free",
+    "metaDescription": "Free random number generator. Generate one or many random numbers in any range, with or without duplicates — ideal for draws, games, sampling and picks.",
+    "keywords": [
+      "random number generator",
+      "random number picker",
+      "number generator online",
+      "lucky draw number picker",
+      "rng",
+      "random number between"
+    ]
+  },
+  "intro": [
+    "This free random number generator produces one or many random numbers in any range you choose — instantly, fairly and without installing anything. Set a minimum and maximum, say how many numbers you need, decide whether duplicates are allowed, and click Generate. Behind the scenes it uses your browser's cryptographically secure random source, the same quality of randomness used in encryption, which makes it far more trustworthy than spreadsheet formulas or 'pick a number in your head'. Whether you are running a giveaway, drawing raffle winners, assigning teams, sampling survey responses or settling who does the dishes, this number picker gives every value in the range an equal chance — and it does it all locally in your browser."
+  ],
+  "howto": [
+    "Enter the minimum and maximum values of your range — for example 1 to 100, or 1 to the number of raffle tickets sold.",
+    "Choose how many numbers you want to generate at once.",
+    "Decide whether duplicates are allowed. Untick 'Allow duplicates' for prize draws so no ticket can win twice.",
+    "Click Generate — your numbers appear instantly.",
+    "Click Copy to grab the results for a spreadsheet, an announcement post or your records.",
+    "For a public draw, consider screen-recording the generation so participants can see the result was produced live."
+  ],
+  "benefits": [
+    "Fairness is the whole point of a random draw, and fairness depends on the quality of the randomness. This generator uses the browser's cryptographic random source rather than a basic pseudo-random formula, so results are statistically unbiased and every number in your range has an exactly equal chance. The no-duplicates mode does the bookkeeping a manual draw gets wrong — once a number is drawn, it cannot come up again.",
+    "It is also fast for real workflows: generate a hundred sample IDs in one click and copy them straight into a spreadsheet. Because everything runs locally, it works offline once loaded and nothing about your draw is sent anywhere. If your giveaway needs supporting tools, they are a click away — announce winners with a scannable link from the [QR code generator](/tools/qr-code-generator/), count down to the draw date with the [date difference calculator](/tools/date-difference-calculator/), or create credentials for a prize account with the [password generator](/tools/password-generator/)."
+  ],
+  "useCases": [
+    "Social media managers and small businesses use it for giveaway draws: number the entrants, generate one winner, screenshot the result. Raffle organizers at schools, clubs and charities draw ticket numbers without pulling paper from a hat. Teachers pick a random student for a question, assign presentation order, or split a class into random groups — with duplicates off, everyone gets picked exactly once.",
+    "Researchers and analysts use random numbers for sampling — selecting which 50 of 800 survey responses to audit — and for randomizing participants into test groups. Game nights use it as a giant dice roller when the real dice are missing; sports coaches use it to draw fixtures and knockout brackets. Developers generate quick test IDs and mock data values during development. Any decision that should be visibly fair — who wins, who goes first, which item gets audited — is a use case for this tool."
+  ],
+  "faqs": [
+    {
+      "q": "Are the numbers truly random?",
+      "a": "They come from your browser's cryptographically secure random generator, which is dramatically stronger than basic random functions. For draws, games, sampling and picks, the results are statistically unbiased and fair."
+    },
+    {
+      "q": "Can I avoid duplicate numbers?",
+      "a": "Yes — untick 'Allow duplicates' and every generated number will be unique, which is exactly what you want for raffles and prize draws where a ticket must not win twice."
+    },
+    {
+      "q": "Is there a limit to the range?",
+      "a": "You can use any practical range, from 1-2 up to millions. Min and max are both included in the possible results."
+    },
+    {
+      "q": "Can anyone predict or influence the results?",
+      "a": "No. Cryptographic randomness is unpredictable by design, and because generation happens on your device, there is no server for anyone to tamper with."
+    },
+    {
+      "q": "Is this suitable for a public giveaway draw?",
+      "a": "Yes. Assign each entrant a number, generate the winner, and screenshot or screen-record the draw for transparency. Many small businesses run their contest draws exactly this way."
+    },
+    {
+      "q": "Can I use it as a dice roller or coin flip?",
+      "a": "Absolutely. Set the range to 1-6 for a die (generate two numbers for a pair of dice) or 1-2 for a coin flip — heads on 1, tails on 2."
+    }
+  ]
+}

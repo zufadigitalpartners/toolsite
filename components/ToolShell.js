@@ -20,8 +20,8 @@ export default function ToolShell({ slug, children }) {
   const related = relatedTools(slug);
   const content = getToolContent(slug);
 
-  const faqs = content?.faqs || tool.faqs;
-  const howto = content?.howto || tool.howto;
+  const faqs = content?.faqs || tool.faqs || [];
+  const howto = content?.howto || tool.howto || [];
 
   const breadcrumbLd = {
     "@context": "https://schema.org",

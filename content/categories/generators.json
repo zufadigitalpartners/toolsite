@@ -1,0 +1,17 @@
+{
+  "name": "Generators",
+  "emoji": "⚡",
+  "color": "#d97706",
+  "desc": "Generate passwords, QR codes, random numbers and more in one click.",
+  "order": 2,
+  "seo": {
+    "heading": "Free online generators — passwords, QR codes and random numbers",
+    "paragraphs": [
+      "Generators create something new on demand — a credential, an image, a number — and the three on this page cover the requests that come up most often in daily digital life. All of them run entirely in your browser using cryptographically secure randomness where it matters, and none of them send your data anywhere: what you generate on your device stays on your device.",
+      "The [password generator](/tools/password-generator/) builds strong, random passwords with your choice of length and character sets. Human-invented passwords lean on names, dates and keyboard patterns that attackers guess first; a random 16-character password removes that structure entirely. Because generation uses the browser's Web Crypto API and never touches a server, the password exists only on your screen — pair it with a password manager and you have fixed the single biggest hole in most people's security.",
+      "The [QR code generator](/tools/qr-code-generator/) turns any link, phone number or text into a scannable code you can download as a PNG. The data is encoded directly into the image — no redirect service, no tracking, no expiry — so a menu, poster or business card printed today still scans in ten years. Restaurants, event organizers, teachers and job seekers use it to close the gap between paper and web in seconds.",
+      "The [random number generator](/tools/random-number-generator/) produces fair, unbiased numbers in any range, with a no-duplicates mode built for raffles and giveaways. It draws on the same cryptographic randomness as the password tool, which makes it a trustworthy referee for contests, classroom picks, sampling and games.",
+      "The three tools also combine naturally: generate a Wi-Fi password, share it as a QR code, and draw a giveaway winner — all without leaving the site or creating an account. There are no watermarks, no scan limits, no trial periods and no accounts to manage. Free, instant and private is the rule for every generator here — bookmark the page and the next credential, code or draw is seconds away."
+    ]
+  }
+}

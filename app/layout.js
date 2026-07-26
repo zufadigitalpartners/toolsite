@@ -100,8 +100,8 @@ export default function RootLayout({ children }) {
               </div>
             </div>
             <div className="footer-bottom">
-              <span>© {new Date().getFullYear()} {site.name}. All tools are free to use.</span>
-              <span>Your files never leave your browser.</span>
+              <span>© {new Date().getFullYear()} {site.name}. {site.footer.line1}</span>
+              <span>{site.footer.line2}</span>
             </div>
           </div>
         </footer>
