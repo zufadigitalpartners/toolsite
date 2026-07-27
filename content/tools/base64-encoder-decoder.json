@@ -33,7 +33,7 @@
   "faqs": [
     {
       "q": "Is Base64 encryption?",
-      "a": "No — and this matters. Base64 is a reversible encoding that anyone can decode; it provides zero secrecy. Never use it to protect passwords or sensitive data. Use real encryption for security."
+      "a": "No, and this matters. Base64 is a reversible encoding that anyone can decode; it provides zero secrecy. Never use it to protect passwords or sensitive data. Use real encryption for security."
     },
     {
       "q": "Does this support Unicode and emoji?",
