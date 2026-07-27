@@ -42,6 +42,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
+            <meta name="google-site-verification" content="qhiNE4i2pg_qAYAqD0p3Z_-ex5I8z9RAQkxRJnojFiA" />
       </head>
       <body>
         <header className="site-header">
