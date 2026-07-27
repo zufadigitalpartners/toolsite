@@ -19,15 +19,10 @@
     ]
   },
   "intro": [
-    "This free Base64 encoder and decoder converts text to Base64 and back instantly, with full UTF-8 support — so accented characters, non-Latin scripts and emoji survive the round trip intact. Base64 is everywhere in modern computing: it is how email attachments travel, how images get embedded in CSS and HTML as data URIs, how HTTP Basic Auth credentials are transmitted, and how JSON Web Tokens (JWTs) package their payloads. When you need to encode a string for an API, or decode a Base64 blob you found in a config file, a log line or a token, this tool does it in your browser with nothing uploaded or logged. Choose Encode or Decode, paste your text, and the result appears as you type."
+    "This free Base64 encoder and decoder converts text to Base64 and back instantly, with full UTF-8 support so accented characters, non-Latin scripts and emoji survive the round trip intact. Base64 is everywhere in modern computing: it is how email attachments travel, how images get embedded in CSS and HTML as data URIs, how HTTP Basic Auth credentials are transmitted, and how JSON Web Tokens (JWTs) package their payloads. When you need to encode a string for an API, or decode a Base64 blob you found in a config file, a log line or a token, this tool does it in your browser with nothing uploaded or logged. Choose Encode or Decode, paste your text, and the result appears as you type."
   ],
   "howto": [
-    "Choose the mode: Encode to convert plain text into Base64, or Decode to turn Base64 back into readable text.",
-    "Paste or type your input — the result appears instantly, no button needed.",
-    "Encoding example: 'Hello' becomes 'SGVsbG8=' — the trailing = signs are padding and are part of the output.",
-    "Decoding: paste the Base64 string exactly, including any = padding at the end.",
-    "If decoding fails, check for missing characters, line breaks inserted by email clients, or URL-safe variants that use - and _ instead of + and /.",
-    "Click Copy to grab the output for your code, API request or config file."
+    "Choose the mode: Encode to convert plain text into Base64, or Decode to turn Base64 back into readable text. Paste or type your input the result appears instantly, no button needed.,Encoding example: 'Hello' becomes 'SGVsbG8=' the trailing = signs are padding and are part of the output. Decoding: paste the Base64 string exactly, including any = padding at the end. If decoding fails, check for missing characters, line breaks inserted by email clients, or URL-safe variants that use - and _ instead of + and /. Click Copy to grab the output for your code, API request or config file."
   ],
   "benefits": [
     "The main reason to use this converter is that it runs entirely locally. Base64 strings frequently contain things you should not paste into arbitrary websites — API credentials, auth headers, token payloads, configuration secrets. Here, encoding and decoding happen in your browser and nothing ever leaves your device. Full UTF-8 handling is the second win: many quick converters mangle emoji and non-English characters because they ignore character encoding; this one gets 'héllo 👋' right in both directions.",
