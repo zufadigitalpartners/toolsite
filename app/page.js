@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 import ToolCard from "@/components/ToolCard";
-import { site } from "@/lib/site";
+import { site, ui } from "@/lib/site";
 import { tools, categories, toolsByCategory, popularTools } from "@/lib/tools";
 
 export default function Home() {
@@ -64,7 +64,7 @@ export default function Home() {
                 <span className="c-emoji">{cat.emoji}</span>
                 <div className="c-name">{cat.name}</div>
                 <div className="c-desc">{cat.desc}</div>
-                <div className="c-count">{toolsByCategory(cat.id).length} tools →</div>
+                <div className="c-count">{ui("home.toolsCount", "{count} tools →", { count: toolsByCategory(cat.id).length })}</div>
               </Link>
             ))}
           </div>
@@ -74,10 +74,10 @@ export default function Home() {
       {/* ============ POPULAR ============ */}
       <section className="section" id="tools">
         <div className="container">
-          <div className="section-eyebrow">Most used</div>
+          <div className="section-eyebrow">{ui("home.popularEyebrow", "Most used")}</div>
           <div className="section-head">
-            <h2>Popular tools</h2>
-            <span className="count">{tools.length} tools and growing</span>
+            <h2>{ui("home.popularHeading", "Popular tools")}</h2>
+            <span className="count">{ui("home.toolsGrowing", "{count} tools and growing", { count: tools.length })}</span>
           </div>
           <div className="grid">
             {popularTools().map((t) => (
@@ -96,7 +96,7 @@ export default function Home() {
                 {cat.emoji} {cat.name}
               </h2>
               <Link className="view-all" href={`/category/${cat.id}/`} style={{ color: cat.color }}>
-                View all {toolsByCategory(cat.id).length} →
+                {ui("home.viewAll", "View all {count} →", { count: toolsByCategory(cat.id).length })}
               </Link>
             </div>
             <div className="grid">

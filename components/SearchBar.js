@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { tools, getCategory } from "@/lib/tools";
+import { ui } from "@/lib/site";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
@@ -54,7 +55,7 @@ export default function SearchBar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Escape" && setQuery("")}
-          placeholder="Search a tool… e.g. qr code"
+          placeholder={ui("search.placeholder", "Search a tool… e.g. qr code")}
           aria-label="Search tools"
         />
         <span className="search-kbd" aria-hidden="true">/</span>
@@ -75,7 +76,7 @@ export default function SearchBar() {
             })
           ) : (
             <div className="search-empty">
-              No tool found for “{query}” — more tools are added every week.
+              {ui("search.noResults", "No tool found for “{query}” — more tools are added every week.", { query })}
             </div>
           )}
         </div>

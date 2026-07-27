@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ui } from "@/lib/site";
 import { getTool, getCategory, relatedTools } from "@/lib/tools";
 import { getToolContent } from "@/lib/content";
 import { absUrl } from "@/lib/seo";
@@ -51,14 +52,14 @@ export default function ToolShell({ slug, children }) {
       {faqLd && <JsonLd data={faqLd} />}
 
       <div className="breadcrumb">
-        <Link href="/">Home</Link> ›{" "}
+        <Link href="/">{ui("toolPage.breadcrumbHome", "Home")}</Link> ›{" "}
         <Link href={`/category/${cat.id}/`} className="bc-cat">{cat.name}</Link> › {tool.name}
       </div>
 
       <h1 className="tool-title">
         <span className="tt-emoji">{tool.emoji}</span> {tool.name}
       </h1>
-      <p className="tool-sub">{tool.short} 100% free, no signup — everything runs in your browser.</p>
+      <p className="tool-sub">{tool.short} {ui("toolPage.subSuffix", "100% free, no signup — everything runs in your browser.")}</p>
 
       <div className="tool-panel">{children}</div>
 
@@ -67,7 +68,7 @@ export default function ToolShell({ slug, children }) {
           <RichText key={i} text={para} />
         ))}
 
-        <h2>How to use</h2>
+        <h2>{ui("toolPage.howToHeading", "How to use")}</h2>
         <ol>
           {howto.map((step, i) => (
             <li key={i}>{step}</li>
@@ -76,7 +77,7 @@ export default function ToolShell({ slug, children }) {
 
         {content?.benefits?.length > 0 && (
           <>
-            <h2>Why use our {tool.name.toLowerCase()}?</h2>
+            <h2>{ui("toolPage.whyHeading", "Why use our {name}?", { name: tool.name.toLowerCase() })}</h2>
             {content.benefits.map((para, i) => (
               <RichText key={i} text={para} />
             ))}
@@ -85,14 +86,14 @@ export default function ToolShell({ slug, children }) {
 
         {content?.useCases?.length > 0 && (
           <>
-            <h2>Who is this tool for?</h2>
+            <h2>{ui("toolPage.whoHeading", "Who is this tool for?")}</h2>
             {content.useCases.map((para, i) => (
               <RichText key={i} text={para} />
             ))}
           </>
         )}
 
-        <h2>Frequently asked questions</h2>
+        <h2>{ui("toolPage.faqHeading", "Frequently asked questions")}</h2>
         {faqs.map((f, i) => (
           <div className="faq" key={i}>
             <div className="q">{f.q}</div>
@@ -104,7 +105,7 @@ export default function ToolShell({ slug, children }) {
       {related.length > 0 && (
         <section className="section">
           <div className="section-head">
-            <h2>Related tools</h2>
+            <h2>{ui("toolPage.relatedHeading", "Related tools")}</h2>
           </div>
           <div className="grid">
             {related.map((t) => (

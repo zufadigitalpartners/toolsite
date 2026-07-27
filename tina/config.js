@@ -57,6 +57,71 @@ export default defineConfig({
           { type: "string", name: "description", label: "Meta description", ui: { component: "textarea" } },
           { type: "string", name: "url", label: "Site URL", description: "Full origin, e.g. https://wearetool.com — used for sitemap, canonicals and Open Graph" },
           { type: "string", name: "contactEmail", label: "Contact email" },
+          { type: "string", name: "homeTitle", label: "Homepage meta title suffix", description: "Browser tab title: \"SiteName — <this text>\"" },
+          {
+            type: "object",
+            name: "ui",
+            label: "Interface text (buttons, headings, labels)",
+            fields: [
+              {
+                type: "object",
+                name: "nav",
+                label: "Header & footer navigation",
+                fields: [
+                  { type: "string", name: "logoEmoji", label: "Logo emoji" },
+                  { type: "string", name: "categories", label: "\"Categories\" menu label" },
+                  { type: "string", name: "allTools", label: "\"All tools\" link label" },
+                  { type: "string", name: "about", label: "\"About\" link label" },
+                  { type: "string", name: "footerSiteHeading", label: "Footer \"Site\" column heading" },
+                  { type: "string", name: "footerViewAll", label: "Footer \"View all\" link" },
+                ],
+              },
+              {
+                type: "object",
+                name: "search",
+                label: "Search box",
+                fields: [
+                  { type: "string", name: "placeholder", label: "Placeholder text" },
+                  { type: "string", name: "noResults", label: "No-results message", description: "{query} = what the visitor typed" },
+                ],
+              },
+              {
+                type: "object",
+                name: "home",
+                label: "Homepage sections",
+                fields: [
+                  { type: "string", name: "popularEyebrow", label: "Eyebrow above Popular tools" },
+                  { type: "string", name: "popularHeading", label: "\"Popular tools\" heading" },
+                  { type: "string", name: "toolsGrowing", label: "Tool count text", description: "{count} = number of tools" },
+                  { type: "string", name: "viewAll", label: "\"View all\" link", description: "{count} = number of tools" },
+                  { type: "string", name: "toolsCount", label: "Category card count text", description: "{count} = number of tools" },
+                ],
+              },
+              {
+                type: "object",
+                name: "toolPage",
+                label: "Tool pages",
+                fields: [
+                  { type: "string", name: "subSuffix", label: "Line under tool title (after short description)" },
+                  { type: "string", name: "breadcrumbHome", label: "Breadcrumb \"Home\" label" },
+                  { type: "string", name: "howToHeading", label: "\"How to use\" heading" },
+                  { type: "string", name: "whyHeading", label: "\"Why use our...\" heading", description: "{name} = tool name" },
+                  { type: "string", name: "whoHeading", label: "\"Who is this tool for?\" heading" },
+                  { type: "string", name: "faqHeading", label: "FAQ heading" },
+                  { type: "string", name: "relatedHeading", label: "\"Related tools\" heading" },
+                ],
+              },
+              {
+                type: "object",
+                name: "categoryPage",
+                label: "Category pages",
+                fields: [
+                  { type: "string", name: "toolsPill", label: "Tool count pill", description: "{count} = number of tools" },
+                  { type: "string", name: "moreHeading", label: "\"More categories\" heading" },
+                ],
+              },
+            ],
+          },
           {
             type: "object",
             name: "footer",

@@ -4,6 +4,41 @@
   "description": "Free online tools - word counter, case converter, password generator and more. No signup, no uploads, everything runs in your browser.",
   "url": "https://wearetool.com",
   "contactEmail": "info@wearetool.com",
+  "homeTitle": "Free Online Tools",
+  "ui": {
+    "nav": {
+      "logoEmoji": "🧰",
+      "categories": "Categories",
+      "allTools": "All tools",
+      "about": "About",
+      "footerSiteHeading": "Site",
+      "footerViewAll": "View all →"
+    },
+    "search": {
+      "placeholder": "Search a tool… e.g. qr code",
+      "noResults": "No tool found for “{query}” — more tools are added every week."
+    },
+    "home": {
+      "popularEyebrow": "Most used",
+      "popularHeading": "Popular tools",
+      "toolsGrowing": "{count} tools and growing",
+      "viewAll": "View all {count} →",
+      "toolsCount": "{count} tools →"
+    },
+    "toolPage": {
+      "subSuffix": "100% free, no signup — everything runs in your browser.",
+      "breadcrumbHome": "Home",
+      "howToHeading": "How to use",
+      "whyHeading": "Why use our {name}?",
+      "whoHeading": "Who is this tool for?",
+      "faqHeading": "Frequently asked questions",
+      "relatedHeading": "Related tools"
+    },
+    "categoryPage": {
+      "toolsPill": "{count} tools",
+      "moreHeading": "More categories"
+    }
+  },
   "footer": {
     "line1": "All tools are free to use.",
     "line2": "Your files never leave your browser."

@@ -4,6 +4,7 @@ import RichText from "@/components/RichText";
 import { categories, getCategory, toolsByCategory } from "@/lib/tools";
 import { getCategoryContent } from "@/lib/content";
 import { categoryMetadata } from "@/lib/seo";
+import { ui } from "@/lib/site";
 
 export function generateStaticParams() {
   return categories.map((cat) => ({ slug: cat.id }));
@@ -23,11 +24,11 @@ export default function CategoryPage({ params }) {
       <section className="cat-hero" style={{ "--cat-color": cat.color }}>
         <div className="container">
           <div className="breadcrumb">
-            <Link href="/">Home</Link> › {cat.name}
+            <Link href="/">{ui("toolPage.breadcrumbHome", "Home")}</Link> › {cat.name}
           </div>
           <h1>
             {cat.emoji} {cat.name}
-            <span className="cat-count-pill">{list.length} tools</span>
+            <span className="cat-count-pill">{ui("categoryPage.toolsPill", "{count} tools", { count: list.length })}</span>
           </h1>
           <p>{cat.desc}</p>
         </div>
@@ -59,7 +60,7 @@ export default function CategoryPage({ params }) {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <h2>More categories</h2>
+            <h2>{ui("categoryPage.moreHeading", "More categories")}</h2>
           </div>
           <div className="cat-grid">
             {categories.filter((c) => c.id !== cat.id).map((c) => (
@@ -72,7 +73,7 @@ export default function CategoryPage({ params }) {
                 <span className="c-emoji">{c.emoji}</span>
                 <div className="c-name">{c.name}</div>
                 <div className="c-desc">{c.desc}</div>
-                <div className="c-count">{toolsByCategory(c.id).length} tools →</div>
+                <div className="c-count">{ui("home.toolsCount", "{count} tools →", { count: toolsByCategory(c.id).length })}</div>
               </Link>
             ))}
           </div>
