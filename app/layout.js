@@ -3,16 +3,18 @@ import Link from "next/link";
 import { site, ui } from "@/lib/site";
 import { categories, toolsByCategory } from "@/lib/tools";
 import { getPage } from "@/lib/pages";
+import CategoryMenu from "@/components/CategoryMenu";
+import Reveal from "@/components/Reveal";
 
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.homeTitle}`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | ${site.homeTitle}`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   openGraph: {
-    title: `${site.name} — ${site.homeTitle}`,
+    title: `${site.name} | ${site.homeTitle}`,
     description: site.description,
     url: "/",
     siteName: site.name,
@@ -21,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary",
-    title: `${site.name} — ${site.homeTitle}`,
+    title: `${site.name} | ${site.homeTitle}`,
     description: site.description,
   },
   robots: {
@@ -49,22 +51,15 @@ export default function RootLayout({ children }) {
               {site.name}
             </Link>
             <nav className="header-nav" aria-label="Main">
-              <details className="cat-dd">
-                <summary>{ui("nav.categories", "Categories")}</summary>
-                <div className="dd-menu">
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat.id}
-                      href={`/category/${cat.id}/`}
-                      style={{ "--cat-color": cat.color }}
-                    >
-                      <span className="dd-dot" />
-                      {cat.name}
-                      <span className="dd-count">{toolsByCategory(cat.id).length}</span>
-                    </Link>
-                  ))}
-                </div>
-              </details>
+              <CategoryMenu
+                label={ui("nav.categories", "Categories")}
+                items={categories.map((cat) => ({
+                  id: cat.id,
+                  name: cat.name,
+                  color: cat.color,
+                  count: toolsByCategory(cat.id).length,
+                }))}
+              />
               <Link href="/#tools">{ui("nav.allTools", "All tools")}</Link>
               <Link href="/about/">{ui("nav.about", "About")}</Link>
             </nav>
@@ -72,6 +67,7 @@ export default function RootLayout({ children }) {
         </header>
 
         <main>{children}</main>
+        <Reveal />
 
         <footer className="site-footer">
           <div className="container">

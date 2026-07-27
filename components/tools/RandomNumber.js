@@ -23,7 +23,7 @@ export default function RandomNumber() {
     }
     const rangeSize = hi - lo + 1;
     if (!allowDup && n > rangeSize) {
-      setError(`Only ${rangeSize} unique numbers exist in this range — reduce the count or allow duplicates.`);
+      setError(`Only ${rangeSize} unique numbers exist in this range. Reduce the count or allow duplicates.`);
       return;
     }
 

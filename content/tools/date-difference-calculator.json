@@ -6,8 +6,8 @@
   "order": 7,
   "short": "Count the days, weeks and months between any two dates.",
   "seo": {
-    "metaTitle": "Date Difference Calculator — Days Between Two Dates",
-    "metaDescription": "Free date difference calculator. Count the exact days, weeks, months and years between any two dates — deadlines, countdowns, anniversaries and durations.",
+    "metaTitle": "Date Difference Calculator - Days Between Two Dates",
+    "metaDescription": "Free date difference calculator. Count the exact days, weeks, months and years between any two dates. Great for deadlines, countdowns and anniversaries.",
     "keywords": [
       "date difference calculator",
       "days between dates",
@@ -18,48 +18,48 @@
     ]
   },
   "intro": [
-    "This free date difference calculator counts the exact number of days between two dates — and breaks the gap down into weeks, months and years. Pick a start date and an end date and the answer appears instantly, with leap years and uneven month lengths handled correctly. Counting dates by hand is notoriously easy to get wrong: February is short, months alternate between 30 and 31 days, and a February-to-March count that ignores a leap year is off by a day. Whether you need a countdown to a wedding, the number of working weeks left before a project deadline, the length of a rental period, or how many days old an invoice is, this days-between-dates calculator gives you a precise answer in seconds, entirely in your browser."
+    "This free date difference calculator counts the exact number of days between two dates, then breaks the gap down into weeks, months and years. Pick a start date and an end date and the answer appears instantly, with leap years and uneven month lengths handled correctly. Counting dates by hand goes wrong surprisingly easily. February is short, months alternate between 30 and 31 days, and a February to March count that ignores a leap year is off by a day. Whether you need a countdown to a wedding, the number of weeks left before a project deadline, the length of a rental period, or how many days old an invoice is, this calculator gives you a precise answer in seconds, entirely in your browser."
   ],
   "howto": [
-    "Pick the start date — the earlier of your two dates.",
+    "Pick the start date, the earlier of your two dates.",
     "Pick the end date. For a countdown, set this to the future event you are counting toward.",
     "Read the result instantly: total days, plus the equivalent in weeks, months and years.",
-    "Use total days for precise measures like invoice ageing or visa day-limits, and months/years for durations like tenancy or employment length.",
-    "Swap the dates to measure a different span — every change recalculates instantly.",
-    "Nothing is stored; the dates you enter stay on your device."
+    "Use total days for precise measures like invoice ageing or visa day limits. Use months and years for durations like tenancy or employment.",
+    "Change either date freely. Every change recalculates on the spot.",
+    "Nothing is stored. The dates you enter stay on your device."
   ],
   "benefits": [
-    "The point of this calculator is trust in the number. Leap years, 28/30/31-day months and month-boundary edge cases are exactly where mental arithmetic and quick spreadsheet formulas slip by a day — and a one-day error matters when a contract notice period, visa limit or payment deadline depends on it. This tool applies real calendar rules to give you the exact figure, presented as days, weeks, months and years at once so you can quote whichever unit the situation needs.",
-    "It is also flexible in direction: past-to-today for durations, today-to-future for countdowns. Project managers can count days to launch, then keep an eye on drafting time with the [word counter](/tools/word-counter/) as content deadlines approach. Planning an event on the target date? Print a scannable RSVP link with the [QR code generator](/tools/qr-code-generator/). And if the span you care about starts at someone's birth, the [age calculator](/tools/age-calculator/) formats it properly as an age."
+    "The point of this calculator is a number you can trust. Leap years, 28 to 31 day months and month boundaries are exactly where mental arithmetic and quick spreadsheet formulas slip by a day, and a one day error matters when a contract notice period, visa limit or payment deadline depends on it. This tool applies real calendar rules and shows the result as days, weeks, months and years at once, so you can quote whichever unit the situation needs.",
+    "It works in both directions too: past to today for durations, today to future for countdowns. Project managers count days to launch, then keep an eye on their drafting with the [word counter](/tools/word-counter/) as content deadlines close in. Planning an event on the target date? Print a scannable RSVP link with the [QR code generator](/tools/qr-code-generator/). And if the span you care about starts at someone's birth, the [age calculator](/tools/age-calculator/) formats it properly as an age."
   ],
   "useCases": [
-    "Project managers and freelancers live by date math: days until the deliverable, working weeks in a sprint, how long a milestone slipped. Freelancers also use it for invoice ageing — exactly how many days a payment is overdue — and for quoting realistic timelines. HR teams calculate lengths of service, probation periods and notice periods, where the difference between 89 and 90 days can change someone's entitlements.",
-    "Travelers count trip lengths and visa day-limits, where overstaying by one miscounted day is an expensive mistake. Couples count down to weddings or measure exactly how long they have been together. Landlords and tenants compute rental periods and deposit deadlines. Students count study days left before an exam and plan revision accordingly. Fitness enthusiasts measure training streaks. Anyone with a deadline, an anniversary or a countdown has a reason to know exactly how many days lie between two points on the calendar."
+    "Project managers and freelancers live by date math: days until the deliverable, working weeks in a sprint, how far a milestone slipped. Freelancers also use it for invoice ageing, knowing exactly how many days a payment is overdue, and for quoting realistic timelines. HR teams calculate length of service, probation periods and notice periods, where the difference between 89 and 90 days can change someone's entitlements.",
+    "Travelers count trip lengths and visa day limits, where overstaying by one miscounted day gets expensive. Couples count down to weddings or measure exactly how long they have been together. Landlords and tenants work out rental periods and deposit deadlines. Students count study days left before an exam and plan revision around the answer. Anyone with a deadline, an anniversary or a countdown has a reason to know exactly how many days sit between two dates."
   ],
   "faqs": [
     {
       "q": "Does the count include both dates?",
-      "a": "It measures the full span between your two dates — the same convention calendars and date libraries use. If your context needs both endpoints counted (some legal deadlines do), add one day to the result."
+      "a": "It measures the full span between your two dates, the same convention calendars and date libraries use. If your situation needs both endpoints counted, as some legal deadlines do, add one day to the result."
     },
     {
       "q": "Are leap years handled correctly?",
-      "a": "Yes. The calculator uses real calendar arithmetic, so 29 February and every month-length quirk are accounted for exactly."
+      "a": "Yes. The calculator uses real calendar arithmetic, so 29 February and every month length quirk are accounted for exactly."
     },
     {
       "q": "Can I count down to a future date?",
-      "a": "Yes — set the end date in the future and you get an instant countdown: days until the wedding, launch, exam or holiday."
+      "a": "Yes. Set the end date in the future and you get an instant countdown: days until the wedding, launch, exam or holiday."
     },
     {
       "q": "Can it show working days only?",
-      "a": "It currently counts calendar days. As a rule of thumb, multiply calendar days by 5/7 for a quick working-day estimate, and remember public holidays vary by country."
+      "a": "It currently counts calendar days. As a rough rule, multiply calendar days by 5/7 for a working day estimate, and remember public holidays vary by country."
     },
     {
       "q": "Why do 'months between dates' answers vary between tools?",
-      "a": "Because months have different lengths, tools can define 'a month apart' slightly differently near month ends. Our calculator uses consistent calendar rules; for exact comparisons, rely on the total-days figure, which is unambiguous."
+      "a": "Because months have different lengths, tools can define 'a month apart' slightly differently near month ends. For exact comparisons, rely on the total days figure, which is unambiguous."
     },
     {
       "q": "Is anything I enter stored?",
-      "a": "No. All calculations happen in your browser — nothing is uploaded, saved or logged."
+      "a": "No. All calculations happen in your browser. Nothing is uploaded, saved or logged."
     }
   ]
 }

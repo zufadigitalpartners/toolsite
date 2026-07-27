@@ -59,7 +59,7 @@ export default function ToolShell({ slug, children }) {
       <h1 className="tool-title">
         <span className="tt-emoji">{tool.emoji}</span> {tool.name}
       </h1>
-      <p className="tool-sub">{tool.short} {ui("toolPage.subSuffix", "100% free, no signup — everything runs in your browser.")}</p>
+      <p className="tool-sub">{tool.short} {ui("toolPage.subSuffix", "100% free, no signup. Everything runs in your browser.")}</p>
 
       <div className="tool-panel">{children}</div>
 

@@ -2,8 +2,8 @@
   "title": "About {siteName}",
   "metaTitle": "About",
   "body": [
-    "{siteName} is a growing collection of free online tools for everyday tasks — counting words, converting text, generating passwords, and much more. New tools are added regularly.",
-    "Every tool runs entirely inside your browser. That means your text and files are never uploaded to any server: your data stays on your device, and the tools stay fast even on slow connections.",
+    "{siteName} is a growing collection of free online tools for everyday tasks: counting words, converting text, generating passwords, and much more. New tools are added regularly.",
+    "Every tool runs entirely inside your browser. That means your text and files are never uploaded to any server. Your data stays on your device, and the tools stay fast even on slow connections.",
     "There are no accounts, no paywalls and no usage limits. Open a tool, get your work done, and move on."
   ]
 }

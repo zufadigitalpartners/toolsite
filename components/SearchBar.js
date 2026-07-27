@@ -76,7 +76,7 @@ export default function SearchBar() {
             })
           ) : (
             <div className="search-empty">
-              {ui("search.noResults", "No tool found for “{query}” — more tools are added every week.", { query })}
+              {ui("search.noResults", "No tool found for “{query}”. More tools are added every week.", { query })}
             </div>
           )}
         </div>

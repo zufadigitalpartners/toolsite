@@ -2,16 +2,16 @@
   "name": "Text Tools",
   "emoji": "✍️",
   "color": "#2563eb",
-  "desc": "Count, convert and clean up text — fast, free and private.",
+  "desc": "Count, convert and clean up text. Fast, free and private.",
   "order": 1,
   "seo": {
-    "heading": "Free online text tools — clean up, count and convert",
+    "heading": "Free online text tools that clean up, count and convert",
     "paragraphs": [
-      "Text is the raw material of almost everything we do online — essays, emails, captions, product descriptions, documentation — and almost all of it needs measuring or tidying before it ships. Our text tools handle those chores instantly, right in your browser. Nothing you type or paste is ever uploaded: every tool on this page runs locally on your device, which makes them safe for confidential drafts, client work and unpublished writing.",
-      "The [word counter](/tools/word-counter/) is the workhorse. It counts words, characters (with and without spaces), sentences and paragraphs live as you type, and estimates reading time — essential for students trimming an essay to a limit, freelancers billing per word, and marketers keeping meta descriptions under 160 characters. Because the counts update in real time, editing to a target length becomes a tight feedback loop instead of guesswork.",
-      "The [case converter](/tools/case-converter/) fixes capitalization in one click: UPPERCASE for labels and emphasis, lowercase to undo a Caps Lock accident, Title Case for headlines, and Sentence case for body text. It preserves your line breaks and works with any language that has letter casing — a small tool that saves a surprising amount of retyping for editors, virtual assistants and anyone standardizing spreadsheet data.",
-      "The two tools work well as a pipeline: paste your draft into the case converter to normalize headings, then run the final text through the word counter to confirm it fits the brief. When the writing is done, the rest of the site picks up where these tools stop — turn the published link into a printable code with the [QR code generator](/tools/qr-code-generator/), or count down to your submission deadline with the [date difference calculator](/tools/date-difference-calculator/).",
-      "Every text tool here is free, requires no account, shows no paywall, and works on phones as well as desktops. If you regularly write, edit, teach or publish, it is worth bookmarking this page — the next time a word limit or a Caps-Lock paragraph shows up, the fix is one click away."
+      "Text is the raw material of almost everything we do online: essays, emails, captions, product descriptions, documentation. And almost all of it needs measuring or tidying before it ships. Our text tools handle those chores instantly, right in your browser. Nothing you type or paste is ever uploaded. Every tool on this page runs locally on your device, which makes them safe for confidential drafts, client work and unpublished writing.",
+      "The [word counter](/tools/word-counter/) is the workhorse. It counts words, characters with and without spaces, sentences and paragraphs live as you type, and estimates reading time. Students trimming an essay to a limit rely on it, freelancers billing per word rely on it, and marketers keeping meta descriptions under 160 characters rely on it too. Because the counts update in real time, editing to a target length becomes a tight feedback loop instead of guesswork.",
+      "The [case converter](/tools/case-converter/) fixes capitalization in one click: UPPERCASE for labels, lowercase to undo a Caps Lock accident, Title Case for headlines, and Sentence case for body text. It keeps your line breaks intact and works with any language that has letter casing. A small tool, but it saves a surprising amount of retyping for editors, virtual assistants and anyone standardizing spreadsheet data.",
+      "The two tools work well as a pipeline. Paste your draft into the case converter to fix the headings, then run the final text through the word counter to confirm it fits the brief. When the writing is done, the rest of the site picks up from there. Turn the published link into a printable code with the [QR code generator](/tools/qr-code-generator/), or count down to your submission deadline with the [date difference calculator](/tools/date-difference-calculator/).",
+      "Every text tool here is free, needs no account, shows no paywall, and works on phones as well as desktops. If you write, edit, teach or publish regularly, bookmark this page. The next time a word limit or a Caps Lock paragraph shows up, the fix is one click away."
     ]
   }
 }
