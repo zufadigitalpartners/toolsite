@@ -1,0 +1,80 @@
+{
+  "name": "Hash Generator",
+  "emoji": "#️⃣",
+  "category": "content/categories/developer.json",
+  "popular": false,
+  "order": 16,
+  "short": "Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text.",
+  "code": {
+    "html": "<label><span>Text to hash</span><textarea id=\"in\" rows=\"5\" placeholder=\"Type or paste anything here\">hello world</textarea></label>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\">Generate hashes</button><button id=\"clear\">Clear</button></div>\n<div id=\"rows\"></div>\n<p class=\"note\" id=\"note\">Hashes are one way. You can turn text into a hash, never a hash back into text.</p>",
+    "css": ".hrow{margin-top:14px}\n.hrow .hh{display:flex;align-items:center;gap:10px;margin-bottom:5px}\n.hrow .hh b{font-family:Inter,sans-serif;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}\n.hrow .hh button{padding:4px 12px;font-size:.8rem;margin-left:auto}\n.hval{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 13px;word-break:break-all}",
+    "js": "var ALGOS=['MD5','SHA-1','SHA-256','SHA-512'];\nfunction toHex(buf){return Array.prototype.map.call(new Uint8Array(buf),function(b){return ('0'+b.toString(16)).slice(-2);}).join('');}\n\n/* MD5, needed because the browser crypto API does not provide it */\nvar MD5K=[],MD5S=[7,12,17,22,7,12,17,22,7,12,17,22,7,12,17,22,5,9,14,20,5,9,14,20,5,9,14,20,5,9,14,20,4,11,16,23,4,11,16,23,4,11,16,23,4,11,16,23,6,10,15,21,6,10,15,21,6,10,15,21,6,10,15,21];\nfor(var ki=0;ki<64;ki++){MD5K[ki]=Math.floor(Math.abs(Math.sin(ki+1))*4294967296);}\nfunction rotl(x,c){return (x<<c)|(x>>>(32-c));}\nfunction md5(bytes){\n  var len=bytes.length,nblk=((len+8)>>6)+1,m=new Int32Array(nblk*16);\n  for(var i=0;i<len;i++){m[i>>2]|=bytes[i]<<((i%4)*8);}\n  m[len>>2]|=0x80<<((len%4)*8);\n  m[nblk*16-2]=len*8;\n  var a0=1732584193,b0=-271733879,c0=-1732584194,d0=271733878;\n  for(var blk=0;blk<nblk;blk++){\n    var off=blk*16,A=a0,B=b0,C=c0,D=d0;\n    for(var j=0;j<64;j++){\n      var F,g;\n      if(j<16){F=(B&C)|(~B&D);g=j;}\n      else if(j<32){F=(D&B)|(~D&C);g=(5*j+1)%16;}\n      else if(j<48){F=B^C^D;g=(3*j+5)%16;}\n      else {F=C^(B|~D);g=(7*j)%16;}\n      F=(F+A+MD5K[j]+m[off+g])|0;\n      A=D;D=C;C=B;B=(B+rotl(F,MD5S[j]))|0;\n    }\n    a0=(a0+A)|0;b0=(b0+B)|0;c0=(c0+C)|0;d0=(d0+D)|0;\n  }\n  var out=new Uint8Array(16),vals=[a0,b0,c0,d0];\n  for(var v=0;v<4;v++){for(var k=0;k<4;k++){out[v*4+k]=(vals[v]>>>(k*8))&255;}}\n  return toHex(out);\n}\nasync function hashAll(){\n  var text=document.getElementById('in').value;\n  var bytes=new TextEncoder().encode(text);\n  var box=document.getElementById('rows');\n  box.innerHTML='';\n  for(var i=0;i<ALGOS.length;i++){\n    var name=ALGOS[i],hex;\n    if(name==='MD5'){hex=md5(bytes);}\n    else{\n      try{hex=toHex(await crypto.subtle.digest(name,bytes));}\n      catch(e){hex='Not supported in this browser';}\n    }\n    var row=document.createElement('div');row.className='hrow';\n    row.innerHTML='<div class=\"hh\"><b>'+name+'</b><button data-h=\"'+hex+'\">Copy</button></div><div class=\"hval\">'+hex+'</div>';\n    box.appendChild(row);\n  }\n  document.getElementById('note').textContent='Hashed '+bytes.length+' bytes. The same input always gives the same hash.';\n  WT.resize();\n}\ndocument.getElementById('rows').addEventListener('click',function(e){\n  var b=e.target.closest('button[data-h]');if(!b)return;\n  var ok=WT.copy(b.getAttribute('data-h'));\n  document.getElementById('note').textContent=ok?'Hash copied to clipboard.':'Copy failed, select the hash instead.';\n});\ndocument.getElementById('go').addEventListener('click',hashAll);\ndocument.getElementById('in').addEventListener('input',hashAll);\ndocument.getElementById('clear').addEventListener('click',function(){\n  document.getElementById('in').value='';hashAll();\n});\nhashAll();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Hash Generator - MD5, SHA-1, SHA-256 & SHA-512 Online",
+    "metaDescription": "Free hash generator. Create MD5, SHA-1, SHA-256 and SHA-512 hashes from any text instantly. Runs in your browser, so your input is never uploaded.",
+    "keywords": [
+      "hash generator",
+      "md5 generator",
+      "sha256 generator",
+      "sha1 hash",
+      "sha512",
+      "online hash calculator",
+      "checksum generator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free hash generator turns any text into MD5, SHA-1, SHA-256 and SHA-512 hashes at the same time, so you can copy whichever one you need. A hash is a fixed length fingerprint of your input. Change a single character and the entire hash changes completely, which is what makes hashes useful for checking that a file or a message arrived exactly as it left. Developers use them to verify downloads, compare records, build cache keys and check data integrity. Everything runs inside your browser using the built in Web Crypto API, so the text you hash is never uploaded. That matters, because people hash sensitive strings far more often than they realise."
+    ],
+    "howto": [
+      "Type or paste your text into the box. All four hashes update as you type.",
+      "Read the algorithm name above each result so you copy the right one.",
+      "Press Copy next to a hash to put it on your clipboard.",
+      "To compare two things, hash the first, save the result, then hash the second and compare the two strings.",
+      "Remember that hashing is case sensitive and whitespace sensitive. A trailing space or newline produces a completely different hash.",
+      "Use Clear to start again with an empty box."
+    ],
+    "benefits": [
+      "Showing all four algorithms at once removes the most common annoyance with hash tools, which is discovering halfway through that you needed a different one and having to start again. It also makes the point visually: the same input produces four completely different fingerprints, which is a useful thing to see when you are learning how hashing works.",
+      "The SHA family is computed with the browser's own Web Crypto API, the same implementation used by real security software, so the results are correct and fast. MD5 is included because checksums published years ago still use it, even though it should never be used for security today. Nothing is transmitted, which is the real reason to use a local tool for this. It sits naturally beside the [Base64 encoder and decoder](/tools/base64-encoder-decoder/) for the other transformation you meet constantly, the [JSON formatter](/tools/json-formatter/) when you are inspecting an API response, and the [password generator](/tools/password-generator/) when you need something random rather than something hashed."
+    ],
+    "useCases": [
+      "Developers reach for this while debugging almost daily. Verifying that a downloaded file matches the checksum the publisher listed, generating a cache key from a string, checking that two records really are identical, or confirming that a webhook signature was built the way the documentation claims. Anyone integrating a payment gateway or a third party API will meet HMAC and SHA-256 within the first hour.",
+      "System administrators compare file checksums after a transfer to prove nothing was corrupted on the way. Security analysts hash suspicious file contents to look them up in threat databases. QA engineers use hashes to confirm that a build artifact is the exact one that was tested. Students learning cryptography use a tool like this to see for themselves that changing one letter changes the entire output, which is far more convincing than reading about it."
+    ],
+    "faqs": [
+      {
+        "q": "Can a hash be reversed back into the original text?",
+        "a": "No. Hashing is a one way operation by design. What attackers do instead is hash billions of likely inputs and look for a match, which is why short or common strings can effectively be uncovered even though the maths is not reversible."
+      },
+      {
+        "q": "Which algorithm should I use?",
+        "a": "SHA-256 for almost everything. It is the current standard, widely supported and fast. Use SHA-512 when a specification asks for it. Use MD5 and SHA-1 only when you have to match an existing system, never for anything security related."
+      },
+      {
+        "q": "Why is MD5 still here if it is broken?",
+        "a": "Because a great deal of the world still uses it. Older software, published checksums and legacy databases all rely on MD5, so you need to be able to produce one. It is fine for spotting accidental corruption in a file, and completely unsuitable for passwords or signatures."
+      },
+      {
+        "q": "Is it safe to hash a password with this?",
+        "a": "For learning, yes. For a real system, no. Passwords should be hashed on your server with a slow algorithm built for the job, such as bcrypt, scrypt or Argon2, together with a unique salt. A plain SHA-256 of a password can be cracked at enormous speed on modern hardware."
+      },
+      {
+        "q": "Is my text sent to your server?",
+        "a": "No. Hashing happens entirely in your browser. The SHA family uses the browser's Web Crypto API and MD5 runs in JavaScript on your device. Nothing is transmitted or logged."
+      },
+      {
+        "q": "Why did I get a different hash from another tool?",
+        "a": "Almost always because of an invisible difference in the input. A trailing newline, a space at the end, or Windows line endings against Unix ones all change the result. Check the exact bytes you are hashing before assuming a tool is wrong."
+      },
+      {
+        "q": "Does it handle Urdu, Arabic and emoji?",
+        "a": "Yes. Text is encoded as UTF-8 before hashing, which is the standard behaviour, so non-Latin scripts and emoji hash consistently with other correct implementations."
+      }
+    ]
+  }
+}

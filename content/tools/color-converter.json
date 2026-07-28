@@ -1,0 +1,76 @@
+{
+  "name": "Color Converter",
+  "emoji": "🎨",
+  "category": "content/categories/developer.json",
+  "popular": false,
+  "order": 17,
+  "short": "Convert colors between HEX, RGB and HSL and preview them live.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>Pick a color</span><input type=\"color\" id=\"pick\" value=\"#2952e3\"></label>\n  <label><span>Preview</span><div id=\"swatch\" class=\"swatch\"></div></label>\n</div>\n<div class=\"row\" style=\"margin-top:4px\">\n  <label><span>HEX</span><input type=\"text\" id=\"hex\" value=\"#2952E3\" spellcheck=\"false\"></label>\n  <label><span>RGB</span><input type=\"text\" id=\"rgb\" value=\"rgb(41, 82, 227)\" spellcheck=\"false\"></label>\n  <label><span>HSL</span><input type=\"text\" id=\"hsl\" value=\"hsl(227, 69%, 53%)\" spellcheck=\"false\"></label>\n</div>\n<div class=\"btn-row\"><button id=\"cHex\">Copy HEX</button><button id=\"cRgb\">Copy RGB</button><button id=\"cHsl\">Copy HSL</button></div>\n<div id=\"shades\" class=\"shades\"></div>\n<p class=\"note\" id=\"note\">Type into any box. The other formats update automatically.</p>",
+    "css": ".swatch{height:50px;border-radius:12px;border:1px solid var(--line);background:#2952e3}\ninput[type=color]{height:50px;padding:5px;cursor:pointer}\n.shades{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:18px}\n.shades div{height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.06);cursor:pointer;position:relative}\n.shades div span{position:absolute;bottom:2px;left:0;right:0;text-align:center;font-size:.6rem;color:rgba(0,0,0,.45)}",
+    "js": "function clamp(v,a,b){return Math.max(a,Math.min(b,v));}\nfunction toHex(r,g,b){return '#'+[r,g,b].map(function(x){return ('0'+clamp(Math.round(x),0,255).toString(16)).slice(-2);}).join('').toUpperCase();}\nfunction hexToRgb(h){\n  h=h.trim().replace(/^#/,'');\n  if(/^[0-9a-f]{3}$/i.test(h)){h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];}\n  if(!/^[0-9a-f]{6}$/i.test(h)){return null;}\n  return {r:parseInt(h.slice(0,2),16),g:parseInt(h.slice(2,4),16),b:parseInt(h.slice(4,6),16)};\n}\nfunction rgbToHsl(r,g,b){\n  r/=255;g/=255;b/=255;\n  var mx=Math.max(r,g,b),mn=Math.min(r,g,b),h=0,s=0,l=(mx+mn)/2,d=mx-mn;\n  if(d){\n    s=l>0.5?d/(2-mx-mn):d/(mx+mn);\n    if(mx===r){h=((g-b)/d+(g<b?6:0));}\n    else if(mx===g){h=(b-r)/d+2;}\n    else {h=(r-g)/d+4;}\n    h*=60;\n  }\n  return {h:Math.round(h),s:Math.round(s*100),l:Math.round(l*100)};\n}\nfunction hslToRgb(h,s,l){\n  h=((h%360)+360)%360;s/=100;l/=100;\n  var c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h/60)%2-1)),m=l-c/2,r=0,g=0,b=0;\n  if(h<60){r=c;g=x;} else if(h<120){r=x;g=c;} else if(h<180){g=c;b=x;}\n  else if(h<240){g=x;b=c;} else if(h<300){r=x;b=c;} else {r=c;b=x;}\n  return {r:(r+m)*255,g:(g+m)*255,b:(b+m)*255};\n}\nvar E={hex:document.getElementById('hex'),rgb:document.getElementById('rgb'),hsl:document.getElementById('hsl'),\npick:document.getElementById('pick'),sw:document.getElementById('swatch'),note:document.getElementById('note')};\nfunction paint(rgb,skip){\n  var hex=toHex(rgb.r,rgb.g,rgb.b),hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);\n  if(skip!=='hex'){E.hex.value=hex;}\n  if(skip!=='rgb'){E.rgb.value='rgb('+Math.round(rgb.r)+', '+Math.round(rgb.g)+', '+Math.round(rgb.b)+')';}\n  if(skip!=='hsl'){E.hsl.value='hsl('+hsl.h+', '+hsl.s+'%, '+hsl.l+'%)';}\n  E.pick.value=hex;E.sw.style.background=hex;\n  var box=document.getElementById('shades');box.innerHTML='';\n  [10,20,30,40,50,60,70,80,90].forEach(function(L){\n    var c=hslToRgb(hsl.h,hsl.s,L),d=document.createElement('div');\n    d.style.background=toHex(c.r,c.g,c.b);d.title=toHex(c.r,c.g,c.b);\n    d.innerHTML='<span>'+L+'</span>';\n    d.addEventListener('click',function(){paint(c);E.note.textContent='Switched to '+toHex(c.r,c.g,c.b)+'.';});\n    box.appendChild(d);\n  });\n  E.note.textContent='HEX '+hex+' is the same color as rgb('+Math.round(rgb.r)+', '+Math.round(rgb.g)+', '+Math.round(rgb.b)+').';\n  WT.resize();\n}\nE.hex.addEventListener('input',function(){var c=hexToRgb(E.hex.value);if(c){paint(c,'hex');}else{E.note.textContent='That is not a valid hex color. Use a form like #2952E3 or #29E.';}});\nE.rgb.addEventListener('input',function(){\n  var m=E.rgb.value.match(/(\\d{1,3})\\D+(\\d{1,3})\\D+(\\d{1,3})/);\n  if(m){paint({r:+m[1],g:+m[2],b:+m[3]},'rgb');}else{E.note.textContent='Enter three numbers, for example rgb(41, 82, 227).';}\n});\nE.hsl.addEventListener('input',function(){\n  var m=E.hsl.value.match(/(-?\\d{1,3})\\D+(\\d{1,3})\\D+(\\d{1,3})/);\n  if(m){paint(hslToRgb(+m[1],+m[2],+m[3]),'hsl');}else{E.note.textContent='Enter three numbers, for example hsl(227, 69%, 53%).';}\n});\nE.pick.addEventListener('input',function(){var c=hexToRgb(E.pick.value);if(c){paint(c);}});\ndocument.getElementById('cHex').addEventListener('click',function(){WT.copy(E.hex.value);E.note.textContent='HEX copied.';});\ndocument.getElementById('cRgb').addEventListener('click',function(){WT.copy(E.rgb.value);E.note.textContent='RGB copied.';});\ndocument.getElementById('cHsl').addEventListener('click',function(){WT.copy(E.hsl.value);E.note.textContent='HSL copied.';});\npaint({r:41,g:82,b:227});",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Color Converter - HEX to RGB and HSL Online Free",
+    "metaDescription": "Free color converter. Convert between HEX, RGB and HSL, pick a color visually, preview it live and copy a full shade scale for your design system.",
+    "keywords": [
+      "color converter",
+      "hex to rgb",
+      "rgb to hex",
+      "hsl converter",
+      "color picker online",
+      "hex color code",
+      "rgb to hsl"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free color converter moves a color between HEX, RGB and HSL and shows you the result the moment you type. Every design and development job uses all three formats sooner or later. Designers hand over hex codes, CSS often wants rgb so that transparency can be added, and HSL is the one format where lightening or darkening a color is genuinely easy. Converting between them by hand is fiddly and easy to get wrong. Paste a value into any of the three boxes and the other two update instantly, with a live swatch so you can see what you are actually working with. There is also a nine step shade scale built from your color, which is the fastest way to build a consistent palette."
+    ],
+    "howto": [
+      "Type or paste a value into whichever box matches what you have. Hex accepts both the long form like #2952E3 and the short form like #29E.",
+      "Watch the other two boxes update as you type, along with the swatch above them.",
+      "Use the color picker on the left if you would rather choose visually than type a code.",
+      "Press one of the copy buttons to take the format you need.",
+      "Look at the row of shades underneath. Each square is your color at a different lightness, from very dark on the left to very light on the right.",
+      "Click any shade to make it the active color, which is a quick way to find a slightly darker hover state or a light background tint."
+    ],
+    "benefits": [
+      "Editing all three formats, rather than converting in one direction only, is what makes this quick in practice. You rarely know in advance which format you will be handed. A client sends a hex code, a brand guide lists rgb values, and a stylesheet you inherited uses hsl. Being able to paste any of them and read off the others removes the step where you go looking for a second tool.",
+      "The shade scale earns its place too. Picking a hover color or a light background tint by eye usually produces something slightly off, because people tend to change saturation by accident. Generating the scale from HSL keeps the hue and saturation fixed and moves only the lightness, which is exactly how a proper design system does it. Everything runs in your browser with nothing uploaded. It pairs naturally with the [JSON formatter](/tools/json-formatter/) when your colors live in a config file, and the [case converter](/tools/case-converter/) when you need those hex codes consistently upper or lower case."
+    ],
+    "useCases": [
+      "Front end developers convert brand hex codes into rgb so they can add an alpha channel for shadows and overlays, which is one of the most common small tasks in CSS work. They also use HSL to generate hover and active states that stay in the same colour family instead of drifting.",
+      "Designers moving between tools hit format mismatches constantly, because one app exports hex and another expects rgb. Anyone building a design system uses the lightness scale to produce the 50 to 900 range that component libraries expect. Marketers matching a brand color across a website, a printed flyer and a social template need the same color in different notations. Students learning CSS use a tool like this to finally understand what the three numbers in HSL actually control, which is much clearer when you can watch the swatch change as you type."
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between HEX and RGB?",
+        "a": "They describe exactly the same thing in different notation. Hex writes each of the red, green and blue channels as a two character hexadecimal number, while rgb writes them as three decimal numbers from 0 to 255. #2952E3 and rgb(41, 82, 227) are the same color."
+      },
+      {
+        "q": "Why would I use HSL instead?",
+        "a": "Because HSL separates the color itself from how light or saturated it is. Making a color 10 percent darker means changing one number in HSL, while in hex or rgb you have to recalculate all three channels. For hover states, tints and shade scales it is far easier to work with."
+      },
+      {
+        "q": "Does it support short hex codes?",
+        "a": "Yes. Three character codes like #29E are expanded automatically, so #FFF and #FFFFFF both work."
+      },
+      {
+        "q": "What about transparency and alpha?",
+        "a": "The converter works with solid colors. To add transparency, take the rgb values and write them as rgba(41, 82, 227, 0.5), or use the modern CSS form rgb(41 82 227 / 50%)."
+      },
+      {
+        "q": "What is the row of shades for?",
+        "a": "It is your color at nine lightness levels, keeping the hue and saturation the same. It is the quickest way to get a matching darker shade for a hover state or a light tint for a background without the color drifting into a different hue."
+      },
+      {
+        "q": "Are the conversions exact?",
+        "a": "Hex and rgb convert exactly, since they are the same values in different notation. HSL involves rounding to whole numbers, so converting to HSL and back can occasionally shift a channel by one, which is invisible to the eye."
+      }
+    ]
+  }
+}

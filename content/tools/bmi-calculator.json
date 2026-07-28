@@ -1,0 +1,80 @@
+{
+  "name": "BMI Calculator",
+  "emoji": "⚖️",
+  "category": "content/categories/calculators.json",
+  "popular": true,
+  "order": 15,
+  "short": "Work out your body mass index in metric or imperial units.",
+  "code": {
+    "html": "<div class=\"tabs\" id=\"tabs\"><button class=\"active\" data-u=\"m\">Metric</button><button data-u=\"i\">Imperial</button></div>\n<div id=\"metric\"><div class=\"row-2\">\n  <label><span>Height in centimetres</span><input type=\"number\" id=\"cm\" value=\"170\" min=\"50\" max=\"260\"></label>\n  <label><span>Weight in kilograms</span><input type=\"number\" id=\"kg\" value=\"70\" min=\"10\" max=\"400\"></label>\n</div></div>\n<div id=\"imperial\" style=\"display:none\"><div class=\"row-2\">\n  <label><span>Height</span><div style=\"display:flex;gap:8px\"><input type=\"number\" id=\"ft\" value=\"5\" min=\"1\" max=\"8\" placeholder=\"ft\"><input type=\"number\" id=\"inch\" value=\"7\" min=\"0\" max=\"11\" placeholder=\"in\"></div></label>\n  <label><span>Weight in pounds</span><input type=\"number\" id=\"lb\" value=\"154\" min=\"20\" max=\"900\"></label>\n</div></div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"bmi\">24.2</span><span class=\"label\">Your BMI</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"cls\" style=\"font-size:1.1rem\">Healthy weight</span><span class=\"label\">Category</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"range\" style=\"font-size:1.1rem\">53.5 to 72.2 kg</span><span class=\"label\">Healthy range for your height</span></div>\n</div>\n<div id=\"bar\" class=\"bmibar\"><span id=\"dot\"></span></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".bmibar{position:relative;height:12px;border-radius:99px;margin-top:18px;background:linear-gradient(90deg,#60a5fa 0%,#60a5fa 18%,#34d399 18%,#34d399 47%,#fbbf24 47%,#fbbf24 68%,#f87171 68%,#f87171 100%)}\n.bmibar span{position:absolute;top:-5px;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ink);transform:translateX(-11px);transition:left .25s ease}\n#cls,#range{line-height:1.3}",
+    "js": "var unit='m',tabs=document.getElementById('tabs');\ntabs.addEventListener('click',function(e){\n  var b=e.target.closest('button');if(!b)return;\n  [].forEach.call(tabs.querySelectorAll('button'),function(x){x.classList.remove('active');});\n  b.classList.add('active');unit=b.getAttribute('data-u');\n  document.getElementById('metric').style.display=unit==='m'?'':'none';\n  document.getElementById('imperial').style.display=unit==='i'?'':'none';\n  calc();WT.resize();\n});\nfunction n(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)?0:v;}\nfunction calc(){\n  var hM,wKg;\n  if(unit==='m'){hM=n('cm')/100;wKg=n('kg');}\n  else{hM=(n('ft')*12+n('inch'))*0.0254;wKg=n('lb')*0.45359237;}\n  var note=document.getElementById('note');\n  if(hM<=0.5||wKg<=0){\n    document.getElementById('bmi').textContent='--';\n    document.getElementById('cls').textContent='--';\n    note.textContent='Enter a realistic height and weight to see your result.';\n    return;\n  }\n  var bmi=wKg/(hM*hM);\n  var b=Math.round(bmi*10)/10;\n  var cls,tip;\n  if(bmi<18.5){cls='Underweight';tip='A BMI under 18.5 is classed as underweight.';}\n  else if(bmi<25){cls='Healthy weight';tip='A BMI between 18.5 and 24.9 is the healthy range for most adults.';}\n  else if(bmi<30){cls='Overweight';tip='A BMI between 25 and 29.9 is classed as overweight.';}\n  else {cls='Obese';tip='A BMI of 30 or above is classed as obese.';}\n  document.getElementById('bmi').textContent=b;\n  document.getElementById('cls').textContent=cls;\n  var lo=18.5*hM*hM,hi=24.9*hM*hM,rangeText;\n  if(unit==='m'){rangeText=(Math.round(lo*10)/10)+' to '+(Math.round(hi*10)/10)+' kg';}\n  else{rangeText=Math.round(lo/0.45359237)+' to '+Math.round(hi/0.45359237)+' lb';}\n  document.getElementById('range').textContent=rangeText;\n  var pos=Math.max(0,Math.min(100,(bmi-13)/(40-13)*100));\n  document.getElementById('dot').style.left=pos+'%';\n  note.textContent=tip+' BMI is a general guide only and does not measure body fat directly.';\n}\n['cm','kg','ft','inch','lb'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});\ncalc();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "BMI Calculator - Body Mass Index in Metric or Imperial",
+    "metaDescription": "Free BMI calculator. Enter your height and weight in metric or imperial units to see your body mass index, your category and your healthy weight range.",
+    "keywords": [
+      "bmi calculator",
+      "body mass index",
+      "bmi chart",
+      "healthy weight calculator",
+      "calculate bmi",
+      "bmi calculator kg",
+      "bmi calculator lbs"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free BMI calculator works out your body mass index from your height and weight, in metric or imperial units, and shows you which category that figure falls into along with the healthy weight range for someone of your height. Body mass index is the number most doctors, insurers and health forms ask for, because it gives a quick single figure that describes weight relative to height. It is not a perfect measure and it was never meant to be, but as a starting point for a conversation about weight it is used everywhere. Enter your numbers and the result updates instantly. Nothing you type is stored or sent anywhere, which matters for something this personal."
+    ],
+    "howto": [
+      "Choose Metric if you think in centimetres and kilograms, or Imperial for feet, inches and pounds.",
+      "Enter your height. In imperial mode there are two boxes, one for feet and one for the remaining inches.",
+      "Enter your weight. The result updates as you type, so there is nothing to press.",
+      "Read your BMI figure and the category underneath it.",
+      "Check the healthy range shown on the right. That is the weight span that would put someone of your height in the healthy category.",
+      "Use the coloured bar to see roughly where you sit, which is often easier to take in than the number on its own."
+    ],
+    "benefits": [
+      "Most BMI calculators give you a number and stop there, which is the least useful part. A BMI of 26.4 means nothing on its own to most people. This one also tells you the category, shows the healthy weight range for your exact height in the units you are using, and places you on a visual scale, so the number turns into something you can actually act on.",
+      "It handles both unit systems properly, including the feet and inches split that trips up calculators which expect a single decimal number. Everything runs in your browser, so your height and weight are never transmitted, logged or stored. That is worth saying plainly, because health figures are exactly the kind of data people should be careful about typing into unknown websites. If you are tracking progress over time, the [date difference calculator](/tools/date-difference-calculator/) tells you exactly how many days you are into a plan, and the [percentage calculator](/tools/percentage-calculator/) works out how much of a change your weight has actually moved."
+    ],
+    "useCases": [
+      "People starting a fitness or weight plan use BMI as a simple baseline they can check again in a few months. It is not the whole picture, but it is easy to measure and hard to argue with, which makes it a reasonable anchor point. Anyone filling in a medical form, a gym membership, an insurance application or a visa health questionnaire will be asked for it sooner or later.",
+      "Parents check it for older children and teenagers, although child BMI is read against age and sex percentile charts rather than the adult categories, so a doctor should interpret those. Nurses and health workers use quick BMI figures during routine checks. Coaches and personal trainers use it as one input among several, usually alongside measurements that describe body shape better. And plenty of people simply want to know where they stand today, without an appointment or an app that wants their email address first."
+    ],
+    "faqs": [
+      {
+        "q": "How is BMI calculated?",
+        "a": "Weight in kilograms divided by height in metres squared. Someone who is 1.7 metres tall and weighs 70 kilograms has a BMI of 70 divided by 2.89, which is 24.2. Imperial figures are converted to metric first, so the result is identical either way."
+      },
+      {
+        "q": "What are the BMI categories?",
+        "a": "Under 18.5 is underweight, 18.5 to 24.9 is healthy weight, 25 to 29.9 is overweight, and 30 or above is obese. These are the standard adult ranges used by the World Health Organization."
+      },
+      {
+        "q": "Is BMI accurate for everyone?",
+        "a": "No, and it is important to know that. BMI does not distinguish muscle from fat, so athletes and very muscular people often score as overweight while being extremely healthy. It also does not account for where fat sits on the body, which matters medically. Treat it as one signal, not a verdict."
+      },
+      {
+        "q": "Does BMI work for children?",
+        "a": "Not with these adult categories. Children and teenagers are assessed against percentile charts for their age and sex, because healthy body composition changes as they grow. Ask a doctor to interpret a child's figure."
+      },
+      {
+        "q": "Is BMI different for men and women?",
+        "a": "The calculation and the categories are the same. Women naturally carry a higher proportion of body fat at the same BMI, which is one more reason to treat the number as a rough guide rather than a precise measure of health."
+      },
+      {
+        "q": "Is my height and weight saved anywhere?",
+        "a": "No. Everything is calculated in your browser and nothing is uploaded, logged or stored. Refresh the page and it is gone."
+      },
+      {
+        "q": "What should I do if my BMI is outside the healthy range?",
+        "a": "Talk to a doctor rather than acting on a number from a website. BMI is a screening figure, not a diagnosis, and a professional can look at the things it cannot measure, such as body composition, blood pressure and family history."
+      }
+    ]
+  }
+}

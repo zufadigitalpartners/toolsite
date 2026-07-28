@@ -1,0 +1,79 @@
+{
+  "name": "JSON to CSV Converter",
+  "emoji": "📊",
+  "category": "content/categories/developer.json",
+  "popular": false,
+  "order": 18,
+  "short": "Convert JSON to CSV for a spreadsheet, or CSV back to JSON.",
+  "code": {
+    "html": "<div class=\"tabs\" id=\"tabs\"><button class=\"active\" data-m=\"j2c\">JSON to CSV</button><button data-m=\"c2j\">CSV to JSON</button></div>\n<label><span id=\"inLabel\">JSON input</span><textarea id=\"in\" rows=\"8\" spellcheck=\"false\" placeholder='[{\"name\":\"Ali\",\"city\":\"Lahore\"},{\"name\":\"Sara\",\"city\":\"Karachi\"}]'></textarea></label>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\">Convert</button><button id=\"copy\">Copy result</button><button id=\"dl\">Download</button><button id=\"sample\">Load sample</button></div>\n<label style=\"margin-top:14px\"><span id=\"outLabel\">CSV output</span><textarea id=\"out\" rows=\"8\" readonly spellcheck=\"false\"></textarea></label>\n<p class=\"note\" id=\"note\">Paste JSON on the left and press Convert. Everything happens on your device.</p>",
+    "css": "textarea{min-height:170px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem}",
+    "js": "var mode='j2c',tabs=document.getElementById('tabs');\nvar SAMPLE_J='[\\n  {\"name\":\"Ali\",\"city\":\"Lahore\",\"orders\":12},\\n  {\"name\":\"Sara\",\"city\":\"Karachi\",\"orders\":7},\\n  {\"name\":\"Bilal\",\"city\":\"Islamabad\",\"orders\":23}\\n]';\nvar SAMPLE_C='name,city,orders\\nAli,Lahore,12\\nSara,Karachi,7\\nBilal,Islamabad,23';\ntabs.addEventListener('click',function(e){\n  var b=e.target.closest('button');if(!b)return;\n  [].forEach.call(tabs.querySelectorAll('button'),function(x){x.classList.remove('active');});\n  b.classList.add('active');mode=b.getAttribute('data-m');\n  document.getElementById('inLabel').textContent=mode==='j2c'?'JSON input':'CSV input';\n  document.getElementById('outLabel').textContent=mode==='j2c'?'CSV output':'JSON output';\n  document.getElementById('in').value='';document.getElementById('out').value='';\n  document.getElementById('note').textContent='Paste your data and press Convert.';\n  WT.resize();\n});\nfunction flat(obj,prefix,out){\n  out=out||{};prefix=prefix||'';\n  for(var k in obj){\n    if(!Object.prototype.hasOwnProperty.call(obj,k))continue;\n    var v=obj[k],key=prefix?prefix+'.'+k:k;\n    if(v&&typeof v==='object'&&!Array.isArray(v)){flat(v,key,out);}\n    else if(Array.isArray(v)){out[key]=v.join('; ');}\n    else {out[key]=v===null||v===undefined?'':v;}\n  }\n  return out;\n}\nfunction cell(v){\n  var s=String(v);\n  return /[\",\\n\\r]/.test(s)?'\"'+s.replace(/\"/g,'\"\"')+'\"':s;\n}\nfunction jsonToCsv(text){\n  var data=JSON.parse(text);\n  if(!Array.isArray(data)){data=[data];}\n  if(!data.length){throw new Error('That JSON array is empty.');}\n  var rows=data.map(function(r){return flat(r);});\n  var cols=[];\n  rows.forEach(function(r){for(var k in r){if(cols.indexOf(k)<0){cols.push(k);}}});\n  var lines=[cols.map(cell).join(',')];\n  rows.forEach(function(r){lines.push(cols.map(function(c){return cell(r[c]===undefined?'':r[c]);}).join(','));});\n  return {text:lines.join('\\n'),rows:rows.length,cols:cols.length};\n}\nfunction splitCsvLine(line){\n  var out=[],cur='',q=false;\n  for(var i=0;i<line.length;i++){\n    var ch=line[i];\n    if(q){\n      if(ch==='\"'&&line[i+1]==='\"'){cur+='\"';i++;}\n      else if(ch==='\"'){q=false;}\n      else {cur+=ch;}\n    } else {\n      if(ch==='\"'){q=true;}\n      else if(ch===','){out.push(cur);cur='';}\n      else {cur+=ch;}\n    }\n  }\n  out.push(cur);return out;\n}\nfunction csvToJson(text){\n  var lines=text.replace(/\\r\\n/g,'\\n').replace(/\\r/g,'\\n').split('\\n').filter(function(l){return l.trim()!=='';});\n  if(lines.length<2){throw new Error('Need a header row and at least one data row.');}\n  var head=splitCsvLine(lines[0]);\n  var rows=lines.slice(1).map(function(l){\n    var parts=splitCsvLine(l),o={};\n    head.forEach(function(h,i){\n      var v=parts[i]===undefined?'':parts[i];\n      o[h]=(v!==''&&!isNaN(v)&&/^-?\\d*\\.?\\d+$/.test(v.trim()))?Number(v):v;\n    });\n    return o;\n  });\n  return {text:JSON.stringify(rows,null,2),rows:rows.length,cols:head.length};\n}\nfunction run(){\n  var input=document.getElementById('in').value.trim(),note=document.getElementById('note');\n  if(!input){document.getElementById('out').value='';note.textContent='Paste your data first, or press Load sample.';return;}\n  try{\n    var r=mode==='j2c'?jsonToCsv(input):csvToJson(input);\n    document.getElementById('out').value=r.text;\n    note.textContent='Converted '+r.rows+' rows and '+r.cols+' columns.';\n  }catch(e){\n    document.getElementById('out').value='';\n    note.textContent='Could not convert that: '+e.message;\n  }\n  WT.resize();\n}\ndocument.getElementById('go').addEventListener('click',run);\ndocument.getElementById('in').addEventListener('input',run);\ndocument.getElementById('sample').addEventListener('click',function(){\n  document.getElementById('in').value=mode==='j2c'?SAMPLE_J:SAMPLE_C;run();\n});\ndocument.getElementById('copy').addEventListener('click',function(){\n  var ok=WT.copy(document.getElementById('out').value);\n  document.getElementById('note').textContent=ok?'Result copied to clipboard.':'Copy failed, select the text instead.';\n});\ndocument.getElementById('dl').addEventListener('click',function(){\n  var v=document.getElementById('out').value;if(!v)return;\n  var name=mode==='j2c'?'data.csv':'data.json';\n  var type=mode==='j2c'?'text/csv':'application/json';\n  try{\n    var url=URL.createObjectURL(new Blob([v],{type:type}));\n    var a=document.createElement('a');a.href=url;a.download=name;\n    document.body.appendChild(a);a.click();document.body.removeChild(a);\n    setTimeout(function(){URL.revokeObjectURL(url);},2000);\n    document.getElementById('note').textContent='Saved as '+name+'. Check your downloads folder.';\n  }catch(e){\n    document.getElementById('note').textContent='Download was blocked. Use Copy result instead.';\n  }\n});",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "JSON to CSV Converter - Free Online, Both Directions",
+    "metaDescription": "Free JSON to CSV converter that also turns CSV back into JSON. Handles nested objects, quotes and commas properly, and runs entirely in your browser.",
+    "keywords": [
+      "json to csv",
+      "csv to json",
+      "convert json to excel",
+      "json converter",
+      "csv converter online",
+      "json to spreadsheet"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free converter turns JSON into CSV so you can open it in a spreadsheet, and turns CSV back into JSON so you can feed it to an API. Both jobs come up constantly and both are annoying to do by hand. JSON is what systems talk in, while CSV is what Excel, Google Sheets and most business tools expect, so data ends up needing to cross between them all the time. The tricky parts are handled properly here: nested objects are flattened into dotted column names, values containing commas or quotes are escaped the way the CSV standard requires, and numbers come back as real numbers rather than strings. Everything runs in your browser, so exported customer data never leaves your machine."
+    ],
+    "howto": [
+      "Choose the direction you need with the two tabs at the top.",
+      "Paste your data into the input box, or press Load sample to see the expected shape.",
+      "The result appears immediately. The note underneath tells you how many rows and columns were converted.",
+      "Press Copy result to take the output, or Download to save it as a .csv or .json file.",
+      "For JSON to CSV, give the tool an array of objects. A single object works too and produces one row.",
+      "For CSV to JSON, make sure the first line is your header row, because those names become the JSON keys."
+    ],
+    "benefits": [
+      "Most converters fall over on the same three things, and all three are handled here. Nested objects become dotted columns like address.city instead of being dropped or turned into unreadable text. Values that contain a comma, a quote or a line break are wrapped and escaped correctly, which is the difference between a file that opens cleanly in Excel and one that scatters across the wrong columns. Rows with different keys are merged into one column set rather than losing fields.",
+      "Going the other way, quoted CSV fields are parsed properly, so an address containing a comma stays in one field, and numeric values are converted to real JSON numbers so your API does not receive strings where it expects integers. Everything happens locally, which matters because the files people convert are usually exports full of customer records. It works well next to the [JSON formatter](/tools/json-formatter/) for checking your JSON is valid before converting, and the [Base64 encoder and decoder](/tools/base64-encoder-decoder/) when data arrives wrapped in another layer."
+    ],
+    "useCases": [
+      "Developers export API responses to CSV so a colleague can review the data in a spreadsheet without needing a developer tool. They also go the other way, taking a list a client sent as a spreadsheet and turning it into JSON for a seeding script or a bulk import.",
+      "Data analysts receive JSON from analytics platforms, webhooks and logging tools, and almost all of their downstream work happens in spreadsheets. Marketers convert contact lists between a CRM export and an email platform import, where the two systems rarely agree on format. Support and operations staff turn a JSON dump from a bug report into something readable. No code builders using Zapier, Make or Airtable meet raw JSON at every webhook step and often need it as a table instead. Anyone who has been sent a JSON file and asked to make a chart from it needs this tool first."
+    ],
+    "faqs": [
+      {
+        "q": "What JSON shape should I use?",
+        "a": "An array of objects, where each object becomes one row and each key becomes a column. A single object also works and produces a one row file. Deeply nested structures are flattened into dotted column names."
+      },
+      {
+        "q": "What happens to nested objects?",
+        "a": "They are flattened using dots, so an object with address containing city becomes a column called address.city. Arrays inside a value are joined with semicolons so they still fit in one cell."
+      },
+      {
+        "q": "Will it handle commas inside my data?",
+        "a": "Yes. Any value containing a comma, a quote or a line break is wrapped in quotes and internal quotes are doubled, which is the CSV standard. That is exactly what stops a file breaking apart when Excel opens it."
+      },
+      {
+        "q": "Can I open the result directly in Excel?",
+        "a": "Yes. Download the CSV and open it in Excel, Google Sheets, Numbers or any spreadsheet program. If your data contains Urdu, Arabic or other non-Latin text and Excel shows it incorrectly, use the Import option and choose UTF-8 encoding."
+      },
+      {
+        "q": "Does CSV to JSON keep numbers as numbers?",
+        "a": "Yes. Values that look like plain numbers are converted to JSON numbers rather than strings, which is usually what an API expects. Anything else stays as a string."
+      },
+      {
+        "q": "Is my data uploaded anywhere?",
+        "a": "No. Both conversions run entirely in your browser. Nothing is transmitted or stored, which makes it safe for customer exports and internal reports."
+      },
+      {
+        "q": "Why does my conversion fail?",
+        "a": "For JSON to CSV it is almost always invalid JSON, usually a trailing comma or single quotes. Paste it into our JSON formatter first to find the exact spot. For CSV to JSON, check that the first line really is a header row."
+      }
+    ]
+  }
+}
