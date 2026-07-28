@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageBody from "@/components/PageBody";
+import RichText from "@/components/RichText";
 import ContactForm from "@/components/ContactForm";
 import { getPage, fill } from "@/lib/pages";
 import { pageMetadata } from "@/lib/seo";
@@ -38,7 +39,7 @@ export default function Contact() {
             <section key={i}>
               {section.heading && <h2>{fill(section.heading)}</h2>}
               {section.paragraphs?.map((para, j) => (
-                <p key={j}>{fill(para)}</p>
+                <RichText key={j} text={fill(para)} />
               ))}
             </section>
           ))}
