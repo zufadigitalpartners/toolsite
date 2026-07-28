@@ -721,7 +721,7 @@ html.rvl .rvl-in {
   box-shadow: var(--shadow-2);
 }
 
-textarea.tool-input, input.tool-text {
+textarea.tool-input, input.tool-text, select.tool-text {
   width: 100%;
   min-width: 0;
   border: 1px solid var(--line);
@@ -729,11 +729,13 @@ textarea.tool-input, input.tool-text {
   padding: 13px 14px;
   font: inherit;
   font-size: 1rem;
+  line-height: 1.4;
   background: var(--paper);
   color: var(--ink);
 }
+select.tool-text { height: 50px; cursor: pointer; }
 textarea.tool-input { min-height: 190px; resize: vertical; }
-textarea.tool-input:focus, input.tool-text:focus {
+textarea.tool-input:focus, input.tool-text:focus, select.tool-text:focus {
   outline: 3px solid color-mix(in srgb, var(--cat-color, var(--blue)) 35%, transparent);
   outline-offset: 1px;
   border-color: var(--cat-color, var(--blue));
@@ -976,14 +978,16 @@ textarea.tool-input:focus, input.tool-text:focus {
 
 .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
+/* custom chevron, since appearance:none removes the native arrow */
 .contact-form select.tool-text {
   appearance: none;
+  -webkit-appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
     linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-  background-position: calc(100% - 19px) calc(50% + 2px), calc(100% - 14px) calc(50% + 2px);
-  background-size: 5px 5px, 5px 5px;
+  background-position: calc(100% - 20px) calc(50% - 1px), calc(100% - 15px) calc(50% - 1px);
+  background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
-  padding-right: 38px;
+  padding-right: 42px;
 }
 
 .contact-form textarea.tool-input { min-height: 150px; }
