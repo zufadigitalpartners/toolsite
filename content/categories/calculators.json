@@ -11,6 +11,8 @@
       "The [age calculator](/tools/age-calculator/) converts a date of birth into an exact age in years, months and days, plus total days lived and a countdown to the next birthday. That precision matters more often than you would expect. School admission cutoffs, sports age categories, visa and insurance forms, and HR paperwork all ask for exact ages, where 'about 34' is not an acceptable answer. It is equally happy calculating a child's age in months, an ancestor's age at emigration, or the day you turn 10,000 days old.",
       "The [date difference calculator](/tools/date-difference-calculator/) measures the exact gap between any two dates, shown as days, weeks, months and years at the same time. Point it backward to measure durations: length of service, invoice ageing, how long a project actually took. Point it forward for countdowns: days until the wedding, the exam, the launch, the visa deadline. Leap years and month lengths are handled exactly, which is precisely where spreadsheet formulas and mental math slip.",
       "The two calculators complement each other nicely. Birth date questions go to the age calculator, and everything else on the calendar goes to the date difference tool. Once your date math is done, the rest of the site helps with what comes next: a scannable invitation link from the [QR code generator](/tools/qr-code-generator/) for the event you counted down to, or a fair draw from the [random number generator](/tools/random-number-generator/) at the party itself. Free, instant and exact, with no signup required."
-    ]
+    ],
+    "metaTitle": "Calculators: Instant Answers You Can Trust",
+    "metaDescription": "Free calculators for ages, dates, percentages, BMI and unit conversion. Leap years and edge cases handled exactly, with nothing you enter ever stored."
   }
 }

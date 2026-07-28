@@ -12,6 +12,8 @@
       "The [QR code generator](/tools/qr-code-generator/) turns any link, phone number or text into a scannable code you can download as a PNG. The data is encoded directly into the image, with no redirect service, no tracking and no expiry, so a menu or business card printed today still scans in ten years. Restaurants, event organizers, teachers and job seekers use it to close the gap between paper and web in seconds.",
       "The [random number generator](/tools/random-number-generator/) produces fair, unbiased numbers in any range, with a no-duplicates mode built for raffles and giveaways. It draws on the same cryptographic randomness as the password tool, which makes it a trustworthy referee for contests, classroom picks, sampling and games.",
       "The three tools also combine naturally. Generate a Wi-Fi password, share it as a QR code, then draw a giveaway winner, all without leaving the site or creating an account. There are no watermarks, no scan limits and no trial periods. Free, instant and private is the rule for every generator here, so bookmark the page and the next credential, code or draw is seconds away."
-    ]
+    ],
+    "metaTitle": "Generators: Passwords, QR Codes and Random Picks",
+    "metaDescription": "Free generators that create what you need on demand. Strong passwords, permanent QR codes, fair random numbers and placeholder text, all in your browser."
   }
 }

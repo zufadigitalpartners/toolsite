@@ -14,8 +14,8 @@
     "apiBaseUrl": ""
   },
   "seo": {
-    "metaTitle": "Base64 Encode & Decode Online - Free Base64 Converter",
-    "metaDescription": "Free Base64 encoder and decoder. Convert text to Base64 or decode Base64 back to text instantly, with full UTF-8 support. Runs entirely in your browser.",
+    "metaTitle": "Base64 Encoder & Decoder: Fast and Private",
+    "metaDescription": "Encode text to Base64 or decode it back, with full UTF-8 support for emoji and every script. Runs in your browser, safe for tokens and config secrets.",
     "keywords": [
       "base64 encode",
       "base64 decode",

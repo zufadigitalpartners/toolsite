@@ -1,7 +1,7 @@
 {
   "title": "About {siteName}",
-  "metaTitle": "About Us",
-  "metaDescription": "Learn about {siteName}, a free collection of browser based online tools built on one rule: your data never leaves your device. No signup, no uploads, no limits.",
+  "metaTitle": "About Us: Why Every Tool Runs in Your Browser",
+  "metaDescription": "Learn why {siteName} builds every tool to run on your own device. No accounts, no uploads, no limits, and a growing collection of genuinely free utilities.",
   "intro": [
     "{siteName} is a growing collection of free online tools for the small tasks that fill an ordinary working day. Counting the words in an essay, fixing capitalization in a heading, generating a password you can actually trust, turning a link into a QR code, working out how many days sit between two dates, making sense of a wall of JSON. None of these jobs deserve a signup form, a subscription, or a wait while your file uploads to somebody else's server."
   ],

@@ -11,6 +11,8 @@
       "The [JSON formatter](/tools/json-formatter/) pretty-prints, minifies and validates JSON with clear error messages. Paste a single-line API response and get readable, properly indented output. Paste a broken config file and the validator points at the trailing comma or single quote that broke it. It handles large payloads quickly because there is no upload round trip, just the browser's native parser.",
       "The [Base64 encoder and decoder](/tools/base64-encoder-decoder/) converts text to Base64 and back with full UTF-8 support, so emoji and non-Latin characters survive the round trip. Base64 shows up everywhere: Basic Auth headers, data URIs, JWT payloads, Kubernetes secrets, MIME attachments. Being able to decode a blob on sight is a daily debugging skill, and the two tools chain naturally. Decode a JWT segment here, then pretty-print the resulting JSON in the formatter.",
       "Adjacent tools round out the workbench. The [case converter](/tools/case-converter/) normalizes identifiers and headings in bulk, the [random number generator](/tools/random-number-generator/) fills test fixtures with fair random values, and the [password generator](/tools/password-generator/) creates throwaway credentials for test accounts using cryptographic randomness. Everything is free, instant and account-free, with no rate limits and no upload caps. This is the tab you keep open next to your editor, from the first API call of the morning to the last debugging session of the day."
-    ]
+    ],
+    "metaTitle": "Developer Tools: Format, Encode and Debug Fast",
+    "metaDescription": "Free developer utilities for JSON, Base64, hashes, colors, URLs and CSV. Everything runs locally, so tokens and customer data never leave your machine."
   }
 }

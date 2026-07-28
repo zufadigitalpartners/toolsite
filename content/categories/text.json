@@ -12,6 +12,8 @@
       "The [case converter](/tools/case-converter/) fixes capitalization in one click: UPPERCASE for labels, lowercase to undo a Caps Lock accident, Title Case for headlines, and Sentence case for body text. It keeps your line breaks intact and works with any language that has letter casing. A small tool, but it saves a surprising amount of retyping for editors, virtual assistants and anyone standardizing spreadsheet data.",
       "The two tools work well as a pipeline. Paste your draft into the case converter to fix the headings, then run the final text through the word counter to confirm it fits the brief. When the writing is done, the rest of the site picks up from there. Turn the published link into a printable code with the [QR code generator](/tools/qr-code-generator/), or count down to your submission deadline with the [date difference calculator](/tools/date-difference-calculator/).",
       "Every text tool here is free, needs no account, shows no paywall, and works on phones as well as desktops. If you write, edit, teach or publish regularly, bookmark this page. The next time a word limit or a Caps Lock paragraph shows up, the fix is one click away."
-    ]
+    ],
+    "metaTitle": "Text Tools: Count, Convert and Clean Up Fast",
+    "metaDescription": "Free text tools that measure and tidy your writing instantly. Count words, fix capitalization and compare drafts, all inside your browser with no uploads."
   }
 }

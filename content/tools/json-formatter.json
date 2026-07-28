@@ -14,8 +14,8 @@
     "apiBaseUrl": ""
   },
   "seo": {
-    "metaTitle": "JSON Formatter - Format, Validate & Minify JSON Online",
-    "metaDescription": "Free JSON formatter and validator. Pretty-print, minify and validate JSON with clear error messages. Runs locally in your browser, safe for sensitive data.",
+    "metaTitle": "JSON Formatter: Validate & Beautify in Seconds",
+    "metaDescription": "Pretty-print, minify and validate JSON with error messages that pinpoint the problem. Runs locally, so payloads with keys or customer data stay private.",
     "keywords": [
       "json formatter",
       "json validator",

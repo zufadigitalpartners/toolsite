@@ -734,6 +734,18 @@ textarea.tool-input, input.tool-text, select.tool-text {
   color: var(--ink);
 }
 select.tool-text { height: 50px; cursor: pointer; }
+
+/* iOS Safari gives date and time inputs a native look with its own
+   intrinsic width, which pushes them outside the card. Turning the
+   native appearance off makes them respect the container like every
+   other field. */
+input[type="date"], input[type="time"], input[type="datetime-local"],
+input[type="month"], input[type="week"] {
+  -webkit-appearance: none;
+  appearance: none;
+  max-width: 100%;
+  min-height: 50px;
+}
 textarea.tool-input { min-height: 190px; resize: vertical; }
 textarea.tool-input:focus, input.tool-text:focus, select.tool-text:focus {
   outline: 3px solid color-mix(in srgb, var(--cat-color, var(--blue)) 35%, transparent);

@@ -14,8 +14,8 @@
     "apiBaseUrl": ""
   },
   "seo": {
-    "metaTitle": "Hash Generator - MD5, SHA-1, SHA-256 & SHA-512 Online",
-    "metaDescription": "Free hash generator. Create MD5, SHA-1, SHA-256 and SHA-512 hashes from any text instantly. Runs in your browser, so your input is never uploaded.",
+    "metaTitle": "Hash Generator: MD5, SHA-256 and More, Fast",
+    "metaDescription": "Generate MD5, SHA-1, SHA-256 and SHA-512 hashes from any text at once. Powered by your browser's own crypto engine, so your input never leaves the page.",
     "keywords": [
       "hash generator",
       "md5 generator",

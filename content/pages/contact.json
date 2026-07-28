@@ -1,7 +1,7 @@
 {
   "title": "Contact us",
-  "metaTitle": "Contact",
-  "metaDescription": "Get in touch with the {siteName} team. Suggest a tool, report a bug, or ask about advertising. We read every message and usually reply within a few days.",
+  "metaTitle": "Contact Us: Suggest a Tool or Report a Bug",
+  "metaDescription": "Get in touch with the {siteName} team. Suggest a tool, report a problem or ask about advertising. We read every message and usually reply within a few days.",
   "intro": [
     "Have a question, found a bug, or thought of a tool that should exist? We would like to hear from you. Fill in the form below and it lands straight in our inbox, or email us directly at **{contactEmail}** if you prefer."
   ],

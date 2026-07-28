@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site, ui } from "@/lib/site";
 import { categories, toolsByCategory } from "@/lib/tools";
 import { footerPages, fill } from "@/lib/pages";
+import { OG_IMAGE } from "@/lib/seo";
 import CategoryMenu from "@/components/CategoryMenu";
 import Reveal from "@/components/Reveal";
 
@@ -20,11 +21,13 @@ export const metadata = {
     siteName: site.name,
     type: "website",
     locale: "en_US",
+    images: [OG_IMAGE],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `${site.name} | ${site.homeTitle}`,
     description: site.description,
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,

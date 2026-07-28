@@ -12,6 +12,8 @@
       "The [image compressor](/tools/image-compressor/) is the first tool in this category. It shrinks JPG, PNG and WebP files by re-encoding them at a quality level you control, and shows you the exact saving before you download. Most photos lose between half and nine tenths of their size with no visible difference, which is usually the single biggest speed win available to a website.",
       "Because nothing is uploaded there are no file size caps, no daily limits and no queue. Compress fifty images one after another if you want. The only limit is your own device, and modern phones handle this easily.",
       "More image tools are on the way. If there is one you need, tell us on the [contact page](/contact/) and it will go on the list."
-    ]
+    ],
+    "metaTitle": "Image Tools: Compress Photos Without Uploading",
+    "metaDescription": "Free image tools that process your files on your own device. Compress JPG, PNG and WebP without uploads, size limits, watermarks or an account."
   }
 }
