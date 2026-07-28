@@ -1,0 +1,61 @@
+{
+  "title": "Disclaimer",
+  "metaTitle": "Disclaimer",
+  "metaDescription": "Important limits on how far the results from {siteName} tools should be relied on, including legal, financial, medical and security decisions.",
+  "noindex": true,
+  "showUpdated": true,
+  "intro": [
+    "The tools on {siteName} are built carefully and tested, but they are general purpose utilities offered free of charge. This page explains the limits of what they should be relied on for.",
+    "The headline point is straightforward. Everything on this site is provided for general information and convenience. It is not professional advice, and where a result genuinely matters you should verify it independently before acting on it."
+  ],
+  "sections": [
+    {
+      "heading": "Accuracy of results",
+      "paragraphs": [
+        "We aim for correct results in every tool, and the calculators in particular are written to handle awkward cases like leap years and uneven month lengths properly. Even so, we cannot guarantee that every output is accurate, complete or suitable for your specific situation.",
+        "Browsers differ, edge cases exist, and software carries bugs. If you are relying on a date calculation for a visa deadline, a contract notice period or a legal filing, treat our figure as a helpful cross check rather than the final word, and confirm it against the authority that actually governs the deadline.",
+        "If you do spot a result that looks wrong, please tell us through the [contact page](/contact/). Reports like that are how tools get better."
+      ]
+    },
+    {
+      "heading": "Not professional advice",
+      "paragraphs": [
+        "Nothing on this site constitutes legal, financial, medical, tax or other professional advice, and no professional relationship is created by your using a tool or reading a guide here.",
+        "An age calculated on this site is arithmetic, not a legal determination of eligibility. A date difference is a calendar figure, not a ruling on when a contractual notice period expires. Guidance about password strength is general good practice, not a security audit of your systems. For decisions with real consequences, consult a qualified professional who knows your circumstances."
+      ]
+    },
+    {
+      "heading": "Security tools in particular",
+      "paragraphs": [
+        "Our password generator produces strong random passwords using your browser's cryptographic random number generator, which is a genuinely secure source. That said, a strong password is only one part of staying safe online. It does not protect you against phishing, malware on your device, a service that stores passwords badly, or an account without two factor authentication.",
+        "We also want to be clear about what Base64 is not. Base64 encoding is a way of representing data as text, and anyone can decode it instantly. It provides no secrecy whatsoever and must never be used to protect passwords, keys or sensitive information. Our [Base64 tool](/tools/base64-encoder-decoder/) exists for legitimate encoding work, not for security.",
+        "You remain responsible for how you store and use any credential generated here. Once a password leaves your screen, its safety is in your hands."
+      ]
+    },
+    {
+      "heading": "Data loss",
+      "paragraphs": [
+        "Because our tools run entirely in your browser and we store nothing, we have no copy of anything you produce. If you close a tab, refresh the page or navigate away before copying your result, it cannot be recovered by us or by you. Copy and save anything you need before moving on."
+      ]
+    },
+    {
+      "heading": "External links and advertising",
+      "paragraphs": [
+        "This site links to external websites and displays advertising supplied by third party networks. We do not control those destinations and do not endorse their content, products, claims or practices. Following an external link or engaging with an advertiser is at your own risk, and any transaction is strictly between you and that third party.",
+        "Advertising revenue keeps this site free to use, but it does not influence how our tools calculate results or what our guides say."
+      ]
+    },
+    {
+      "heading": "Availability",
+      "paragraphs": [
+        "We make no promise that the site will always be available or free of interruption. Tools may be changed, replaced or withdrawn without notice. Because the tools run locally, a page you have already loaded will usually keep working even if the site itself goes down."
+      ]
+    },
+    {
+      "heading": "Your acceptance",
+      "paragraphs": [
+        "By using {siteName} you accept this disclaimer along with our [terms of service](/terms/) and [privacy policy](/privacy-policy/). If you do not accept it, please do not use the site. Questions are welcome at **{contactEmail}**."
+      ]
+    }
+  ]
+}

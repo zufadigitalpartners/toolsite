@@ -1,0 +1,76 @@
+{
+  "title": "Terms of Service",
+  "metaTitle": "Terms of Service",
+  "metaDescription": "The terms that apply when you use {siteName}. Plain language rules covering acceptable use, intellectual property, warranties and liability.",
+  "noindex": true,
+  "showUpdated": true,
+  "intro": [
+    "These terms cover your use of {siteName} at {siteUrl}. By using the site you agree to them. They are written in ordinary language on purpose, because terms nobody can read protect nobody.",
+    "If you disagree with any part of these terms, the remedy is simple: stop using the site. Nothing here requires an account, so there is nothing to cancel."
+  ],
+  "sections": [
+    {
+      "heading": "What we provide",
+      "paragraphs": [
+        "{siteName} offers a collection of free online utilities that run inside your web browser. These include text tools, generators, calculators and developer utilities. The service is provided as it is, without any account, subscription or purchase.",
+        "We may add, change or remove tools at any time, and we may change how a tool works. We try to avoid breaking things people depend on, but we do not promise that any particular tool will remain available forever."
+      ]
+    },
+    {
+      "heading": "Using the site",
+      "paragraphs": [
+        "You may use our tools for anything lawful, including commercial work, with no licence fee and no attribution required. A QR code you generate, a password you create or text you convert is entirely yours to use as you wish.",
+        "What you may not do is fairly predictable. Do not use the site for anything unlawful. Do not attempt to break, overload, probe or gain unauthorised access to the site or its hosting infrastructure. Do not scrape or copy the site wholesale in order to republish it as your own. Do not use automated systems to hammer the site in a way that degrades it for other people. Do not attempt to strip out, hide or interfere with any advertising that funds the service.",
+        "You are responsible for whatever you put into our tools and for what you do with the results."
+      ]
+    },
+    {
+      "heading": "Your content stays yours",
+      "paragraphs": [
+        "We claim no ownership of anything you type, paste or upload into a tool. In fact, we could not claim it if we tried, because that content never reaches us. Everything is processed locally in your browser as described in our [privacy policy](/privacy-policy/).",
+        "Because we never receive your content, we cannot recover it for you either. If you generate a password and lose it, or close a tab before copying your result, that data is gone. Save anything important before you navigate away."
+      ]
+    },
+    {
+      "heading": "Our content and branding",
+      "paragraphs": [
+        "The design, layout, written explanations, guides and branding of {siteName} belong to us and are protected by copyright. You are welcome to link to any page on the site, quote a short passage with credit, or reference our tools in your own work.",
+        "You may not copy substantial portions of our written content and publish it as your own, clone the site's design and content to create a competing property, or use our name and branding in a way that implies we endorse or are affiliated with your product."
+      ]
+    },
+    {
+      "heading": "No warranty",
+      "paragraphs": [
+        "The site and its tools are provided on an as is and as available basis, without warranties of any kind, whether express or implied. We do not warrant that the site will be uninterrupted, error free, secure against every threat, or that results produced by any tool will be accurate or fit for a particular purpose.",
+        "We build these tools carefully and test them, but software has bugs and browsers behave differently. Where a result matters, verify it independently. This is covered in more detail in our [disclaimer](/disclaimer/)."
+      ]
+    },
+    {
+      "heading": "Limitation of liability",
+      "paragraphs": [
+        "To the fullest extent permitted by law, {siteName} and the people behind it are not liable for any indirect, incidental, special, consequential or punitive damages arising out of your use of the site. That includes lost profits, lost data, business interruption or decisions made on the basis of a tool's output.",
+        "Since the service is provided free of charge, our total liability to you for any claim relating to the site is limited to zero. Some jurisdictions do not allow certain limitations of liability, so parts of this section may not apply to you."
+      ]
+    },
+    {
+      "heading": "Advertising and third parties",
+      "paragraphs": [
+        "The site carries advertising, which is how it stays free. Advertisements are supplied by third party networks, and their presence on our pages is not an endorsement of the advertiser, its products or its claims. Any dealings you have with an advertiser are strictly between you and them.",
+        "The site also links to external websites we do not control. We are not responsible for their content, accuracy, availability or practices."
+      ]
+    },
+    {
+      "heading": "Changes to these terms",
+      "paragraphs": [
+        "We may revise these terms from time to time. The current version always lives on this page with its date shown at the top. Continuing to use the site after a change means you accept the revised terms."
+      ]
+    },
+    {
+      "heading": "Governing law and contact",
+      "paragraphs": [
+        "Any dispute relating to these terms or your use of the site will be handled under the laws applicable in the operator's jurisdiction, without regard to conflict of law rules.",
+        "If any part of these terms is found to be unenforceable, the rest stays in force. Questions about these terms can go to **{contactEmail}** or through our [contact page](/contact/)."
+      ]
+    }
+  ]
+}

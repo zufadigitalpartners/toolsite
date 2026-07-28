@@ -1,0 +1,28 @@
+{
+  "title": "All free online tools",
+  "metaTitle": "All Free Online Tools",
+  "metaDescription": "Browse every free online tool on {siteName}. Text tools, generators, calculators and developer utilities. No signup, no uploads, all in your browser.",
+  "subtitle": "Every tool we have built so far, grouped by what it does. All of them are free, none of them need an account, and every one runs inside your browser.",
+  "sections": [
+    {
+      "heading": "How this collection is organised",
+      "paragraphs": [
+        "We group tools by the job you are trying to finish rather than by how they work under the hood. If you are dealing with words on a page, you want the text tools. If you need the site to produce something for you, look in generators. If a number or a date is the answer you are after, the calculators section has it. And if you are debugging an API or a config file, the developer tools are built for exactly that.",
+        "Every tool page follows the same layout. The tool itself sits at the top so you can start working immediately, and the explanation, step by step instructions and common questions sit below it. Nothing is hidden behind a signup form and nothing counts your usage."
+      ]
+    },
+    {
+      "heading": "What every tool here has in common",
+      "paragraphs": [
+        "The rule we follow is simple: your data stays on your device. When you paste text into the [word counter](/tools/word-counter/), format a payload in the [JSON formatter](/tools/json-formatter/), or create a password with the [password generator](/tools/password-generator/), the work happens inside your own browser using JavaScript. Nothing is uploaded to a server, nothing is logged, and closing the tab clears everything.",
+        "That design has a nice side effect beyond privacy. Because there is no round trip to a server, the tools respond instantly and keep working even on a slow connection. It also means we can honestly say there are no usage limits. There is no server cost per calculation for us to meter."
+      ]
+    },
+    {
+      "heading": "Missing something?",
+      "paragraphs": [
+        "This list grows regularly, and a good number of the tools already here started life as a suggestion from someone who needed them. If the tool you want is not on this page, tell us what you are trying to do on the [contact page](/contact/) and we will look at building it. Simple, well defined tools that solve one problem properly are exactly what we like to add."
+      ]
+    }
+  ]
+}

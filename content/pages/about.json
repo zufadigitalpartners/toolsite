@@ -1,9 +1,51 @@
 {
   "title": "About {siteName}",
-  "metaTitle": "About",
-  "body": [
-    "{siteName} is a growing collection of free online tools for everyday tasks: counting words, converting text, generating passwords, and much more. New tools are added regularly.",
-    "Every tool runs entirely inside your browser. That means your text and files are never uploaded to any server. Your data stays on your device, and the tools stay fast even on slow connections.",
-    "There are no accounts, no paywalls and no usage limits. Open a tool, get your work done, and move on."
+  "metaTitle": "About Us",
+  "metaDescription": "Learn about {siteName}, a free collection of browser based online tools built on one rule: your data never leaves your device. No signup, no uploads, no limits.",
+  "intro": [
+    "{siteName} is a growing collection of free online tools for the small tasks that fill an ordinary working day. Counting the words in an essay, fixing capitalization in a heading, generating a password you can actually trust, turning a link into a QR code, working out how many days sit between two dates, making sense of a wall of JSON. None of these jobs deserve a signup form, a subscription, or a wait while your file uploads to somebody else's server."
+  ],
+  "sections": [
+    {
+      "heading": "Why we built this",
+      "paragraphs": [
+        "Search for something as ordinary as a word counter and you will land on a page covered in ads, asked to create an account, or told your free quota has run out. Worse, many of these sites quietly send whatever you paste to their own servers. For a shopping list that hardly matters. For an unpublished article, a client contract, or an API response full of customer records, it matters a great deal.",
+        "We thought the whole category could be simpler. Modern browsers are genuinely powerful. Counting words, hashing a random password, encoding text, parsing JSON and doing calendar arithmetic are all things your own device can handle instantly, with no server involved at all. So that is how every tool here is built."
+      ]
+    },
+    {
+      "heading": "How our tools actually work",
+      "paragraphs": [
+        "Every tool on {siteName} runs entirely inside your browser using JavaScript. When you paste text into the [word counter](/tools/word-counter/), the counting happens on your device. When you create a password with the [password generator](/tools/password-generator/), it is produced by your browser's own cryptographic random number generator and it exists nowhere else, not even in a log file. When you build a code with the [QR code generator](/tools/qr-code-generator/), the link is encoded directly into the image on your machine.",
+        "This is not a marketing claim we are asking you to take on trust. You can disconnect from the internet after the page has loaded and every tool will keep working, because there is nothing for it to talk to. Close the tab and the data is gone.",
+        "It also means the tools stay fast. There is no upload, no queue and no processing limit, so a huge document formats just as quickly as a small one."
+      ]
+    },
+    {
+      "heading": "What you will find here",
+      "paragraphs": [
+        "The collection is organised into four groups, and you can browse the full list on the [all tools page](/tools/).",
+        "**Text tools** help you measure and tidy writing. The [word counter](/tools/word-counter/) tracks words, characters, sentences and reading time as you type, and the [case converter](/tools/case-converter/) switches text between UPPERCASE, lowercase, Title Case and Sentence case in one click.",
+        "**Generators** create things on demand. Strong random passwords, permanent QR codes that never expire, and fair random numbers for draws and giveaways.",
+        "**Calculators** answer date and age questions exactly, with leap years and uneven month lengths handled properly. The [age calculator](/tools/age-calculator/) and the [date difference calculator](/tools/date-difference-calculator/) cover the questions people ask most.",
+        "**Developer tools** handle the small conversions that fill a debugging session, including the [JSON formatter](/tools/json-formatter/) and the [Base64 encoder and decoder](/tools/base64-encoder-decoder/)."
+      ]
+    },
+    {
+      "heading": "Our promises",
+      "paragraphs": [
+        "**Free, and staying free.** There is no premium tier, no trial period and no feature held back behind a paywall. Running costs are covered by unobtrusive advertising, which is why you may see ads on the site.",
+        "**No accounts.** We do not ask for your email, we do not build a profile of you, and there is nothing to log into. Open a tool, do the job, close the tab.",
+        "**No uploads.** Your text, files and data are processed locally and are never transmitted to us. You can read the full detail in our [privacy policy](/privacy-policy/).",
+        "**No artificial limits.** Paste a whole book into the word counter if you like. Generate a thousand passwords. Nothing is metered."
+      ]
+    },
+    {
+      "heading": "How the site keeps growing",
+      "paragraphs": [
+        "New tools get added regularly, and the direction comes largely from the people using the site. When several people ask for the same thing, it moves up the list. Our rule for adding something new is that it should do one job properly, work without an account, and run locally like everything else here.",
+        "If a tool you need is missing, or you have spotted a bug or a confusing explanation, we would genuinely like to hear about it. The [contact page](/contact/) has a short form that reaches us directly, and we read every message that comes through."
+      ]
+    }
   ]
 }

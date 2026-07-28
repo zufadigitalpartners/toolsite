@@ -30,6 +30,34 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  verification: site.googleVerification
+    ? { google: site.googleVerification }
+    : undefined,
+};
+
+// Organization + WebSite schema, emitted once site-wide so Google can
+// tie every page back to one brand and offer a sitelinks search box.
+const siteLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#organization`,
+      name: site.name,
+      url: site.url,
+      email: site.contactEmail,
+      description: site.description,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: site.name,
+      url: site.url,
+      description: site.description,
+      publisher: { "@id": `${site.url}/#organization` },
+      inLanguage: "en",
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -42,7 +70,10 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
-            <meta name="google-site-verification" content="qhiNE4i2pg_qAYAqD0p3Z_-ex5I8z9RAQkxRJnojFiA" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
+        />
       </head>
       <body>
         <header className="site-header">
@@ -61,7 +92,7 @@ export default function RootLayout({ children }) {
                   count: toolsByCategory(cat.id).length,
                 }))}
               />
-              <Link href="/#tools">{ui("nav.allTools", "All tools")}</Link>
+              <Link href="/tools/">{ui("nav.allTools", "All tools")}</Link>
               <Link href="/about/">{ui("nav.about", "About")}</Link>
             </nav>
           </div>
@@ -91,9 +122,18 @@ export default function RootLayout({ children }) {
               <div>
                 <h3>{ui("nav.footerSiteHeading", "Site")}</h3>
                 <ul>
+                  <li><Link href="/tools/">All tools</Link></li>
                   <li><Link href="/about/">{getPage("about")?.metaTitle || "About"}</Link></li>
                   <li><Link href="/contact/">{getPage("contact")?.metaTitle || "Contact"}</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3>{ui("nav.footerLegalHeading", "Legal")}</h3>
+                <ul>
                   <li><Link href="/privacy-policy/">{getPage("privacy-policy")?.metaTitle || "Privacy Policy"}</Link></li>
+                  <li><Link href="/terms/">{getPage("terms")?.metaTitle || "Terms of Service"}</Link></li>
+                  <li><Link href="/disclaimer/">{getPage("disclaimer")?.metaTitle || "Disclaimer"}</Link></li>
+                  <li><Link href="/cookie-policy/">{getPage("cookie-policy")?.metaTitle || "Cookie Policy"}</Link></li>
                 </ul>
               </div>
             </div>

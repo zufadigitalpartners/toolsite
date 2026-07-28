@@ -1,9 +1,48 @@
 {
-  "title": "Contact",
+  "title": "Contact us",
   "metaTitle": "Contact",
-  "body": [
-    "Have a question, found a bug, or want to suggest a new tool for {siteName}? We would love to hear from you.",
-    "Email us at: **{contactEmail}**",
-    "We read every message and usually reply within a few days. Tool suggestions are especially welcome. Many of our tools started as user requests."
+  "metaDescription": "Get in touch with the {siteName} team. Suggest a tool, report a bug, or ask about advertising. We read every message and usually reply within a few days.",
+  "intro": [
+    "Have a question, found a bug, or thought of a tool that should exist? We would like to hear from you. Fill in the form below and it lands straight in our inbox, or email us directly at **{contactEmail}** if you prefer."
+  ],
+  "formHeading": "Send us a message",
+  "formLabels": {
+    "name": "Your name",
+    "email": "Your email",
+    "subject": "What is this about?",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Thanks, your message is on its way. We read everything that comes in and usually reply within a few days.",
+    "error": "That did not go through. Please try again in a moment, or email us directly at info@wearetool.com.",
+    "subjectOptions": [
+      "Suggest a new tool",
+      "Report a bug or wrong result",
+      "Advertising or partnership",
+      "Press or general question",
+      "Something else"
+    ]
+  },
+  "afterForm": [
+    {
+      "heading": "What to expect",
+      "paragraphs": [
+        "Messages go to a real inbox that a person checks. We usually reply within a few working days, though a busy week can stretch that a little. If your message is about a bug, telling us which tool you were using, what you typed in and what happened instead makes it far quicker for us to reproduce and fix.",
+        "Tool suggestions are especially welcome. A good number of the tools already on the site started as a request from someone who needed one. The more specific you can be about the job you are trying to finish, the better the tool we can build for it."
+      ]
+    },
+    {
+      "heading": "Before you write",
+      "paragraphs": [
+        "A few questions come up often enough that the answer is probably already on the site. If you are wondering whether we store what you paste into a tool, the short answer is no, and the long answer is in our [privacy policy](/privacy-policy/). If you want to know what cookies the site sets, that is covered in the [cookie policy](/cookie-policy/). Questions about how far our tools can be relied on for legal, medical or financial decisions are answered in the [disclaimer](/disclaimer/).",
+        "If you are simply looking for a tool and cannot find it, try the search box at the top of the [homepage](/) or browse the [full tool list](/tools/). New tools are added regularly, so something that was missing last month may be there now."
+      ]
+    },
+    {
+      "heading": "Advertising and partnerships",
+      "paragraphs": [
+        "We keep {siteName} free by showing unobtrusive advertising. If you are interested in advertising with us, or you run a site or product that would genuinely help our visitors, pick the advertising option in the form and tell us what you have in mind. We are selective about anything that touches the visitor experience, but we do read every proposal."
+      ]
+    }
   ]
 }

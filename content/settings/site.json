@@ -4,6 +4,8 @@
   "description": "Free online tools: word counter, case converter, password generator and more. No signup, no uploads, everything runs in your browser.",
   "url": "https://wearetool.com",
   "contactEmail": "info@wearetool.com",
+  "contactFormKey": "",
+  "googleVerification": "qhiNE4i2pg_qAYAqD0p3Z_-ex5I8z9RAQkxRJnojFiA",
   "homeTitle": "Free Online Tools",
   "ui": {
     "nav": {
@@ -12,6 +14,7 @@
       "allTools": "All tools",
       "about": "About",
       "footerSiteHeading": "Site",
+      "footerLegalHeading": "Legal",
       "footerViewAll": "View all →"
     },
     "search": {

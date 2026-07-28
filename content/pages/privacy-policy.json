@@ -1,10 +1,90 @@
 {
   "title": "Privacy Policy",
   "metaTitle": "Privacy Policy",
-  "body": [
-    "**Your files and text stay on your device.** All tools on {siteName} process data locally in your browser. We do not upload, store, or have access to the content you work with.",
-    "**Analytics.** We may use privacy-respecting analytics to understand which tools are popular and improve the site. This data is aggregated and does not identify you personally.",
-    "**Advertising.** We may display ads (such as Google AdSense) to keep the tools free. Ad providers may use cookies as described in their own policies. You can control cookies through your browser settings.",
-    "**Contact.** Questions about this policy? Reach us via the contact page."
+  "metaDescription": "How {siteName} handles your data. Our tools process everything locally in your browser, so the text and files you work with are never uploaded to us.",
+  "noindex": true,
+  "showUpdated": true,
+  "intro": [
+    "This policy explains what happens to your information when you use {siteName} at {siteUrl}. We have tried to write it in plain language rather than legal boilerplate, because a privacy policy you cannot understand is not much use to anybody.",
+    "The short version: the tools on this site do their work inside your own browser, so the text, files and data you put into them are never sent to us and we could not read them even if we wanted to. The longer version is below."
+  ],
+  "sections": [
+    {
+      "heading": "The content you put into our tools",
+      "paragraphs": [
+        "**We never receive it.** Every tool on {siteName} runs entirely in your browser using JavaScript. When you paste an essay into the word counter, a payload into the JSON formatter, or a link into the QR code generator, that content is processed on your own device. It is not uploaded, not transmitted, not stored on our servers and not written to any log.",
+        "This is a technical fact rather than a policy choice, which is what makes it dependable. Once a tool page has loaded you can disconnect from the internet entirely and the tool will keep working, because there is nothing for it to send data to. When you close or refresh the tab, whatever you had entered is gone.",
+        "Passwords produced by our password generator deserve a specific mention. They are created by your browser's built in cryptographic random number generator and exist only on your screen. We never see them, never store them and cannot recover one for you if it is lost."
+      ]
+    },
+    {
+      "heading": "Information we do collect",
+      "paragraphs": [
+        "**Analytics.** We may use privacy respecting analytics to understand which tools people use and where the site is confusing. This is aggregated information such as page views, rough geographic region, browser type and referring site. It tells us that a page was visited, not who visited it, and it is never linked to the content you enter into a tool.",
+        "**Server logs.** Our hosting provider, Cloudflare, records standard technical information when your browser requests a page. This typically includes an IP address, the time of the request, the page requested and your browser's user agent string. These logs exist for security and reliability, for example to identify attacks or diagnose an outage, and they are kept for a limited period.",
+        "**Messages you send us.** If you use the contact form or email us, we receive whatever you choose to include: your name, your email address and your message. We use it only to reply to you. We do not add you to a mailing list and we do not sell or share contact details."
+      ]
+    },
+    {
+      "heading": "Cookies and similar technologies",
+      "paragraphs": [
+        "A cookie is a small text file that a website asks your browser to store. {siteName} itself does not require cookies to function, and the tools work perfectly with cookies disabled.",
+        "Cookies may still be set by third parties whose services appear on the site, most notably advertising and analytics providers. Our [cookie policy](/cookie-policy/) explains what these do and how to control them, and every modern browser lets you block or delete cookies through its settings."
+      ]
+    },
+    {
+      "heading": "Advertising",
+      "paragraphs": [
+        "We keep this site free by displaying advertising, and we may work with Google AdSense and other advertising partners to do that.",
+        "Third party vendors, including Google, use cookies to serve ads based on your previous visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our site and other sites on the internet.",
+        "You can opt out of personalised advertising by visiting Google's Ads Settings at adssettings.google.com. You can also opt out of a third party vendor's use of cookies for personalised advertising by visiting aboutads.info. If you would rather not visit those pages, blocking third party cookies in your browser has a similar effect.",
+        "Advertising partners set their own cookies and collect their own data under their own privacy policies, which we do not control. Importantly, advertising code never has access to what you type into our tools, because that data stays inside your browser and is never transmitted anywhere."
+      ]
+    },
+    {
+      "heading": "Third party services we rely on",
+      "paragraphs": [
+        "**Cloudflare Pages** hosts the site and delivers it to your browser. **Google Fonts** provides the typefaces used in our design. **Google AdSense** and similar networks may supply the advertising. If you submit the contact form, a form delivery service passes your message to our inbox.",
+        "Each of these providers handles data according to its own privacy policy. We choose providers carefully, but we do not control their practices and we would encourage you to read their policies if you want the full picture."
+      ]
+    },
+    {
+      "heading": "Children's privacy",
+      "paragraphs": [
+        "{siteName} is a general audience website and is not directed at children under 13. We do not knowingly collect personal information from children. Since our tools do not require an account and process everything locally, there is very little opportunity for a child to share personal information with us at all. If you believe a child has sent us personal information through the contact form, write to us at {contactEmail} and we will delete it."
+      ]
+    },
+    {
+      "heading": "Your rights",
+      "paragraphs": [
+        "Depending on where you live, data protection law may give you the right to access, correct, export or delete personal information a website holds about you, and to object to certain kinds of processing. Visitors in the European Economic Area and the United Kingdom have these rights under the GDPR, and residents of California have comparable rights under the CCPA, including the right to know what is collected and the right not to have personal information sold. We do not sell personal information.",
+        "In practice we hold very little about you, because the tools do not collect anything and we have no accounts. If you have emailed us or used the contact form, we hold that correspondence, and you can ask us to delete it at any time by writing to {contactEmail}."
+      ]
+    },
+    {
+      "heading": "Data security and retention",
+      "paragraphs": [
+        "The site is served over an encrypted HTTPS connection. Because the content you put into our tools never reaches us, the most sensitive category of data simply is not exposed to any risk on our side.",
+        "Contact form messages and emails are kept only as long as needed to handle your enquiry and any reasonable follow up. Analytics data is aggregated and retained in line with the provider's standard retention period."
+      ]
+    },
+    {
+      "heading": "Links to other sites",
+      "paragraphs": [
+        "Some pages link to external websites, either as a reference or because an advertisement points there. Once you follow such a link you are on someone else's site, governed by their privacy policy rather than ours. We cannot take responsibility for the content or practices of sites we do not run."
+      ]
+    },
+    {
+      "heading": "Changes to this policy",
+      "paragraphs": [
+        "We may update this policy when the site changes or when the law requires it. Any updated version will be posted on this page with a new date at the top. Significant changes will be described here plainly rather than buried in a paragraph. Continuing to use the site after an update means you accept the revised policy."
+      ]
+    },
+    {
+      "heading": "Contact",
+      "paragraphs": [
+        "Questions about this policy, or about privacy on this site generally, are welcome. Email us at **{contactEmail}** or use the form on our [contact page](/contact/)."
+      ]
+    }
   ]
 }

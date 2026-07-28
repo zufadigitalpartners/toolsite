@@ -1,17 +1,8 @@
-import RichText from "@/components/RichText";
-import { getPage, fill } from "@/lib/pages";
+import LegalPage from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/seo";
 
-const page = getPage("about");
-
-export const metadata = { title: page.metaTitle };
+export const metadata = pageMetadata("about", "/about/");
 
 export default function About() {
-  return (
-    <div className="container page-prose">
-      <h1>{fill(page.title)}</h1>
-      {page.body.map((para, i) => (
-        <RichText key={i} text={fill(para)} />
-      ))}
-    </div>
-  );
+  return <LegalPage slug="about" />;
 }

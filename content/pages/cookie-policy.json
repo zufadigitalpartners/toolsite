@@ -1,0 +1,56 @@
+{
+  "title": "Cookie Policy",
+  "metaTitle": "Cookie Policy",
+  "metaDescription": "What cookies are set when you visit {siteName}, what they are used for, and how to control or block them in your browser.",
+  "noindex": true,
+  "showUpdated": true,
+  "intro": [
+    "This page explains what cookies are, which ones may be set when you visit {siteName}, and how to take control of them. It sits alongside our [privacy policy](/privacy-policy/), which covers the wider picture of how we handle information.",
+    "Worth saying up front: our tools do not need cookies at all. You can block every cookie in your browser and the word counter, password generator, calculators and everything else will work exactly as normal."
+  ],
+  "sections": [
+    {
+      "heading": "What a cookie actually is",
+      "paragraphs": [
+        "A cookie is a small text file that a website asks your browser to store on your device. On your next visit the browser can hand it back, which lets a site remember something between page loads. Cookies cannot run programs, cannot read files on your computer and cannot carry viruses. They are simply small pieces of stored text.",
+        "Related technologies such as local storage and web beacons do similar jobs in different ways, and where we mention cookies below the same points generally apply to those too."
+      ]
+    },
+    {
+      "heading": "Cookies we set ourselves",
+      "paragraphs": [
+        "{siteName} sets no cookies of its own for tracking or profiling. There are no accounts to stay logged into and no preferences that need remembering across visits, so there is nothing for a first party cookie to do.",
+        "Any settings you adjust inside a tool, such as the length of a password or a chosen conversion mode, live only in the page while it is open and disappear when you close the tab."
+      ]
+    },
+    {
+      "heading": "Cookies set by third parties",
+      "paragraphs": [
+        "**Advertising cookies.** We display advertising to keep the site free. Advertising partners, including Google and networks working with it, may set cookies to measure how ads perform, limit how often you see the same ad, and in some cases show ads relevant to your interests based on your browsing on this and other sites.",
+        "**Analytics cookies.** We may use analytics to understand which pages are popular and where visitors get stuck. This tells us that a page was viewed and roughly where in the world from, not who you are, and it is never connected to anything you enter into a tool.",
+        "**Infrastructure cookies.** Our host, Cloudflare, may set a cookie for security purposes, for example to distinguish genuine visitors from automated attacks. These are functional rather than commercial.",
+        "Third party cookies are governed by the privacy policies of the companies that set them, not by us."
+      ]
+    },
+    {
+      "heading": "What advertising cookies never see",
+      "paragraphs": [
+        "This is worth stating plainly. Advertising and analytics code has no access to the content you put into our tools. The essay you paste into the word counter, the JSON you format and the password you generate all stay inside your browser's own memory and are never transmitted anywhere. An advertising network can know that you visited a page. It cannot know what you typed on it."
+      ]
+    },
+    {
+      "heading": "How to control cookies",
+      "paragraphs": [
+        "Every modern browser lets you view, delete and block cookies from its settings, usually under a privacy or security section. You can block third party cookies specifically, which stops most advertising and analytics cookies while leaving ordinary browsing intact. Private or incognito windows discard cookies when you close them.",
+        "For advertising specifically, Google's Ads Settings at adssettings.google.com let you turn off personalised advertising across Google's services. The industry pages at aboutads.info and youronlinechoices.eu offer opt outs covering many networks at once.",
+        "Blocking cookies does not remove advertising from the web, it simply makes what you see less tailored. On this site it changes nothing about how the tools work."
+      ]
+    },
+    {
+      "heading": "Changes and questions",
+      "paragraphs": [
+        "If the services we use change, this page will be updated with a new date at the top. If you have a question about cookies on {siteName}, or you think something here is unclear or out of date, email **{contactEmail}** or use our [contact form](/contact/)."
+      ]
+    }
+  ]
+}
