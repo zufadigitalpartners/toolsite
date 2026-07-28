@@ -1,0 +1,80 @@
+{
+  "name": "URL Encoder / Decoder",
+  "emoji": "🔗",
+  "category": "content/categories/developer.json",
+  "popular": false,
+  "order": 13,
+  "short": "Encode text for use in a URL, or decode a URL back to readable text.",
+  "code": {
+    "html": "<div class=\"tabs\" id=\"tabs\"><button class=\"active\" data-m=\"enc\">Encode</button><button data-m=\"dec\">Decode</button></div>\n<label><span>Input</span><textarea id=\"in\" rows=\"6\" placeholder=\"Paste text or a URL here\"></textarea></label>\n<label style=\"margin-top:12px\"><span>Mode</span><select id=\"fn\">\n  <option value=\"component\">Component (encodes ? &amp; = / and spaces) recommended</option>\n  <option value=\"full\">Full URL (keeps ? &amp; = / intact)</option>\n</select></label>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\">Convert</button><button id=\"copy\">Copy</button><button id=\"swap\">Use result as input</button></div>\n<label style=\"margin-top:14px\"><span>Result</span><textarea id=\"out\" rows=\"6\" readonly></textarea></label>\n<p class=\"note\" id=\"note\">Type or paste something and press Convert.</p>",
+    "css": "textarea{min-height:130px}",
+    "js": "var mode='enc',tabs=document.getElementById('tabs');\ntabs.addEventListener('click',function(e){\n  var b=e.target.closest('button');if(!b)return;\n  [].forEach.call(tabs.querySelectorAll('button'),function(x){x.classList.remove('active');});\n  b.classList.add('active');mode=b.getAttribute('data-m');run();\n});\nfunction run(){\n  var v=document.getElementById('in').value,f=document.getElementById('fn').value,out='',note='';\n  if(!v){document.getElementById('out').value='';document.getElementById('note').textContent='Type or paste something and press Convert.';return;}\n  try{\n    if(mode==='enc'){out=f==='full'?encodeURI(v):encodeURIComponent(v);note='Encoded '+v.length+' characters into '+out.length+'.';}\n    else{out=f==='full'?decodeURI(v):decodeURIComponent(v);note='Decoded successfully.';}\n  }catch(err){\n    out='';note='That input could not be decoded. Check for a stray % sign, which must be written as %25.';\n  }\n  document.getElementById('out').value=out;\n  document.getElementById('note').textContent=note;\n  WT.resize();\n}\ndocument.getElementById('go').addEventListener('click',run);\ndocument.getElementById('in').addEventListener('input',run);\ndocument.getElementById('fn').addEventListener('change',run);\ndocument.getElementById('copy').addEventListener('click',function(){\n  var ok=WT.copy(document.getElementById('out').value);\n  document.getElementById('note').textContent=ok?'Copied to clipboard.':'Copy failed, select the text instead.';\n});\ndocument.getElementById('swap').addEventListener('click',function(){\n  document.getElementById('in').value=document.getElementById('out').value;run();\n});",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "URL Encoder & Decoder - Percent Encode Online Free",
+    "metaDescription": "Free URL encoder and decoder. Convert text to percent encoded URL format or decode it back to readable text, with full Unicode support, in your browser.",
+    "keywords": [
+      "url encoder",
+      "url decoder",
+      "percent encoding",
+      "urlencode online",
+      "decode url",
+      "encode url parameters",
+      "uri encode"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free URL encoder and decoder converts text into the percent encoded form that URLs require, and turns encoded URLs back into something a human can read. URLs are only allowed to contain a limited set of characters. Spaces, accented letters, ampersands, question marks and anything outside plain ASCII have to be rewritten as percent codes, which is why a space becomes %20 and a comma becomes %2C. Get that wrong and a link breaks, a search parameter gets cut off, or a tracking value arrives mangled. Paste your text, choose whether you are encoding a single value or a whole URL, and the result appears instantly. Everything runs in your browser, so query strings containing tokens or customer data stay on your machine."
+    ],
+    "howto": [
+      "Choose Encode to turn readable text into URL safe form, or Decode to turn percent codes back into text.",
+      "Paste your text or URL into the input box. The result updates as you type.",
+      "Choose Component mode when you are encoding one value that will sit inside a URL, such as a search term or a parameter. This is what you want most of the time.",
+      "Choose Full URL mode when you are encoding an entire address and need the slashes, question mark and ampersands left working.",
+      "Press Copy to take the result, or Use result as input to run it through again, which is handy for double encoded strings.",
+      "If decoding fails, look for a lone percent sign in your input. A literal percent has to be written as %25."
+    ],
+    "benefits": [
+      "The two modes are the important part. Almost every bug people hit with URL encoding comes from using the wrong one. Encode a whole URL with component mode and the slashes turn into %2F and the link dies. Encode a single search term with full URL mode and an ampersand inside it silently splits your parameter in two. Labelling both clearly, with a recommendation, stops that before it happens.",
+      "Decoding gets equal care. Invalid input produces a clear explanation instead of a silent failure, and Unicode is handled properly in both directions, so Arabic, Urdu, Chinese and emoji survive the round trip. Everything runs locally, which matters because query strings often contain session tokens, API keys and personal data that should not be pasted into an unknown website. It sits naturally beside the [JSON formatter](/tools/json-formatter/) for reading an API response and the [Base64 encoder and decoder](/tools/base64-encoder-decoder/) for the other encoding you meet every day."
+    ],
+    "useCases": [
+      "Developers use it constantly while building and debugging. Constructing a query string by hand, working out why a redirect drops half its parameters, or reading a callback URL that arrived triple encoded are all daily jobs. Anyone building an OAuth flow meets encoded redirect URIs immediately, and getting one character wrong there produces an error message that explains nothing.",
+      "Marketers hit it with UTM tracking links. A campaign name with a space or an ampersand breaks analytics reporting in ways that are hard to spot until the numbers look wrong. Encoding the value first fixes it. Support staff and QA testers decode long URLs from bug reports to see what a customer actually clicked. Writers and researchers decode search URLs to recover the original query. Anyone who has ever seen %20 scattered through a link and wondered what it said has a use for the decode side of this tool."
+    ],
+    "faqs": [
+      {
+        "q": "What is percent encoding?",
+        "a": "It is the rule that lets any character travel safely inside a URL. Each unsafe character is replaced by a percent sign followed by its hexadecimal code, so a space becomes %20. It is also called URL encoding, and the two terms mean the same thing."
+      },
+      {
+        "q": "What is the difference between the two modes?",
+        "a": "Component mode encodes almost everything, including / ? & and =, which is correct when the text is one value going inside a URL. Full URL mode leaves those characters alone so a complete address keeps working. Use Component unless you are encoding a whole URL."
+      },
+      {
+        "q": "Why does a space sometimes become + instead of %20?",
+        "a": "Older HTML form submissions use + for spaces, while standard URL encoding uses %20. Both are widely understood by servers, but %20 is the safer choice and is what this tool produces."
+      },
+      {
+        "q": "Does it handle Urdu, Arabic, Chinese and emoji?",
+        "a": "Yes. Non-Latin scripts and emoji are encoded as UTF-8 and decode back exactly as they went in, which is where a lot of simpler tools quietly corrupt text."
+      },
+      {
+        "q": "Why does my string fail to decode?",
+        "a": "Almost always because it contains a percent sign that is not part of a valid code. A literal percent must be written as %25. Truncated strings copied from a chat message are the other common cause."
+      },
+      {
+        "q": "Is my URL sent anywhere?",
+        "a": "No. Encoding and decoding happen entirely in your browser, so URLs containing tokens, session ids or personal data never leave your device."
+      },
+      {
+        "q": "What is double encoding?",
+        "a": "It is when an already encoded string gets encoded again, so %20 becomes %2520. You will see it when a value passes through two systems that both encode. Decode twice using the Use result as input button to recover the original."
+      }
+    ]
+  }
+}

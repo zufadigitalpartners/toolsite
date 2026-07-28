@@ -1,0 +1,75 @@
+{
+  "name": "Percentage Calculator",
+  "emoji": "％",
+  "category": "content/categories/calculators.json",
+  "popular": true,
+  "order": 11,
+  "short": "Work out percentages, increases, decreases and percentage change.",
+  "code": {
+    "html": "<div class=\"tabs\" id=\"tabs\">\n  <button class=\"active\" data-m=\"of\">% of a number</button>\n  <button data-m=\"is\">X is what % of Y</button>\n  <button data-m=\"ch\">Increase or decrease</button>\n</div>\n<div id=\"p-of\"><div class=\"row-2\"><label><span>Percent</span><input type=\"number\" id=\"a1\" value=\"15\"></label><label><span>Of this number</span><input type=\"number\" id=\"b1\" value=\"250\"></label></div></div>\n<div id=\"p-is\" style=\"display:none\"><div class=\"row-2\"><label><span>This number</span><input type=\"number\" id=\"a2\" value=\"37.5\"></label><label><span>Is what percent of</span><input type=\"number\" id=\"b2\" value=\"250\"></label></div></div>\n<div id=\"p-ch\" style=\"display:none\"><div class=\"row-2\"><label><span>From</span><input type=\"number\" id=\"a3\" value=\"200\"></label><label><span>To</span><input type=\"number\" id=\"b3\" value=\"250\"></label></div></div>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\">Calculate</button><button id=\"copy\">Copy result</button></div>\n<div class=\"stats\"><div class=\"stat\"><span class=\"num\" id=\"res\">37.5</span><span class=\"label\" id=\"reslabel\">Result</span></div></div>\n<p class=\"note\" id=\"note\">15% of 250 is 37.5</p>",
+    "css": "",
+    "js": "var mode='of';\nvar tabs=document.getElementById('tabs');\ntabs.addEventListener('click',function(e){\n  var b=e.target.closest('button');if(!b)return;\n  [].forEach.call(tabs.querySelectorAll('button'),function(x){x.classList.remove('active');});\n  b.classList.add('active');mode=b.getAttribute('data-m');\n  document.getElementById('p-of').style.display=mode==='of'?'':'none';\n  document.getElementById('p-is').style.display=mode==='is'?'':'none';\n  document.getElementById('p-ch').style.display=mode==='ch'?'':'none';\n  calc();WT.resize();\n});\nfunction n(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)?0:v;}\nfunction tidy(x){return Math.round(x*1e6)/1e6;}\nfunction calc(){\n  var res,label,note;\n  if(mode==='of'){\n    var p=n('a1'),b=n('b1');res=tidy(b*p/100);label='Result';\n    note=p+'% of '+b+' is '+res+'.';\n  } else if(mode==='is'){\n    var a=n('a2'),c=n('b2');\n    if(c===0){res=0;note='Cannot divide by zero. Enter a second number that is not zero.';}\n    else{res=tidy(a/c*100);note=a+' is '+res+'% of '+c+'.';}\n    label='Percent';\n  } else {\n    var f=n('a3'),t=n('b3');\n    if(f===0){res=0;note='Cannot work out a change from zero.';}\n    else{res=tidy((t-f)/Math.abs(f)*100);note=res>=0?'That is an increase of '+res+'%.':'That is a decrease of '+Math.abs(res)+'%.';}\n    label='Change';\n  }\n  document.getElementById('res').textContent=res+(mode==='of'?'':'%');\n  document.getElementById('reslabel').textContent=label;\n  document.getElementById('note').textContent=note;\n}\ndocument.getElementById('go').addEventListener('click',calc);\n['a1','b1','a2','b2','a3','b3'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});\ndocument.getElementById('copy').addEventListener('click',function(){\n  var ok=WT.copy(document.getElementById('res').textContent);\n  document.getElementById('note').textContent=ok?'Result copied to clipboard.':'Copy failed, select the number instead.';\n});\ncalc();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Percentage Calculator - Work Out Any Percentage Free",
+    "metaDescription": "Free percentage calculator. Find a percentage of a number, work out what percent one number is of another, and calculate percentage increase or decrease.",
+    "keywords": [
+      "percentage calculator",
+      "percent calculator",
+      "percentage increase calculator",
+      "percentage change",
+      "what percent of",
+      "calculate percentage online"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free percentage calculator answers the three percentage questions people actually ask, and it answers them as you type. Find a percentage of a number, work out what percent one number is of another, or calculate the increase or decrease between two figures. Percentages trip people up because the same word covers all three of those jobs and the arithmetic is different each time. Getting them mixed up is how a discount is misread, a tip is wrong, or a report says growth was double what it really was. Pick the tab that matches your question, type the numbers, and the answer appears with a plain English sentence explaining it, so you can see straight away that you asked the right question."
+    ],
+    "howto": [
+      "Pick the tab that matches your question. The first is for finding a percentage of a number, like 15 percent of 250.",
+      "Use the second tab when you have two numbers and want to know what percent the first is of the second, such as scoring 37 out of 50.",
+      "Use the third tab for a change over time, like a price going from 200 to 250 or a figure falling from one month to the next.",
+      "Type your numbers. The result updates as you type, there is nothing to submit.",
+      "Read the sentence under the result. It spells out the calculation so you can confirm it is the one you meant.",
+      "Press Copy result to put the number on your clipboard."
+    ],
+    "benefits": [
+      "The reason most percentage mistakes happen is that people use the wrong one of the three formulas, not that they cannot divide. Splitting the tool into three clear tabs removes that problem before it starts. The plain sentence under each result does the same job from the other direction: if it says something you did not expect, you know instantly that you are on the wrong tab.",
+      "It also handles the awkward cases properly. Percentage decrease is calculated against the original figure, which is the correct way and not what a quick mental estimate gives you. Dividing by zero returns a clear message instead of a meaningless number. Everything runs in your browser, so it is instant and nothing you type is recorded. When your numbers are settled and you need to work out dates around them, the [date difference calculator](/tools/date-difference-calculator/) covers the calendar side, and the [age calculator](/tools/age-calculator/) handles anything based on a birth date."
+    ],
+    "useCases": [
+      "Shoppers use it every sale season. Forty percent off a 79 pound coat, then an extra ten percent at the till, is not fifty percent off, and this tool shows the real figure in seconds. Restaurant tips, VAT and sales tax, and comparing two offers that are worded differently all come down to the same three calculations.",
+      "Students check test scores and work out what they need in a final exam to hit a target grade. Small business owners calculate margins, markups and month on month growth, where mixing up increase and decrease can make a report badly wrong. Freelancers work out a rate rise or a discount for a long standing client. Anyone reading news figures or a company report can use the third tab to check whether a headline percentage actually says what it claims to say."
+    ],
+    "faqs": [
+      {
+        "q": "How do I find a percentage of a number?",
+        "a": "Multiply the number by the percentage and divide by 100. For example 15 percent of 250 is 250 times 15 divided by 100, which is 37.5. The first tab does this for you."
+      },
+      {
+        "q": "How do I work out what percent one number is of another?",
+        "a": "Divide the first number by the second and multiply by 100. Scoring 37 out of 50 is 37 divided by 50 times 100, which is 74 percent. The second tab handles it."
+      },
+      {
+        "q": "How is percentage increase calculated?",
+        "a": "Take the difference between the two numbers, divide by the original number, then multiply by 100. Going from 200 to 250 is a difference of 50, divided by 200, which is a 25 percent increase."
+      },
+      {
+        "q": "Why is a 50 percent rise then a 50 percent fall not back where I started?",
+        "a": "Because each percentage is worked out on a different base. Rising 50 percent from 100 gives 150, and falling 50 percent from 150 gives 75, not 100. This catches people out constantly, especially with investments and prices."
+      },
+      {
+        "q": "Do two discounts add together?",
+        "a": "No. Taking 40 percent off and then another 10 percent off gives 46 percent off in total, not 50. The second discount applies to the already reduced price. Use the first tab twice to see the real figure."
+      },
+      {
+        "q": "Is anything I type saved?",
+        "a": "No. Everything is calculated in your browser and nothing is uploaded, logged or stored. Refresh the page and it is all gone."
+      }
+    ]
+  }
+}

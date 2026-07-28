@@ -1,0 +1,80 @@
+{
+  "name": "Image Compressor",
+  "emoji": "🗜️",
+  "category": "content/categories/image.json",
+  "popular": true,
+  "order": 10,
+  "short": "Shrink JPG, PNG and WebP images without uploading them anywhere.",
+  "code": {
+    "html": "<label><span>Choose an image</span><input type=\"file\" id=\"file\" accept=\"image/*\"></label>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Quality: <b id=\"qv\">80</b>%</span><input type=\"range\" id=\"q\" min=\"10\" max=\"100\" value=\"80\"></label>\n  <label><span>Output format</span><select id=\"fmt\"><option value=\"image/jpeg\">JPG (smallest)</option><option value=\"image/webp\">WebP (modern)</option><option value=\"image/png\">PNG (lossless)</option></select></label>\n</div>\n<label style=\"margin-top:14px\"><span>Max width in pixels (0 keeps the original)</span><input type=\"number\" id=\"mw\" value=\"0\" min=\"0\"></label>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\" disabled>Compress image</button><button id=\"dl\" disabled>Download</button></div>\n<div class=\"stats\" id=\"stats\" style=\"display:none\">\n  <div class=\"stat\"><span class=\"num\" id=\"s1\">0</span><span class=\"label\">Original</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"s2\">0</span><span class=\"label\">Compressed</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"s3\">0%</span><span class=\"label\">Saved</span></div>\n</div>\n<p class=\"note\" id=\"note\">Pick an image to begin. Nothing is uploaded, the whole job happens on your device.</p>\n<div id=\"prevWrap\" style=\"display:none;margin-top:14px\"><img id=\"prev\" style=\"max-height:320px;border-radius:12px\"></div>",
+    "css": "input[type=file]{padding:11px 14px;background:var(--paper-2);cursor:pointer}\n#prev{display:block}",
+    "js": "var fileEl=document.getElementById('file'),q=document.getElementById('q'),qv=document.getElementById('qv'),\nfmt=document.getElementById('fmt'),mw=document.getElementById('mw'),go=document.getElementById('go'),\ndl=document.getElementById('dl'),note=document.getElementById('note'),stats=document.getElementById('stats'),\nprev=document.getElementById('prev'),prevWrap=document.getElementById('prevWrap');\nvar img=new Image(),srcSize=0,srcName='image',outBlob=null,outUrl=null;\nfunction kb(b){return b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(2)+' MB';}\nq.addEventListener('input',function(){qv.textContent=q.value;});\nfileEl.addEventListener('change',function(){\n  var f=fileEl.files&&fileEl.files[0];\n  if(!f){return;}\n  if(!/^image\\//.test(f.type)){note.textContent='That file is not an image.';return;}\n  srcSize=f.size;srcName=f.name.replace(/\\.[^.]+$/,'');\n  var r=new FileReader();\n  r.onload=function(e){\n    img=new Image();\n    img.onload=function(){go.disabled=false;note.textContent='Loaded '+img.width+' x '+img.height+' pixels, '+kb(srcSize)+'. Choose your settings and press Compress.';WT.resize();};\n    img.onerror=function(){note.textContent='That image could not be read.';};\n    img.src=e.target.result;\n  };\n  r.readAsDataURL(f);\n});\ngo.addEventListener('click',function(){\n  if(!img.width){return;}\n  var w=img.width,h=img.height,max=parseInt(mw.value,10)||0;\n  if(max>0&&w>max){h=Math.round(h*(max/w));w=max;}\n  var c=document.createElement('canvas');c.width=w;c.height=h;\n  var ctx=c.getContext('2d');\n  if(fmt.value==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);}\n  ctx.drawImage(img,0,0,w,h);\n  c.toBlob(function(b){\n    if(!b){note.textContent='Your browser could not produce that format. Try JPG.';return;}\n    outBlob=b;\n    if(outUrl){URL.revokeObjectURL(outUrl);}\n    outUrl=URL.createObjectURL(b);\n    document.getElementById('s1').textContent=kb(srcSize);\n    document.getElementById('s2').textContent=kb(b.size);\n    var saved=srcSize?Math.max(0,Math.round((1-b.size/srcSize)*100)):0;\n    document.getElementById('s3').textContent=saved+'%';\n    stats.style.display='';\n    prev.src=outUrl;prevWrap.style.display='';\n    dl.disabled=false;\n    note.textContent='Done. New size '+w+' x '+h+' pixels. Press Download to save it.';\n    WT.resize();\n  },fmt.value,parseInt(q.value,10)/100);\n});\ndl.addEventListener('click',function(){\n  if(!outBlob){return;}\n  var ext=fmt.value==='image/png'?'png':fmt.value==='image/webp'?'webp':'jpg';\n  var name=srcName+'-compressed.'+ext;\n  try{\n    var a=document.createElement('a');a.href=outUrl;a.download=name;\n    document.body.appendChild(a);a.click();document.body.removeChild(a);\n    note.textContent='Saved as '+name+'. Check your downloads folder. You can also right click the preview below and choose Save image as.';\n  }catch(e){\n    var wnd=window.open(outUrl,'_blank');\n    note.textContent=wnd?'Opened the image in a new tab. Right click it and choose Save image as.':'Right click the preview below and choose Save image as.';\n  }\n  WT.resize();\n});",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Image Compressor - Compress JPG, PNG & WebP Online Free",
+    "metaDescription": "Free image compressor that never uploads your files. Shrink JPG, PNG and WebP images in your browser, control the quality, and download instantly.",
+    "keywords": [
+      "image compressor",
+      "compress jpg",
+      "compress png",
+      "reduce image size",
+      "webp converter",
+      "compress image online free",
+      "shrink photo size"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free image compressor shrinks JPG, PNG and WebP files right inside your browser, and your photo never leaves your device. Most compressors work by uploading your file to a server, processing it there and sending it back. Ours does not need to, because your browser can already decode and re-encode images on its own. You pick a file, choose a quality level, and get the smaller version back in a second or two. You can also convert between formats and cap the width, which is often where the biggest savings hide. Photographers, shop owners, bloggers and anyone fighting a slow website use this to cut image weight by half or more, usually with no difference you can see."
+    ],
+    "howto": [
+      "Click Choose an image and pick a JPG, PNG or WebP file from your device.",
+      "Set the quality slider. Around 80 percent is the sweet spot for photos, where the file gets much smaller but your eye cannot tell.",
+      "Pick an output format. JPG gives the smallest files for photos, WebP is smaller again and works in every modern browser, and PNG keeps every pixel exactly but stays large.",
+      "If the image is much bigger than it needs to be, set a maximum width. An image displayed at 800 pixels wide gains nothing from being 4000 pixels wide.",
+      "Press Compress image and check the three numbers: original size, new size, and how much you saved.",
+      "Press Download to save the result. If the saving looks small, drop the quality a little and compress again."
+    ],
+    "benefits": [
+      "The reason to use this one is simple: your image never goes anywhere. Product photos before a launch, scans of documents, client artwork under contract, personal pictures you would rather not hand to an unknown server. All of it stays on your machine. That is not a promise we are asking you to trust, it is how the tool is built. Load the page, turn off your wifi, and it still works.",
+      "It is also faster in practice, because there is no upload and no download from a server. A ten megabyte photo compresses as quickly as a small one, and there are no daily limits, no file size caps and no queue. You get real control too. Quality, output format and maximum width are all in your hands, and you see the exact saving before you commit. When your images are ready, the [word counter](/tools/word-counter/) helps you keep the surrounding copy tight, and the [QR code generator](/tools/qr-code-generator/) turns the finished page into something printable."
+    ],
+    "useCases": [
+      "Website owners and bloggers get the most obvious win. Images are usually the heaviest thing on a page, and heavy pages lose visitors and rank worse. Cutting a page of photos from four megabytes to four hundred kilobytes often takes seconds per image and makes a site feel completely different on a phone. Online sellers on Etsy, eBay, Shopify or Facebook Marketplace hit upload size limits constantly, and a quick compress solves it without buying software.",
+      "Students and office workers use it when a form refuses a photo that is too large, or when an email attachment will not send. Job applicants shrink a scanned certificate to fit an upload limit. Designers and photographers make lightweight previews for clients while keeping the originals untouched. Anyone posting to a forum, a listing site or a school portal that caps uploads at two megabytes has needed this tool at some point, usually in a hurry."
+    ],
+    "faqs": [
+      {
+        "q": "Is my image uploaded to your server?",
+        "a": "No. The file is read into the page and processed by your own browser using the canvas API. It is never transmitted. You can load this page, disconnect from the internet, and the compressor still works normally."
+      },
+      {
+        "q": "How much smaller will my image get?",
+        "a": "Photos usually drop by 60 to 90 percent at 80 percent quality, which is a large saving for no visible change. Screenshots and graphics with flat colour vary more. The tool shows the exact figure before you download, so you can try a different setting if you are not happy."
+      },
+      {
+        "q": "Which quality setting should I use?",
+        "a": "Start at 80. For photos on a website you can often go to 70 without anyone noticing. Below about 50 you start to see blocky patches in skies and smooth gradients. For anything being printed, stay at 90 or above."
+      },
+      {
+        "q": "Should I choose JPG or WebP?",
+        "a": "WebP files are usually 25 to 35 percent smaller than JPG at the same quality and every modern browser supports them, so choose WebP for websites. Choose JPG when you need something that opens everywhere, including older software and some print shops."
+      },
+      {
+        "q": "Why did my PNG get bigger instead of smaller?",
+        "a": "PNG is lossless, so re-encoding it does not always help, and a photo saved as PNG is always huge. If your image is a photo, switch the output format to JPG or WebP and the file will shrink dramatically."
+      },
+      {
+        "q": "Does compressing remove the metadata in my photo?",
+        "a": "Yes. Because the image is redrawn onto a canvas, EXIF data such as camera model, date and GPS location is not carried over. Many people count that as a privacy bonus, but keep your original if you need that information."
+      },
+      {
+        "q": "Is there a limit on file size or how many images I can do?",
+        "a": "No limits at all. Since nothing is uploaded there is nothing for us to meter. Very large images depend on your device's memory, but anything from a normal camera or phone is fine."
+      }
+    ]
+  }
+}

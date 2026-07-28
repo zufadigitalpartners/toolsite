@@ -1,0 +1,75 @@
+{
+  "name": "Text Compare",
+  "emoji": "🔍",
+  "category": "content/categories/text.json",
+  "popular": true,
+  "order": 14,
+  "short": "Compare two texts line by line and see exactly what changed.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>Original text</span><textarea id=\"a\" rows=\"9\" placeholder=\"Paste the first version here\"></textarea></label>\n  <label><span>Changed text</span><textarea id=\"b\" rows=\"9\" placeholder=\"Paste the second version here\"></textarea></label>\n</div>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\">Compare</button><button id=\"clear\">Clear both</button></div>\n<div class=\"stats\" id=\"stats\" style=\"display:none\">\n  <div class=\"stat\"><span class=\"num\" id=\"sAdd\">0</span><span class=\"label\">Added</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"sDel\">0</span><span class=\"label\">Removed</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"sSame\">0</span><span class=\"label\">Unchanged</span></div>\n</div>\n<div id=\"diff\" class=\"diffbox\" style=\"display:none\"></div>\n<p class=\"note\" id=\"note\">Paste two versions of a text and press Compare.</p>",
+    "css": ".diffbox{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9rem}\n.dline{display:flex;gap:10px;padding:3px 12px;white-space:pre-wrap;word-break:break-word}\n.dline .mk{flex:0 0 14px;opacity:.6}\n.dadd{background:#e7f8ef}\n.ddel{background:#fdeceb}\n.dsame{background:#fff}\n.dline+.dline{border-top:1px solid rgba(0,0,0,.03)}",
+    "js": "function lines(s){return s.replace(/\\r/g,'').split('\\n');}\nfunction lcs(a,b){\n  var m=a.length,n=b.length;\n  if(m*n>4000000){return null;}\n  var d=[];\n  for(var i=0;i<=m;i++){d.push(new Uint32Array(n+1));}\n  for(i=1;i<=m;i++){\n    for(var j=1;j<=n;j++){\n      d[i][j]=a[i-1]===b[j-1]?d[i-1][j-1]+1:Math.max(d[i-1][j],d[i][j-1]);\n    }\n  }\n  var out=[],x=m,y=n;\n  while(x>0&&y>0){\n    if(a[x-1]===b[y-1]){out.push({t:'same',v:a[x-1]});x--;y--;}\n    else if(d[x-1][y]>=d[x][y-1]){out.push({t:'del',v:a[x-1]});x--;}\n    else {out.push({t:'add',v:b[y-1]});y--;}\n  }\n  while(x>0){out.push({t:'del',v:a[x-1]});x--;}\n  while(y>0){out.push({t:'add',v:b[y-1]});y--;}\n  return out.reverse();\n}\nfunction esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}\ndocument.getElementById('go').addEventListener('click',function(){\n  var A=document.getElementById('a').value,B=document.getElementById('b').value;\n  var note=document.getElementById('note');\n  if(!A&&!B){note.textContent='Paste some text into both boxes first.';return;}\n  var res=lcs(lines(A),lines(B));\n  if(!res){note.textContent='Those texts are too large to compare line by line. Try smaller sections.';return;}\n  var add=0,del=0,same=0,html='';\n  res.forEach(function(r){\n    if(r.t==='add'){add++;html+='<div class=\"dline dadd\"><span class=\"mk\">+</span><span>'+esc(r.v)+'</span></div>';}\n    else if(r.t==='del'){del++;html+='<div class=\"dline ddel\"><span class=\"mk\">-</span><span>'+esc(r.v)+'</span></div>';}\n    else {same++;html+='<div class=\"dline dsame\"><span class=\"mk\"> </span><span>'+esc(r.v)+'</span></div>';}\n  });\n  document.getElementById('sAdd').textContent=add;\n  document.getElementById('sDel').textContent=del;\n  document.getElementById('sSame').textContent=same;\n  document.getElementById('stats').style.display='';\n  var box=document.getElementById('diff');box.innerHTML=html;box.style.display='';\n  note.textContent=(add||del)?'Found '+add+' added and '+del+' removed lines.':'The two texts are identical.';\n  WT.resize();\n});\ndocument.getElementById('clear').addEventListener('click',function(){\n  document.getElementById('a').value='';document.getElementById('b').value='';\n  document.getElementById('diff').style.display='none';\n  document.getElementById('stats').style.display='none';\n  document.getElementById('note').textContent='Paste two versions of a text and press Compare.';\n  WT.resize();\n});",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Text Compare - Free Online Diff Checker",
+    "metaDescription": "Free text compare tool. Paste two versions and see exactly which lines were added, removed or left alone. Runs in your browser, nothing is uploaded.",
+    "keywords": [
+      "text compare",
+      "diff checker",
+      "compare two texts",
+      "text difference",
+      "online diff tool",
+      "compare documents online"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free text compare tool puts two versions of a text side by side and shows you exactly what changed. Paste the original into one box, the newer version into the other, and press Compare. Added lines are highlighted in green, removed lines in red, and everything untouched stays plain, so a single glance tells you what moved. Trying to spot changes by reading two documents in turn is slow and unreliable, and a one word edit buried in a long paragraph is almost impossible to catch that way. This does the comparison properly using the same line matching approach that developers rely on, and it does it entirely inside your browser, so contracts, drafts and code never leave your device."
+    ],
+    "howto": [
+      "Paste the original version into the left box.",
+      "Paste the changed version into the right box.",
+      "Press Compare. The result appears underneath with added lines in green and removed lines in red.",
+      "Read the three counters first. They tell you at a glance how big the change actually is.",
+      "Scroll the result to see each change in context, since unchanged lines are shown too.",
+      "Press Clear both when you want to start again with a different pair."
+    ],
+    "benefits": [
+      "The comparison is done line by line using a proper matching algorithm rather than a simple position check, which matters more than it sounds. If someone inserts one sentence near the top, a naive comparison marks every line after it as changed and the result is useless. This tool recognises that the rest of the text simply moved down, so you only see the single real edit.",
+      "Everything runs locally, and for this particular job that is a serious point. The documents people most want to compare are exactly the ones they should not upload: contract drafts, legal clauses, unpublished articles, configuration files, private code. None of it is transmitted here. The tool also handles large texts, and tells you clearly when something is too big rather than freezing. Once you know what changed, the [word counter](/tools/word-counter/) tells you whether the new version still fits your limit, and the [case converter](/tools/case-converter/) fixes any capitalization that drifted along the way."
+    ],
+    "useCases": [
+      "Writers and editors compare drafts to see what a collaborator actually changed, which is far quicker than reading both versions and hoping to notice. Anyone who has received a document back marked \"minor edits\" knows those two words cannot be trusted. Translators check whether a source text has been revised since they last worked on it, so they only retranslate the parts that moved.",
+      "Legal and admin staff compare contract versions before signing, where a single changed clause matters enormously and reading forty pages twice is not realistic. Developers compare configuration files, environment settings and log output when one server behaves differently from another. Students compare their own drafts to see how a piece evolved. Support teams compare a working setup against a broken one, which is often the fastest route to finding what someone changed by accident."
+    ],
+    "faqs": [
+      {
+        "q": "Are my documents uploaded anywhere?",
+        "a": "No. The whole comparison runs in your browser using JavaScript. Nothing is transmitted, logged or stored, which makes it safe for contracts, unpublished writing and internal code."
+      },
+      {
+        "q": "How does the comparison work?",
+        "a": "It finds the longest sequence of lines the two texts have in common, then treats everything else as added or removed. That is why inserting a line near the top does not mark the whole rest of the document as changed."
+      },
+      {
+        "q": "Does it compare word by word inside a line?",
+        "a": "Not currently. If any part of a line changes, the whole line shows as removed and the new version as added. Splitting long paragraphs onto separate lines before comparing gives you a more precise view."
+      },
+      {
+        "q": "Can I compare Word or PDF documents?",
+        "a": "Not directly. Open the document, select the text, copy it and paste it into the boxes. Formatting will not carry over, but the wording compares perfectly, and wording is usually what you are checking."
+      },
+      {
+        "q": "Is there a size limit?",
+        "a": "Very large texts are limited because the comparison work grows quickly with length. If you hit that limit the tool tells you clearly and you can compare a section at a time rather than the whole document."
+      },
+      {
+        "q": "The counters say lines changed but the text looks the same.",
+        "a": "Look for invisible differences: trailing spaces, tabs against spaces, or line endings from a different operating system. These are real differences even though your eye cannot see them, and they are a common cause of confusing bugs."
+      }
+    ]
+  }
+}

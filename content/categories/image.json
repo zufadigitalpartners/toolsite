@@ -1,0 +1,17 @@
+{
+  "name": "Image Tools",
+  "emoji": "🖼️",
+  "color": "#db2777",
+  "desc": "Compress and convert images without uploading them anywhere.",
+  "order": 5,
+  "seo": {
+    "heading": "Free online image tools that never upload your files",
+    "paragraphs": [
+      "Almost every image tool on the web works the same way. You pick a file, it uploads to a server you know nothing about, something happens there, and you download the result. For a holiday photo that may be fine. For a product shot before launch, a scan of a document, or a client's artwork, handing the file to a stranger's server is a real problem.",
+      "Our image tools work differently. Your browser can already decode, resize and re-encode images on its own, so that is exactly what happens. The file is read from your disk into the page, processed by your own device, and handed straight back to you. It never travels anywhere. You can disconnect from the internet after the page loads and the tool keeps working.",
+      "The [image compressor](/tools/image-compressor/) is the first tool in this category. It shrinks JPG, PNG and WebP files by re-encoding them at a quality level you control, and shows you the exact saving before you download. Most photos lose between half and nine tenths of their size with no visible difference, which is usually the single biggest speed win available to a website.",
+      "Because nothing is uploaded there are no file size caps, no daily limits and no queue. Compress fifty images one after another if you want. The only limit is your own device, and modern phones handle this easily.",
+      "More image tools are on the way. If there is one you need, tell us on the [contact page](/contact/) and it will go on the list."
+    ]
+  }
+}

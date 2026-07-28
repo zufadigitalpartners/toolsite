@@ -1,0 +1,75 @@
+{
+  "name": "Lorem Ipsum Generator",
+  "emoji": "📄",
+  "category": "content/categories/generators.json",
+  "popular": false,
+  "order": 12,
+  "short": "Generate placeholder text in paragraphs, sentences or words.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>How many</span><input type=\"number\" id=\"count\" value=\"3\" min=\"1\" max=\"200\"></label>\n  <label><span>Of what</span><select id=\"unit\"><option value=\"p\">Paragraphs</option><option value=\"s\">Sentences</option><option value=\"w\">Words</option></select></label>\n</div>\n<label class=\"check\" style=\"margin-top:12px;display:flex;align-items:center;gap:10px;font-weight:600\">\n  <input type=\"checkbox\" id=\"classic\" checked> Start with \"Lorem ipsum dolor sit amet\"\n</label>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\">Generate</button><button id=\"copy\">Copy</button></div>\n<textarea id=\"out\" rows=\"12\" style=\"margin-top:14px\"></textarea>\n<p class=\"note\" id=\"note\"></p>",
+    "css": "textarea{min-height:220px}",
+    "js": "var W=('lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum sed perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta explicabo nemo ipsam voluptas aspernatur aut odit fugit sequi nesciunt neque porro quisquam est dolorem adipisci numquam eius modi tempora incidunt magnam quaerat').split(' ');\nvar LEAD='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';\nvar seed=1;\nfunction rnd(){seed=(seed*1103515245+12345)%2147483648;return seed/2147483648;}\nfunction pick(){return W[Math.floor(rnd()*W.length)];}\nfunction sentence(){\n  var n=5+Math.floor(rnd()*12),parts=[];\n  for(var i=0;i<n;i++){parts.push(pick());}\n  if(n>8&&rnd()>0.5){parts.splice(3+Math.floor(rnd()*3),0,pick()+',');}\n  var s=parts.join(' ');\n  return s.charAt(0).toUpperCase()+s.slice(1)+'.';\n}\nfunction paragraph(){\n  var n=3+Math.floor(rnd()*4),out=[];\n  for(var i=0;i<n;i++){out.push(sentence());}\n  return out.join(' ');\n}\nfunction gen(){\n  seed=Date.now()%2147483647;\n  var c=Math.max(1,Math.min(200,parseInt(document.getElementById('count').value,10)||1));\n  var u=document.getElementById('unit').value,classic=document.getElementById('classic').checked,out='';\n  if(u==='w'){\n    var words=[];\n    for(var i=0;i<c;i++){words.push(pick());}\n    out=words.join(' ');\n    if(classic){out=('lorem ipsum dolor sit amet '+out).split(' ').slice(0,c).join(' ');}\n    out=out.charAt(0).toUpperCase()+out.slice(1)+'.';\n  } else if(u==='s'){\n    var ss=[];\n    for(var j=0;j<c;j++){ss.push(j===0&&classic?LEAD:sentence());}\n    out=ss.join(' ');\n  } else {\n    var ps=[];\n    for(var k=0;k<c;k++){ps.push(k===0&&classic?LEAD+' '+paragraph():paragraph());}\n    out=ps.join('\\n\\n');\n  }\n  document.getElementById('out').value=out;\n  var wc=out.trim().split(/\\s+/).filter(Boolean).length;\n  document.getElementById('note').textContent=wc+' words, '+out.length+' characters.';\n  WT.resize();\n}\ndocument.getElementById('go').addEventListener('click',gen);\ndocument.getElementById('copy').addEventListener('click',function(){\n  var ok=WT.copy(document.getElementById('out').value);\n  document.getElementById('note').textContent=ok?'Copied to clipboard.':'Copy failed, select the text instead.';\n});\ngen();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Lorem Ipsum Generator - Free Placeholder Text Online",
+    "metaDescription": "Free lorem ipsum generator. Create placeholder text by paragraphs, sentences or exact word count, then copy it straight into your design or layout.",
+    "keywords": [
+      "lorem ipsum generator",
+      "placeholder text",
+      "dummy text generator",
+      "lipsum",
+      "filler text",
+      "lorem ipsum paragraphs"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free lorem ipsum generator creates placeholder text in whatever amount you need, by paragraphs, by sentences or by an exact word count. Designers have used lorem ipsum for centuries because it looks like real language without being readable, which keeps everyone looking at the layout instead of arguing about the copy. Fill a mockup with real sentences and the meeting turns into a discussion about wording. Fill it with lorem ipsum and people finally see the spacing, the line length and the typography. Set your amount, choose whether to start with the traditional opening line, and copy the result straight into your design tool, template or code."
+    ],
+    "howto": [
+      "Enter how many you want, then choose paragraphs, sentences or words from the dropdown.",
+      "Leave the tick box on to start with the classic \"Lorem ipsum dolor sit amet\" opening, which most people expect to see.",
+      "Turn the tick box off when you need several different blocks and do not want them all starting the same way.",
+      "Press Generate. Press it again for a completely different block of the same length.",
+      "Check the word and character count under the box if you are filling a field with a limit.",
+      "Press Copy and paste it into Figma, Word, your CMS, or straight into your HTML."
+    ],
+    "benefits": [
+      "Most generators only give you paragraphs, which is fine for a blog mockup and useless when you need to fill a 40 character product title or a 15 word summary field. Choosing words as the unit lets you hit an exact length, which matters when you are testing whether a real headline will fit the space you designed for it.",
+      "The output varies every time you press Generate, so a page full of cards does not end up with the same sentence repeated, which makes a mockup look artificial. Everything runs in your browser, so it is instant and works offline once the page has loaded. When your layout is filled, the [word counter](/tools/word-counter/) tells you how much real copy you actually need to write to fill the same space, and the [case converter](/tools/case-converter/) fixes the capitalization of headings once the real words arrive."
+    ],
+    "useCases": [
+      "Designers are the obvious users. Web and UI designers fill wireframes, app screens and email templates so a client reviews the design rather than the wording. Print designers pour it into brochures and magazine spreads to check how columns break. The whole point is to see how a layout behaves before a single real word exists.",
+      "Developers use it to test that a component survives contact with real content. A card that looks perfect with three words often falls apart with sixty, and a long unbroken block is the fastest way to find an overflow bug. Content teams use it as a placeholder in a CMS so a page can be built before the copy is signed off. Students and teachers use it when a document needs realistic bulk for a formatting exercise. Anyone who has ever typed \"asdfasdf\" into a design to see how it looks has been reaching for this tool without knowing it existed."
+    ],
+    "faqs": [
+      {
+        "q": "What actually is lorem ipsum?",
+        "a": "It is scrambled Latin taken from a work by Cicero written in 45 BC. Typesetters have used it since the 1500s. The words are deliberately meaningless, which is the whole point: your eye sees the shape of text without your brain reading it."
+      },
+      {
+        "q": "Why not just type random letters instead?",
+        "a": "Because random letters do not look like language. Lorem ipsum has realistic word lengths and sentence rhythm, so line breaks, spacing and paragraph shapes behave the way real copy will. Rows of asdfasdf tell you nothing about how your design will look."
+      },
+      {
+        "q": "Can I use the generated text commercially?",
+        "a": "Yes. Lorem ipsum is not copyrighted and carries no licence. Use it in client work, templates you sell, or anything else without restriction."
+      },
+      {
+        "q": "How much text should I generate?",
+        "a": "Match your real content. A blog mockup usually needs three to five paragraphs, a product card needs 15 to 25 words, a page title needs 5 to 10. If you know the real limit, switch to words and generate that exact number."
+      },
+      {
+        "q": "Why does the text change every time I press Generate?",
+        "a": "Each press builds a new block, so repeated elements on a page look naturally different instead of suspiciously identical. Press it as many times as you like until you get a block you are happy with."
+      },
+      {
+        "q": "Is there a risk of lorem ipsum reaching a live site?",
+        "a": "It happens more often than anyone admits, and it is embarrassing. Before launching, search your site for the word \"lorem\" and check the results. It is a five second check that has saved a lot of people."
+      }
+    ]
+  }
+}
