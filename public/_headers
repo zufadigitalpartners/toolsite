@@ -1,0 +1,12 @@
+# Cloudflare Pages reads this file from the build output root.
+# Standard hardening headers. Deliberately no Content-Security-Policy:
+# the CMS tool embeds run inline scripts inside a sandboxed frame, and a
+# strict CSP would block them.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
