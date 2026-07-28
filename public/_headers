@@ -3,6 +3,11 @@
 # the CMS tool embeds run inline scripts inside a sandboxed frame, and a
 # strict CSP would block them.
 
+# Keep the CMS out of search results. robots.txt asks crawlers not to
+# fetch it; this tells any crawler that fetches it anyway not to index it.
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
