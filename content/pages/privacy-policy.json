@@ -86,5 +86,7 @@
         "Questions about this policy, or about privacy on this site generally, are welcome. Email us at **{contactEmail}** or use the form on our [contact page](/contact/)."
       ]
     }
-  ]
+  ],
+  "footerGroup": "legal",
+  "footerOrder": 1
 }

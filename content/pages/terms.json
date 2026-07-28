@@ -72,5 +72,7 @@
         "If any part of these terms is found to be unenforceable, the rest stays in force. Questions about these terms can go to **{contactEmail}** or through our [contact page](/contact/)."
       ]
     }
-  ]
+  ],
+  "footerGroup": "legal",
+  "footerOrder": 2
 }

@@ -1,7 +1,7 @@
 {
   "name": "JSON Formatter",
   "emoji": "🧩",
-  "category": "developer",
+  "category": "content/categories/developer.json",
   "popular": true,
   "order": 8,
   "short": "Format, minify and validate JSON with clear error messages.",

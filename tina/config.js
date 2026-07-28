@@ -8,7 +8,7 @@ const branch =
   "main";
 
 const slugify = (values) =>
-  (values?.name || "new-entry")
+  (values?.name || values?.title || "new-entry")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
@@ -21,6 +21,14 @@ const paragraphList = (name, label, description) => ({
   label,
   description,
   list: true,
+  ui: { component: "textarea" },
+});
+
+const codeField = (name, label, description) => ({
+  type: "string",
+  name,
+  label,
+  description,
   ui: { component: "textarea" },
 });
 
@@ -55,21 +63,89 @@ export default defineConfig({
           { type: "string", name: "name", label: "Site name", required: true },
           { type: "string", name: "tagline", label: "Tagline" },
           { type: "string", name: "description", label: "Meta description", ui: { component: "textarea" } },
-          { type: "string", name: "url", label: "Site URL", description: "Full origin, e.g. https://wearetool.com — used for sitemap, canonicals and Open Graph" },
+          { type: "string", name: "url", label: "Site URL", description: "Full origin, e.g. https://wearetool.com. Used for sitemap, canonicals and Open Graph." },
           { type: "string", name: "contactEmail", label: "Contact email", description: "Shown on the contact page and used as the fallback if the form is not configured" },
           {
             type: "string",
             name: "contactFormKey",
             label: "Contact form access key (Web3Forms)",
-            description: "Get a free key at web3forms.com by entering your email. Paste it here and the contact form starts delivering messages to your inbox. Leave empty to show a plain email link instead.",
-          },
-          {
-            type: "string",
-            name: "googleVerification",
-            label: "Google Search Console verification code",
-            description: "Only the content value of the google-site-verification meta tag, not the whole tag",
+            description: "Free key from web3forms.com. Leave empty to show a plain email link instead of the form.",
           },
           { type: "string", name: "homeTitle", label: "Homepage meta title suffix", description: "Browser tab title: \"SiteName | <this text>\"" },
+
+          // ----- HEADER CODE -----
+          {
+            type: "object",
+            name: "verificationTags",
+            label: "Header code: verification meta tags",
+            description: "For Google Search Console, Bing, Pinterest, Facebook domain verification and similar. Paste only the two values from the tag, not the whole tag.",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.name || "verification tag" }) },
+            fields: [
+              { type: "string", name: "name", label: "name=", description: "e.g. google-site-verification" },
+              { type: "string", name: "content", label: "content=", description: "the long code the service gave you" },
+            ],
+          },
+          {
+            type: "object",
+            name: "headScripts",
+            label: "Header code: external scripts",
+            description: "Scripts loaded in the head, such as Google AdSense or an analytics tag. Add the src URL only.",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.src || "script" }) },
+            fields: [
+              { type: "string", name: "src", label: "Script URL" },
+              { type: "boolean", name: "async", label: "Load asynchronously (recommended)" },
+              { type: "string", name: "crossorigin", label: "crossorigin value", description: "Usually \"anonymous\" for AdSense. Leave empty otherwise." },
+            ],
+          },
+          codeField(
+            "inlineHeadCode",
+            "Header code: inline JavaScript",
+            "Raw JavaScript placed in the head. Paste the code only, without the surrounding <script> tags."
+          ),
+
+          {
+            type: "object",
+            name: "footer",
+            label: "Footer",
+            fields: [
+              { type: "string", name: "line1", label: "Left line (after © year + site name)" },
+              { type: "string", name: "line2", label: "Right line" },
+            ],
+          },
+          {
+            type: "object",
+            name: "hero",
+            label: "Homepage hero",
+            fields: [
+              { type: "string", name: "heading", label: "Heading (first line)" },
+              { type: "string", name: "headingAccent", label: "Heading accent (second line)" },
+              { type: "string", name: "subheading", label: "Subheading", ui: { component: "textarea" } },
+              {
+                type: "object",
+                name: "stats",
+                label: "Hero stats",
+                list: true,
+                ui: { itemProps: (item) => ({ label: item?.label || "stat" }) },
+                fields: [
+                  { type: "string", name: "value", label: "Value", description: "{toolCount} is replaced with the live number of tools" },
+                  { type: "string", name: "label", label: "Label" },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "whyUs",
+            label: "\"Why us\" feature boxes",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.title || "feature" }) },
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "desc", label: "Description", ui: { component: "textarea" } },
+            ],
+          },
           {
             type: "object",
             name: "ui",
@@ -135,47 +211,6 @@ export default defineConfig({
               },
             ],
           },
-          {
-            type: "object",
-            name: "footer",
-            label: "Footer",
-            fields: [
-              { type: "string", name: "line1", label: "Left line (after © year + site name)" },
-              { type: "string", name: "line2", label: "Right line" },
-            ],
-          },
-          {
-            type: "object",
-            name: "hero",
-            label: "Homepage hero",
-            fields: [
-              { type: "string", name: "heading", label: "Heading (first line)" },
-              { type: "string", name: "headingAccent", label: "Heading accent (second line)" },
-              { type: "string", name: "subheading", label: "Subheading", ui: { component: "textarea" } },
-              {
-                type: "object",
-                name: "stats",
-                label: "Hero stats",
-                list: true,
-                ui: { itemProps: (item) => ({ label: item?.label || "stat" }) },
-                fields: [
-                  { type: "string", name: "value", label: "Value", description: "{toolCount} is replaced with the live number of tools" },
-                  { type: "string", name: "label", label: "Label" },
-                ],
-              },
-            ],
-          },
-          {
-            type: "object",
-            name: "whyUs",
-            label: "\"Why us\" feature boxes",
-            list: true,
-            ui: { itemProps: (item) => ({ label: item?.title || "feature" }) },
-            fields: [
-              { type: "string", name: "title", label: "Title" },
-              { type: "string", name: "desc", label: "Description", ui: { component: "textarea" } },
-            ],
-          },
         ],
       },
 
@@ -200,7 +235,7 @@ export default defineConfig({
             label: "Category page SEO content",
             fields: [
               { type: "string", name: "heading", label: "Section heading" },
-              paragraphList("paragraphs", "Paragraphs", "300-400 words total; [links](/tools/slug/) allowed"),
+              paragraphList("paragraphs", "Paragraphs", "300-400 words total. [links](/tools/slug/) allowed."),
             ],
           },
         ],
@@ -213,21 +248,43 @@ export default defineConfig({
         path: "content/tools",
         format: "json",
         ui: {
-          filename: { readonly: false, slugify },
+          filename: {
+            readonly: false,
+            slugify,
+            description: "This becomes the page address: /tools/<filename>/",
+          },
         },
         fields: [
-          { type: "string", name: "name", label: "Name", required: true },
+          { type: "string", name: "name", label: "Tool name", required: true },
           { type: "string", name: "emoji", label: "Emoji" },
           {
-            type: "string",
+            type: "reference",
             name: "category",
             label: "Category",
-            options: ["text", "generators", "calculators", "developer"],
-            required: true,
+            collections: ["category"],
+            description: "Pick an existing category, or create a new one under Categories first.",
           },
           { type: "boolean", name: "popular", label: "Show in Popular tools" },
           { type: "number", name: "order", label: "Sort order" },
           { type: "string", name: "short", label: "Short description (cards & search)", ui: { component: "textarea" } },
+
+          // ----- THE TOOL ITSELF -----
+          codeField(
+            "embedHtml",
+            "Tool code: HTML",
+            "The tool's interface. Use plain HTML. Site styling is applied automatically, so <button>, <input>, <textarea>, <select>, label, .row-2, .btn-primary, .stats/.stat, .out, .note and .error all look native. Leave empty for the nine original tools, which are built in."
+          ),
+          codeField(
+            "embedCss",
+            "Tool code: CSS",
+            "Optional extra styling. Anything here overrides the site defaults for this tool only. Paste the rules without <style> tags."
+          ),
+          codeField(
+            "embedJs",
+            "Tool code: JavaScript",
+            "The tool's logic. Paste the code without <script> tags. Use WT.copy(text) to copy to the clipboard. Errors are shown on the page instead of breaking the site."
+          ),
+
           {
             type: "object",
             name: "seo",
@@ -256,14 +313,18 @@ export default defineConfig({
         ],
       },
 
-      // ---------- STATIC PAGES ----------
+      // ---------- PAGES ----------
       {
         name: "page",
         label: "Pages",
         path: "content/pages",
         format: "json",
         ui: {
-          allowedActions: { create: false, delete: false },
+          filename: {
+            readonly: false,
+            slugify,
+            description: "This becomes the page address: /<filename>/",
+          },
         },
         fields: [
           { type: "string", name: "title", label: "Page heading", description: "{siteName} is replaced with the site name" },
@@ -274,13 +335,21 @@ export default defineConfig({
             type: "boolean",
             name: "noindex",
             label: "Hide from Google",
-            description: "On for legal pages. The page still works normally and stays linked in the footer, it is just kept out of search results and the sitemap.",
+            description: "On for legal pages. The page still works and stays linked in the footer, it is just kept out of search results and the sitemap.",
           },
+          { type: "boolean", name: "showUpdated", label: "Show \"Last updated\" date" },
+          { type: "boolean", name: "showContactForm", label: "Show the contact form on this page" },
           {
-            type: "boolean",
-            name: "showUpdated",
-            label: "Show \"Last updated\" date",
+            type: "string",
+            name: "footerGroup",
+            label: "Footer column",
+            options: [
+              { value: "site", label: "Site column" },
+              { value: "legal", label: "Legal column" },
+              { value: "none", label: "Do not show in the footer" },
+            ],
           },
+          { type: "number", name: "footerOrder", label: "Position in the footer column" },
           paragraphList("intro", "Intro paragraphs", "Shown larger, before the first heading"),
           {
             type: "object",
@@ -294,11 +363,11 @@ export default defineConfig({
             ],
           },
           paragraphList("body", "Extra paragraphs (legacy)", "Older flat paragraph list, still rendered if used"),
-          { type: "string", name: "formHeading", label: "Contact form heading (contact page only)" },
+          { type: "string", name: "formHeading", label: "Contact form heading" },
           {
             type: "object",
             name: "formLabels",
-            label: "Contact form labels (contact page only)",
+            label: "Contact form labels",
             fields: [
               { type: "string", name: "name", label: "Name field label" },
               { type: "string", name: "email", label: "Email field label" },
@@ -314,7 +383,7 @@ export default defineConfig({
           {
             type: "object",
             name: "afterForm",
-            label: "Sections below the contact form (contact page only)",
+            label: "Sections below the contact form",
             list: true,
             ui: { itemProps: (item) => ({ label: item?.heading || "section" }) },
             fields: [

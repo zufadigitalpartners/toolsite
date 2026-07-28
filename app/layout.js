@@ -2,7 +2,7 @@ import "./globals.css";
 import Link from "next/link";
 import { site, ui } from "@/lib/site";
 import { categories, toolsByCategory } from "@/lib/tools";
-import { getPage } from "@/lib/pages";
+import { footerPages, fill } from "@/lib/pages";
 import CategoryMenu from "@/components/CategoryMenu";
 import Reveal from "@/components/Reveal";
 
@@ -30,9 +30,6 @@ export const metadata = {
     index: true,
     follow: true,
   },
-  verification: site.googleVerification
-    ? { google: site.googleVerification }
-    : undefined,
 };
 
 // Organization + WebSite schema, emitted once site-wide so Google can
@@ -74,6 +71,26 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}
         />
+
+        {/* Head section managed in Tina: Site Settings > Header code */}
+        {site.verificationTags.map((tag, i) =>
+          tag?.name && tag?.content ? (
+            <meta key={i} name={tag.name} content={tag.content} />
+          ) : null
+        )}
+        {site.headScripts.map((entry, i) =>
+          entry?.src ? (
+            <script
+              key={i}
+              src={entry.src}
+              async={entry.async !== false}
+              crossOrigin={entry.crossorigin || undefined}
+            />
+          ) : null
+        )}
+        {site.inlineHeadCode ? (
+          <script dangerouslySetInnerHTML={{ __html: site.inlineHeadCode }} />
+        ) : null}
       </head>
       <body>
         <header className="site-header">
@@ -122,18 +139,26 @@ export default function RootLayout({ children }) {
               <div>
                 <h3>{ui("nav.footerSiteHeading", "Site")}</h3>
                 <ul>
-                  <li><Link href="/tools/">All tools</Link></li>
-                  <li><Link href="/about/">{getPage("about")?.metaTitle || "About"}</Link></li>
-                  <li><Link href="/contact/">{getPage("contact")?.metaTitle || "Contact"}</Link></li>
+                  <li><Link href="/tools/">{ui("nav.allTools", "All tools")}</Link></li>
+                  {footerPages("site").map((page) => (
+                    <li key={page.slug}>
+                      <Link href={`/${page.slug}/`}>
+                        {fill(page.metaTitle || page.title)}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
                 <h3>{ui("nav.footerLegalHeading", "Legal")}</h3>
                 <ul>
-                  <li><Link href="/privacy-policy/">{getPage("privacy-policy")?.metaTitle || "Privacy Policy"}</Link></li>
-                  <li><Link href="/terms/">{getPage("terms")?.metaTitle || "Terms of Service"}</Link></li>
-                  <li><Link href="/disclaimer/">{getPage("disclaimer")?.metaTitle || "Disclaimer"}</Link></li>
-                  <li><Link href="/cookie-policy/">{getPage("cookie-policy")?.metaTitle || "Cookie Policy"}</Link></li>
+                  {footerPages("legal").map((page) => (
+                    <li key={page.slug}>
+                      <Link href={`/${page.slug}/`}>
+                        {fill(page.metaTitle || page.title)}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

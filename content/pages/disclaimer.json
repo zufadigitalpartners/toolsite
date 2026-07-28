@@ -57,5 +57,7 @@
         "By using {siteName} you accept this disclaimer along with our [terms of service](/terms/) and [privacy policy](/privacy-policy/). If you do not accept it, please do not use the site. Questions are welcome at **{contactEmail}**."
       ]
     }
-  ]
+  ],
+  "footerGroup": "legal",
+  "footerOrder": 3
 }

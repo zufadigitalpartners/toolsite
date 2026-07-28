@@ -44,5 +44,8 @@
         "We keep {siteName} free by showing unobtrusive advertising. If you are interested in advertising with us, or you run a site or product that would genuinely help our visitors, pick the advertising option in the form and tell us what you have in mind. We are selective about anything that touches the visitor experience, but we do read every proposal."
       ]
     }
-  ]
+  ],
+  "footerGroup": "site",
+  "footerOrder": 2,
+  "showContactForm": true
 }

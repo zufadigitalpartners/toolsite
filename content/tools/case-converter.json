@@ -1,7 +1,7 @@
 {
   "name": "Case Converter",
   "emoji": "🔠",
-  "category": "text",
+  "category": "content/categories/text.json",
   "popular": true,
   "order": 2,
   "short": "Convert text to UPPERCASE, lowercase, Title Case or Sentence case.",

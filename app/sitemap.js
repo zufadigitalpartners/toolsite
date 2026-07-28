@@ -1,17 +1,9 @@
 import { site } from "@/lib/site";
 import { tools, categories } from "@/lib/tools";
-import { getPage } from "@/lib/pages";
+import { indexablePages } from "@/lib/pages";
 
 // Static-export compatible: Next.js renders this to /sitemap.xml at build time.
 export const dynamic = "force-static";
-
-// Content pages that belong in the sitemap. Legal pages are left out on
-// purpose: they carry noindex, so listing them would ask Google to crawl
-// something we have told it not to index.
-const CONTENT_PAGES = [
-  { slug: "about", path: "/about/", priority: 0.6 },
-  { slug: "contact", path: "/contact/", priority: 0.5 },
-];
 
 export default function sitemap() {
   const base = site.url.replace(/\/$/, "");
@@ -21,11 +13,12 @@ export default function sitemap() {
     { url: `${base}/tools/`, priority: 0.9, changeFrequency: "weekly" },
   ];
 
-  for (const page of CONTENT_PAGES) {
-    if (getPage(page.slug)?.noindex) continue;
+  // Every CMS page that is not marked noindex. Legal pages carry noindex
+  // so they stay out of here automatically.
+  for (const page of indexablePages()) {
     entries.push({
-      url: `${base}${page.path}`,
-      priority: page.priority,
+      url: `${base}/${page.slug}/`,
+      priority: 0.6,
       changeFrequency: "monthly",
     });
   }

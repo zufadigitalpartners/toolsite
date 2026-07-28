@@ -1,7 +1,7 @@
 {
   "name": "Random Number Generator",
   "emoji": "🎲",
-  "category": "generators",
+  "category": "content/categories/generators.json",
   "popular": false,
   "order": 5,
   "short": "Generate random numbers in any range for draws, games and picks.",

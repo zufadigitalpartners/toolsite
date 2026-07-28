@@ -1,7 +1,7 @@
 {
   "name": "Date Difference Calculator",
   "emoji": "📅",
-  "category": "calculators",
+  "category": "content/categories/calculators.json",
   "popular": false,
   "order": 7,
   "short": "Count the days, weeks and months between any two dates.",

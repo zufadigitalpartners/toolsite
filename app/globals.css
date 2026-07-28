@@ -878,6 +878,18 @@ textarea.tool-input:focus, input.tool-text:focus, select.tool-text:focus {
 }
 .mode-tabs button.active { background: #fff; color: var(--ink); box-shadow: var(--shadow-1); }
 
+/* ---- Embedded tools (added through the CMS) ---- */
+/* No height transition here on purpose: animating the height of a frame
+   that is also reporting its own height causes the two to fight and the
+   frame can settle at the wrong size. */
+.tool-embed {
+  display: block;
+  width: 100%;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
 /* ---- Content under tool ---- */
 .tool-content { margin-top: 40px; max-width: 720px; }
 .tool-content h2 { font-size: clamp(1.12rem, 3vw, 1.25rem); margin-top: 32px; }

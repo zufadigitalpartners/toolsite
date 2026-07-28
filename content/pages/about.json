@@ -47,5 +47,7 @@
         "If a tool you need is missing, or you have spotted a bug or a confusing explanation, we would genuinely like to hear about it. The [contact page](/contact/) has a short form that reaches us directly, and we read every message that comes through."
       ]
     }
-  ]
+  ],
+  "footerGroup": "site",
+  "footerOrder": 1
 }

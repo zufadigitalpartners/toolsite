@@ -1,7 +1,7 @@
 {
   "name": "Base64 Encoder / Decoder",
   "emoji": "🔣",
-  "category": "developer",
+  "category": "content/categories/developer.json",
   "popular": false,
   "order": 9,
   "short": "Encode text to Base64 or decode Base64 back to text.",

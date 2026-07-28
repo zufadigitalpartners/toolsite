@@ -1,7 +1,7 @@
 {
   "name": "Word Counter",
   "emoji": "🔢",
-  "category": "text",
+  "category": "content/categories/text.json",
   "popular": true,
   "order": 1,
   "short": "Count words, characters, sentences and reading time instantly.",

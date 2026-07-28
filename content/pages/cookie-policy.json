@@ -52,5 +52,7 @@
         "If the services we use change, this page will be updated with a new date at the top. If you have a question about cookies on {siteName}, or you think something here is unclear or out of date, email **{contactEmail}** or use our [contact form](/contact/)."
       ]
     }
-  ]
+  ],
+  "footerGroup": "legal",
+  "footerOrder": 4
 }
