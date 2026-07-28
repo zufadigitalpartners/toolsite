@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 // The code runs inside a sandboxed frame, so a broken or badly behaved
 // tool can never break the page around it, and it cannot reach the parent
 // document. The frame reports its own height so there is no inner scrollbar.
-export default function ToolEmbed({ doc, title, frameId }) {
+export default function ToolEmbed({ doc, title, frameId, allowSameOrigin = false }) {
   const frameRef = useRef(null);
   const [height, setHeight] = useState(260);
 
@@ -46,7 +46,14 @@ export default function ToolEmbed({ doc, title, frameId }) {
       srcDoc={doc}
       style={{ height }}
       onLoad={requestHeight}
-      sandbox="allow-scripts allow-popups allow-modals allow-downloads"
+      // A frame without allow-same-origin sends "Origin: null" on fetch,
+      // which most APIs reject, so tools that call an API opt in to the
+      // looser sandbox. Everything else stays fully isolated.
+      sandbox={
+        allowSameOrigin
+          ? "allow-scripts allow-popups allow-modals allow-downloads allow-same-origin allow-forms"
+          : "allow-scripts allow-popups allow-modals allow-downloads"
+      }
     />
   );
 }

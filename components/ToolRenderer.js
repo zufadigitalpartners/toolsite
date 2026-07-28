@@ -26,12 +26,25 @@ export const BUILT_IN_TOOLS = {
   "word-counter": WordCounter,
 };
 
+// Reads the grouped shape and the older flat one.
+function readCode(tool) {
+  const c = tool.code || {};
+  return {
+    html: c.html ?? tool.embedHtml ?? "",
+    css: c.css ?? tool.embedCss ?? "",
+    js: c.js ?? tool.embedJs ?? "",
+    needsNetwork: c.needsNetwork ?? false,
+    apiKey: c.apiKey ?? "",
+    apiBaseUrl: c.apiBaseUrl ?? "",
+  };
+}
+
 export default function ToolRenderer({ tool, accent }) {
   const Built = BUILT_IN_TOOLS[tool.slug];
   if (Built) return <Built />;
 
-  const hasCode = tool.embedHtml || tool.embedJs || tool.embedCss;
-  if (!hasCode) {
+  const code = readCode(tool);
+  if (!code.html && !code.js && !code.css) {
     return (
       <p className="result-note">
         This tool is not ready yet. Add its code in the CMS under Tools, or
@@ -44,12 +57,14 @@ export default function ToolRenderer({ tool, accent }) {
     <ToolEmbed
       title={tool.name}
       frameId={tool.slug}
+      allowSameOrigin={code.needsNetwork}
       doc={buildEmbedDoc({
-        html: tool.embedHtml || "",
-        css: tool.embedCss || "",
-        js: tool.embedJs || "",
+        html: code.html,
+        css: code.css,
+        js: code.js,
         accent,
         frameId: tool.slug,
+        config: { apiKey: code.apiKey, apiBaseUrl: code.apiBaseUrl },
       })}
     />
   );

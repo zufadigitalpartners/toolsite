@@ -5,6 +5,14 @@
   "popular": true,
   "order": 8,
   "short": "Format, minify and validate JSON with clear error messages.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
   "seo": {
     "metaTitle": "JSON Formatter - Format, Validate & Minify JSON Online",
     "metaDescription": "Free JSON formatter and validator. Pretty-print, minify and validate JSON with clear error messages. Runs locally in your browser, safe for sensitive data.",
@@ -18,53 +26,55 @@
       "format json online"
     ]
   },
-  "intro": [
-    "This free JSON formatter pretty-prints, validates and minifies JSON instantly in your browser. Paste a wall of unreadable single-line JSON from an API response or a log file, click Format, and get cleanly indented output you can actually read. Click Minify to strip the whitespace back out for production. If the JSON is invalid, you get a clear error message that tells you what went wrong: a missing comma, an unquoted key, a stray bracket. Everything runs locally, so your JSON is never uploaded. That matters when the payload contains API keys, customer records or internal data. For developers, testers and anyone who touches APIs, a fast JSON validator is one of the most used tools of the working day."
-  ],
-  "howto": [
-    "Paste your JSON into the box: an API response, a config file, a log entry, anything.",
-    "Click Format to pretty-print it with 2 space indentation, the standard in modern codebases.",
-    "Click Minify to compress it to a single line, ideal for production payloads.",
-    "If the JSON is invalid, read the error message. It points at the problem so you can fix the exact spot.",
-    "Watch for the usual suspects: a trailing comma after the last item, single quotes instead of double quotes, unquoted keys, or comments. JSON allows none of these.",
-    "Copy the result and paste it back into your code, API client or config file."
-  ],
-  "benefits": [
-    "The reason to use this formatter instead of a random website is privacy. Formatting happens entirely in your browser, so API responses containing tokens, personal data or unreleased features never leave your machine. That makes it safe for exactly the payloads developers most often need to inspect. It is also quick with large documents, because there is no upload round trip.",
-    "Validation doubles as debugging. When a config file refuses to load or an API rejects your request body, pasting the JSON here finds the syntax error in seconds. It is usually a trailing comma or single quotes. Formatting and minifying are one click each, so you can flip between readable and compact without touching your editor. When the debugging session widens, the neighbours help out: decode a JWT segment with the [Base64 encoder and decoder](/tools/base64-encoder-decoder/), normalize key names with the [case converter](/tools/case-converter/), or fill test fixtures with values from the [random number generator](/tools/random-number-generator/)."
-  ],
-  "useCases": [
-    "Backend and frontend developers are the obvious crowd: inspecting API responses, debugging webhook payloads, editing package.json, formatting fixtures for tests. QA engineers validate request bodies before filing bug reports and paste failing responses here to see the structure at a glance. DevOps engineers untangle JSON logs and cloud configuration exports.",
-    "But JSON stopped being a developers-only format years ago. Data analysts get JSON exports from analytics platforms and need them readable before converting. Technical writers format example payloads for API docs. Students learning web development use the validator to figure out why their first fetch call fails. No-code builders wiring up Zapier or Airtable automations hit raw JSON at every webhook step. If someone has ever emailed you a one-line JSON blob and asked you to take a look, this tool turns it into something readable in one click."
-  ],
-  "faqs": [
-    {
-      "q": "Is my JSON uploaded anywhere?",
-      "a": "No. Formatting, validation and minification all run locally in your browser. Nothing is sent to any server, so it is safe even for payloads containing keys, tokens or customer data."
-    },
-    {
-      "q": "What indentation does Format use?",
-      "a": "Two spaces, the dominant convention in modern JavaScript and web projects. Minify removes all insignificant whitespace for the smallest output."
-    },
-    {
-      "q": "Why is my JSON invalid?",
-      "a": "The most common causes are a trailing comma after the last element, single quotes instead of double quotes, unquoted property names, or comments. Standard JSON allows none of these, and the error message points you to the problem."
-    },
-    {
-      "q": "Can it handle large files?",
-      "a": "Yes. Everything runs locally on the browser's native parser, so even multi-megabyte JSON documents format quickly."
-    },
-    {
-      "q": "What is the difference between formatting and minifying?",
-      "a": "Formatting adds line breaks and indentation for humans. Minifying strips them for machines. The data stays identical either way, so it is always safe to flip back and forth."
-    },
-    {
-      "q": "Does it change my data or key order?",
-      "a": "Values are preserved exactly and keys keep the order they appear in your input. Only whitespace is added or removed."
-    },
-    {
-      "q": "Can I validate JSON5 or JSON with comments?",
-      "a": "This tool validates standard JSON, which is what APIs and most config parsers require. Remove comments and trailing commas first, or treat the error messages as a checklist of what to strip."
-    }
-  ]
+  "content": {
+    "intro": [
+      "This free JSON formatter pretty-prints, validates and minifies JSON instantly in your browser. Paste a wall of unreadable single-line JSON from an API response or a log file, click Format, and get cleanly indented output you can actually read. Click Minify to strip the whitespace back out for production. If the JSON is invalid, you get a clear error message that tells you what went wrong: a missing comma, an unquoted key, a stray bracket. Everything runs locally, so your JSON is never uploaded. That matters when the payload contains API keys, customer records or internal data. For developers, testers and anyone who touches APIs, a fast JSON validator is one of the most used tools of the working day."
+    ],
+    "howto": [
+      "Paste your JSON into the box: an API response, a config file, a log entry, anything.",
+      "Click Format to pretty-print it with 2 space indentation, the standard in modern codebases.",
+      "Click Minify to compress it to a single line, ideal for production payloads.",
+      "If the JSON is invalid, read the error message. It points at the problem so you can fix the exact spot.",
+      "Watch for the usual suspects: a trailing comma after the last item, single quotes instead of double quotes, unquoted keys, or comments. JSON allows none of these.",
+      "Copy the result and paste it back into your code, API client or config file."
+    ],
+    "benefits": [
+      "The reason to use this formatter instead of a random website is privacy. Formatting happens entirely in your browser, so API responses containing tokens, personal data or unreleased features never leave your machine. That makes it safe for exactly the payloads developers most often need to inspect. It is also quick with large documents, because there is no upload round trip.",
+      "Validation doubles as debugging. When a config file refuses to load or an API rejects your request body, pasting the JSON here finds the syntax error in seconds. It is usually a trailing comma or single quotes. Formatting and minifying are one click each, so you can flip between readable and compact without touching your editor. When the debugging session widens, the neighbours help out: decode a JWT segment with the [Base64 encoder and decoder](/tools/base64-encoder-decoder/), normalize key names with the [case converter](/tools/case-converter/), or fill test fixtures with values from the [random number generator](/tools/random-number-generator/)."
+    ],
+    "useCases": [
+      "Backend and frontend developers are the obvious crowd: inspecting API responses, debugging webhook payloads, editing package.json, formatting fixtures for tests. QA engineers validate request bodies before filing bug reports and paste failing responses here to see the structure at a glance. DevOps engineers untangle JSON logs and cloud configuration exports.",
+      "But JSON stopped being a developers-only format years ago. Data analysts get JSON exports from analytics platforms and need them readable before converting. Technical writers format example payloads for API docs. Students learning web development use the validator to figure out why their first fetch call fails. No-code builders wiring up Zapier or Airtable automations hit raw JSON at every webhook step. If someone has ever emailed you a one-line JSON blob and asked you to take a look, this tool turns it into something readable in one click."
+    ],
+    "faqs": [
+      {
+        "q": "Is my JSON uploaded anywhere?",
+        "a": "No. Formatting, validation and minification all run locally in your browser. Nothing is sent to any server, so it is safe even for payloads containing keys, tokens or customer data."
+      },
+      {
+        "q": "What indentation does Format use?",
+        "a": "Two spaces, the dominant convention in modern JavaScript and web projects. Minify removes all insignificant whitespace for the smallest output."
+      },
+      {
+        "q": "Why is my JSON invalid?",
+        "a": "The most common causes are a trailing comma after the last element, single quotes instead of double quotes, unquoted property names, or comments. Standard JSON allows none of these, and the error message points you to the problem."
+      },
+      {
+        "q": "Can it handle large files?",
+        "a": "Yes. Everything runs locally on the browser's native parser, so even multi-megabyte JSON documents format quickly."
+      },
+      {
+        "q": "What is the difference between formatting and minifying?",
+        "a": "Formatting adds line breaks and indentation for humans. Minifying strips them for machines. The data stays identical either way, so it is always safe to flip back and forth."
+      },
+      {
+        "q": "Does it change my data or key order?",
+        "a": "Values are preserved exactly and keys keep the order they appear in your input. Only whitespace is added or removed."
+      },
+      {
+        "q": "Can I validate JSON5 or JSON with comments?",
+        "a": "This tool validates standard JSON, which is what APIs and most config parsers require. Remove comments and trailing commas first, or treat the error messages as a checklist of what to strip."
+      }
+    ]
+  }
 }

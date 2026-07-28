@@ -5,6 +5,14 @@
   "popular": true,
   "order": 6,
   "short": "Find your exact age in years, months and days from your birth date.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
   "seo": {
     "metaTitle": "Age Calculator - Exact Age in Years, Months & Days",
     "metaDescription": "Free age calculator. Enter your date of birth and instantly see your exact age in years, months and days, total days lived and days to your next birthday.",
@@ -17,49 +25,51 @@
       "date of birth calculator"
     ]
   },
-  "intro": [
-    "This free age calculator tells you your exact age in years, months and days from your date of birth. Working out an exact age by hand is harder than it looks. Months have different lengths, leap years add an extra day every four years, and nobody wants to figure out 'how old am I in days?' on paper. Enter a birth date and the calculator handles all of it, showing your age properly broken down, the total number of days you have been alive, and how many days remain until your next birthday. It runs entirely in your browser, so the date you enter is never stored or sent anywhere. Use it for official forms, milestone planning, eligibility checks or plain curiosity."
-  ],
-  "howto": [
-    "Select your date of birth using the date picker: day, month and year.",
-    "Your exact age appears instantly, broken down into years, months and days.",
-    "Check the total days lived figure for milestone tracking. Hitting 10,000 days is a popular one to celebrate.",
-    "See the countdown to your next birthday, with leap years handled correctly.",
-    "Change the date freely to calculate someone else's age: a family member, a historical figure, even a pet.",
-    "Nothing is saved between visits, so every calculation starts fresh and private."
-  ],
-  "benefits": [
-    "The value of an age calculator is precision. Saying 'about 34' is easy. Getting to '34 years, 7 months and 12 days' means handling months of 28 to 31 days and leap year rules correctly, which this tool does. That precision matters for immigration and visa forms that ask for age at a specific cutoff, for school enrollment deadlines, for pension and insurance paperwork, and for sports categories where eligibility can hinge on a single day.",
-    "It is also instant and private. The calculation runs locally, your birth date never leaves your device, and there is no form to submit or account to create. The extra outputs earn their keep too. Total days lived turns birthdays into more interesting milestones, and the next-birthday countdown helps you plan ahead. Speaking of planning, measure the gap between any two dates with the [date difference calculator](/tools/date-difference-calculator/), put a scannable RSVP link on party invitations with the [QR code generator](/tools/qr-code-generator/), and keep the birthday speech the right length with the [word counter](/tools/word-counter/)."
-  ],
-  "useCases": [
-    "Parents use it constantly. School admission forms ask for a child's age in years and months at a cutoff date, baby milestones are tracked in months, and someone has to settle 'exactly how much older is she than her brother?' HR and admin staff verify ages for contracts, insurance and retirement paperwork, where an exact figure is required rather than a guess.",
-    "Sports coaches and clubs check age category eligibility, where being a few days over a cutoff moves a player up a division. Genealogists calculate the ages of ancestors at marriage or emigration from old records. Clinic receptionists compute patient ages from dates of birth all day long. And plenty of people use it just for fun: finding the day they turn 10,000 days old, comparing exact ages with friends, or counting down to a big birthday."
-  ],
-  "faqs": [
-    {
-      "q": "How accurate is the calculation?",
-      "a": "Exact to the day. It correctly handles leap years, different month lengths and month boundaries, which are exactly the details that make manual age arithmetic go wrong."
-    },
-    {
-      "q": "How does the calculator handle leap years?",
-      "a": "Leap year days are counted properly in both your age and the next-birthday countdown. Born on 29 February? Your birthday is counted in the next calendar year where that date exists."
-    },
-    {
-      "q": "Can I calculate age at a specific date, not just today?",
-      "a": "Right now it calculates age as of today. For the exact gap between any two dates, use our date difference calculator instead."
-    },
-    {
-      "q": "Is my birth date stored anywhere?",
-      "a": "No. The calculation happens in your browser and nothing is saved, logged or transmitted. Reload the page and everything is gone."
-    },
-    {
-      "q": "Why does the answer show months and days, not just years?",
-      "a": "Because a year is not a fixed number of days, an exact age needs three parts: full years, then full months, then the remaining days. That is also the format official forms usually expect."
-    },
-    {
-      "q": "Can I calculate a pet's age or an ancestor's age?",
-      "a": "Yes, enter any birth date you like. For pets you get their real calendar age. The famous 'multiply by 7' dog years rule is folklore, not arithmetic."
-    }
-  ]
+  "content": {
+    "intro": [
+      "This free age calculator tells you your exact age in years, months and days from your date of birth. Working out an exact age by hand is harder than it looks. Months have different lengths, leap years add an extra day every four years, and nobody wants to figure out 'how old am I in days?' on paper. Enter a birth date and the calculator handles all of it, showing your age properly broken down, the total number of days you have been alive, and how many days remain until your next birthday. It runs entirely in your browser, so the date you enter is never stored or sent anywhere. Use it for official forms, milestone planning, eligibility checks or plain curiosity."
+    ],
+    "howto": [
+      "Select your date of birth using the date picker: day, month and year.",
+      "Your exact age appears instantly, broken down into years, months and days.",
+      "Check the total days lived figure for milestone tracking. Hitting 10,000 days is a popular one to celebrate.",
+      "See the countdown to your next birthday, with leap years handled correctly.",
+      "Change the date freely to calculate someone else's age: a family member, a historical figure, even a pet.",
+      "Nothing is saved between visits, so every calculation starts fresh and private."
+    ],
+    "benefits": [
+      "The value of an age calculator is precision. Saying 'about 34' is easy. Getting to '34 years, 7 months and 12 days' means handling months of 28 to 31 days and leap year rules correctly, which this tool does. That precision matters for immigration and visa forms that ask for age at a specific cutoff, for school enrollment deadlines, for pension and insurance paperwork, and for sports categories where eligibility can hinge on a single day.",
+      "It is also instant and private. The calculation runs locally, your birth date never leaves your device, and there is no form to submit or account to create. The extra outputs earn their keep too. Total days lived turns birthdays into more interesting milestones, and the next-birthday countdown helps you plan ahead. Speaking of planning, measure the gap between any two dates with the [date difference calculator](/tools/date-difference-calculator/), put a scannable RSVP link on party invitations with the [QR code generator](/tools/qr-code-generator/), and keep the birthday speech the right length with the [word counter](/tools/word-counter/)."
+    ],
+    "useCases": [
+      "Parents use it constantly. School admission forms ask for a child's age in years and months at a cutoff date, baby milestones are tracked in months, and someone has to settle 'exactly how much older is she than her brother?' HR and admin staff verify ages for contracts, insurance and retirement paperwork, where an exact figure is required rather than a guess.",
+      "Sports coaches and clubs check age category eligibility, where being a few days over a cutoff moves a player up a division. Genealogists calculate the ages of ancestors at marriage or emigration from old records. Clinic receptionists compute patient ages from dates of birth all day long. And plenty of people use it just for fun: finding the day they turn 10,000 days old, comparing exact ages with friends, or counting down to a big birthday."
+    ],
+    "faqs": [
+      {
+        "q": "How accurate is the calculation?",
+        "a": "Exact to the day. It correctly handles leap years, different month lengths and month boundaries, which are exactly the details that make manual age arithmetic go wrong."
+      },
+      {
+        "q": "How does the calculator handle leap years?",
+        "a": "Leap year days are counted properly in both your age and the next-birthday countdown. Born on 29 February? Your birthday is counted in the next calendar year where that date exists."
+      },
+      {
+        "q": "Can I calculate age at a specific date, not just today?",
+        "a": "Right now it calculates age as of today. For the exact gap between any two dates, use our date difference calculator instead."
+      },
+      {
+        "q": "Is my birth date stored anywhere?",
+        "a": "No. The calculation happens in your browser and nothing is saved, logged or transmitted. Reload the page and everything is gone."
+      },
+      {
+        "q": "Why does the answer show months and days, not just years?",
+        "a": "Because a year is not a fixed number of days, an exact age needs three parts: full years, then full months, then the remaining days. That is also the format official forms usually expect."
+      },
+      {
+        "q": "Can I calculate a pet's age or an ancestor's age?",
+        "a": "Yes, enter any birth date you like. For pets you get their real calendar age. The famous 'multiply by 7' dog years rule is folklore, not arithmetic."
+      }
+    ]
+  }
 }

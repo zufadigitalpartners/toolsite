@@ -5,6 +5,14 @@
   "popular": true,
   "order": 1,
   "short": "Count words, characters, sentences and reading time instantly.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
   "seo": {
     "metaTitle": "Word Counter - Count Words & Characters Online Free",
     "metaDescription": "Free online word counter. Count words, characters, sentences, paragraphs and reading time instantly. No signup, no uploads, works right in your browser.",
@@ -17,53 +25,55 @@
       "sentence counter"
     ]
   },
-  "intro": [
-    "This free online word counter shows you exactly how long your text is, the moment you start typing. Paste in an essay, a blog draft, a tweet or a whole chapter and you instantly see the word count, character count, sentences, paragraphs and an estimated reading time. There is no button to press and no signup wall. Everything runs inside your browser, so your text never gets uploaded anywhere. That makes it safe for confidential documents, client work and anything you haven't published yet. Whether you are trimming a college essay down to a strict limit, keeping a meta description under 160 characters, or checking that a LinkedIn post fits, this word count tool gives you the answer in real time."
-  ],
-  "howto": [
-    "Type directly into the text box, or paste your text with Ctrl+V (Cmd+V on Mac). Every counter updates as you type.",
-    "Check the word count first. This is the number most essays, articles and assignments are judged by.",
-    "Look at the character count when you write for platforms with strict limits, like X, SMS or meta descriptions.",
-    "Use the sentence and paragraph counts to judge structure. If one paragraph holds ten sentences, it probably needs a break.",
-    "Use the reading time estimate to plan speeches and blog posts. It is based on an average speed of 200 words per minute.",
-    "Keep editing right in the box and watch the numbers move until you hit your target."
-  ],
-  "benefits": [
-    "Most word count tools make you click a button, sit through an ad, or upload your document to a server you know nothing about. Ours does none of that. The counts update live while you type, so trimming a 1,050 word essay to a 1,000 word limit becomes simple: delete a little, glance at the counter, done. Because everything is computed locally in your browser, it stays fast even with huge documents, and your text never leaves your device. That matters when you are working on unpublished content, legal text or client material.",
-    "You also get more than one number. Words, characters with and without spaces, sentences, paragraphs and reading time are all visible at once, so a single tab covers essays, ad copy, subtitles and social posts. When you finish editing, the next step is usually one click away. Fix messy capitalization with the [case converter](/tools/case-converter/), or turn your published article's link into a scannable code with the [QR code generator](/tools/qr-code-generator/)."
-  ],
-  "useCases": [
-    "Students and academics live by word counts. Admissions essays, coursework with hard limits, abstracts capped at 250 words, dissertations measured in tens of thousands. This tool shows live progress toward any limit, and teachers can check assignment lengths in seconds. Some even pick a random student for a presentation using the [random number generator](/tools/random-number-generator/).",
-    "Freelance writers and content marketers often get paid or briefed per word, so an accurate count is money. Bloggers use reading time to keep posts skimmable. SEO specialists keep title tags and meta descriptions inside their character limits. Social media managers check captions against platform caps before posting. Novelists track daily output, translators quote per source word, and job seekers keep cover letters tight. And if you are juggling deadlines for all that writing, the [date difference calculator](/tools/date-difference-calculator/) tells you exactly how many days you have left."
-  ],
-  "faqs": [
-    {
-      "q": "Is my text uploaded anywhere?",
-      "a": "No. Everything is counted inside your browser using JavaScript. Your text never leaves your device, so it is safe to paste confidential or unpublished work."
-    },
-    {
-      "q": "How is reading time calculated?",
-      "a": "We divide your word count by 200 words per minute, which is a widely used average for adult readers. Speeches are usually delivered slower, around 130 words per minute, so add a margin for spoken content."
-    },
-    {
-      "q": "Is there a word or character limit?",
-      "a": "No limit at all. You can paste an entire book. Since counting happens locally, even very large documents are processed instantly."
-    },
-    {
-      "q": "Does it count characters with and without spaces?",
-      "a": "Yes, both. Characters with spaces is what most platforms like X measure, while some translation and typesetting work is billed on characters without spaces."
-    },
-    {
-      "q": "Do hyphenated words count as one word or two?",
-      "a": "Anything separated by spaces or line breaks counts as one word, so 'well-known' is a single word. This matches how most word processors count."
-    },
-    {
-      "q": "Can I use this on my phone?",
-      "a": "Yes. The counter works in any modern mobile browser, which is handy for checking captions and messages on the go."
-    },
-    {
-      "q": "Why does my count differ slightly from Microsoft Word?",
-      "a": "Different tools treat symbols, numbers and stray punctuation a little differently. The difference is usually a handful of words on very long texts. For strict limits, always follow the counter your submission system uses."
-    }
-  ]
+  "content": {
+    "intro": [
+      "This free online word counter shows you exactly how long your text is, the moment you start typing. Paste in an essay, a blog draft, a tweet or a whole chapter and you instantly see the word count, character count, sentences, paragraphs and an estimated reading time. There is no button to press and no signup wall. Everything runs inside your browser, so your text never gets uploaded anywhere. That makes it safe for confidential documents, client work and anything you haven't published yet. Whether you are trimming a college essay down to a strict limit, keeping a meta description under 160 characters, or checking that a LinkedIn post fits, this word count tool gives you the answer in real time."
+    ],
+    "howto": [
+      "Type directly into the text box, or paste your text with Ctrl+V (Cmd+V on Mac). Every counter updates as you type.",
+      "Check the word count first. This is the number most essays, articles and assignments are judged by.",
+      "Look at the character count when you write for platforms with strict limits, like X, SMS or meta descriptions.",
+      "Use the sentence and paragraph counts to judge structure. If one paragraph holds ten sentences, it probably needs a break.",
+      "Use the reading time estimate to plan speeches and blog posts. It is based on an average speed of 200 words per minute.",
+      "Keep editing right in the box and watch the numbers move until you hit your target."
+    ],
+    "benefits": [
+      "Most word count tools make you click a button, sit through an ad, or upload your document to a server you know nothing about. Ours does none of that. The counts update live while you type, so trimming a 1,050 word essay to a 1,000 word limit becomes simple: delete a little, glance at the counter, done. Because everything is computed locally in your browser, it stays fast even with huge documents, and your text never leaves your device. That matters when you are working on unpublished content, legal text or client material.",
+      "You also get more than one number. Words, characters with and without spaces, sentences, paragraphs and reading time are all visible at once, so a single tab covers essays, ad copy, subtitles and social posts. When you finish editing, the next step is usually one click away. Fix messy capitalization with the [case converter](/tools/case-converter/), or turn your published article's link into a scannable code with the [QR code generator](/tools/qr-code-generator/)."
+    ],
+    "useCases": [
+      "Students and academics live by word counts. Admissions essays, coursework with hard limits, abstracts capped at 250 words, dissertations measured in tens of thousands. This tool shows live progress toward any limit, and teachers can check assignment lengths in seconds. Some even pick a random student for a presentation using the [random number generator](/tools/random-number-generator/).",
+      "Freelance writers and content marketers often get paid or briefed per word, so an accurate count is money. Bloggers use reading time to keep posts skimmable. SEO specialists keep title tags and meta descriptions inside their character limits. Social media managers check captions against platform caps before posting. Novelists track daily output, translators quote per source word, and job seekers keep cover letters tight. And if you are juggling deadlines for all that writing, the [date difference calculator](/tools/date-difference-calculator/) tells you exactly how many days you have left."
+    ],
+    "faqs": [
+      {
+        "q": "Is my text uploaded anywhere?",
+        "a": "No. Everything is counted inside your browser using JavaScript. Your text never leaves your device, so it is safe to paste confidential or unpublished work."
+      },
+      {
+        "q": "How is reading time calculated?",
+        "a": "We divide your word count by 200 words per minute, which is a widely used average for adult readers. Speeches are usually delivered slower, around 130 words per minute, so add a margin for spoken content."
+      },
+      {
+        "q": "Is there a word or character limit?",
+        "a": "No limit at all. You can paste an entire book. Since counting happens locally, even very large documents are processed instantly."
+      },
+      {
+        "q": "Does it count characters with and without spaces?",
+        "a": "Yes, both. Characters with spaces is what most platforms like X measure, while some translation and typesetting work is billed on characters without spaces."
+      },
+      {
+        "q": "Do hyphenated words count as one word or two?",
+        "a": "Anything separated by spaces or line breaks counts as one word, so 'well-known' is a single word. This matches how most word processors count."
+      },
+      {
+        "q": "Can I use this on my phone?",
+        "a": "Yes. The counter works in any modern mobile browser, which is handy for checking captions and messages on the go."
+      },
+      {
+        "q": "Why does my count differ slightly from Microsoft Word?",
+        "a": "Different tools treat symbols, numbers and stray punctuation a little differently. The difference is usually a handful of words on very long texts. For strict limits, always follow the counter your submission system uses."
+      }
+    ]
+  }
 }

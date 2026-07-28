@@ -5,6 +5,14 @@
   "popular": true,
   "order": 4,
   "short": "Turn any link or text into a QR code and download it as an image.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
   "seo": {
     "metaTitle": "QR Code Generator - Create Free QR Codes Online",
     "metaDescription": "Free QR code generator. Turn any link, text or phone number into a QR code and download it as a PNG. No signup, no expiry, generated in your browser.",
@@ -17,53 +25,55 @@
       "download qr code png"
     ]
   },
-  "intro": [
-    "This free QR code generator turns any link, text or phone number into a scannable QR code and lets you download it as a PNG, ready for print or screen. There is no signup, no watermark and, most importantly, no expiry. The code you create contains your data directly, so it keeps working forever without depending on our servers. Everything is generated locally in your browser, which means the link you encode is never uploaded anywhere. From restaurant menus and event posters to business cards and Wi-Fi sharing, QR codes are the fastest bridge between the physical world and your online content, and this QR code maker builds one in the time it takes to paste a URL."
-  ],
-  "howto": [
-    "Type or paste whatever you want to encode: a website URL, plain text, a phone number, anything.",
-    "Watch the QR code appear instantly as you type. There is no generate button to press.",
-    "Test it before publishing. Point your phone camera at the code on screen and confirm it opens the right destination.",
-    "Click Download PNG to save the image to your device.",
-    "Place the PNG in your design: a poster, menu, slide, business card or packaging. Keep it at least 2 cm wide in print and leave white space around it.",
-    "Print a test page and scan it from a realistic distance before mass producing anything."
-  ],
-  "benefits": [
-    "Many QR services quietly route your code through a tracking redirect, then disable it when a free trial ends. Every poster you printed goes dead. Ours encodes your destination directly into the image, so the code is permanent, private and entirely yours. No account, no watermark, no monthly fee, and commercial use is welcome.",
-    "Generation happens in your browser, so confidential links like an unlisted video or a pre-launch page never touch a server. The live preview updates as you type, letting you catch typos before downloading, and the PNG stays crisp on flyers and packaging. It pairs nicely with the other tools here too. Create a strong Wi-Fi key with the [password generator](/tools/password-generator/) and share it as a scannable code, keep the caption next to your printed code short with the [word counter](/tools/word-counter/), or run a giveaway where scanning leads to a draw powered by the [random number generator](/tools/random-number-generator/)."
-  ],
-  "useCases": [
-    "Small business owners are the classic users. A cafe links its menu, a salon links its booking page, a market stall links to Instagram. Restaurants replace laminated menus with a code on the table, and retailers add codes on receipts that lead to review pages. Event organizers print codes on tickets and posters that open schedules, maps or registration forms.",
-    "Freelancers and job seekers add a QR code to business cards and portfolios so a paper introduction becomes a website visit. Teachers put a code on the projector instead of dictating long URLs. Wedding planners link RSVP forms from invitations. Hosts print a code that opens the Wi-Fi details or house guide. Anywhere a person would otherwise type a URL by hand, a QR code removes the friction."
-  ],
-  "faqs": [
-    {
-      "q": "Do these QR codes expire?",
-      "a": "No. The code contains your text or link directly and nothing is hosted on our servers, so it keeps working as long as your destination exists. There are no scan limits or trial periods."
-    },
-    {
-      "q": "Can I use the QR code commercially?",
-      "a": "Yes. The generated image is yours to use anywhere: menus, posters, business cards, packaging, adverts. No attribution, no license fee."
-    },
-    {
-      "q": "Is my link or text sent to a server?",
-      "a": "No. The QR code is generated entirely in your browser, so even confidential links stay on your device."
-    },
-    {
-      "q": "Can I track how many people scan my code?",
-      "a": "Not directly. A direct encoded code has no tracking layer, which is exactly why it never expires. If you need scan counts, encode a link with UTM parameters and read the results in your website analytics."
-    },
-    {
-      "q": "What size should I print a QR code?",
-      "a": "At least 2 x 2 cm for close range scanning. For posters, use roughly one tenth of the scanning distance, so a code meant to be scanned from 1 metre should be about 10 cm wide. Always leave a white margin around it."
-    },
-    {
-      "q": "Why won't my QR code scan?",
-      "a": "The usual causes are printing too small, low contrast, or no white margin. Dark code on a light background scans best. Print a test page and scan from a realistic distance."
-    },
-    {
-      "q": "What can I put in a QR code besides a link?",
-      "a": "Any text: phone numbers, email addresses, plain messages, Wi-Fi credentials or contact details. If a phone can read it as text, it can live in a QR code."
-    }
-  ]
+  "content": {
+    "intro": [
+      "This free QR code generator turns any link, text or phone number into a scannable QR code and lets you download it as a PNG, ready for print or screen. There is no signup, no watermark and, most importantly, no expiry. The code you create contains your data directly, so it keeps working forever without depending on our servers. Everything is generated locally in your browser, which means the link you encode is never uploaded anywhere. From restaurant menus and event posters to business cards and Wi-Fi sharing, QR codes are the fastest bridge between the physical world and your online content, and this QR code maker builds one in the time it takes to paste a URL."
+    ],
+    "howto": [
+      "Type or paste whatever you want to encode: a website URL, plain text, a phone number, anything.",
+      "Watch the QR code appear instantly as you type. There is no generate button to press.",
+      "Test it before publishing. Point your phone camera at the code on screen and confirm it opens the right destination.",
+      "Click Download PNG to save the image to your device.",
+      "Place the PNG in your design: a poster, menu, slide, business card or packaging. Keep it at least 2 cm wide in print and leave white space around it.",
+      "Print a test page and scan it from a realistic distance before mass producing anything."
+    ],
+    "benefits": [
+      "Many QR services quietly route your code through a tracking redirect, then disable it when a free trial ends. Every poster you printed goes dead. Ours encodes your destination directly into the image, so the code is permanent, private and entirely yours. No account, no watermark, no monthly fee, and commercial use is welcome.",
+      "Generation happens in your browser, so confidential links like an unlisted video or a pre-launch page never touch a server. The live preview updates as you type, letting you catch typos before downloading, and the PNG stays crisp on flyers and packaging. It pairs nicely with the other tools here too. Create a strong Wi-Fi key with the [password generator](/tools/password-generator/) and share it as a scannable code, keep the caption next to your printed code short with the [word counter](/tools/word-counter/), or run a giveaway where scanning leads to a draw powered by the [random number generator](/tools/random-number-generator/)."
+    ],
+    "useCases": [
+      "Small business owners are the classic users. A cafe links its menu, a salon links its booking page, a market stall links to Instagram. Restaurants replace laminated menus with a code on the table, and retailers add codes on receipts that lead to review pages. Event organizers print codes on tickets and posters that open schedules, maps or registration forms.",
+      "Freelancers and job seekers add a QR code to business cards and portfolios so a paper introduction becomes a website visit. Teachers put a code on the projector instead of dictating long URLs. Wedding planners link RSVP forms from invitations. Hosts print a code that opens the Wi-Fi details or house guide. Anywhere a person would otherwise type a URL by hand, a QR code removes the friction."
+    ],
+    "faqs": [
+      {
+        "q": "Do these QR codes expire?",
+        "a": "No. The code contains your text or link directly and nothing is hosted on our servers, so it keeps working as long as your destination exists. There are no scan limits or trial periods."
+      },
+      {
+        "q": "Can I use the QR code commercially?",
+        "a": "Yes. The generated image is yours to use anywhere: menus, posters, business cards, packaging, adverts. No attribution, no license fee."
+      },
+      {
+        "q": "Is my link or text sent to a server?",
+        "a": "No. The QR code is generated entirely in your browser, so even confidential links stay on your device."
+      },
+      {
+        "q": "Can I track how many people scan my code?",
+        "a": "Not directly. A direct encoded code has no tracking layer, which is exactly why it never expires. If you need scan counts, encode a link with UTM parameters and read the results in your website analytics."
+      },
+      {
+        "q": "What size should I print a QR code?",
+        "a": "At least 2 x 2 cm for close range scanning. For posters, use roughly one tenth of the scanning distance, so a code meant to be scanned from 1 metre should be about 10 cm wide. Always leave a white margin around it."
+      },
+      {
+        "q": "Why won't my QR code scan?",
+        "a": "The usual causes are printing too small, low contrast, or no white margin. Dark code on a light background scans best. Print a test page and scan from a realistic distance."
+      },
+      {
+        "q": "What can I put in a QR code besides a link?",
+        "a": "Any text: phone numbers, email addresses, plain messages, Wi-Fi credentials or contact details. If a phone can read it as text, it can live in a QR code."
+      }
+    ]
+  }
 }

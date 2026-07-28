@@ -63,13 +63,13 @@ export default defineConfig({
           { type: "string", name: "name", label: "Site name", required: true },
           { type: "string", name: "tagline", label: "Tagline" },
           { type: "string", name: "description", label: "Meta description", ui: { component: "textarea" } },
-          { type: "string", name: "url", label: "Site URL", description: "Full origin, e.g. https://wearetool.com. Used for sitemap, canonicals and Open Graph." },
-          { type: "string", name: "contactEmail", label: "Contact email", description: "Shown on the contact page and used as the fallback if the form is not configured" },
+          { type: "string", name: "url", label: "Site URL", description: "e.g. https://wearetool.com" },
+          { type: "string", name: "contactEmail", label: "Contact email", description: "Shown on the contact page" },
           {
             type: "string",
             name: "contactFormKey",
             label: "Contact form access key (Web3Forms)",
-            description: "Free key from web3forms.com. Leave empty to show a plain email link instead of the form.",
+            description: "Free key from web3forms.com. Empty shows an email link instead.",
           },
           { type: "string", name: "homeTitle", label: "Homepage meta title suffix", description: "Browser tab title: \"SiteName | <this text>\"" },
 
@@ -78,7 +78,7 @@ export default defineConfig({
             type: "object",
             name: "verificationTags",
             label: "Header code: verification meta tags",
-            description: "For Google Search Console, Bing, Pinterest, Facebook domain verification and similar. Paste only the two values from the tag, not the whole tag.",
+            description: "Google, Bing, Pinterest and similar. Paste the two values, not the whole tag.",
             list: true,
             ui: { itemProps: (item) => ({ label: item?.name || "verification tag" }) },
             fields: [
@@ -90,7 +90,7 @@ export default defineConfig({
             type: "object",
             name: "headScripts",
             label: "Header code: external scripts",
-            description: "Scripts loaded in the head, such as Google AdSense or an analytics tag. Add the src URL only.",
+            description: "AdSense, analytics and similar. The URL only.",
             list: true,
             ui: { itemProps: (item) => ({ label: item?.src || "script" }) },
             fields: [
@@ -102,7 +102,7 @@ export default defineConfig({
           codeField(
             "inlineHeadCode",
             "Header code: inline JavaScript",
-            "Raw JavaScript placed in the head. Paste the code only, without the surrounding <script> tags."
+            "Code only, no <script> tags."
           ),
 
           {
@@ -235,7 +235,7 @@ export default defineConfig({
             label: "Category page SEO content",
             fields: [
               { type: "string", name: "heading", label: "Section heading" },
-              paragraphList("paragraphs", "Paragraphs", "300-400 words total. [links](/tools/slug/) allowed."),
+              paragraphList("paragraphs", "Paragraphs", "300-400 words. [links](/path/) allowed."),
             ],
           },
         ],
@@ -262,28 +262,41 @@ export default defineConfig({
             name: "category",
             label: "Category",
             collections: ["category"],
-            description: "Pick an existing category, or create a new one under Categories first.",
           },
           { type: "boolean", name: "popular", label: "Show in Popular tools" },
           { type: "number", name: "order", label: "Sort order" },
-          { type: "string", name: "short", label: "Short description (cards & search)", ui: { component: "textarea" } },
+          { type: "string", name: "short", label: "Short description", description: "Used on cards and in search", ui: { component: "textarea" } },
 
           // ----- THE TOOL ITSELF -----
-          codeField(
-            "embedHtml",
-            "Tool code: HTML",
-            "The tool's interface. Use plain HTML. Site styling is applied automatically, so <button>, <input>, <textarea>, <select>, label, .row-2, .btn-primary, .stats/.stat, .out, .note and .error all look native. Leave empty for the nine original tools, which are built in."
-          ),
-          codeField(
-            "embedCss",
-            "Tool code: CSS",
-            "Optional extra styling. Anything here overrides the site defaults for this tool only. Paste the rules without <style> tags."
-          ),
-          codeField(
-            "embedJs",
-            "Tool code: JavaScript",
-            "The tool's logic. Paste the code without <script> tags. Use WT.copy(text) to copy to the clipboard. Errors are shown on the page instead of breaking the site."
-          ),
+          {
+            type: "object",
+            name: "code",
+            label: "Tool code",
+            description: "Leave empty for the nine original tools, which are built in",
+            fields: [
+              codeField("html", "HTML", "The interface. No <style> or <script> tags."),
+              codeField("css", "CSS", "Optional. Rules only, no <style> tags."),
+              codeField("js", "JavaScript", "The logic. Code only, no <script> tags."),
+              {
+                type: "boolean",
+                name: "needsNetwork",
+                label: "This tool calls an API",
+                description: "Turn on only if the tool fetches data from the internet",
+              },
+              {
+                type: "string",
+                name: "apiKey",
+                label: "API key",
+                description: "Read as WT.config.apiKey. Visible to visitors, so use a browser-safe key locked to your domain.",
+              },
+              {
+                type: "string",
+                name: "apiBaseUrl",
+                label: "API base URL",
+                description: "Optional. Read it as WT.config.apiBaseUrl",
+              },
+            ],
+          },
 
           {
             type: "object",
@@ -295,19 +308,28 @@ export default defineConfig({
               { type: "string", name: "keywords", label: "Keywords", list: true },
             ],
           },
-          paragraphList("intro", "Intro paragraphs", "Primary keyword in the first sentence"),
-          paragraphList("howto", "How-to steps", "One step per item"),
-          paragraphList("benefits", "\"Why use our tool\" paragraphs"),
-          paragraphList("useCases", "\"Who is this tool for\" paragraphs"),
+
           {
             type: "object",
-            name: "faqs",
-            label: "FAQs",
-            list: true,
-            ui: { itemProps: (item) => ({ label: item?.q || "question" }) },
+            name: "content",
+            label: "Page content",
+            description: "The article below the tool",
             fields: [
-              { type: "string", name: "q", label: "Question" },
-              { type: "string", name: "a", label: "Answer", ui: { component: "textarea" } },
+              paragraphList("intro", "Intro paragraphs", "Primary keyword in the first sentence"),
+              paragraphList("howto", "How-to steps", "One step per item"),
+              paragraphList("benefits", "\"Why use our tool\" paragraphs"),
+              paragraphList("useCases", "\"Who is this tool for\" paragraphs"),
+              {
+                type: "object",
+                name: "faqs",
+                label: "FAQs",
+                list: true,
+                ui: { itemProps: (item) => ({ label: item?.q || "question" }) },
+                fields: [
+                  { type: "string", name: "q", label: "Question" },
+                  { type: "string", name: "a", label: "Answer", ui: { component: "textarea" } },
+                ],
+              },
             ],
           },
         ],
@@ -335,7 +357,7 @@ export default defineConfig({
             type: "boolean",
             name: "noindex",
             label: "Hide from Google",
-            description: "On for legal pages. The page still works and stays linked in the footer, it is just kept out of search results and the sitemap.",
+            description: "Page still works and stays in the footer, just kept out of Google.",
           },
           { type: "boolean", name: "showUpdated", label: "Show \"Last updated\" date" },
           { type: "boolean", name: "showContactForm", label: "Show the contact form on this page" },
@@ -359,10 +381,10 @@ export default defineConfig({
             ui: { itemProps: (item) => ({ label: item?.heading || "section" }) },
             fields: [
               { type: "string", name: "heading", label: "Heading" },
-              paragraphList("paragraphs", "Paragraphs", "Supports {siteName}, {contactEmail}, **bold** and [links](/path/)"),
+              paragraphList("paragraphs", "Paragraphs", "Supports {siteName}, **bold** and [links](/path/)"),
             ],
           },
-          paragraphList("body", "Extra paragraphs (legacy)", "Older flat paragraph list, still rendered if used"),
+          paragraphList("body", "Extra paragraphs (legacy)", "Older format, still rendered"),
           { type: "string", name: "formHeading", label: "Contact form heading" },
           {
             type: "object",
