@@ -97,6 +97,22 @@ export default function RootLayout({ children }) {
         {site.inlineHeadCode ? (
           <script dangerouslySetInnerHTML={{ __html: site.inlineHeadCode }} />
         ) : null}
+
+        {/* Google Analytics. Just the measurement ID goes in Site Settings,
+            the tag itself is assembled here. */}
+        {site.analyticsId ? (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${site.analyticsId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${site.analyticsId}');`,
+              }}
+            />
+          </>
+        ) : null}
       </head>
       <body>
         <header className="site-header">

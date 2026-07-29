@@ -1,0 +1,79 @@
+{
+  "name": "Image Resizer",
+  "emoji": "📐",
+  "category": "content/categories/image.json",
+  "popular": true,
+  "order": 20,
+  "short": "Resize images to exact dimensions without uploading them.",
+  "code": {
+    "html": "<label><span>Choose an image</span><input type=\"file\" id=\"file\" accept=\"image/*\"></label>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Width in pixels</span><input type=\"number\" id=\"w\" min=\"1\" placeholder=\"e.g. 1200\"></label>\n  <label><span>Height in pixels</span><input type=\"number\" id=\"h\" min=\"1\" placeholder=\"e.g. 630\"></label>\n</div>\n<label class=\"lock\"><input type=\"checkbox\" id=\"lock\" checked> Keep the original proportions</label>\n<div class=\"row-2\" style=\"margin-top:12px\">\n  <label><span>Output format</span><select id=\"fmt\"><option value=\"image/jpeg\">JPG</option><option value=\"image/webp\">WebP</option><option value=\"image/png\">PNG</option></select></label>\n  <label><span>Quality: <b id=\"qv\">90</b>%</span><input type=\"range\" id=\"q\" min=\"10\" max=\"100\" value=\"90\"></label>\n</div>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\" disabled>Resize image</button><button id=\"dl\" disabled>Download</button></div>\n<div class=\"stats\" id=\"stats\" style=\"display:none\">\n  <div class=\"stat\"><span class=\"num\" id=\"s1\">0</span><span class=\"label\">Original size</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"s2\">0</span><span class=\"label\">New size</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"s3\">0</span><span class=\"label\">New dimensions</span></div>\n</div>\n<p class=\"note\" id=\"note\">Pick an image to begin. Nothing is uploaded, the resize happens on your device.</p>\n<div id=\"pw\" style=\"display:none;margin-top:14px\"><img id=\"prev\" style=\"max-height:300px;border-radius:12px\"></div>",
+    "css": "input[type=file]{padding:11px 14px;background:var(--paper-2);cursor:pointer}\n.lock{display:flex;align-items:center;gap:10px;margin-top:12px;font-weight:600;font-size:.92rem}\n.lock input{margin:0}\n#s3{font-size:1.1rem}",
+    "js": "var fileEl=document.getElementById('file'),W=document.getElementById('w'),H=document.getElementById('h'),\nlock=document.getElementById('lock'),fmt=document.getElementById('fmt'),q=document.getElementById('q'),qv=document.getElementById('qv'),\ngo=document.getElementById('go'),dl=document.getElementById('dl'),note=document.getElementById('note'),\nstats=document.getElementById('stats'),prev=document.getElementById('prev'),pw=document.getElementById('pw');\nvar img=new Image(),srcSize=0,srcName='image',ratio=1,outBlob=null,outUrl=null,busy=false;\nfunction kb(b){return b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(2)+' MB';}\nq.addEventListener('input',function(){qv.textContent=q.value;});\nfileEl.addEventListener('change',function(){\n  var f=fileEl.files&&fileEl.files[0]; if(!f)return;\n  if(!/^image\\//.test(f.type)){note.textContent='That file is not an image.';return;}\n  srcSize=f.size; srcName=f.name.replace(/\\.[^.]+$/,'');\n  var r=new FileReader();\n  r.onload=function(e){\n    img=new Image();\n    img.onload=function(){\n      ratio=img.width/img.height;\n      W.value=img.width; H.value=img.height;\n      go.disabled=false;\n      note.textContent='Loaded '+img.width+' x '+img.height+' pixels, '+kb(srcSize)+'. Set the size you want.';\n      WT.resize();\n    };\n    img.onerror=function(){note.textContent='That image could not be read.';};\n    img.src=e.target.result;\n  };\n  r.readAsDataURL(f);\n});\nW.addEventListener('input',function(){\n  if(!lock.checked||!ratio||busy)return; busy=true;\n  var v=parseInt(W.value,10); if(v>0)H.value=Math.round(v/ratio); busy=false;\n});\nH.addEventListener('input',function(){\n  if(!lock.checked||!ratio||busy)return; busy=true;\n  var v=parseInt(H.value,10); if(v>0)W.value=Math.round(v*ratio); busy=false;\n});\ngo.addEventListener('click',function(){\n  var w=parseInt(W.value,10),h=parseInt(H.value,10);\n  if(!(w>0&&h>0)){note.textContent='Enter a width and height greater than zero.';return;}\n  if(w>12000||h>12000){note.textContent='That is very large. Keep each side under 12000 pixels.';return;}\n  var c=document.createElement('canvas'); c.width=w; c.height=h;\n  var ctx=c.getContext('2d');\n  ctx.imageSmoothingQuality='high';\n  if(fmt.value==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);}\n  ctx.drawImage(img,0,0,w,h);\n  c.toBlob(function(b){\n    if(!b){note.textContent='Your browser could not produce that format. Try JPG.';return;}\n    outBlob=b; if(outUrl)URL.revokeObjectURL(outUrl); outUrl=URL.createObjectURL(b);\n    document.getElementById('s1').textContent=kb(srcSize);\n    document.getElementById('s2').textContent=kb(b.size);\n    document.getElementById('s3').textContent=w+' x '+h;\n    stats.style.display=''; prev.src=outUrl; pw.style.display=''; dl.disabled=false;\n    note.textContent='Done. Press Download to save it, or right click the preview and choose Save image as.';\n    WT.resize();\n  },fmt.value,parseInt(q.value,10)/100);\n});\ndl.addEventListener('click',function(){\n  if(!outBlob)return;\n  var ext=fmt.value==='image/png'?'png':fmt.value==='image/webp'?'webp':'jpg';\n  var name=srcName+'-'+W.value+'x'+H.value+'.'+ext;\n  try{\n    var a=document.createElement('a');a.href=outUrl;a.download=name;\n    document.body.appendChild(a);a.click();document.body.removeChild(a);\n    note.textContent='Saved as '+name+'. Check your downloads folder.';\n  }catch(e){\n    window.open(outUrl,'_blank');\n    note.textContent='Opened in a new tab. Right click it and choose Save image as.';\n  }\n  WT.resize();\n});",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Image Resizer: Exact Sizes, Zero Upload",
+    "metaDescription": "Free image resizer. Set any width and height, keep proportions automatically, and download instantly. Your photo never leaves your browser.",
+    "keywords": [
+      "image resizer",
+      "resize image online",
+      "change image dimensions",
+      "resize photo",
+      "image size changer",
+      "resize jpg png"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free image resizer changes a picture to any exact width and height you need, and it does it inside your browser so the file never gets uploaded. Type a width and the height follows automatically to keep the proportions right, which is what stops resized images from looking squashed. Turn that off and you can force any dimensions you like. Social platforms, marketplaces, job portals and school systems all demand specific pixel sizes, and getting one wrong usually means the upload is rejected or the image comes out cropped in an ugly way. Set the numbers, press Resize, and download. There are no limits, no watermark and no account."
+    ],
+    "howto": [
+      "Click Choose an image and pick a file from your device.",
+      "The current dimensions appear in the two boxes. Type the width you need and the height adjusts on its own.",
+      "Leave Keep the original proportions ticked unless you deliberately want to stretch the image.",
+      "Pick an output format. JPG for photos, WebP for the smallest web files, PNG when you need a transparent background kept.",
+      "Press Resize image and check the new size and dimensions in the three boxes.",
+      "Press Download to save it, or right click the preview and choose Save image as."
+    ],
+    "benefits": [
+      "The proportion lock is the part that saves most of the trouble. Resizing by typing both numbers by hand is how images end up stretched, and it is surprisingly hard to notice on your own photo until someone else points it out. Here you type one number and the other follows, so the shape stays correct without any arithmetic.",
+      "Everything happens on your device, which matters more than people assume. Product photos before a launch, scans of documents, passport pictures for an application, children's photos for a school portal. None of that should be handed to an unknown server just to change its dimensions. There are also no size caps or daily limits, because there is nothing for us to meter. Once the dimensions are right, the [image compressor](/tools/image-compressor/) can shrink the file further, and the [image to Base64 converter](/tools/image-to-base64/) turns it into something you can paste straight into code."
+    ],
+    "useCases": [
+      "Online sellers hit exact pixel requirements constantly. Amazon, Etsy, eBay and Daraz all specify minimum and maximum dimensions, and a listing photo that is too small simply will not upload. Social media managers need different sizes for a profile picture, a cover image, a post and a story, all from the same original.",
+      "Job applicants and students resize photos for online forms, where a passport photo often has to be an exact pixel size within a strict file size limit. Website owners resize hero images and thumbnails so a browser is not forced to shrink a 4000 pixel image down to 400, which wastes bandwidth and slows the page. Designers make quick previews at a smaller scale while keeping the full resolution original untouched. Anyone who has been told their photo is the wrong size has needed this tool."
+    ],
+    "faqs": [
+      {
+        "q": "Is my image uploaded anywhere?",
+        "a": "No. The file is read into the page and resized by your own browser using the canvas API. It is never transmitted. Load the page, disconnect from the internet, and the resizer still works."
+      },
+      {
+        "q": "Will resizing make my photo blurry?",
+        "a": "Making an image smaller keeps it sharp. Making it larger cannot invent detail that was never captured, so a small image blown up will look soft. Always start from the largest version you have."
+      },
+      {
+        "q": "What does Keep the original proportions do?",
+        "a": "It links the two boxes so changing one updates the other, keeping the shape of the image correct. Untick it only when you genuinely want to stretch or squash the picture, which is rare."
+      },
+      {
+        "q": "Which format should I pick?",
+        "a": "JPG for photos going anywhere. WebP for websites, since it is noticeably smaller at the same quality. PNG only when you need transparency preserved, because PNG photos are always large."
+      },
+      {
+        "q": "Why did my PNG with a transparent background turn white?",
+        "a": "You exported as JPG, which has no transparency, so the transparent area is filled with white. Choose PNG or WebP to keep it transparent."
+      },
+      {
+        "q": "Can I resize several images at once?",
+        "a": "Not yet, this handles one at a time. For a handful of images it is still quick, since there is no upload wait between them."
+      },
+      {
+        "q": "Does resizing remove the photo metadata?",
+        "a": "Yes. Because the image is redrawn onto a canvas, EXIF data such as camera model, date and GPS location is not carried over. Many people treat that as a privacy bonus, but keep your original if you need that information."
+      }
+    ]
+  }
+}

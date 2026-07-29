@@ -1,0 +1,79 @@
+{
+  "name": "Image to Base64",
+  "emoji": "🧬",
+  "category": "content/categories/image.json",
+  "popular": false,
+  "order": 21,
+  "short": "Turn an image into a Base64 data URI you can paste into code.",
+  "code": {
+    "html": "<label><span>Choose an image</span><input type=\"file\" id=\"file\" accept=\"image/*\"></label>\n<div class=\"tabs\" id=\"tabs\" style=\"margin-top:14px\">\n  <button class=\"active\" data-m=\"uri\">Data URI</button>\n  <button data-m=\"css\">CSS background</button>\n  <button data-m=\"html\">HTML img tag</button>\n  <button data-m=\"raw\">Raw Base64</button>\n</div>\n<textarea id=\"out\" rows=\"8\" readonly placeholder=\"Your encoded image will appear here\"></textarea>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"copy\" disabled>Copy</button><button id=\"clear\" disabled>Clear</button></div>\n<div class=\"stats\" id=\"stats\" style=\"display:none\">\n  <div class=\"stat\"><span class=\"num\" id=\"s1\">0</span><span class=\"label\">Original file</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"s2\">0</span><span class=\"label\">Encoded size</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"s3\">0%</span><span class=\"label\">Size increase</span></div>\n</div>\n<p class=\"note\" id=\"note\">Pick an image. The encoding happens on your device, nothing is uploaded.</p>\n<div id=\"pw\" style=\"display:none;margin-top:14px\"><img id=\"prev\" style=\"max-height:180px;border-radius:12px\"></div>",
+    "css": "input[type=file]{padding:11px 14px;background:var(--paper-2);cursor:pointer}\ntextarea{margin-top:14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;min-height:180px;word-break:break-all}",
+    "js": "var mode='uri',dataUri='',mime='',fileName='image';\nvar tabs=document.getElementById('tabs'),out=document.getElementById('out'),note=document.getElementById('note');\nfunction kb(b){return b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(2)+' MB';}\nfunction render(){\n  if(!dataUri){out.value='';return;}\n  var raw=dataUri.slice(dataUri.indexOf(',')+1);\n  if(mode==='uri')out.value=dataUri;\n  else if(mode==='raw')out.value=raw;\n  else if(mode==='css')out.value='background-image: url(\"'+dataUri+'\");\\nbackground-size: cover;\\nbackground-position: center;';\n  else out.value='<img src=\"'+dataUri+'\" alt=\"'+fileName+'\">';\n  WT.resize();\n}\ntabs.addEventListener('click',function(e){\n  var b=e.target.closest('button'); if(!b)return;\n  [].forEach.call(tabs.querySelectorAll('button'),function(x){x.classList.remove('active');});\n  b.classList.add('active'); mode=b.getAttribute('data-m'); render();\n});\ndocument.getElementById('file').addEventListener('change',function(){\n  var f=this.files&&this.files[0]; if(!f)return;\n  if(!/^image\\//.test(f.type)){note.textContent='That file is not an image.';return;}\n  if(f.size>3145728){note.textContent='That image is over 3 MB. Base64 would be enormous, so compress or resize it first.';}\n  fileName=f.name; mime=f.type;\n  var r=new FileReader();\n  r.onload=function(e){\n    dataUri=e.target.result;\n    var enc=dataUri.length;\n    document.getElementById('s1').textContent=kb(f.size);\n    document.getElementById('s2').textContent=kb(enc);\n    document.getElementById('s3').textContent='+'+Math.round((enc/f.size-1)*100)+'%';\n    document.getElementById('stats').style.display='';\n    document.getElementById('prev').src=dataUri;\n    document.getElementById('pw').style.display='';\n    document.getElementById('copy').disabled=false;\n    document.getElementById('clear').disabled=false;\n    if(f.size<=3145728)note.textContent='Encoded '+fileName+' as '+mime+'. Pick the format you need above.';\n    render();\n  };\n  r.readAsDataURL(f);\n});\ndocument.getElementById('copy').addEventListener('click',function(){\n  var ok=WT.copy(out.value);\n  note.textContent=ok?'Copied to clipboard.':'Copy failed, select the text instead.';\n});\ndocument.getElementById('clear').addEventListener('click',function(){\n  dataUri='';out.value='';document.getElementById('stats').style.display='none';\n  document.getElementById('pw').style.display='none';\n  document.getElementById('copy').disabled=true;this.disabled=true;\n  document.getElementById('file').value='';\n  note.textContent='Pick an image. The encoding happens on your device, nothing is uploaded.';\n  WT.resize();\n});",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Image to Base64: Instant Data URI Encoder",
+    "metaDescription": "Free image to Base64 converter. Turn any image into a data URI, CSS background or HTML img tag, ready to paste into code. Runs entirely in your browser.",
+    "keywords": [
+      "image to base64",
+      "base64 image encoder",
+      "data uri generator",
+      "png to base64",
+      "jpg to base64",
+      "css background base64"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free converter turns an image into Base64 text, ready to paste straight into your code as a data URI. Instead of linking to a separate file, the whole image travels inside your HTML, CSS or JSON as a long string of characters. That removes a network request, which is why small icons, logos and email signatures are often embedded this way. The tool gives you the output in four shapes: a plain data URI, a ready made CSS background rule, a complete HTML img tag, or the raw Base64 with no prefix, which is what most APIs expect. Everything is encoded by your own browser, so images you are not ready to publish stay on your machine."
+    ],
+    "howto": [
+      "Click Choose an image and pick a file. Small images work best, ideally under 100 KB.",
+      "Pick the output you need from the four tabs above the box.",
+      "Choose Data URI for a src attribute or a JSON field, CSS background for a stylesheet rule, HTML img tag for a complete element, or Raw Base64 when an API asks for the string without the data prefix.",
+      "Press Copy and paste it wherever you need it.",
+      "Check the size increase figure. Base64 always makes a file bigger, so if the number looks alarming the image is probably too big to embed.",
+      "Press Clear to start again with a different image."
+    ],
+    "benefits": [
+      "The four output modes are what make this quicker than a plain encoder. Most tools hand you one long string and leave you to remember whether CSS wants quotes around it, or whether your API wants the data prefix stripped. Getting that wrong produces a broken image with no useful error, and it is a genuinely annoying ten minutes to debug. Here you pick the shape you need and paste it.",
+      "The size figures matter too. Base64 makes every file about a third larger, and embedding a large photo can bloat a stylesheet badly enough to slow the whole page. Seeing the increase before you paste stops that happening. If the number is too high, the [image compressor](/tools/image-compressor/) and [image resizer](/tools/image-resizer/) will bring the source down first. For decoding Base64 text rather than images, the [Base64 encoder and decoder](/tools/base64-encoder-decoder/) handles that side."
+    ],
+    "useCases": [
+      "Front end developers embed small icons and logos directly in CSS so the browser does not make a separate request for a two kilobyte image. For icons used on every page that is a real speed win, and it removes the risk of a broken image path after a deploy.",
+      "Email developers rely on it because many email clients block linked images by default, while some will render an embedded one. Anyone building an HTML signature meets this immediately. Developers working with APIs encode images to Base64 because JSON cannot carry binary data, so an upload endpoint often expects exactly this string. Testers and support staff paste a small screenshot into a bug report as a self contained snippet. And people building single file HTML documents, where everything must live in one file with no folder of assets, could not do it any other way."
+    ],
+    "faqs": [
+      {
+        "q": "What is a data URI?",
+        "a": "It is a way of putting a whole file inside a URL. Instead of pointing at an image on a server, the src contains the image data itself, written as Base64 text after a short prefix that says what type it is."
+      },
+      {
+        "q": "Why does the encoded version get bigger?",
+        "a": "Base64 represents every 3 bytes as 4 text characters, so the output is roughly a third larger than the file. That is the unavoidable cost of turning binary data into safe text."
+      },
+      {
+        "q": "What size image should I embed?",
+        "a": "Keep it small, ideally under 100 KB and preferably under 10 KB. Icons, logos and simple graphics are good candidates. Photos usually are not, because the string becomes so large it slows the page down more than a separate request would."
+      },
+      {
+        "q": "Which output should I choose?",
+        "a": "Data URI for an img src or a JSON value. CSS background for a stylesheet. HTML img tag when you want the whole element. Raw Base64 when an API asks for the string without the data prefix, which is common."
+      },
+      {
+        "q": "Is my image uploaded anywhere?",
+        "a": "No. Your browser reads the file and encodes it locally. Nothing is transmitted, so unreleased artwork and internal graphics stay private."
+      },
+      {
+        "q": "Do embedded images get cached?",
+        "a": "Not on their own. A linked image file is cached once and reused across pages, while an embedded one is re-downloaded with every page that contains it. That is the main reason to embed only small images."
+      },
+      {
+        "q": "Does this work with SVG?",
+        "a": "Yes, SVG files encode fine. For SVG you often do not need Base64 at all though, since you can usually paste the SVG markup directly into your HTML, which stays smaller and can be styled with CSS."
+      }
+    ]
+  }
+}

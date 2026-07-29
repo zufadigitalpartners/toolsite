@@ -105,6 +105,12 @@ export default defineConfig({
               { type: "string", name: "crossorigin", label: "crossorigin value", description: "Usually \"anonymous\" for AdSense. Leave empty otherwise." },
             ],
           },
+          {
+            type: "string",
+            name: "analyticsId",
+            label: "Google Analytics measurement ID",
+            description: "Just the ID, like G-XXXXXXXXXX. Empty turns analytics off.",
+          },
           codeField(
             "inlineHeadCode",
             "Header code: inline JavaScript",

@@ -1,0 +1,75 @@
+{
+  "name": "Slug Generator",
+  "emoji": "🔗",
+  "category": "content/categories/text.json",
+  "popular": false,
+  "order": 24,
+  "short": "Turn any title into a clean, SEO friendly URL slug.",
+  "code": {
+    "html": "<label><span>Your title or text</span><textarea id=\"in\" rows=\"4\" placeholder=\"e.g. 10 Best Free Online Tools in 2026!\">10 Best Free Online Tools You Should Try</textarea></label>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Separator</span><select id=\"sep\"><option value=\"-\">Hyphen (recommended)</option><option value=\"_\">Underscore</option></select></label>\n  <label><span>Max length (0 for no limit)</span><input type=\"number\" id=\"max\" value=\"0\" min=\"0\"></label>\n</div>\n<div class=\"opts\">\n  <label><input type=\"checkbox\" id=\"lower\" checked> Make it lowercase</label>\n  <label><input type=\"checkbox\" id=\"stop\"> Remove small words like a, the, of, in</label>\n  <label><input type=\"checkbox\" id=\"nums\" checked> Keep numbers</label>\n</div>\n<div class=\"btn-row\"><button class=\"btn-primary\" id=\"go\">Generate slug</button><button id=\"copy\">Copy</button></div>\n<div class=\"out\" id=\"out\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".opts{display:grid;gap:9px;margin-top:14px}\n.opts label{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem}\n.opts input{margin:0}\n.out{margin-top:16px;font-size:1.05rem}",
+    "js": "var STOP=['a','an','the','of','in','on','at','to','for','and','or','but','is','are','was','were','be','with','from','by','as','it','this','that'];\nfunction slugify(){\n  var s=document.getElementById('in').value||'';\n  var sep=document.getElementById('sep').value;\n  var max=parseInt(document.getElementById('max').value,10)||0;\n  // strip accents so cafe and café produce the same slug\n  s=s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');\n  if(document.getElementById('lower').checked)s=s.toLowerCase();\n  if(!document.getElementById('nums').checked)s=s.replace(/[0-9]/g,' ');\n  s=s.replace(/['’]/g,'')            // drop apostrophes rather than splitting words\n     .replace(/[^a-zA-Z0-9]+/g,' ')       // everything else becomes a gap\n     .trim();\n  var words=s.split(/\\s+/).filter(Boolean);\n  if(document.getElementById('stop').checked){\n    var kept=words.filter(function(w){return STOP.indexOf(w.toLowerCase())<0;});\n    if(kept.length)words=kept;\n  }\n  var slug=words.join(sep);\n  if(max>0&&slug.length>max){\n    slug=slug.slice(0,max);\n    var cut=slug.lastIndexOf(sep);\n    if(cut>0)slug=slug.slice(0,cut);   // never end mid word\n  }\n  document.getElementById('out').innerHTML=slug?'<div class=\"out-box\">'+slug+'</div>':'';\n  var note=document.getElementById('note');\n  note.textContent=slug?slug.length+' characters, '+words.length+' words. Example: /blog/'+slug+'/':'Type something above to build a slug.';\n  window.__slug=slug;\n  WT.resize();\n}\n['in','max'].forEach(function(id){document.getElementById(id).addEventListener('input',slugify);});\n['sep','lower','stop','nums'].forEach(function(id){document.getElementById(id).addEventListener('change',slugify);});\ndocument.getElementById('go').addEventListener('click',slugify);\ndocument.getElementById('copy').addEventListener('click',function(){\n  if(!window.__slug){document.getElementById('note').textContent='Nothing to copy yet.';return;}\n  var ok=WT.copy(window.__slug);\n  document.getElementById('note').textContent=ok?'Slug copied to clipboard.':'Copy failed, select the text instead.';\n});\nslugify();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Slug Generator: Clean URLs in One Click",
+    "metaDescription": "Free URL slug generator. Turn any title into a clean, readable web address with accents stripped, small words removed and length capped. Instant and private.",
+    "keywords": [
+      "slug generator",
+      "url slug",
+      "permalink generator",
+      "seo friendly url",
+      "title to slug",
+      "url friendly text"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free slug generator turns a title into the clean piece of text that sits at the end of a web address. Spaces become hyphens, capitals come down, punctuation disappears, and accented letters are flattened so that café becomes cafe rather than something a browser has to escape. A tidy slug is easier to read, easier to share and easier for search engines to understand, while a messy one produces addresses full of percent signs that nobody wants to paste into a message. Type or paste your title, adjust a few options, and copy the result straight into your CMS, blog or code."
+    ],
+    "howto": [
+      "Type or paste your title into the box. The slug updates as you type.",
+      "Leave the separator on hyphen. Search engines treat hyphens as word gaps and underscores as joins, so hyphens are the safer choice.",
+      "Tick Remove small words to drop a, the, of and similar filler, which makes long titles much shorter without losing meaning.",
+      "Set a maximum length if your system has one. The slug is cut at a word boundary rather than mid word.",
+      "Untick Keep numbers if you do not want a year or a count in the address, which is useful for content you plan to update.",
+      "Press Copy and paste it into your CMS."
+    ],
+    "benefits": [
+      "The details are where slug tools usually fall down. Apostrophes are dropped rather than turned into gaps, so it's becomes its and not it s. Accented characters are flattened instead of being percent encoded into an unreadable mess. And when you cap the length, the cut lands on a word boundary rather than slicing a word in half, which is the difference between a tidy address and a broken looking one.",
+      "The small words option earns its place on long titles. Turning ten of the best free online tools for students in one place into best free online tools students place keeps every meaningful word and drops the noise. Everything runs in your browser, so unpublished titles stay private. It sits naturally next to the [word counter](/tools/word-counter/) for checking your title length against search limits, and the [case converter](/tools/case-converter/) for getting the headline itself formatted correctly."
+    ],
+    "useCases": [
+      "Bloggers and content writers generate a slug for every post. Most CMS platforms make one automatically, but the automatic version often keeps every filler word and produces an address far longer than it needs to be. Trimming it before publishing is worth the ten seconds, because changing a slug after publication breaks any links people have already shared.",
+      "SEO specialists care because a short, readable address is easier to earn links to and looks better in search results. Developers use slugs as identifiers in routes and file names, where spaces and punctuation cause real problems. Ecommerce teams build product URLs from names that are full of brackets, slashes and measurements. Anyone building a documentation site or a knowledge base needs consistent, predictable addresses across hundreds of pages, and doing that by hand invites inconsistency."
+    ],
+    "faqs": [
+      {
+        "q": "What is a URL slug?",
+        "a": "The readable part at the end of a web address that identifies the page. In example.com/blog/best-free-tools the slug is best-free-tools."
+      },
+      {
+        "q": "Should I use hyphens or underscores?",
+        "a": "Hyphens. Search engines treat a hyphen as a space between words and an underscore as a joiner, so best-free-tools reads as three words while best_free_tools can be read as one."
+      },
+      {
+        "q": "How long should a slug be?",
+        "a": "Short enough to read at a glance, usually three to six meaningful words and under about 60 characters. Long slugs get truncated in search results and are awkward to share."
+      },
+      {
+        "q": "Should I include the year or numbers?",
+        "a": "Only if the number is genuinely part of the topic. Putting a year in the slug means the address looks stale next year, and changing it later breaks existing links. Keep the year in the title, leave it out of the slug."
+      },
+      {
+        "q": "What happens to accented letters and other scripts?",
+        "a": "Accents are stripped, so café becomes cafe. Characters from non-Latin scripts are removed entirely, since they would otherwise be percent encoded into an unreadable address. If your site is written in such a script, most modern systems can handle it directly, but the address will not be readable in plain text form."
+      },
+      {
+        "q": "Can I change a slug after publishing?",
+        "a": "You can, but any link anyone already shared will break unless you set up a redirect from the old address to the new one. It is much easier to get it right before publishing."
+      }
+    ]
+  }
+}
