@@ -72,6 +72,12 @@ export default defineConfig({
             description: "Free key from web3forms.com. Empty shows an email link instead.",
           },
           { type: "string", name: "homeTitle", label: "Homepage meta title suffix", description: "Browser tab title: \"SiteName | <this text>\"" },
+          {
+            type: "number",
+            name: "footerToolLimit",
+            label: "Tools listed per footer column",
+            description: "The rest stay on the category page behind View all. Default 5.",
+          },
 
           // ----- HEADER CODE -----
           {

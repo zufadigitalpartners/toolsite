@@ -89,5 +89,6 @@
     }
   ],
   "headScripts": [],
-  "inlineHeadCode": ""
+  "inlineHeadCode": "",
+  "footerToolLimit": 5
 }

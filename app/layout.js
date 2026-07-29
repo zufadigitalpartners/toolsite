@@ -131,7 +131,9 @@ export default function RootLayout({ children }) {
                 <div key={cat.id}>
                   <h3>{cat.name}</h3>
                   <ul>
-                    {toolsByCategory(cat.id).map((t) => (
+                    {/* Capped so the footer does not keep growing as tools
+                        are added. The rest live on the category page. */}
+                    {toolsByCategory(cat.id).slice(0, site.footerToolLimit).map((t) => (
                       <li key={t.slug}>
                         <Link href={`/tools/${t.slug}/`}>{t.name}</Link>
                       </li>
