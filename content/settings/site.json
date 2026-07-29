@@ -1,46 +1,24 @@
 {
+  "footerToolLimit": 5,
   "name": "Tools In Pocket",
   "tagline": "Free online tools that work right in your browser",
   "description": "Free online tools: word counter, case converter, password generator and more. No signup, no uploads, everything runs in your browser.",
   "url": "https://toolsinpocket.com",
   "contactEmail": "info@toolsinpocket.com",
-  "contactFormKey": "",
+  "contactFormKey": "02d0cf00-3170-4e4f-8f33-f75e06136a78",
   "homeTitle": "Free Online Tools",
-  "ui": {
-    "nav": {
-      "logoEmoji": "",
-      "categories": "Categories",
-      "allTools": "All tools",
-      "about": "About",
-      "footerSiteHeading": "Site",
-      "footerLegalHeading": "Legal",
-      "footerViewAll": "View all →"
+  "verificationTags": [
+    {
+      "name": "google-site-verification",
+      "content": "s-mBHUsrzFYyUyUoA-3F5VgIoUG1sUuyKZOG2tSQ2dE"
     },
-    "search": {
-      "placeholder": "Search a tool… e.g. qr code",
-      "noResults": "No tool found for “{query}”. More tools are added every week."
-    },
-    "home": {
-      "popularEyebrow": "Most used",
-      "popularHeading": "Popular tools",
-      "toolsGrowing": "{count} tools and growing",
-      "viewAll": "View all {count} →",
-      "toolsCount": "{count} tools →"
-    },
-    "toolPage": {
-      "subSuffix": "100% free, no signup. Everything runs in your browser.",
-      "breadcrumbHome": "Home",
-      "howToHeading": "How to use",
-      "whyHeading": "Why use our {name}?",
-      "whoHeading": "Who is this tool for?",
-      "faqHeading": "Frequently asked questions",
-      "relatedHeading": "Related tools"
-    },
-    "categoryPage": {
-      "toolsPill": "{count} tools",
-      "moreHeading": "More categories"
+    {
+      "name": "yandex-verification",
+      "content": "5687f1daa0a05f93"
     }
-  },
+  ],
+  "headScripts": [],
+  "inlineHeadCode": "",
   "footer": {
     "line1": "All tools are free to use.",
     "line2": "Your files never leave your browser."
@@ -82,17 +60,39 @@
       "desc": "Fast on mobile and desktop, and new tools are added every week."
     }
   ],
-  "verificationTags": [
-    {
-      "name": "google-site-verification",
-      "content": "s-mBHUsrzFYyUyUoA-3F5VgIoUG1sUuyKZOG2tSQ2dE"
+  "ui": {
+    "nav": {
+      "logoEmoji": "",
+      "categories": "Categories",
+      "allTools": "All tools",
+      "about": "About",
+      "footerSiteHeading": "Site",
+      "footerLegalHeading": "Legal",
+      "footerViewAll": "View all →"
     },
-    {
-      "name": "yandex-verification",
-      "content": "5687f1daa0a05f93"
+    "search": {
+      "placeholder": "Search a tool… e.g. qr code",
+      "noResults": "No tool found for “{query}”. More tools are added every week."
+    },
+    "home": {
+      "popularEyebrow": "Most used",
+      "popularHeading": "Popular tools",
+      "toolsGrowing": "{count} tools and growing",
+      "viewAll": "View all {count} →",
+      "toolsCount": "{count} tools →"
+    },
+    "toolPage": {
+      "subSuffix": "100% free, no signup. Everything runs in your browser.",
+      "breadcrumbHome": "Home",
+      "howToHeading": "How to use",
+      "whyHeading": "Why use our {name}?",
+      "whoHeading": "Who is this tool for?",
+      "faqHeading": "Frequently asked questions",
+      "relatedHeading": "Related tools"
+    },
+    "categoryPage": {
+      "toolsPill": "{count} tools",
+      "moreHeading": "More categories"
     }
-  ],
-  "headScripts": [],
-  "inlineHeadCode": "",
-  "footerToolLimit": 5
+  }
 }
