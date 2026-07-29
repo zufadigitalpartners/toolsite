@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ui } from "@/lib/site";
-import { getTool, getCategory, relatedTools } from "@/lib/tools";
+import { getTool, getCategory } from "@/lib/tools";
+import { relatedTools } from "@/lib/related";
 import { getToolContent } from "@/lib/content";
 import { absUrl } from "@/lib/seo";
 import ToolCard from "@/components/ToolCard";
@@ -18,7 +19,11 @@ function JsonLd({ data }) {
 export default function ToolShell({ slug, children }) {
   const tool = getTool(slug);
   const cat = getCategory(tool.category);
-  const related = relatedTools(slug);
+  // Six for the grid at the foot of the page, the strongest three for the
+  // strip right under the tool, where someone who has just finished using
+  // it is actually looking.
+  const related = relatedTools(slug, 6);
+  const nextUp = related.slice(0, 3);
   const content = getToolContent(slug);
 
   const faqs = content?.faqs || tool.faqs || [];
@@ -62,6 +67,25 @@ export default function ToolShell({ slug, children }) {
       <p className="tool-sub">{tool.short} {ui("toolPage.subSuffix", "100% free, no signup. Everything runs in your browser.")}</p>
 
       <div className="tool-panel">{children}</div>
+
+      {nextUp.length > 0 && (
+        <div className="pairs-with">
+          <span className="pw-label">{ui("toolPage.pairsWith", "Works well with")}</span>
+          <div className="pw-chips">
+            {nextUp.map((t) => (
+              <Link
+                key={t.slug}
+                href={`/tools/${t.slug}/`}
+                className="pw-chip"
+                style={{ "--cat-color": getCategory(t.category)?.color }}
+              >
+                <span aria-hidden="true">{t.emoji}</span>
+                {t.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="tool-content">
         {content?.intro?.map((para, i) => (

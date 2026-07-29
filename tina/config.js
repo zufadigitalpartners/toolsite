@@ -210,6 +210,7 @@ export default defineConfig({
                   { type: "string", name: "whoHeading", label: "\"Who is this tool for?\" heading" },
                   { type: "string", name: "faqHeading", label: "FAQ heading" },
                   { type: "string", name: "relatedHeading", label: "\"Related tools\" heading" },
+                  { type: "string", name: "pairsWith", label: "\"Works well with\" strip label" },
                 ],
               },
               {
@@ -277,6 +278,14 @@ export default defineConfig({
           },
           { type: "boolean", name: "popular", label: "Show in Popular tools" },
           { type: "number", name: "order", label: "Sort order" },
+          {
+            type: "reference",
+            name: "related",
+            label: "Related tools (optional)",
+            collections: ["tool"],
+            list: true,
+            description: "Leave empty and the site works these out on its own. Add tools here only to force a specific pairing.",
+          },
           { type: "string", name: "short", label: "Short description", description: "Used on cards and in search", ui: { component: "textarea" } },
 
           // ----- THE TOOL ITSELF -----
