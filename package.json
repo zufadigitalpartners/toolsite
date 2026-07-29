@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build --skip-cloud-checks && next build",
-    "build:local": "tinacms build --local --skip-cloud-checks && next build"
+    "build": "tinacms build --skip-cloud-checks && next build && node scripts/indexnow.mjs",
+    "build:local": "tinacms build --local --skip-cloud-checks && next build && node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@tinacms/cli": "^2.5.6",
