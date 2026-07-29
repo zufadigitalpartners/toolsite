@@ -14,4 +14,9 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
-  Cross-Origin-Opener-Policy: same-origin
+
+# No Cross-Origin-Opener-Policy on purpose. COOP: same-origin severs the
+# window.opener link between a popup and the page that opened it, which
+# stops the CMS sign-in popup from handing its token back and leaves the
+# login stuck on "Logging in. Please wait...". The site holds no session
+# or sensitive state, so COOP buys very little here and costs the admin.
