@@ -279,12 +279,14 @@ export default defineConfig({
           { type: "boolean", name: "popular", label: "Show in Popular tools" },
           { type: "number", name: "order", label: "Sort order" },
           {
-            type: "reference",
+            // A plain string list, not a reference list. Tina's reference
+            // field has no list UI, and asking for one breaks the GraphQL
+            // codegen and therefore the whole build.
+            type: "string",
             name: "related",
             label: "Related tools (optional)",
-            collections: ["tool"],
             list: true,
-            description: "Leave empty and the site works these out on its own. Add tools here only to force a specific pairing.",
+            description: "Leave empty and the site works these out on its own. To force a pairing, add tool filenames like image-resizer, one per item.",
           },
           { type: "string", name: "short", label: "Short description", description: "Used on cards and in search", ui: { component: "textarea" } },
 
