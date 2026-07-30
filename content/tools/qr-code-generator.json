@@ -75,5 +75,6 @@
         "a": "Any text: phone numbers, email addresses, plain messages, Wi-Fi credentials or contact details. If a phone can read it as text, it can live in a QR code."
       }
     ]
-  }
+  },
+  "icon": "qr-code"
 }

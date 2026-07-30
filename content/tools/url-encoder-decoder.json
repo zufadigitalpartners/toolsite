@@ -76,5 +76,6 @@
         "a": "It is when an already encoded string gets encoded again, so %20 becomes %2520. You will see it when a value passes through two systems that both encode. Decode twice using the Use result as input button to recover the original."
       }
     ]
-  }
+  },
+  "icon": "link-2"
 }

@@ -76,5 +76,6 @@
         "a": "Email attachments, data URIs for inline images, HTTP Basic Auth, JWT tokens, Kubernetes secrets, and any place binary data has to travel through text-only channels."
       }
     ]
-  }
+  },
+  "icon": "binary"
 }

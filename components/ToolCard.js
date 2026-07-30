@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Icon from "@/lib/icons";
 import { getCategory } from "@/lib/tools";
 
 export default function ToolCard({ tool }) {
@@ -9,7 +10,7 @@ export default function ToolCard({ tool }) {
       className="tool-card"
       style={{ "--cat-color": cat?.color }}
     >
-      <span className="t-emoji">{tool.emoji}</span>
+      <Icon name={tool.icon} emoji={tool.emoji} size={20} className="t-icon" />
       <div className="t-name">{tool.name}</div>
       <div className="t-short">{tool.short}</div>
       <span className="t-tag">{cat?.name}</span>

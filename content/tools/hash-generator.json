@@ -76,5 +76,6 @@
         "a": "Yes. Text is encoded as UTF-8 before hashing, which is the standard behaviour, so non-Latin scripts and emoji hash consistently with other correct implementations."
       }
     ]
-  }
+  },
+  "icon": "fingerprint"
 }

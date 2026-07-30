@@ -76,5 +76,6 @@
         "a": "Talk to a doctor rather than acting on a number from a website. BMI is a screening figure, not a diagnosis, and a professional can look at the things it cannot measure, such as body composition, blood pressure and family history."
       }
     ]
-  }
+  },
+  "icon": "activity"
 }

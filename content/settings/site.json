@@ -29,16 +29,16 @@
     "subheading": "No signup. No uploads. No limits. Everything runs locally on your device, private by design and instant by default.",
     "stats": [
       {
-        "value": "{toolCount}+",
-        "label": "Free tools"
+        "value": "{toolCount}",
+        "label": "Tools"
+      },
+      {
+        "value": "0 KB",
+        "label": "Uploaded"
       },
       {
         "value": "0",
-        "label": "Uploads"
-      },
-      {
-        "value": "100%",
-        "label": "Free forever"
+        "label": "Accounts"
       }
     ]
   },
@@ -68,7 +68,7 @@
       "about": "About",
       "footerSiteHeading": "Site",
       "footerLegalHeading": "Legal",
-      "footerViewAll": "View all →"
+      "footerViewAll": "View all"
     },
     "search": {
       "placeholder": "Search a tool… e.g. qr code",
@@ -78,8 +78,9 @@
       "popularEyebrow": "Most used",
       "popularHeading": "Popular tools",
       "toolsGrowing": "{count} tools and growing",
-      "viewAll": "View all {count} →",
-      "toolsCount": "{count} tools →"
+      "viewAll": "View all {count}",
+      "toolsCount": "{count} tools",
+      "heroEyebrow": "Runs locally · Nothing uploaded"
     },
     "toolPage": {
       "subSuffix": "100% free, no signup. Everything runs in your browser.",
@@ -88,7 +89,14 @@
       "whyHeading": "Why use our {name}?",
       "whoHeading": "Who is this tool for?",
       "faqHeading": "Frequently asked questions",
-      "relatedHeading": "Related tools"
+      "relatedHeading": "Related tools",
+      "runsLocally": "Runs locally",
+      "onThisPage": "On this page",
+      "privacyHeading": "Privacy",
+      "privacyUploads": "Uploads",
+      "privacyServer": "Server calls",
+      "privacyAccount": "Account",
+      "privacyNotRequired": "Not required"
     },
     "categoryPage": {
       "toolsPill": "{count} tools",

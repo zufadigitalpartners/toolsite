@@ -72,5 +72,6 @@
         "a": "Yes. All the conversion factors are part of the page, so once it has loaded you can turn off your connection and it keeps working. Nothing you type is sent anywhere."
       }
     ]
-  }
+  },
+  "icon": "ruler"
 }

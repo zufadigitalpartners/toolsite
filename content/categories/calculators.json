@@ -1,7 +1,7 @@
 {
   "name": "Calculators",
   "emoji": "🧮",
-  "color": "#059669",
+  "color": "#2E7A4E",
   "desc": "Everyday calculators for age, dates and more. Instant answers.",
   "order": 3,
   "seo": {
@@ -14,5 +14,6 @@
     ],
     "metaTitle": "Calculators: Instant Answers You Can Trust",
     "metaDescription": "Free calculators for ages, dates, percentages, BMI and unit conversion. Leap years and edge cases handled exactly, with nothing you enter ever stored."
-  }
+  },
+  "icon": "calculator"
 }

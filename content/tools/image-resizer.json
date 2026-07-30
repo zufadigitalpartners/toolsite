@@ -75,5 +75,6 @@
         "a": "Yes. Because the image is redrawn onto a canvas, EXIF data such as camera model, date and GPS location is not carried over. Many people treat that as a privacy bonus, but keep your original if you need that information."
       }
     ]
-  }
+  },
+  "icon": "scaling"
 }

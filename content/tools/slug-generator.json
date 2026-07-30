@@ -71,5 +71,6 @@
         "a": "You can, but any link anyone already shared will break unless you set up a redirect from the old address to the new one. It is much easier to get it right before publishing."
       }
     ]
-  }
+  },
+  "icon": "link"
 }

@@ -1,7 +1,7 @@
 {
   "name": "Text Tools",
   "emoji": "✍️",
-  "color": "#2563eb",
+  "color": "#2F5FA8",
   "desc": "Count, convert and clean up text. Fast, free and private.",
   "order": 1,
   "seo": {
@@ -15,5 +15,6 @@
     ],
     "metaTitle": "Text Tools: Count, Convert and Clean Up Fast",
     "metaDescription": "Free text tools that measure and tidy your writing instantly. Count words, fix capitalization and compare drafts, all inside your browser with no uploads."
-  }
+  },
+  "icon": "type"
 }

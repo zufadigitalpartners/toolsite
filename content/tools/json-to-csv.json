@@ -75,5 +75,6 @@
         "a": "For JSON to CSV it is almost always invalid JSON, usually a trailing comma or single quotes. Paste it into our JSON formatter first to find the exact spot. For CSV to JSON, check that the first line really is a header row."
       }
     ]
-  }
+  },
+  "icon": "table"
 }

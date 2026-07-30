@@ -75,5 +75,6 @@
         "a": "Yes, SVG files encode fine. For SVG you often do not need Base64 at all though, since you can usually paste the SVG markup directly into your HTML, which stays smaller and can be styled with CSS."
       }
     ]
-  }
+  },
+  "icon": "file-image"
 }

@@ -1,43 +1,35 @@
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 import ToolCard from "@/components/ToolCard";
+import Icon from "@/lib/icons";
 import { site, ui } from "@/lib/site";
 import { tools, categories, toolsByCategory, popularTools } from "@/lib/tools";
+
+// Icons for the trust strip, in the order the CMS lists the items.
+const WHY_ICONS = ["badge-check", "shield", "user-x", "smartphone"];
 
 export default function Home() {
   return (
     <>
-      {/* ============ HERO — 3D animated scene ============ */}
+      {/* ============ HERO ============
+          Left aligned, five elements, nothing else. No orbs, no cubes, no
+          floating emoji, and no entrance animation: above-the-fold content
+          being present at first paint is worth more than it moving. */}
       <section className="hero">
-        {/* background layers */}
-        <div className="orb orb-1" aria-hidden="true" />
-        <div className="orb orb-2" aria-hidden="true" />
-        <div className="orb orb-3" aria-hidden="true" />
-        <div className="hero-floor" aria-hidden="true" />
-        <div className="scene scene-1" aria-hidden="true">
-          <div className="cube">
-            <span className="f1" /><span className="f2" /><span className="f3" />
-            <span className="f4" /><span className="f5" /><span className="f6" />
+        <div className="hero-inner">
+          <div className="hero-eyebrow">
+            <span className="live-dot" aria-hidden="true" />
+            <span>{ui("home.heroEyebrow", "Runs locally · Nothing uploaded")}</span>
           </div>
-        </div>
-        <div className="scene scene-2" aria-hidden="true">
-          <div className="cube">
-            <span className="f1" /><span className="f2" /><span className="f3" />
-            <span className="f4" /><span className="f5" /><span className="f6" />
-          </div>
-        </div>
-        <span className="float-icon fi-1" aria-hidden="true">🔐</span>
-        <span className="float-icon fi-2" aria-hidden="true">🧩</span>
-        <span className="float-icon fi-3" aria-hidden="true">🔢</span>
-        <span className="float-icon fi-4" aria-hidden="true">🎲</span>
 
-        <div className="container hero-inner">
           <h1>
             {site.hero.heading}<br />
             <span className="accent">{site.hero.headingAccent}</span>
           </h1>
           <p className="sub">{site.hero.subheading}</p>
+
           <SearchBar />
+
           <div className="hero-stats">
             {site.hero.stats.map((stat, i) => (
               <div className="hero-stat" key={i}>
@@ -49,7 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ CATEGORY DECK (overlaps hero) ============ */}
+      {/* ============ CATEGORY DECK ============ */}
       <section className="cat-deck">
         <div className="container">
           <div className="cat-grid">
@@ -57,14 +49,15 @@ export default function Home() {
               <Link
                 key={cat.id}
                 href={`/category/${cat.id}/`}
-                className="cat-card"
+                className="cat-cell"
                 style={{ "--cat-color": cat.color }}
               >
-                <span className="c-arrow" aria-hidden="true">→</span>
-                <span className="c-emoji">{cat.emoji}</span>
+                <Icon name={cat.icon} emoji={cat.emoji} size={22} className="c-icon" />
                 <div className="c-name">{cat.name}</div>
                 <div className="c-desc">{cat.desc}</div>
-                <div className="c-count">{ui("home.toolsCount", "{count} tools →", { count: toolsByCategory(cat.id).length })}</div>
+                <div className="c-count">
+                  {ui("home.toolsCount", "{count} tools", { count: toolsByCategory(cat.id).length })}
+                </div>
               </Link>
             ))}
           </div>
@@ -77,10 +70,12 @@ export default function Home() {
           <div className="section-eyebrow">{ui("home.popularEyebrow", "Most used")}</div>
           <div className="section-head">
             <h2>{ui("home.popularHeading", "Popular tools")}</h2>
-            <span className="count">{ui("home.toolsGrowing", "{count} tools and growing", { count: tools.length })}</span>
+            <span className="count">
+              {ui("home.toolsGrowing", "{count} tools and growing", { count: tools.length })}
+            </span>
           </div>
           <div className="grid">
-            {popularTools().map((t) => (
+            {popularTools().slice(0, 8).map((t) => (
               <ToolCard key={t.slug} tool={t} />
             ))}
           </div>
@@ -91,12 +86,14 @@ export default function Home() {
       {categories.map((cat) => (
         <section className="section" id={`cat-${cat.id}`} key={cat.id}>
           <div className="container">
-            <div className="section-head">
+            <div className="section-head" style={{ "--cat-color": cat.color }}>
               <h2>
-                {cat.emoji} {cat.name}
+                <Icon name={cat.icon} emoji={cat.emoji} size={20} className="h-icon" />
+                {cat.name}
               </h2>
-              <Link className="view-all" href={`/category/${cat.id}/`} style={{ color: cat.color }}>
-                {ui("home.viewAll", "View all {count} →", { count: toolsByCategory(cat.id).length })}
+              <Link className="view-all" href={`/category/${cat.id}/`}>
+                {ui("home.viewAll", "View all {count}", { count: toolsByCategory(cat.id).length })}
+                <Icon name="arrow-right" size={16} />
               </Link>
             </div>
             <div className="grid">
@@ -116,7 +113,10 @@ export default function Home() {
             <div className="why-grid">
               {site.whyUs.map((item, i) => (
                 <div className="why-item" key={i}>
-                  <div className="w-title"><span className="w-dot" />{item.title}</div>
+                  <div className="w-title">
+                    <Icon name={WHY_ICONS[i % WHY_ICONS.length]} size={20} className="w-icon" />
+                    {item.title}
+                  </div>
                   <p>{item.desc}</p>
                 </div>
               ))}

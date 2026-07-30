@@ -76,5 +76,6 @@
         "a": "This tool validates standard JSON, which is what APIs and most config parsers require. Remove comments and trailing commas first, or treat the error messages as a checklist of what to strip."
       }
     ]
-  }
+  },
+  "icon": "braces"
 }

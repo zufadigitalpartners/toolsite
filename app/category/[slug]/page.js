@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Icon from "@/lib/icons";
 import ToolCard from "@/components/ToolCard";
 import RichText from "@/components/RichText";
 import { categories, getCategory, toolsByCategory } from "@/lib/tools";
@@ -27,7 +28,7 @@ export default function CategoryPage({ params }) {
             <Link href="/">{ui("toolPage.breadcrumbHome", "Home")}</Link> › {cat.name}
           </div>
           <h1>
-            {cat.emoji} {cat.name}
+            {cat.name}
             <span className="cat-count-pill">{ui("categoryPage.toolsPill", "{count} tools", { count: list.length })}</span>
           </h1>
           <p>{cat.desc}</p>
@@ -67,13 +68,13 @@ export default function CategoryPage({ params }) {
               <Link
                 key={c.id}
                 href={`/category/${c.id}/`}
-                className="cat-card"
+                className="cat-cell"
                 style={{ "--cat-color": c.color }}
               >
-                <span className="c-emoji">{c.emoji}</span>
+                <Icon name={c.icon} emoji={c.emoji} size={22} className="c-icon" />
                 <div className="c-name">{c.name}</div>
                 <div className="c-desc">{c.desc}</div>
-                <div className="c-count">{ui("home.toolsCount", "{count} tools →", { count: toolsByCategory(c.id).length })}</div>
+                <div className="c-count">{ui("home.toolsCount", "{count} tools", { count: toolsByCategory(c.id).length })}</div>
               </Link>
             ))}
           </div>

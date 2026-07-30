@@ -1,7 +1,7 @@
 {
   "name": "Developer Tools",
   "emoji": "👨‍💻",
-  "color": "#7c3aed",
+  "color": "#7452B4",
   "desc": "Format, encode and debug. Handy utilities for developers.",
   "order": 4,
   "seo": {
@@ -14,5 +14,6 @@
     ],
     "metaTitle": "Developer Tools: Format, Encode and Debug Fast",
     "metaDescription": "Free developer utilities for JSON, Base64, hashes, colors, URLs and CSV. Everything runs locally, so tokens and customer data never leave your machine."
-  }
+  },
+  "icon": "terminal"
 }

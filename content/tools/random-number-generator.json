@@ -71,5 +71,6 @@
         "a": "Absolutely. Set the range to 1 to 6 for a die, generate two numbers for a pair of dice, or use 1 to 2 for a coin flip with heads on 1 and tails on 2."
       }
     ]
-  }
+  },
+  "icon": "dices"
 }

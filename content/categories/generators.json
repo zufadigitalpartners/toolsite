@@ -1,7 +1,7 @@
 {
   "name": "Generators",
   "emoji": "⚡",
-  "color": "#d97706",
+  "color": "#96600E",
   "desc": "Generate passwords, QR codes, random numbers and more in one click.",
   "order": 2,
   "seo": {
@@ -15,5 +15,6 @@
     ],
     "metaTitle": "Generators: Passwords, QR Codes and Random Picks",
     "metaDescription": "Free generators that create what you need on demand. Strong passwords, permanent QR codes, fair random numbers and placeholder text, all in your browser."
-  }
+  },
+  "icon": "sparkles"
 }

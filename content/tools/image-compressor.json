@@ -76,5 +76,6 @@
         "a": "No limits at all. Since nothing is uploaded there is nothing for us to meter. Very large images depend on your device's memory, but anything from a normal camera or phone is fine."
       }
     ]
-  }
+  },
+  "icon": "image-down"
 }

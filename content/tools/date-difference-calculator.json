@@ -71,5 +71,6 @@
         "a": "No. All calculations happen in your browser. Nothing is uploaded, saved or logged."
       }
     ]
-  }
+  },
+  "icon": "calendar-days"
 }

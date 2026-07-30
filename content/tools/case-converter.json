@@ -71,5 +71,6 @@
         "a": "Line breaks and spacing are preserved. Only the letter casing changes. Bold and italic styling from word processors does not travel through plain text, so apply visual formatting after converting."
       }
     ]
-  }
+  },
+  "icon": "case-upper"
 }

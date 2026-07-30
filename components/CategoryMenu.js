@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Icon from "@/lib/icons";
 
 // Header categories dropdown. Replaces the old <details> element, which
 // could not close itself on outside clicks or after navigation on mobile.
@@ -35,6 +36,7 @@ export default function CategoryMenu({ label, items }) {
         onClick={() => setOpen((v) => !v)}
       >
         {label}
+        <Icon name="chevron-down" size={14} className="dd-chev" />
       </button>
       {open && (
         <div className="dd-menu">
@@ -45,7 +47,7 @@ export default function CategoryMenu({ label, items }) {
               style={{ "--cat-color": cat.color }}
               onClick={() => setOpen(false)}
             >
-              <span className="dd-dot" />
+              <Icon name={cat.icon} emoji={cat.emoji} size={16} className="dd-icon" />
               {cat.name}
               <span className="dd-count">{cat.count}</span>
             </Link>

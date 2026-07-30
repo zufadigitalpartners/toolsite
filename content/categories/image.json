@@ -1,7 +1,7 @@
 {
   "name": "Image Tools",
   "emoji": "🖼️",
-  "color": "#db2777",
+  "color": "#A63F63",
   "desc": "Compress and convert images without uploading them anywhere.",
   "order": 5,
   "seo": {
@@ -15,5 +15,6 @@
     ],
     "metaTitle": "Image Tools: Compress Photos Without Uploading",
     "metaDescription": "Free image tools that process your files on your own device. Compress JPG, PNG and WebP without uploads, size limits, watermarks or an account."
-  }
+  },
+  "icon": "image"
 }

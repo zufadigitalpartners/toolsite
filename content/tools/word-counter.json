@@ -75,5 +75,6 @@
         "a": "Different tools treat symbols, numbers and stray punctuation a little differently. The difference is usually a handful of words on very long texts. For strict limits, always follow the counter your submission system uses."
       }
     ]
-  }
+  },
+  "icon": "text"
 }

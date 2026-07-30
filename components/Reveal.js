@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 // into view. Pure progressive enhancement: without JS (or with reduced
 // motion) everything renders normally, so SEO and no-JS users see the
 // full page.
-const SELECTORS = ".tool-card, .cat-card, .why-item, .stat, .faq";
+const SELECTORS = ".tool-card, .cat-cell, .why-item, .faq";
 
 export default function Reveal() {
   const pathname = usePathname();

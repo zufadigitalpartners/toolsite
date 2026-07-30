@@ -71,5 +71,6 @@
         "a": "No. Everything is calculated in your browser and nothing is uploaded, logged or stored. Refresh the page and it is all gone."
       }
     ]
-  }
+  },
+  "icon": "percent"
 }

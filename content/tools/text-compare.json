@@ -71,5 +71,6 @@
         "a": "Look for invisible differences: trailing spaces, tabs against spaces, or line endings from a different operating system. These are real differences even though your eye cannot see them, and they are a common cause of confusing bugs."
       }
     ]
-  }
+  },
+  "icon": "git-compare"
 }

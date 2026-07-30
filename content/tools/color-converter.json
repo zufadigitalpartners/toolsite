@@ -72,5 +72,6 @@
         "a": "Hex and rgb convert exactly, since they are the same values in different notation. HSL involves rounding to whole numbers, so converting to HSL and back can occasionally shift a channel by one, which is invisible to the eye."
       }
     ]
-  }
+  },
+  "icon": "palette"
 }

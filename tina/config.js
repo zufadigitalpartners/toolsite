@@ -7,6 +7,19 @@ const branch =
   process.env.CF_PAGES_BRANCH || // set automatically by Cloudflare Pages
   "main";
 
+// The icon names available in lib/icons.js. Listed here rather than imported
+// because lib/icons.js exports a React component and this config is evaluated
+// by the Tina CLI, which does not compile JSX. Add an icon there, add its name
+// here, and it appears in the dropdown.
+const ICON_OPTIONS = [
+  "activity", "align-left", "arrow-right", "badge-check", "binary", "braces",
+  "cake", "calculator", "calendar-days", "case-upper", "chevron-down", "clock",
+  "dices", "file-image", "fingerprint", "git-compare", "image", "image-down",
+  "key-round", "landmark", "link", "link-2", "palette", "percent", "qr-code",
+  "ruler", "scaling", "search", "shield", "smartphone", "sparkles", "square",
+  "table", "terminal", "text", "type", "user-x",
+];
+
 const slugify = (values) =>
   (values?.name || values?.title || "new-entry")
     .toLowerCase()
@@ -191,6 +204,7 @@ export default defineConfig({
                 name: "home",
                 label: "Homepage sections",
                 fields: [
+                  { type: "string", name: "heroEyebrow", label: "Hero status line", description: "The small line above the headline, next to the pulsing dot" },
                   { type: "string", name: "popularEyebrow", label: "Eyebrow above Popular tools" },
                   { type: "string", name: "popularHeading", label: "\"Popular tools\" heading" },
                   { type: "string", name: "toolsGrowing", label: "Tool count text", description: "{count} = number of tools" },
@@ -210,6 +224,13 @@ export default defineConfig({
                   { type: "string", name: "whoHeading", label: "\"Who is this tool for?\" heading" },
                   { type: "string", name: "faqHeading", label: "FAQ heading" },
                   { type: "string", name: "relatedHeading", label: "\"Related tools\" heading" },
+                  { type: "string", name: "runsLocally", label: "Tool panel status text" },
+                  { type: "string", name: "onThisPage", label: "\"On this page\" heading" },
+                  { type: "string", name: "privacyHeading", label: "Privacy block heading" },
+                  { type: "string", name: "privacyUploads", label: "Privacy: uploads label" },
+                  { type: "string", name: "privacyServer", label: "Privacy: server calls label" },
+                  { type: "string", name: "privacyAccount", label: "Privacy: account label" },
+                  { type: "string", name: "privacyNotRequired", label: "Privacy: account value" },
                   { type: "string", name: "pairsWith", label: "\"Works well with\" strip label" },
                 ],
               },
@@ -238,7 +259,15 @@ export default defineConfig({
         },
         fields: [
           { type: "string", name: "name", label: "Name", required: true },
-          { type: "string", name: "emoji", label: "Emoji" },
+          {
+            type: "string",
+            name: "icon",
+            label: "Icon",
+            options: ICON_OPTIONS,
+            description:
+              "The line icon shown for this category. Leave it empty and the emoji below is used instead.",
+          },
+          { type: "string", name: "emoji", label: "Emoji (fallback)" },
           { type: "string", name: "color", label: "Color", ui: { component: "color" } },
           { type: "string", name: "desc", label: "Short description", ui: { component: "textarea" } },
           { type: "number", name: "order", label: "Sort order" },
@@ -269,7 +298,15 @@ export default defineConfig({
         },
         fields: [
           { type: "string", name: "name", label: "Tool name", required: true },
-          { type: "string", name: "emoji", label: "Emoji" },
+          {
+            type: "string",
+            name: "icon",
+            label: "Icon",
+            options: ICON_OPTIONS,
+            description:
+              "The line icon shown on cards, in search and beside the title. Leave it empty and the emoji below is used instead, so a new tool is never iconless.",
+          },
+          { type: "string", name: "emoji", label: "Emoji (fallback)" },
           {
             type: "reference",
             name: "category",

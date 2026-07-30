@@ -61,16 +61,28 @@ const siteLd = {
 };
 
 export default function RootLayout({ children }) {
+  // Two-tone wordmark: everything but the last word in ink, the last word
+  // muted. Derived from the CMS site name so renaming still works.
+  const nameWords = String(site.name || "").trim().split(/\s+/);
+  const logoParts =
+    nameWords.length > 1
+      ? [nameWords.slice(0, -1).join(" ") + " ", nameWords[nameWords.length - 1]]
+      : [site.name, ""];
+
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
-        <meta name="theme-color" content="#0c1224" />
+        <meta name="theme-color" content="#191817" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Schibsted Grotesk for everything structural, Spectral for article
+            prose only, Chivo Mono for output and micro-labels. Schibsted was
+            chosen over the usual grotesques because it ships real tabular
+            figures, and half this site is calculators. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&family=Spectral:ital,wght@0,400;0,600;1,400&family=Chivo+Mono:wght@400..500&display=swap"
           rel="stylesheet"
         />
         <script
@@ -117,9 +129,11 @@ export default function RootLayout({ children }) {
       <body>
         <header className="site-header">
           <div className="container">
+            {/* The wordmark is the logo. A gradient tile with an emoji in it
+                was the most dated element in the header. */}
             <Link href="/" className="logo">
-              <span className="logo-mark">{ui("nav.logoEmoji", "🧰")}</span>
-              {site.name}
+              {logoParts[0]}
+              {logoParts[1] ? <span className="logo-soft">{logoParts[1]}</span> : null}
             </Link>
             <nav className="header-nav" aria-label="Main">
               <CategoryMenu
@@ -128,6 +142,8 @@ export default function RootLayout({ children }) {
                   id: cat.id,
                   name: cat.name,
                   color: cat.color,
+                  icon: cat.icon,
+                  emoji: cat.emoji,
                   count: toolsByCategory(cat.id).length,
                 }))}
               />

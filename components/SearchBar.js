@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Icon from "@/lib/icons";
 import { tools, getCategory } from "@/lib/tools";
 import { ui } from "@/lib/site";
 
@@ -35,20 +36,7 @@ export default function SearchBar() {
   return (
     <div className="search-wrap">
       <div className="search-bar">
-        <svg
-          className="search-icon"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          aria-hidden="true"
-        >
-          <circle cx="11" cy="11" r="7" />
-          <line x1="21" y1="21" x2="16.5" y2="16.5" />
-        </svg>
+        <Icon name="search" size={20} className="search-icon" />
         <input
           ref={inputRef}
           type="text"
@@ -68,7 +56,7 @@ export default function SearchBar() {
               const cat = getCategory(t.category);
               return (
                 <Link key={t.slug} href={`/tools/${t.slug}/`} style={{ "--cat-color": cat?.color }}>
-                  <span>{t.emoji}</span>
+                  <Icon name={t.icon} emoji={t.emoji} size={16} className="r-icon" />
                   <span className="r-name">{t.name}</span>
                   <span className="r-cat">{cat?.name}</span>
                 </Link>

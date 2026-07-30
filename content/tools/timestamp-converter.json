@@ -75,5 +75,6 @@
         "a": "No. All conversion happens in your browser, so timestamps from private logs and internal systems never leave your machine."
       }
     ]
-  }
+  },
+  "icon": "clock"
 }
