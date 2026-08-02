@@ -85,6 +85,16 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&family=Spectral:ital,wght@0,400;0,600;1,400&family=Chivo+Mono:wght@400..500&display=swap"
           rel="stylesheet"
         />
+        {/* Opts this browser into the scroll-driven reveals, before first
+            paint so there is no flash of already-visible cards. Anything
+            that does not run scripts, a crawler included, never gets the
+            class and therefore sees the page with nothing faded out. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(CSS.supports('animation-timeline','view()')&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.className+=' rvl-css'}catch(e){}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }}

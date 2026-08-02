@@ -118,7 +118,11 @@ body {
   font-size: var(--t-16);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* clip, not hidden. `overflow-x: hidden` turns body into a scroll
+     container, which leaves every `animation-timeline: view()` with an
+     inactive timeline and silently kills the scroll-driven reveals.
+     `clip` gives the same protection without creating one. */
+  overflow-x: clip;
 }
 
 img, svg, canvas, video { max-width: 100%; height: auto; }
@@ -180,12 +184,52 @@ p, .tool-content li, .faq .a, .t-short, .c-desc { text-wrap: pretty; }
   text-transform: uppercase;
 }
 
-/* ================= SCROLL REVEAL (components/Reveal.js) =================
-   Opacity only. The 18px translate plus a spring curve plus an unbounded
-   stagger is a template signature, and it delays first meaningful paint. */
+/* ================= SCROLL REVEAL =================
+   Fallback path, for browsers without scroll-driven animations. Opacity
+   only: an 18px translate plus a spring curve plus an unbounded stagger is
+   a template signature, and it delays first meaningful paint. */
 html.rvl [data-rvl] { opacity: 0; }
 html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 @keyframes rvlFade { to { opacity: 1; } }
+
+/* The real path. `animation-timeline: view()` ties the reveal to the
+   element's own position in the viewport, so it tracks the finger instead
+   of firing once on a timer. It runs on the compositor, needs no observer
+   and no JavaScript at all, and Reveal.js stands down when it is supported.
+
+   This is what GSAP ScrollTrigger was for. The platform does it now, for
+   0 KB, without competing with the main thread for a phone's attention. */
+/* Scoped to html.rvl-css, which a tiny inline script in layout.js sets
+   before first paint. Without that gate the animation applies
+   unconditionally, and anything that renders the page without scrolling
+   sees every card below the fold at opacity 0. This site lives on search
+   traffic, so that is not a risk worth taking for a fade.
+
+   The article itself is deliberately NOT animated. The h2s and the FAQ are
+   the exact content the traffic arrives for; they are on screen, at full
+   opacity, from the first paint. Motion belongs on the furniture, not on
+   the thing people came to read. */
+@supports (animation-timeline: view()) {
+  html.rvl-css .tool-card,
+  html.rvl-css .cat-cell,
+  html.rvl-css .why-item {
+    animation: revealIn linear both;
+    animation-timeline: view();
+    animation-range: entry 4% cover 20%;
+  }
+
+  /* The hero deliberately does not move either. It holds the LCP element,
+     so anything animating there is measured as a slower page, and its light
+     could only be shifted by repainting a full-width radial gradient on
+     every scroll frame, which is paint work rather than compositor work.
+     It also cannot take overflow:hidden, because the search dropdown opens
+     inside it. Stillness at the top is the cheaper and better answer. */
+}
+
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
 
 /* ================= HEADER ================= */
 /* A white masthead sitting above an ink block is a newspaper. No glass. */
@@ -827,6 +871,14 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
   transition: color var(--d-fast) linear, border-color var(--d-fast) linear;
 }
 .rail-toc a:hover { color: var(--accent); border-left-color: var(--accent); text-decoration: none; }
+/* The section the reader is actually in. This is the one piece of motion
+   here that carries information rather than decoration, which is why it
+   earns its observer in Reveal.js. */
+.rail-toc a[aria-current] {
+  color: var(--ink);
+  font-weight: 500;
+  border-left-color: var(--accent);
+}
 
 .tool-rail .pw-chips { display: grid; gap: 0; }
 .tool-rail .pw-chip {
