@@ -8,10 +8,17 @@
    ====================================================== */
 
 :root {
-  /* ---------- surfaces ---------- */
-  --surface:   #ffffff;
-  --surface-2: #f6f4ef;   /* recessed: inputs, wells, hover */
-  --surface-3: #edeae3;   /* pressed */
+  /* ---------- surfaces ----------
+     Warm, not pure white. Every other neutral in this palette leans warm:
+     the ink is +2 red over blue, the hairlines +12 and +16. Leaving the one
+     surface that covers the whole page at a flat 0 put cold paper under warm
+     rules, which is what made it read as clinical rather than considered.
+     Cards use this same value on purpose, so the grid is still made of rules
+     rather than of boxes sitting on a different ground. */
+  --surface:   #fcfaf6;
+  --surface-2: #f4f1ea;   /* recessed: inputs, wells, hover */
+  --surface-3: #eae6dd;   /* pressed */
+  --raised:    #ffffff;   /* the few things that should lift off the paper */
 
   /* ---------- ink (warm neutral, not blue-grey) ---------- */
   --ink:   #191817;       /* body text, headings, and the hero ground */
@@ -322,7 +329,7 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 /* ================= OVERLAYS ================= */
 .dd-menu,
 .search-results {
-  background: var(--surface);
+  background: var(--raised);
   border: 1px solid var(--line-strong);
   border-radius: var(--r-md);
   box-shadow: var(--e-overlay);
@@ -958,7 +965,8 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 
 /* ================= TOOL PANEL ================= */
 .tool-panel {
-  background: var(--surface);
+  /* white, so the thing you actually operate lifts off the paper */
+  background: var(--raised);
   border: 1px solid var(--line-strong);
   border-radius: var(--r-md);
   padding: var(--s5);
@@ -1392,7 +1400,7 @@ input.mono-out {
 
 /* ================= CONTACT FORM ================= */
 .form-card {
-  background: var(--surface);
+  background: var(--raised);
   border: 1px solid var(--line-strong);
   border-radius: var(--r-md);
   padding: clamp(20px, 4vw, 30px);
