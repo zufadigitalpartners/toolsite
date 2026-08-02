@@ -1,7 +1,7 @@
 {
   "name": "Image Tools",
   "emoji": "🖼️",
-  "color": "#A63F63",
+  "color": "#C4356E",
   "desc": "Compress and convert images without uploading them anywhere.",
   "order": 5,
   "seo": {

@@ -1,0 +1,75 @@
+{
+  "name": "Compound Interest Calculator",
+  "emoji": "📈",
+  "icon": "activity",
+  "category": "content/categories/calculators.json",
+  "popular": true,
+  "order": 21,
+  "short": "See how savings grow when interest earns interest, with regular deposits included.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>Starting amount</span><input type=\"number\" id=\"p\" value=\"10000\" min=\"0\" step=\"100\"></label>\n  <label><span>Annual interest rate %</span><input type=\"number\" id=\"r\" value=\"7\" step=\"0.01\" min=\"0\"></label>\n</div>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Years</span><input type=\"number\" id=\"y\" value=\"20\" min=\"1\" max=\"80\"></label>\n  <label><span>Compounded</span><select id=\"n\">\n    <option value=\"12\" selected>Monthly</option>\n    <option value=\"4\">Quarterly</option>\n    <option value=\"2\">Twice a year</option>\n    <option value=\"1\">Once a year</option>\n    <option value=\"365\">Daily</option>\n  </select></label>\n</div>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Add per month</span><input type=\"number\" id=\"c\" value=\"200\" min=\"0\" step=\"10\"></label>\n  <label><span>Deposit timing</span><select id=\"when\">\n    <option value=\"end\" selected>End of month</option>\n    <option value=\"start\">Start of month</option>\n  </select></label>\n</div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"go\">Calculate</button>\n  <button id=\"copy\">Copy result</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"final\">0</span><span class=\"label\">Final balance</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"paid\">0</span><span class=\"label\">You put in</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"earned\">0</span><span class=\"label\">Interest earned</span></div>\n</div>\n<div class=\"ic-break\" id=\"brk\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".ic-break{display:grid;gap:0;margin-top:var(--s5);border-top:1px solid var(--line)}\n.ic-break div{display:flex;justify-content:space-between;gap:var(--s4);\n  padding:9px 0;border-bottom:1px solid var(--line);font-size:var(--t-14)}\n.ic-break b{font-weight:500;font-variant-numeric:tabular-nums slashed-zero}\n.ic-break .hd{color:var(--muted);font-family:var(--font-mono);font-size:var(--t-12);\n  text-transform:uppercase;letter-spacing:.09em}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var money=function(n){return n.toLocaleString(undefined,{maximumFractionDigits:0})};\n  function calc(){\n    var P=+$('p').value||0, rate=+$('r').value||0, years=+$('y').value||0;\n    var n=+$('n').value||12, add=+$('c').value||0, atStart=$('when').value==='start';\n    if(years<=0){ $('note').textContent='Enter at least one year.'; return; }\n    // Stepped month by month rather than closed form, because the deposit is\n    // monthly while compounding may not be. Interest is credited only on the\n    // months where a compounding period actually ends.\n    var months=Math.round(years*12);\n    var periodEvery = 12/n;            // months between compounding events\n    var ratePerPeriod = rate/100/n;\n    var bal=P, contributed=P, rows=[], acc=0;\n    for(var m=1;m<=months;m++){\n      if(atStart){ bal+=add; contributed+=add; }\n      acc+=1;\n      if(acc>=periodEvery){ bal*=1+ratePerPeriod*(acc/periodEvery); acc=0; }\n      if(!atStart){ bal+=add; contributed+=add; }\n      if(m%12===0 && (years<=10 || (m/12)%5===0 || m===months)){\n        rows.push([(m/12)+' year'+(m/12>1?'s':''), bal, bal-contributed]);\n      }\n    }\n    $('final').textContent=money(bal);\n    $('paid').textContent=money(contributed);\n    $('earned').textContent=money(bal-contributed);\n    var html='<div class=\"hd\"><span>After</span><span>Balance</span></div>';\n    html+=rows.map(function(x){return '<div><span>'+x[0]+'</span><b>'+money(x[1])+'</b></div>'}).join('');\n    $('brk').innerHTML=html;\n    var share = bal>0 ? (bal-contributed)/bal*100 : 0;\n    $('note').textContent='Interest makes up '+share.toFixed(0)+\n      '% of the final balance. The longer the money stays invested, the larger that share becomes.';\n    if(window.WT) WT.resize();\n  }\n  ['p','r','y','n','c','when'].forEach(function(id){\n    $(id).addEventListener('input',calc); $(id).addEventListener('change',calc);\n  });\n  $('go').addEventListener('click',calc);\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy('Final balance: '+$('final').textContent+', of which '+$('earned').textContent+' is interest.');\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy result'},1400);\n  });\n  calc();\n})();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Compound Interest Calculator with Monthly Deposits",
+    "metaDescription": "See how your savings grow when interest earns interest. Free compound interest calculator with monthly contributions, any compounding frequency and a year by year breakdown.",
+    "keywords": [
+      "compound interest calculator",
+      "compounding calculator",
+      "savings growth calculator",
+      "interest on interest",
+      "monthly contribution calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Compounding means the interest you earned last month starts earning interest of its own, and over a long enough stretch that effect does more work than your deposits do. This free compound interest calculator shows exactly how that plays out. Enter what you are starting with, the rate, how long you plan to leave it, how often the interest is compounded and how much you add each month, and you get the final balance split into the part you paid in and the part the interest earned. There is also a year by year table, which is where the shape of compounding becomes obvious: the early years look almost linear and the later ones do not. Everything is calculated in your browser and nothing is sent anywhere."
+    ],
+    "howto": [
+      "Enter your starting amount. Zero is fine if you are beginning from nothing and relying entirely on monthly deposits.",
+      "Type the annual interest rate. Use the yearly figure even if the account compounds monthly, because that is how rates are always quoted.",
+      "Set how many years the money will stay invested. This is the input that changes the answer most, so it is worth trying several.",
+      "Choose the compounding frequency. Savings accounts are usually monthly or daily, bonds are often twice a year, and index funds are best modelled as annual.",
+      "Add your regular monthly deposit, and pick whether it lands at the start or the end of the month. Depositing at the start earns you one extra month of growth on every payment.",
+      "Read the three numbers and then look at the year by year table underneath, which shows the balance building up over time."
+    ],
+    "benefits": [
+      "Most compound interest calculators use a single closed form equation, which quietly assumes your deposits arrive exactly as often as the interest is compounded. That is rarely true in real life, where people save monthly into accounts that might compound daily or yearly. This one steps through the calculation month by month and credits interest only when a compounding period actually ends, so the answer matches what a bank would do rather than what the tidy formula wishes it would do.",
+      "The split between what you contributed and what the interest earned is the number worth watching. Early on it is embarrassing, because almost everything in the balance is money you put there yourself. Somewhere in the second decade it crosses over, and after that the account grows faster than you are feeding it. Seeing the crossover point for your own numbers is far more persuasive than being told that compounding is powerful, and it is the reason the start of the month deposit option is included, since that small choice compounds too."
+    ],
+    "useCases": [
+      "People planning long term savings use this to sanity check whether a goal is realistic before committing to a monthly amount. It answers the practical question directly: if I can manage this much a month for this many years, where do I land. Parents saving for education, and anyone building an emergency fund or a deposit, tend to run it several times with different monthly figures until one of them feels sustainable.",
+      "It is also used the other way around, to test claims. If an account advertises a rate, this shows what that rate is actually worth over a decade on the balance you would realistically hold. Students meet compound interest in maths and finance courses and use it to check homework, and anyone comparing two savings products can run both and compare the interest earned line. For projecting what those savings will support once you stop working, our [retirement income calculator](/tools/retirement-income-calculator/) picks up where this one leaves off."
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between simple and compound interest?",
+        "a": "Simple interest is calculated only on the original amount, so it grows in a straight line. Compound interest is calculated on the original amount plus everything it has already earned, so it accelerates. Over one year the two are close. Over twenty years they are not remotely comparable, which is why almost every real savings product compounds."
+      },
+      {
+        "q": "Does compounding daily beat compounding monthly?",
+        "a": "Slightly, and much less than people expect. At seven percent, daily compounding beats monthly by roughly a twentieth of a percent per year. Try it in the calculator and you will see the final balances land close together. The rate and the number of years matter enormously; the frequency barely does."
+      },
+      {
+        "q": "Should I deposit at the start or the end of the month?",
+        "a": "At the start, if you can. Every deposit then earns one extra month of growth, and over decades those extra months add up to a real difference. Switch the timing option and compare, because the gap is usually bigger than people guess."
+      },
+      {
+        "q": "Does this account for inflation or tax?",
+        "a": "No. The result is a nominal figure, meaning it does not adjust for what money will be worth later or for tax on the gains. A rough way to see the real value is to enter a rate reduced by expected inflation, so seven percent growth with three percent inflation becomes four percent."
+      },
+      {
+        "q": "Can I use it for investments rather than a savings account?",
+        "a": "Yes, with the understanding that investment returns are an average rather than a promise. Markets do not deliver a steady seven percent every year, they deliver something wildly different each year that averages out over long periods. The maths is the same, the certainty is not."
+      },
+      {
+        "q": "Why does the year by year table skip years?",
+        "a": "For runs longer than ten years it shows every fifth year plus the final one, so a forty year projection stays readable rather than becoming a wall of rows. Shorter runs list every year."
+      }
+    ]
+  }
+}

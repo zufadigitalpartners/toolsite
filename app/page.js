@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 import ToolCard from "@/components/ToolCard";
+import HeroMotion from "@/components/HeroMotion";
 import Icon from "@/lib/icons";
 import { site, ui } from "@/lib/site";
 import { tools, categories, toolsByCategory, popularTools } from "@/lib/tools";
@@ -16,6 +17,7 @@ export default function Home() {
           floating emoji, and no entrance animation: above-the-fold content
           being present at first paint is worth more than it moving. */}
       <section className="hero">
+        <HeroMotion />
         <div className="hero-inner">
           <div className="hero-eyebrow">
             <span className="live-dot" aria-hidden="true" />

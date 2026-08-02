@@ -1,0 +1,75 @@
+{
+  "name": "Retirement Income Calculator",
+  "emoji": "🌴",
+  "icon": "landmark",
+  "category": "content/categories/calculators.json",
+  "popular": false,
+  "order": 23,
+  "short": "See what your savings will be worth at retirement and the yearly income they support.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>Current age</span><input type=\"number\" id=\"age\" value=\"35\" min=\"16\" max=\"90\"></label>\n  <label><span>Retirement age</span><input type=\"number\" id=\"rage\" value=\"65\" min=\"17\" max=\"95\"></label>\n</div>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Saved so far</span><input type=\"number\" id=\"have\" value=\"50000\" min=\"0\" step=\"1000\"></label>\n  <label><span>Adding per month</span><input type=\"number\" id=\"add\" value=\"500\" min=\"0\" step=\"50\"></label>\n</div>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Return before retiring %</span><input type=\"number\" id=\"pre\" value=\"6\" step=\"0.1\" min=\"0\"></label>\n  <label><span>Return after retiring %</span><input type=\"number\" id=\"post\" value=\"4\" step=\"0.1\" min=\"0\"></label>\n</div>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Years of retirement</span><input type=\"number\" id=\"span\" value=\"25\" min=\"1\" max=\"60\"></label>\n  <label><span>Inflation %</span><input type=\"number\" id=\"infl\" value=\"2.5\" step=\"0.1\" min=\"0\"></label>\n</div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"go\">Calculate</button>\n  <button id=\"copy\">Copy result</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"pot\">0</span><span class=\"label\">Pot at retirement</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"income\">0</span><span class=\"label\">Income per year</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"real\">0</span><span class=\"label\">In today's money</span></div>\n</div>\n<div class=\"ic-break\" id=\"brk\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".ic-break{display:grid;gap:0;margin-top:var(--s5);border-top:1px solid var(--line)}\n.ic-break div{display:flex;justify-content:space-between;gap:var(--s4);\n  padding:9px 0;border-bottom:1px solid var(--line);font-size:var(--t-14)}\n.ic-break b{font-weight:500;font-variant-numeric:tabular-nums slashed-zero}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var money=function(n){return n.toLocaleString(undefined,{maximumFractionDigits:0})};\n  function calc(){\n    var age=+$('age').value||0, rage=+$('rage').value||0;\n    var have=+$('have').value||0, add=+$('add').value||0;\n    var pre=(+$('pre').value||0)/100, post=(+$('post').value||0)/100;\n    var span=+$('span').value||1, infl=(+$('infl').value||0)/100;\n    var years=rage-age;\n    if(years<=0){ $('note').textContent='Retirement age must be later than your current age.';\n      $('pot').textContent='0'; $('income').textContent='0'; $('real').textContent='0';\n      $('brk').innerHTML=''; if(window.WT) WT.resize(); return; }\n    var months=Math.round(years*12), mr=pre/12;\n    // Grow what is already saved, then the monthly deposits on top.\n    var pot = mr===0 ? have + add*months\n      : have*Math.pow(1+mr,months) + add*((Math.pow(1+mr,months)-1)/mr);\n    // Drawing down: an annuity paying a level amount for the whole retirement.\n    var income = post===0 ? pot/span\n      : pot*post/(1-Math.pow(1+post,-span));\n    // What that income is worth in money you can compare with today.\n    var real = income/Math.pow(1+infl,years);\n    var contributed = have + add*months;\n    $('pot').textContent=money(pot);\n    $('income').textContent=money(income);\n    $('real').textContent=money(real);\n    $('brk').innerHTML=\n      '<div><span>Years until you retire</span><b>'+years+'</b></div>'+\n      '<div><span>You will have paid in</span><b>'+money(contributed)+'</b></div>'+\n      '<div><span>Growth on top</span><b>'+money(pot-contributed)+'</b></div>'+\n      '<div><span>Income per month</span><b>'+money(income/12)+'</b></div>'+\n      '<div><span>Total drawn over '+span+' years</span><b>'+money(income*span)+'</b></div>';\n    $('note').textContent='This assumes a level income for '+span+\n      ' years and that the pot keeps earning '+(post*100).toFixed(1)+\n      '% while you draw from it. The last figure adjusts for '+(infl*100).toFixed(1)+\n      '% inflation, so it is comparable with what money buys today.';\n    if(window.WT) WT.resize();\n  }\n  ['age','rage','have','add','pre','post','span','infl'].forEach(function(id){\n    $(id).addEventListener('input',calc);\n  });\n  $('go').addEventListener('click',calc);\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy('Pot at retirement: '+$('pot').textContent+\n      '. Yearly income: '+$('income').textContent+\n      ' ('+$('real').textContent+\" in today's money).\");\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy result'},1400);\n  });\n  calc();\n})();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Retirement Income Calculator: What Your Savings Will Pay",
+    "metaDescription": "Find out what your retirement pot will be worth and the yearly income it supports. Free calculator with inflation adjustment and a full breakdown, nothing uploaded.",
+    "keywords": [
+      "retirement income calculator",
+      "retirement savings calculator",
+      "pension income calculator",
+      "how much do I need to retire",
+      "retirement planning calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Most retirement calculators answer the easy question, which is how large a pot you will end up with. The harder and more useful question is what that pot actually pays you every year once you stop working, and for how long. This free retirement income calculator does both. It grows what you have already saved plus everything you add between now and retirement, then works out the level yearly income that pot can sustain across the retirement length you choose, assuming it keeps earning a more cautious return once you are drawing from it. It then shows that income again in today's money, because a comfortable sounding figure thirty years out is not comfortable at all once inflation has had its way with it. Nothing you type is uploaded or stored."
+    ],
+    "howto": [
+      "Enter your current age and the age you want to retire. The gap between them is your saving window, and it is the input that moves the result most.",
+      "Put in what you have saved already and how much you add each month. Include employer contributions if you get them, since they compound exactly the same way.",
+      "Set the return you expect before retiring. Six or seven percent is a common long term assumption for a mixed portfolio, but use whatever matches your own plan.",
+      "Set a lower return for after you retire. Most people shift towards safer holdings at that point, which is why the two are separate boxes rather than one.",
+      "Choose how many years the retirement needs to last. Planning to age ninety rather than eighty is the single most expensive assumption on this page, and worth testing.",
+      "Read the three figures, then check the breakdown for the monthly income, how much of the pot is your own money and how much is growth, and the total you would draw across the whole retirement."
+    ],
+    "benefits": [
+      "Splitting the return into before and after retirement is not a detail, it changes the answer substantially. Growing at seven percent for thirty years and then drawing down at seven percent assumes you keep the same risk while depending on the money for rent, which very few people actually do. Being able to model six percent while working and four percent while retired gives a figure you can plan against instead of one that quietly assumes the best case twice.",
+      "The inflation adjusted figure is the number most people should read first. A pot that pays sixty thousand a year sounds like a comfortable retirement, but if that starts thirty years from now at two and a half percent inflation it buys roughly what twenty nine thousand buys today. Showing both side by side is the fastest way to see whether a plan is genuinely on track or only looks that way because the numbers are large. The breakdown also separates what you paid in from what the growth added, which for a long saving window is usually a surprise in a good direction."
+    ],
+    "useCases": [
+      "Anyone in their thirties or forties trying to work out whether their current monthly contribution is enough uses this to test it directly, then adjusts the contribution until the income line looks survivable. It is equally useful for the opposite question, which is how much earlier you could retire if you increased the monthly amount, since dropping the retirement age and watching the income fall makes the trade-off concrete.",
+      "People approaching retirement use it to sanity check what they have been told, and to see what a longer or shorter retirement does to the yearly figure. It is also a useful teaching tool: the difference between the pot and the income it supports is a distinction many people have never had shown to them clearly. To understand the growth half of the calculation on its own, our [compound interest calculator](/tools/compound-interest-calculator/) breaks it down year by year."
+    ],
+    "faqs": [
+      {
+        "q": "How does it work out the yearly income?",
+        "a": "It treats the pot as an annuity, which means it finds the level yearly payment that would exactly empty the pot over your chosen retirement length, while the remaining balance keeps earning the after retirement return. This is a different and more honest calculation than simply dividing the pot by the number of years, which ignores the growth still happening."
+      },
+      {
+        "q": "Is this the same as the four percent rule?",
+        "a": "Not quite, and it is usually more informative. The four percent rule is a rough guideline that says withdrawing four percent of your starting pot each year has historically lasted about thirty years. This calculator instead computes the exact level income for the return and duration you specify, so you can see how sensitive that guideline is to both."
+      },
+      {
+        "q": "Why are there two different return rates?",
+        "a": "Because most people invest differently once they stop earning. While you are working you can ride out a bad few years, so a higher expected return is reasonable. Once the money is paying your bills, a fall matters immediately, and portfolios usually shift towards safer holdings with lower returns. Using one rate for both stages overstates the result."
+      },
+      {
+        "q": "What does the today's money figure mean?",
+        "a": "It takes the yearly income and discounts it back by inflation over the years until you retire, so you can compare it against what money buys now. If the income is one hundred thousand in forty years and inflation runs at two and a half percent, that is worth about thirty seven thousand in current terms. This is the number to judge a plan by."
+      },
+      {
+        "q": "Does it include the state pension or social security?",
+        "a": "No. It models only your own savings, so whatever you receive from a state scheme is on top of the figure shown. That is deliberate, since those amounts vary hugely by country and by individual record, and guessing at them would make the result less trustworthy rather than more."
+      },
+      {
+        "q": "How accurate is any of this?",
+        "a": "It is arithmetic on assumptions, which means it is exactly as accurate as the assumptions you feed it. Real returns arrive unevenly rather than as a smooth average, inflation varies, and tax rules change. Treat the output as a direction and a way to compare choices, not a promise, and run it again whenever your circumstances change."
+      }
+    ]
+  }
+}

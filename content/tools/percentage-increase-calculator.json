@@ -1,0 +1,75 @@
+{
+  "name": "Percentage Increase Calculator",
+  "emoji": "📊",
+  "icon": "percent",
+  "category": "content/categories/calculators.json",
+  "popular": false,
+  "order": 22,
+  "short": "Find the percentage change between two numbers, up or down, with the maths shown.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>From (original value)</span><input type=\"number\" id=\"a\" value=\"120\" step=\"any\"></label>\n  <label><span>To (new value)</span><input type=\"number\" id=\"b\" value=\"150\" step=\"any\"></label>\n</div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"swap\">Swap</button>\n  <button id=\"copy\">Copy result</button>\n</div>\n<div class=\"out\" id=\"out\">Enter two numbers</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"pct\">0%</span><span class=\"label\" id=\"plabel\">Change</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"diff\">0</span><span class=\"label\">Difference</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"times\">0</span><span class=\"label\">Multiplier</span></div>\n</div>\n<p class=\"note\" id=\"work\"></p>",
+    "css": "#out{min-height:1.6em}\n.ic-up{color:var(--ok)} .ic-down{color:var(--danger)}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var num=function(n,d){return n.toLocaleString(undefined,{maximumFractionDigits:d===undefined?2:d})};\n  function calc(){\n    var aRaw=$('a').value, bRaw=$('b').value;\n    if(aRaw===''||bRaw===''){ $('out').textContent='Enter two numbers'; $('work').textContent=''; return; }\n    var a=+aRaw, b=+bRaw;\n    if(!isFinite(a)||!isFinite(b)){ $('out').textContent='Both values must be numbers'; return; }\n    var diff=b-a;\n    if(a===0){\n      // Percentage change from zero is undefined, not infinite. Say so rather\n      // than printing Infinity, which is the usual bug in these calculators.\n      $('out').textContent='Percentage change from 0 is undefined';\n      $('pct').textContent='n/a'; $('plabel').textContent='Change';\n      $('diff').textContent=num(diff); $('times').textContent='n/a';\n      $('work').textContent='Going up from zero has no meaningful percentage, because there is nothing to compare against. The difference is '+num(diff)+'.';\n      if(window.WT) WT.resize(); return;\n    }\n    // Divide by the magnitude so a change from -50 to -25 reads as a rise.\n    var pct=diff/Math.abs(a)*100;\n    var up=pct>0, flat=Math.abs(pct)<1e-12;\n    $('pct').textContent=(up?'+':'')+num(pct)+'%';\n    $('plabel').textContent = flat?'No change':(up?'Increase':'Decrease');\n    $('diff').textContent=(up?'+':'')+num(diff);\n    $('times').textContent=a!==0?num(b/a,3)+'x':'n/a';\n    $('out').innerHTML='<span class=\"'+(flat?'':(up?'ic-up':'ic-down'))+'\">'+\n      num(a)+' to '+num(b)+' is '+(flat?'no change':(up?'an increase':'a decrease')+' of '+num(Math.abs(pct))+'%')+'</span>';\n    $('work').textContent='('+num(b)+' minus '+num(a)+') divided by '+num(Math.abs(a))+\n      ', times 100 = '+num(pct)+'%';\n    if(window.WT) WT.resize();\n  }\n  ['a','b'].forEach(function(id){$(id).addEventListener('input',calc)});\n  $('swap').addEventListener('click',function(){\n    var t=$('a').value; $('a').value=$('b').value; $('b').value=t; calc();\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('out').textContent);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy result'},1400);\n  });\n  calc();\n})();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Percentage Increase Calculator: Change Between Two Numbers",
+    "metaDescription": "Work out the percentage increase or decrease between any two values. Free calculator that shows the difference, the multiplier and the working behind the answer.",
+    "keywords": [
+      "percentage increase calculator",
+      "percentage decrease",
+      "percent change calculator",
+      "percentage difference between two numbers",
+      "work out percentage change"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free percentage increase calculator tells you how much one number changed relative to another, and shows the arithmetic so you can check it. Put the original value on the left and the new value on the right, and you get the percentage change, the plain difference and the multiplier, all at once. It handles decreases just as well as increases, so a fall from one hundred and fifty to one hundred and twenty is reported as a drop rather than as a negative rise you have to interpret. It also handles the two cases most calculators get wrong: starting from zero, which has no meaningful percentage answer, and negative starting values, where dividing by the raw number instead of its size flips the sign and reports a rise as a fall. If you need percentages of a total rather than change between two values, our [percentage calculator](/tools/percentage-calculator/) covers that instead."
+    ],
+    "howto": [
+      "Type the original value in the From box. This is the earlier figure, the one you are measuring change against.",
+      "Type the new value in the To box. The result updates as you type, so you do not need to press anything.",
+      "Read the sentence at the top. It states plainly whether the change was an increase or a decrease and by how much.",
+      "Check the three figures underneath: the percentage change, the raw difference between the numbers, and the multiplier, which tells you what the original was multiplied by.",
+      "Use Swap if you entered them the wrong way round. Note that swapping does not simply flip the sign, because the percentage is always measured against whichever value is in the From box.",
+      "The line at the bottom shows the calculation itself, which is useful for homework, for a report, or for checking that the answer means what you think it means."
+    ],
+    "benefits": [
+      "The most common mistake with percentage change is not the arithmetic, it is the direction. Going from eighty to one hundred is a twenty five percent increase, but coming back from one hundred to eighty is a twenty percent decrease, and people routinely assume the two must be the same number. Because this calculator always divides by the value you put in the From box and says out loud which direction it went, that trap is hard to fall into. Press Swap and watch the percentage change to something other than the same figure with a minus sign, and the reason becomes obvious.",
+      "The multiplier is included because it is often the more useful way to think. A one hundred and fifty percent increase sounds enormous until you see it written as two and a half times, at which point the scale is instantly clear. The working line matters too. Anyone using this for coursework, an invoice or a report can copy the reasoning rather than an unexplained number, which is exactly what a reviewer will ask for."
+    ],
+    "useCases": [
+      "Shop owners and freelancers use it for price rises, to check that a new rate is the increase they intended before sending it to a client. Anyone tracking a budget uses it to see how much a bill actually went up, which is usually less dramatic or more dramatic than it felt. Students meet percentage change constantly in maths, science and business courses, and the visible working makes it usable for checking answers rather than just producing them.",
+      "It is also a staple for anyone reporting numbers to other people. Analysts and marketers converting raw figures into a sentence about growth, teachers marking work, and people comparing two quotes all need the same thing: a defensible percentage and the calculation behind it. If you are converting a set of these into a spreadsheet, our [JSON to CSV converter](/tools/json-to-csv/) handles the file side."
+    ],
+    "faqs": [
+      {
+        "q": "How do I calculate percentage increase by hand?",
+        "a": "Subtract the original value from the new value, divide the result by the original value, then multiply by one hundred. So going from one hundred and twenty to one hundred and fifty is thirty divided by one hundred and twenty, which is 0.25, which is twenty five percent. The working line under the result shows this for whatever numbers you enter."
+      },
+      {
+        "q": "Why is a decrease not the mirror of an increase?",
+        "a": "Because each is measured against a different starting point. Going from eighty to one hundred divides by eighty and gives twenty five percent. Coming back from one hundred to eighty divides by one hundred and gives twenty percent. The absolute change is the same twenty either way; the percentage differs because the base does."
+      },
+      {
+        "q": "What happens if the original value is zero?",
+        "a": "There is no answer, and the calculator says so instead of printing infinity. A percentage measures change relative to a starting amount, and when that amount is zero there is nothing to be relative to. The plain difference is still shown, because that part remains meaningful."
+      },
+      {
+        "q": "Does it work with negative numbers?",
+        "a": "Yes, and it treats them properly. Going from minus fifty to minus twenty five is reported as an increase, because the value rose. This works because the calculation divides by the size of the original number rather than the number itself, which is the detail most calculators skip and the reason they report that case backwards."
+      },
+      {
+        "q": "What does the multiplier mean?",
+        "a": "It is what you would multiply the original by to reach the new value. A multiplier of 1.25 is a twenty five percent increase, 2 is a doubling, and 0.8 is a twenty percent decrease. Many people find this easier to reason about than percentages, particularly for large changes."
+      },
+      {
+        "q": "Can I use it for percentage difference rather than change?",
+        "a": "Not quite. Percentage difference compares two values against their average and has no direction, which is used when neither value is more original than the other. This tool measures change from a specific starting point, which is what you want for before and after comparisons."
+      }
+    ]
+  }
+}

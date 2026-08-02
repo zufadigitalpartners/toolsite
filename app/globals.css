@@ -22,11 +22,13 @@
   --line:        #e6e2da; /* inside components, between article blocks */
   --line-strong: #d5d0c5; /* the structural grid */
 
-  /* ---------- the one accent ---------- */
-  --accent:         #0e4a62;   /* 9.6:1 on white */
-  --accent-press:   #0b3d51;
-  --accent-dim:     #d7e6ec;   /* ::selection only */
-  --accent-on-dark: #7fb2c7;   /* links and rules on ink */
+  /* ---------- the one accent ----------
+     Was #0e4a62, which measured well and read as near-black at link size.
+     This is the same hue with the chroma actually turned up, still 7.4:1. */
+  --accent:         #0a6183;
+  --accent-press:   #07485f;
+  --accent-dim:     #cfe7f0;   /* ::selection only */
+  --accent-on-dark: #7fc4dd;   /* links and rules on ink */
 
   /* ---------- inverted: hero, footer, every result surface ---------- */
   --on-ink:      #fbfaf8;
@@ -102,7 +104,7 @@
 .tool-page,
 .dd-menu a,
 .search-results a,
-.section-head h2 {
+.section-head {
   --cc: var(--cat-color, var(--accent));
 }
 
@@ -415,16 +417,26 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 /* Emphasis by rule, not by gradient text. Gradient-clipped headlines fail
    the moment a font does not load, and they read as 2021.
 
-   text-decoration rather than an inset box-shadow: the phrase wraps onto a
-   second line here, and an inset shadow paints the edges of each fragment,
-   which looked like a selection box rather than an underline. */
+   Drawn as a sized background rather than text-decoration, because
+   text-decoration cannot be animated and this rule is what GSAP wipes in.
+   Registering --u with @property is what makes it interpolate as a length
+   instead of flipping between two strings; the 100% initial value means
+   that without any JavaScript the underline is simply there, complete. */
+@property --u {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
 .hero h1 .accent {
   color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--accent-on-dark);
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.1em;
-  text-decoration-skip-ink: none;
+  background-image: linear-gradient(var(--accent-on-dark), var(--accent-on-dark));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: var(--u) 3px;
+  padding-bottom: 0.12em;
+  /* each wrapped line gets its own underline rather than one running box */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .hero .sub {
@@ -543,7 +555,16 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 }
 .cat-cell:first-child { border-left: 0; }
 .cat-cell:hover { background: var(--surface-2); text-decoration: none; }
-.cat-cell .c-icon { color: var(--cc); margin-bottom: var(--s3); display: block; }
+.cat-cell .c-icon {
+  color: var(--cc);
+  display: block;
+  box-sizing: content-box;
+  width: 22px;
+  padding: 9px;
+  margin-bottom: var(--s3);
+  background: color-mix(in srgb, var(--cc) 12%, transparent);
+  border-radius: var(--r-sm);
+}
 .cat-cell .c-name {
   font-size: var(--t-20);
   font-weight: 700;
@@ -591,7 +612,13 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
   flex-wrap: wrap;
   margin-bottom: var(--s6);
   padding-bottom: var(--s3);
+  /* Ink by default. On a category section the rule takes that category's
+     colour and doubles in weight, which puts one confident band of colour
+     the full width of the page instead of leaving it all to a small icon. */
   border-bottom: 1px solid var(--ink);
+}
+.section-head[style*="--cat-color"] {
+  border-bottom: 2px solid var(--cc);
 }
 .section-head h2 {
   font-size: var(--t-25);
@@ -664,7 +691,7 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 
 .tool-card {
   display: grid;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 36px 1fr;
   column-gap: var(--s3);
   row-gap: var(--s1);
   align-content: start;
@@ -677,7 +704,20 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 .tool-card:hover { background: var(--surface-2); text-decoration: none; }
 .tool-card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-.tool-card .t-icon { grid-row: 1 / 3; color: var(--cc); margin-top: 2px; }
+/* The icon sits in a tinted well. This is the change that stops the page
+   reading as monochrome: a 20px stroke was about 1% of a card's area, so
+   five distinct category colours were invisible at a glance. The tint is
+   derived from --cc, so it stays a single source of truth, and it is a
+   background behind an icon rather than colour on text, which is the line
+   the system draws. */
+.tool-card .t-icon {
+  grid-row: 1 / 3;
+  color: var(--cc);
+  box-sizing: content-box;
+  padding: 8px;
+  background: color-mix(in srgb, var(--cc) 12%, transparent);
+  border-radius: var(--r-sm);
+}
 .tool-card .t-name {
   font-size: var(--t-20);
   font-weight: 700;

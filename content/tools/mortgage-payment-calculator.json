@@ -1,0 +1,75 @@
+{
+  "name": "Mortgage Payment Calculator",
+  "emoji": "🏠",
+  "icon": "landmark",
+  "category": "content/categories/calculators.json",
+  "popular": true,
+  "order": 20,
+  "short": "Work out your full monthly mortgage payment including tax, insurance and PMI.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>Home price</span><input type=\"number\" id=\"price\" value=\"300000\" min=\"1\" step=\"1000\"></label>\n  <label><span>Down payment</span><input type=\"number\" id=\"down\" value=\"60000\" min=\"0\" step=\"1000\"></label>\n</div>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Annual interest rate %</span><input type=\"number\" id=\"rate\" value=\"6.5\" step=\"0.01\" min=\"0\"></label>\n  <label><span>Term in years</span><input type=\"number\" id=\"years\" value=\"30\" min=\"1\" max=\"50\"></label>\n</div>\n<div class=\"row-2\" style=\"margin-top:14px\">\n  <label><span>Property tax per year</span><input type=\"number\" id=\"tax\" value=\"3600\" min=\"0\" step=\"100\"></label>\n  <label><span>Home insurance per year</span><input type=\"number\" id=\"ins\" value=\"1200\" min=\"0\" step=\"100\"></label>\n</div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"go\">Calculate</button>\n  <button id=\"copy\">Copy result</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"total\">0</span><span class=\"label\">Total monthly</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"pi\">0</span><span class=\"label\">Principal + interest</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"interest\">0</span><span class=\"label\">Interest over term</span></div>\n</div>\n<div class=\"ic-break\" id=\"brk\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".ic-break{display:grid;gap:0;margin-top:var(--s5);border-top:1px solid var(--line)}\n.ic-break div{display:flex;justify-content:space-between;gap:var(--s4);\n  padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--t-14)}\n.ic-break b{font-weight:500;font-variant-numeric:tabular-nums slashed-zero}\n.ic-break .warn{color:var(--danger)}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var money=function(n){return n.toLocaleString(undefined,{maximumFractionDigits:0})};\n  function calc(){\n    var price=+$('price').value||0, down=+$('down').value||0;\n    var rate=+$('rate').value||0, years=+$('years').value||0;\n    var tax=+$('tax').value||0, ins=+$('ins').value||0;\n    if(down>price) down=price;\n    var loan=price-down, n=Math.round(years*12), r=rate/100/12;\n    if(loan<=0||n<=0){ $('note').textContent='Enter a home price larger than the down payment.'; return; }\n    // Standard amortisation. A zero rate is a plain division, not a divide by zero.\n    var pi = r===0 ? loan/n : loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);\n    var interest = pi*n - loan;\n    var pct = price>0 ? down/price*100 : 0;\n    // Private mortgage insurance is normally charged until you hold 20% equity.\n    var pmi = pct < 20 ? loan*0.005/12 : 0;\n    var monthly = pi + tax/12 + ins/12 + pmi;\n    $('total').textContent=money(monthly);\n    $('pi').textContent=money(pi);\n    $('interest').textContent=money(interest);\n    var rows=[['Principal and interest',pi],['Property tax',tax/12],['Home insurance',ins/12]];\n    if(pmi>0) rows.push(['Mortgage insurance (PMI)',pmi]);\n    var html=rows.map(function(x){return '<div><span>'+x[0]+'</span><b>'+money(x[1])+'</b></div>'}).join('');\n    html+='<div><span>Loan amount</span><b>'+money(loan)+'</b></div>';\n    html+='<div><span>Down payment</span><b>'+pct.toFixed(1)+'%</b></div>';\n    $('brk').innerHTML=html;\n    $('note').textContent = pmi>0\n      ? 'Your down payment is under 20%, so an estimated PMI charge is included. It usually stops once you reach 20% equity.'\n      : 'A down payment of 20% or more avoids mortgage insurance, so none is included here.';\n    if(window.WT) WT.resize();\n  }\n  ['price','down','rate','years','tax','ins'].forEach(function(id){\n    $(id).addEventListener('input',calc);\n  });\n  $('go').addEventListener('click',calc);\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy('Total monthly payment: '+$('total').textContent+\n      ' (principal and interest '+$('pi').textContent+')');\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy result'},1400);\n  });\n  calc();\n})();",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Mortgage Payment Calculator: Full Monthly Cost",
+    "metaDescription": "Work out your real monthly mortgage payment with our free calculator. Includes principal, interest, property tax, home insurance and PMI, with a full breakdown.",
+    "keywords": [
+      "mortgage payment calculator",
+      "monthly mortgage payment",
+      "home loan calculator",
+      "mortgage with taxes and insurance",
+      "PMI calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free mortgage payment calculator shows what a house will actually cost you every month, not just the part the bank quotes. Most calculators stop at principal and interest, which is the number that makes a mortgage look affordable and is almost never what leaves your account. Property tax, home insurance and, if your down payment is under twenty percent, mortgage insurance all ride along with it. Enter the home price, what you are putting down, the rate you have been offered and the term, and you get the whole monthly figure with every part listed separately. Everything runs in your browser, so none of your financial details are sent anywhere. If you want the same amortisation maths without the housing extras, our [loan EMI calculator](/tools/loan-emi-calculator/) does exactly that."
+    ],
+    "howto": [
+      "Enter the home price and how much you are putting down. The difference between them is the amount you actually borrow.",
+      "Type the annual interest rate you have been quoted. Use the rate itself, not the APR, since APR folds in fees that are not part of the monthly payment.",
+      "Set the term in years. Thirty is the common default, but try fifteen as well and watch what happens to the interest total.",
+      "Add your yearly property tax and home insurance. Rough figures are fine, because both are usually collected monthly into an escrow account and adjusted later.",
+      "Read the three headline numbers: total monthly payment, the principal and interest portion, and the total interest you would pay across the whole term.",
+      "Check the breakdown underneath to see exactly where each part of the payment goes, including mortgage insurance if your down payment triggers it."
+    ],
+    "benefits": [
+      "The number that decides whether you can afford a house is the total monthly payment, and this calculator refuses to hide the parts that make it bigger. A three hundred thousand pound or dollar home at six and a half percent looks like one figure when you only count principal and interest, and several hundred more once tax and insurance are in. Seeing that gap before you make an offer is the difference between a comfortable budget and a tight one.",
+      "It also makes the cost of time visible. The interest total across the term is usually the most sobering number on the page, and it moves enormously with small changes. Drop the rate by half a point, or shorten the term by five years, and watch it fall. Because the calculation updates as you type, you can explore those trade-offs in seconds rather than filling in a form and pressing submit each time. Nothing you enter is transmitted, which matters when the numbers describe your income and savings."
+    ],
+    "useCases": [
+      "First time buyers use this to work out what price range is genuinely within reach, rather than the range a lender is willing to approve. Those two are rarely the same. Being able to see the mortgage insurance line appear the moment the down payment slips under twenty percent is often what convinces people to save a little longer.",
+      "People who already own a home use it when rates move, to see whether refinancing is worth the trouble, and to model what an extra year or two on the term would do. Estate agents and mortgage brokers use it in front of clients because the breakdown answers the question people always ask next, which is what exactly am I paying for. If you are comparing several offers, our [percentage increase calculator](/tools/percentage-increase-calculator/) is handy for expressing the difference between two rates or two payments in plain terms."
+    ],
+    "faqs": [
+      {
+        "q": "Does this include property tax and insurance?",
+        "a": "Yes, and that is the main reason it exists. Enter your annual property tax and home insurance and both are divided by twelve and added to the monthly total. Most lenders collect them along with the mortgage payment into an escrow account, so this matches what actually leaves your account each month."
+      },
+      {
+        "q": "What is PMI and why did it appear?",
+        "a": "Private mortgage insurance protects the lender, not you, and is normally charged when your down payment is under twenty percent of the home price. This calculator estimates it at half a percent of the loan per year, which is a common mid range figure. Your actual rate depends on your credit and the lender. It usually stops once you have built twenty percent equity."
+      },
+      {
+        "q": "Is the interest rate the same as the APR?",
+        "a": "No. The interest rate is what the monthly payment is calculated from. The APR bundles in fees and closing costs to give a comparison figure across lenders. Use the plain interest rate here, otherwise the monthly payment will come out slightly too high."
+      },
+      {
+        "q": "Why is the total interest so large?",
+        "a": "Because a mortgage runs for decades and interest is charged on the outstanding balance the whole way. On a thirty year term at a typical rate you can easily pay most of the original loan again in interest. This is not an error, and it is the single strongest argument for a shorter term or for overpaying when you can."
+      },
+      {
+        "q": "Does it handle a zero percent rate?",
+        "a": "Yes. Some family loans and a few promotional deals genuinely carry no interest, so the calculation falls back to simply dividing the loan by the number of months instead of failing on a division by zero."
+      },
+      {
+        "q": "Are my figures sent anywhere?",
+        "a": "No. The entire calculation happens in your browser using plain arithmetic. Nothing is uploaded, nothing is stored and no account is required, which is not something you can say about most mortgage calculators attached to a lender's website."
+      }
+    ]
+  }
+}
