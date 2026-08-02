@@ -9,39 +9,38 @@
 
 :root {
   /* ---------- surfaces ----------
-     Warm, not pure white. Every other neutral in this palette leans warm:
-     the ink is +2 red over blue, the hairlines +12 and +16. Leaving the one
-     surface that covers the whole page at a flat 0 put cold paper under warm
-     rules, which is what made it read as clinical rather than considered.
-     Cards use this same value on purpose, so the grid is still made of rules
-     rather than of boxes sitting on a different ground. */
-  --surface:   #fcfaf6;
-  --surface-2: #f4f1ea;   /* recessed: inputs, wells, hover */
-  --surface-3: #eae6dd;   /* pressed */
-  --raised:    #ffffff;   /* the few things that should lift off the paper */
+     Clean and cool. The warm paper this replaced was a considered choice and
+     the wrong one: it reads as editorial on a magazine and as slightly dirty
+     on a utility people arrive at to get a job done. Familiar beats clever
+     here. Cards share the ground so the grid is still built from rules. */
+  --surface:   #ffffff;
+  --surface-2: #f4f6fa;   /* recessed: inputs, wells, hover */
+  --surface-3: #e7ebf2;   /* pressed */
+  --raised:    #ffffff;   /* panels and overlays */
 
-  /* ---------- ink (warm neutral, not blue-grey) ---------- */
-  --ink:   #191817;       /* body text, headings, and the hero ground */
-  --ink-2: #3d3b37;       /* article prose */
-  --muted: #6b6862;       /* meta and captions. 5.55:1 on white */
+  /* ---------- ink ---------- */
+  --ink:   #12141c;       /* body text, headings, and the hero ground */
+  --ink-2: #333a49;       /* article prose */
+  --muted: #5c6577;       /* meta and captions */
 
   /* ---------- rules, two weights on purpose ---------- */
-  --line:        #e6e2da; /* inside components, between article blocks */
-  --line-strong: #d5d0c5; /* the structural grid */
+  --line:        #e6eaf1; /* inside components, between article blocks */
+  --line-strong: #d2d9e4; /* the structural grid */
 
   /* ---------- the one accent ----------
-     Was #0e4a62, which measured well and read as near-black at link size.
-     This is the same hue with the chroma actually turned up, still 7.4:1. */
-  --accent:         #0a6183;
-  --accent-press:   #07485f;
-  --accent-dim:     #cfe7f0;   /* ::selection only */
-  --accent-on-dark: #7fc4dd;   /* links and rules on ink */
+     A confident blue, because that is what people expect a link and a
+     primary action to look like. The petrol teal before it was distinctive
+     and slightly unplaceable, which is a liability on a utility. 6.4:1. */
+  --accent:         #1d4ed8;
+  --accent-press:   #163cad;
+  --accent-dim:     #dbe6ff;   /* ::selection only */
+  --accent-on-dark: #7da8ff;   /* links and rules on ink */
 
   /* ---------- inverted: hero, footer, every result surface ---------- */
-  --on-ink:      #fbfaf8;
-  --on-ink-2:    #a8a49b;
-  --on-ink-3:    #7c786f;
-  --on-ink-line: rgba(251, 250, 248, 0.14);
+  --on-ink:      #f7f9fc;
+  --on-ink-2:    #9aa3b4;
+  --on-ink-3:    #6e7688;
+  --on-ink-line: rgba(247, 249, 252, 0.14);
 
   /* ---------- states ---------- */
   --danger: #a3372a; --danger-bg: #fbf2f0; --danger-line: #e5c9c3;
@@ -57,10 +56,10 @@
   --r-full: 999px;   /* the 6px live dot, nothing else */
 
   /* ---------- elevation: three tokens, total ---------- */
-  --e-btn:  0 1px 1px rgba(25, 24, 23, 0.05);
-  --e-well: inset 0 1px 2px rgba(25, 24, 23, 0.06);
-  --e-overlay: 0 4px 8px -2px rgba(25, 24, 23, 0.06),
-               0 16px 32px -12px rgba(25, 24, 23, 0.14);
+  --e-btn:  0 1px 1px rgba(18, 20, 28, 0.06);
+  --e-well: inset 0 1px 2px rgba(18, 20, 28, 0.07);
+  --e-overlay: 0 4px 8px -2px rgba(18, 20, 28, 0.07),
+               0 16px 32px -12px rgba(18, 20, 28, 0.16);
 
   /* ---------- type scale, 1.25 ---------- */
   --t-12: 12px; --t-14: 14px; --t-16: 16px; --t-20: 20px; --t-25: 25px;
@@ -88,8 +87,8 @@
      Ten CMS tools reference these names directly in their own CSS. They are
      aliases, not leftovers: remove one and that tool renders with an invalid
      colour. --paper-2, --ink, --line, --muted and --accent are all in use. */
-  --paper:   #f6f4ef;
-  --paper-2: #edeae3;
+  --paper:   #f4f6fa;
+  --paper-2: #e7ebf2;
   --blue:      var(--accent);
   --blue-dark: var(--accent-press);
   --radius:    var(--r-md);
@@ -163,7 +162,7 @@ p, .tool-content li, .faq .a, .t-short, .c-desc { text-wrap: pretty; }
 
 ::selection { background: var(--accent-dim); color: var(--ink); }
 .hero ::selection,
-.site-footer ::selection { background: rgba(127, 178, 199, 0.3); color: var(--on-ink); }
+.site-footer ::selection { background: rgba(125, 168, 255, 0.3); color: var(--on-ink); }
 
 .container {
   max-width: 1140px;
@@ -381,14 +380,32 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 /* Left aligned, five elements, nothing else. Everything is present at first
    paint: animating above-the-fold content in delays LCP for no gain. */
 .hero {
+  position: relative;
   background: var(--ink);
-  background-image: radial-gradient(900px 400px at 12% -10%, rgba(255, 255, 255, 0.045), transparent 70%);
+  background-image:
+    radial-gradient(900px 420px at 15% -10%, rgba(29, 78, 216, 0.28), transparent 68%),
+    radial-gradient(700px 380px at 88% 6%, rgba(80, 60, 190, 0.22), transparent 66%);
   color: var(--on-ink);
   padding-block: clamp(72px, 11vw, 128px);
   text-align: left;
 }
 
+/* The moving field. Sits behind everything, is never interactive, and is
+   sized by CSS rather than by the canvas attributes so the component can
+   read its own box and set the backing store at device pixel ratio. */
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero-inner {
+  position: relative;
+  z-index: 1;   /* the words always sit above the field */
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 clamp(16px, 4vw, 24px);
@@ -1024,7 +1041,7 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
   cursor: pointer;
   transition: background var(--d-fast) linear, border-color var(--d-fast) linear;
 }
-.btn:hover { background: var(--surface-2); border-color: #c6c0b4; text-decoration: none; }
+.btn:hover { background: var(--surface-2); border-color: #bcc5d3; text-decoration: none; }
 .btn:active { background: var(--surface-3); box-shadow: none; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
@@ -1034,8 +1051,8 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
   color: var(--on-ink);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
-.btn-primary:hover { background: #2b2a27; border-color: #2b2a27; }
-.btn-primary:active { background: #0e0d0c; box-shadow: none; }
+.btn-primary:hover { background: #262b38; border-color: #262b38; }
+.btn-primary:active { background: #0a0c12; box-shadow: none; }
 .btn-copy.copied { background: var(--surface-3); border-color: var(--accent); }
 
 /* ================= INPUTS ================= */
@@ -1358,7 +1375,7 @@ input.mono-out {
 .footer-grid h3 { color: var(--on-ink-3); margin: 0 0 var(--s3); }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; }
 .footer-grid li { margin-bottom: var(--s2); }
-.footer-grid a { color: #c9c5bc; }
+.footer-grid a { color: #c2cad8; }
 .footer-grid a:hover { color: var(--on-ink); }
 .footer-bottom {
   margin-top: var(--s6);
