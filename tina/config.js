@@ -255,7 +255,29 @@ export default defineConfig({
         path: "content/categories",
         format: "json",
         ui: {
-          filename: { readonly: false, slugify },
+          filename: {
+            readonly: false,
+            slugify,
+            description: "This becomes the page address: /category/<filename>/",
+          },
+          router: ({ document }) => `/category/${document._sys.filename}/`,
+          defaultItem: () => ({
+            name: "New category",
+            icon: "square",
+            emoji: "📦",
+            // Any hex works. Keep it strong enough to read as an icon stroke
+            // and as the rule under the section heading, which is the only
+            // two places a category colour is ever used.
+            color: "#1D5FC4",
+            desc: "One line describing what belongs in this category.",
+            order: 99,
+            seo: {
+              heading: "About these tools",
+              paragraphs: [
+                "300 to 400 words about this group of tools, written for someone searching for the category rather than a single tool. Links like [word counter](/tools/word-counter/) are allowed and help.",
+              ],
+            },
+          }),
         },
         fields: [
           { type: "string", name: "name", label: "Name", required: true },
@@ -295,6 +317,92 @@ export default defineConfig({
             slugify,
             description: "This becomes the page address: /tools/<filename>/",
           },
+          router: ({ document }) => `/tools/${document._sys.filename}/`,
+          // A brand new tool arrives as a WORKING tool, not a blank form.
+          // Press Create, save, and there is a real page you can visit; then
+          // replace the parts you want. Starting from something that runs is
+          // far easier than starting from an empty box and guessing the
+          // contract.
+          defaultItem: () => ({
+            name: "New tool",
+            icon: "square",
+            emoji: "🔧",
+            popular: false,
+            order: 99,
+            short: "One line describing what this tool does. Shown on cards and in search.",
+            code: {
+              html: [
+                '<div class="row">',
+                '  <label><span>Your text</span>',
+                '    <textarea id="in" placeholder="Type or paste here"></textarea>',
+                "  </label>",
+                "</div>",
+                '<div class="btn-row">',
+                '  <button class="btn-primary" id="go">Run</button>',
+                '  <button id="copy">Copy result</button>',
+                "</div>",
+                '<div class="out" id="out">The result appears here</div>',
+                '<div class="stats">',
+                '  <div class="stat"><span class="num" id="n1">0</span><span class="label">Characters</span></div>',
+                '  <div class="stat"><span class="num" id="n2">0</span><span class="label">Words</span></div>',
+                "</div>",
+              ].join("\n"),
+              css: "/* Optional. The site's own styles are already applied,\n   so most tools need nothing here. */",
+              js: [
+                "// Runs inside a sandbox. No internet, no storage, nothing leaves the device.",
+                "// Helpers you get for free:  WT.copy(text)   WT.resize()   WT.config.apiKey",
+                "(function () {",
+                "  var $ = function (id) { return document.getElementById(id); };",
+                "",
+                "  function run() {",
+                "    var text = $('in').value;",
+                "    $('out').textContent = text ? text.toUpperCase() : 'The result appears here';",
+                "    $('n1').textContent = text.length;",
+                "    $('n2').textContent = text.trim() ? text.trim().split(/\\s+/).length : 0;",
+                "    if (window.WT) WT.resize();   // tell the page the tool changed height",
+                "  }",
+                "",
+                "  $('in').addEventListener('input', run);",
+                "  $('go').addEventListener('click', run);",
+                "  $('copy').addEventListener('click', function () {",
+                "    WT.copy($('out').textContent);",
+                "    var b = this; b.textContent = 'Copied';",
+                "    setTimeout(function () { b.textContent = 'Copy result'; }, 1400);",
+                "  });",
+                "  run();",
+                "})();",
+              ].join("\n"),
+              needsNetwork: false,
+              apiKey: "",
+              apiBaseUrl: "",
+            },
+            seo: {
+              metaTitle: "New Tool: What It Does",
+              metaDescription:
+                "One or two sentences describing the tool, containing the phrase people would search for. Around 150 characters.",
+              keywords: ["main keyword", "second keyword"],
+            },
+            content: {
+              intro: [
+                "Explain what the tool does in the first sentence, using the words someone would type into Google. Then say how it works and who it is for. Aim for 120 to 180 words.",
+              ],
+              howto: [
+                "First step, written as an instruction.",
+                "Second step.",
+                "Third step.",
+              ],
+              benefits: [
+                "Why this one is worth using: what it does that others do not, and why running in the browser matters. 100 to 200 words.",
+              ],
+              useCases: [
+                "Who actually needs this and in what situation. Naming real jobs and real problems is what brings in search traffic. 100 to 200 words.",
+              ],
+              faqs: [
+                { q: "Is my data uploaded anywhere?", a: "No. Everything happens in your browser and nothing is sent to a server." },
+                { q: "Add five or six more questions people really ask.", a: "Answer each one properly, in two or three sentences." },
+              ],
+            },
+          }),
         },
         fields: [
           { type: "string", name: "name", label: "Tool name", required: true },
@@ -341,19 +449,41 @@ export default defineConfig({
                 type: "boolean",
                 name: "needsNetwork",
                 label: "This tool calls an API",
-                description: "Turn on only if the tool fetches data from the internet",
+                description:
+                  "Leave OFF for anything that can be done on the device, which is most tools. Turning it on loosens the sandbox so the tool can reach the internet, and it means this tool no longer honours the 'nothing leaves your device' promise.",
+              },
+              {
+                type: "string",
+                name: "apiName",
+                label: "Which API",
+                description:
+                  "The service this tool depends on, for example 'exchangerate.host' or 'Open-Meteo'. Recorded so you can see at a glance which tools would break if a service disappears.",
+              },
+              {
+                type: "string",
+                name: "apiDocs",
+                label: "API docs link",
+                description: "Where to look when it stops working. Paste the documentation URL.",
               },
               {
                 type: "string",
                 name: "apiKey",
                 label: "API key",
-                description: "Read as WT.config.apiKey. Visible to visitors, so use a browser-safe key locked to your domain.",
+                description:
+                  "Read in the tool as WT.config.apiKey. WARNING: this is published in the page source and anyone can read it, so only ever use a key that is restricted to your own domain, and never a secret or billing key.",
               },
               {
                 type: "string",
                 name: "apiBaseUrl",
                 label: "API base URL",
                 description: "Optional. Read it as WT.config.apiBaseUrl",
+              },
+              {
+                type: "string",
+                name: "apiFreeTier",
+                label: "Free limits",
+                description:
+                  "What the free plan allows, for example '1000 requests a day, no card needed'. Worth writing down now rather than rediscovering it when the tool starts failing.",
               },
             ],
           },
@@ -407,6 +537,26 @@ export default defineConfig({
             slugify,
             description: "This becomes the page address: /<filename>/",
           },
+          router: ({ document }) => `/${document._sys.filename}/`,
+          defaultItem: () => ({
+            title: "New page",
+            metaTitle: "New page",
+            metaDescription: "One or two sentences describing this page, around 150 characters.",
+            noindex: false,
+            showUpdated: false,
+            showContactForm: false,
+            footerGroup: "site",
+            footerOrder: 99,
+            intro: ["An opening paragraph, shown slightly larger than the rest."],
+            sections: [
+              {
+                heading: "First heading",
+                paragraphs: [
+                  "Body text. Links like [our tools](/tools/) and **bold** both work here.",
+                ],
+              },
+            ],
+          }),
         },
         fields: [
           { type: "string", name: "title", label: "Page heading", description: "{siteName} is replaced with the site name" },
