@@ -2,7 +2,7 @@
   "name": "Image to PDF Converter",
   "emoji": "📄",
   "icon": "file-image",
-  "category": "content/categories/image.json",
+  "category": "content/categories/pdf.json",
   "popular": true,
   "order": 25,
   "short": "Turn photos or scans into one PDF, in order, without uploading them.",

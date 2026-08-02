@@ -1,0 +1,18 @@
+{
+  "name": "Ecommerce Tools",
+  "icon": "landmark",
+  "emoji": "🛒",
+  "color": "#A21CAF",
+  "desc": "Margins, fees and product data for people running an online shop.",
+  "order": 7,
+  "seo": {
+    "heading": "Ecommerce tools for the numbers that actually decide things",
+    "paragraphs": [
+      "Running an online shop involves a small number of calculations that get done badly, usually in a hurry, and usually in someone's head. What margin is this product really making after the payment fee. What do I need to charge to hit thirty percent. How much of that thousand pound day actually arrives in the bank. The tools here answer those, and they show the working, because a margin figure without the arithmetic behind it is not something you can argue with a supplier about.",
+      "The most common mistake in this whole category is confusing margin with markup. Buying at ten and selling at fifteen is a fifty percent markup and a thirty three percent margin, and the two get used interchangeably until someone prices a whole range on the wrong one. The [profit margin calculator](/tools/profit-margin-calculator/) shows both at once for exactly that reason, and works backwards too, so you can enter the margin you need and get the price that produces it.",
+      "Fees are the other quiet leak. Every sale loses a percentage plus a fixed amount to the payment processor, and on small baskets that fixed part hurts far more than the percentage does. The [Shopify fee calculator](/tools/shopify-fee-calculator/) works out what actually lands in your account across the different plans, and shows where the monthly subscription stops costing you and starts saving you money.",
+      "For getting products into a shop in the first place, the [Shopify product CSV generator](/tools/shopify-product-csv-generator/) builds an import file in the exact column order Shopify expects, including the handle and variant rules that cause most failed imports. It is the difference between an import that works first time and an afternoon of error messages.",
+      "None of these tools are made by or affiliated with the platforms they are named after. They are named that way because that is what people search for, and because the fee structures and file formats they work with are specific to those platforms. Everything runs in your browser, so your pricing and your product data stay yours."
+    ]
+  }
+}

@@ -2,7 +2,7 @@
   "name": "Excel Formula Generator",
   "emoji": "🧮",
   "icon": "table",
-  "category": "content/categories/calculators.json",
+  "category": "content/categories/spreadsheet.json",
   "popular": true,
   "order": 24,
   "short": "Build VLOOKUP, SUMIF, IF and the rest by filling in boxes instead of remembering the order.",

@@ -2,7 +2,7 @@
   "name": "Remove Duplicate Lines",
   "emoji": "🧹",
   "icon": "align-left",
-  "category": "content/categories/developer.json",
+  "category": "content/categories/spreadsheet.json",
   "popular": true,
   "order": 31,
   "short": "Paste a list and strip out repeats, with counts and the order kept.",

@@ -1,0 +1,77 @@
+{
+  "name": "Text to Speech",
+  "emoji": "🔊",
+  "icon": "align-left",
+  "category": "content/categories/text.json",
+  "popular": true,
+  "order": 5,
+  "short": "Have any text read aloud, in your choice of voice, without an account.",
+  "code": {
+    "html": "<div class=\"row\">\n  <label><span>Text to read</span><textarea id=\"txt\" placeholder=\"Paste or type anything here and press Play.\"></textarea></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Voice</span><select id=\"voice\"><option>Loading voices…</option></select></label>\n  <label><span>Language filter</span><select id=\"lang\"><option value=\"\">All languages</option></select></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Speed <b id=\"rateV\" class=\"tts-v\">1.0x</b></span>\n    <input type=\"range\" id=\"rate\" min=\"0.5\" max=\"2\" step=\"0.1\" value=\"1\"></label>\n  <label><span>Pitch <b id=\"pitchV\" class=\"tts-v\">1.0</b></span>\n    <input type=\"range\" id=\"pitch\" min=\"0\" max=\"2\" step=\"0.1\" value=\"1\"></label>\n</div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"play\">Play</button>\n  <button id=\"pause\" disabled>Pause</button>\n  <button id=\"stop\" disabled>Stop</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"nchar\">0</span><span class=\"label\">Characters</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nword\">0</span><span class=\"label\">Words</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"ntime\">0:00</span><span class=\"label\">Rough length</span></div>\n</div>\n<p class=\"note\" id=\"note\"></p>\n<div class=\"error\" id=\"err\" hidden></div>",
+    "css": ".tts-v{font-family:var(--font-mono);font-weight:400;color:var(--muted);\n  font-variant-numeric:tabular-nums;margin-left:6px}\n#txt{min-height:180px}\n.tts-speaking{outline:2px solid var(--accent);outline-offset:2px}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var synth=window.speechSynthesis;\n  if(!synth||typeof SpeechSynthesisUtterance==='undefined'){\n    $('err').hidden=false;\n    $('err').textContent='This browser cannot read text aloud. Chrome, Edge and Safari all can, and so does Firefox on most systems.';\n    ['play','pause','stop'].forEach(function(i){$(i).disabled=true});\n    if(window.WT) WT.resize();\n    return;\n  }\n  var voices=[], current=null, utter=null;\n\n  function loadVoices(){\n    voices=synth.getVoices()||[];\n    if(!voices.length) return;\n    // language filter, built from whatever this device actually has\n    var langs={};\n    voices.forEach(function(v){ langs[v.lang]=(langs[v.lang]||0)+1 });\n    var keys=Object.keys(langs).sort();\n    $('lang').innerHTML='<option value=\"\">All languages ('+voices.length+')</option>'+\n      keys.map(function(l){return '<option value=\"'+l+'\">'+l+' ('+langs[l]+')</option>'}).join('');\n    fillVoices();\n  }\n  function fillVoices(){\n    var f=$('lang').value;\n    var list=voices.filter(function(v){ return !f || v.lang===f });\n    if(!list.length) list=voices;\n    $('voice').innerHTML=list.map(function(v,i){\n      return '<option value=\"'+voices.indexOf(v)+'\">'+v.name+' | '+v.lang+(v.default?' (default)':'')+'</option>';\n    }).join('');\n    current=voices[+$('voice').value]||list[0];\n    $('note').textContent=voices.length+' voice'+(voices.length>1?'s':'')+\n      ' available on this device. The list comes from your operating system, so it differs between computers and phones.';\n    if(window.WT) WT.resize();\n  }\n  // Chrome populates voices asynchronously, so both paths are needed.\n  loadVoices();\n  synth.onvoiceschanged=loadVoices;\n\n  function counts(){\n    var t=$('txt').value;\n    var words=t.trim()?t.trim().split(/\\s+/).length:0;\n    $('nchar').textContent=t.length;\n    $('nword').textContent=words;\n    // about 150 words a minute at normal speed, scaled by the rate\n    var secs=words?Math.round(words/150*60/(+$('rate').value||1)):0;\n    $('ntime').textContent=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');\n  }\n\n  function speak(){\n    var text=$('txt').value.trim();\n    if(!text){ $('note').textContent='Type or paste some text first.'; return; }\n    synth.cancel();\n    utter=new SpeechSynthesisUtterance(text);\n    if(current) utter.voice=current;\n    utter.rate=+$('rate').value; utter.pitch=+$('pitch').value;\n    utter.onstart=function(){ $('play').textContent='Playing'; $('play').disabled=true;\n      $('pause').disabled=false; $('stop').disabled=false; $('txt').classList.add('tts-speaking'); };\n    utter.onend=reset;\n    utter.onerror=function(e){\n      // 'interrupted' and 'canceled' are what Stop produces, not failures\n      if(e.error&&e.error!=='interrupted'&&e.error!=='canceled'){\n        $('err').hidden=false; $('err').textContent='Playback stopped: '+e.error+'.';\n      }\n      reset();\n    };\n    $('err').hidden=true;\n    synth.speak(utter);\n  }\n  function reset(){\n    $('play').textContent='Play'; $('play').disabled=false;\n    $('pause').textContent='Pause'; $('pause').disabled=true; $('stop').disabled=true;\n    $('txt').classList.remove('tts-speaking');\n    if(window.WT) WT.resize();\n  }\n  $('play').addEventListener('click',speak);\n  $('pause').addEventListener('click',function(){\n    if(synth.paused){ synth.resume(); this.textContent='Pause'; }\n    else { synth.pause(); this.textContent='Resume'; }\n  });\n  $('stop').addEventListener('click',function(){ synth.cancel(); reset(); });\n  $('txt').addEventListener('input',counts);\n  $('rate').addEventListener('input',function(){ $('rateV').textContent=(+this.value).toFixed(1)+'x'; counts(); });\n  $('pitch').addEventListener('input',function(){ $('pitchV').textContent=(+this.value).toFixed(1); });\n  $('lang').addEventListener('change',fillVoices);\n  $('voice').addEventListener('change',function(){ current=voices[+this.value]; });\n  // Some browsers keep speaking after the page is hidden; stop cleanly.\n  window.addEventListener('pagehide',function(){ synth.cancel(); });\n  counts();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Text to Speech: Read Any Text Aloud, Free",
+    "metaDescription": "Paste text and have it read aloud in your choice of voice and speed. Free, no account, no upload, and it uses your own device's voices.",
+    "keywords": [
+      "text to speech",
+      "read text aloud",
+      "tts online free",
+      "text reader",
+      "speech synthesis online"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This free text to speech tool reads anything you paste out loud, using the voices already installed on your own device. There is no account, no character limit, no watermark and no upload, because nothing is sent anywhere: the speech is produced by your browser and your operating system, not by a server. Choose a voice, filter by language, and adjust the speed and pitch until it sounds right. It is genuinely useful for proofreading, since your ear catches clumsy sentences and missing words that your eye slides straight past, and for anyone who would rather listen to an article than read it."
+    ],
+    "howto": [
+      "Paste or type your text into the box. There is no length limit, though very long passages are easier to follow in sections.",
+      "Pick a voice. The list comes from your operating system, so a Mac, a Windows PC and an Android phone will each offer a different set.",
+      "Use the language filter if the list is long. It shows how many voices you have for each language.",
+      "Set the speed. Around 1.2 to 1.5 is comfortable for listening to an article, while 1.0 or slower is better when you are checking your own writing.",
+      "Press Play. Pause and Resume work mid sentence, and Stop clears it entirely."
+    ],
+    "benefits": [
+      "Almost every free text to speech site sends your words to a server, caps you at a few hundred characters, and asks for an email address before it will do anything useful. This one has no cap and no account because there is nothing to meter: the work happens on your machine. That also means it keeps working with the internet disconnected, and that private text stays private, which matters if you are proofreading a contract, a medical letter or anything else you would not paste into a stranger's website.",
+      "Reading your own writing aloud is the oldest editing trick there is, and having a machine do it is better than doing it yourself, because a machine reads what is actually written rather than what you meant to write. Missing words, repeated words and sentences that run on for three lines all become obvious immediately. The speed control matters here: slower than normal is uncomfortable to listen to, which is exactly why it catches things."
+    ],
+    "useCases": [
+      "Writers and students use it as a final pass before submitting anything. Hearing a paragraph read back is the fastest way to find the sentence that does not work. People with dyslexia or visual fatigue use it to get through long documents, and anyone with a commute uses it to listen to something they would otherwise never find time to read.",
+      "It is also used for learning pronunciation, since the voices are the same ones the operating system uses for accessibility and are generally accurate, and for checking how a name or a piece of copy will sound when a screen reader reaches it. If you are preparing the text first, our [word counter](/tools/word-counter/) gives you the reading time, and [case converter](/tools/case-converter/) tidies up anything pasted in the wrong case."
+    ],
+    "faqs": [
+      {
+        "q": "Can I download the audio as an MP3?",
+        "a": "No, and that is an honest limitation rather than an oversight. The browser's speech engine plays sound directly to your speakers and does not expose it as a file that can be saved. Any site offering a download is generating the audio on a server, which means sending it your text."
+      },
+      {
+        "q": "Why do I have different voices to someone else?",
+        "a": "Because they come from your operating system rather than from this page. Windows, macOS, Android and iOS each ship their own set, and you can usually install more through the system's language or accessibility settings. Adding a voice there makes it appear here."
+      },
+      {
+        "q": "Is there a character limit?",
+        "a": "None imposed here. Very long passages can occasionally be cut short by the browser itself on some systems, so if a long document stops early, split it into a few sections."
+      },
+      {
+        "q": "Is my text sent anywhere?",
+        "a": "No. This is one of the few text to speech tools where that is genuinely true, because the speech is produced locally. You can disconnect from the internet after the page loads and it still works, which is a simple way to prove it to yourself."
+      },
+      {
+        "q": "Which languages are supported?",
+        "a": "Whatever your device has installed. Most systems ship with several out of the box and the filter shows exactly what is available, with a count for each language. Urdu, Hindi, Arabic and most European languages are commonly present."
+      },
+      {
+        "q": "Why does the voice sound robotic?",
+        "a": "The quality depends entirely on your operating system. Newer versions of Windows, macOS and Android include much better neural voices, often listed as Natural or Enhanced, and installing those through the system settings makes a large difference here."
+      }
+    ]
+  }
+}

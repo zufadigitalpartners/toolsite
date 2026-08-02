@@ -1,0 +1,77 @@
+{
+  "name": "Shopify Product CSV Generator",
+  "emoji": "📦",
+  "icon": "table",
+  "category": "content/categories/ecommerce.json",
+  "popular": false,
+  "order": 3,
+  "short": "Build a product import file with the right columns and variant rows.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>Product title</span><input type=\"text\" id=\"title\" value=\"Cotton T-Shirt\"></label>\n  <label><span>Handle (URL)</span><input type=\"text\" id=\"handle\" placeholder=\"made from the title\"></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Vendor</span><input type=\"text\" id=\"vendor\" value=\"My Store\"></label>\n  <label><span>Type</span><input type=\"text\" id=\"type\" value=\"Shirts\"></label>\n</div>\n<div class=\"row\">\n  <label><span>Description</span><textarea id=\"body\" style=\"min-height:90px\">Soft 100% cotton t-shirt.</textarea></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Tags, comma separated</span><input type=\"text\" id=\"tags\" value=\"cotton, summer\"></label>\n  <label><span>Status</span><select id=\"status\">\n    <option value=\"active\" selected>Active</option>\n    <option value=\"draft\">Draft</option>\n    <option value=\"archived\">Archived</option>\n  </select></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Option 1 name</span><input type=\"text\" id=\"o1n\" value=\"Size\"></label>\n  <label><span>Option 1 values, comma separated</span><input type=\"text\" id=\"o1v\" value=\"S, M, L\"></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Option 2 name (optional)</span><input type=\"text\" id=\"o2n\" value=\"Colour\"></label>\n  <label><span>Option 2 values</span><input type=\"text\" id=\"o2v\" value=\"Black, White\"></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Price</span><input type=\"number\" id=\"price\" value=\"19.99\" step=\"0.01\" min=\"0\"></label>\n  <label><span>Compare at price (optional)</span><input type=\"number\" id=\"cprice\" value=\"\" step=\"0.01\" min=\"0\"></label>\n</div>\n<div class=\"row-2\">\n  <label><span>SKU prefix</span><input type=\"text\" id=\"sku\" value=\"TSHIRT\"></label>\n  <label><span>Stock per variant</span><input type=\"number\" id=\"qty\" value=\"25\" step=\"1\" min=\"0\"></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Weight in grams</span><input type=\"number\" id=\"grams\" value=\"180\" step=\"1\" min=\"0\"></label>\n  <label><span>Image URL (optional)</span><input type=\"text\" id=\"img\" placeholder=\"https://…\"></label>\n</div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"dl\">Download CSV</button>\n  <button id=\"copy\">Copy CSV</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"nvar\">0</span><span class=\"label\">Variants</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nrow\">0</span><span class=\"label\">CSV rows</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nhandle\">none yet</span><span class=\"label\">Handle</span></div>\n</div>\n<div class=\"out\" id=\"out\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": "#out{max-height:320px;overflow:auto;font-size:var(--t-12);white-space:pre;word-break:normal}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  // The exact column order Shopify's importer expects.\n  var COLS=['Handle','Title','Body (HTML)','Vendor','Type','Tags','Published',\n    'Option1 Name','Option1 Value','Option2 Name','Option2 Value','Option3 Name','Option3 Value',\n    'Variant SKU','Variant Grams','Variant Inventory Tracker','Variant Inventory Qty',\n    'Variant Inventory Policy','Variant Fulfillment Service','Variant Price',\n    'Variant Compare At Price','Variant Requires Shipping','Variant Taxable',\n    'Image Src','Image Position','Gift Card','Status'];\n\n  function slug(s){\n    return String(s).toLowerCase().normalize('NFKD').replace(/[\\u0300-\\u036f]/g,'')\n      .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,255);\n  }\n  function esc(v){\n    v=v==null?'':String(v);\n    return /[\",\\n\\r]/.test(v) ? '\"'+v.replace(/\"/g,'\"\"')+'\"' : v;\n  }\n  function list(s){ return String(s).split(',').map(function(x){return x.trim()}).filter(Boolean); }\n\n  function build(){\n    var title=$('title').value.trim();\n    var handle=$('handle').value.trim()||slug(title);\n    var o1n=$('o1n').value.trim(), o1v=list($('o1v').value);\n    var o2n=$('o2n').value.trim(), o2v=list($('o2v').value);\n    if(!o1v.length){ o1v=['Default Title']; }\n    var combos=[];\n    o1v.forEach(function(a){\n      if(o2n && o2v.length) o2v.forEach(function(b){ combos.push([a,b]) });\n      else combos.push([a,'']);\n    });\n    var status=$('status').value;\n    var published = status==='active' ? 'TRUE' : 'FALSE';\n    var img=$('img').value.trim();\n    var rows=[COLS];\n    combos.forEach(function(c,i){\n      var first=i===0;\n      var r={};\n      // Every row carries the handle and its own option values and variant\n      // fields. Only the first row of a product carries the product level\n      // columns; repeating them on variant rows is what makes an import\n      // create several products instead of one with variants.\n      r['Handle']=handle;\n      r['Title']=first?title:'';\n      r['Body (HTML)']=first?$('body').value:'';\n      r['Vendor']=first?$('vendor').value:'';\n      r['Type']=first?$('type').value:'';\n      r['Tags']=first?list($('tags').value).join(', '):'';\n      r['Published']=first?published:'';\n      r['Option1 Name']=first?(o1n||'Title'):'';\n      r['Option1 Value']=c[0];\n      r['Option2 Name']=first?(o2n&&o2v.length?o2n:''):'';\n      r['Option2 Value']=c[1];\n      r['Option3 Name']=''; r['Option3 Value']='';\n      var pre=$('sku').value.trim();\n      r['Variant SKU']= pre ? [pre, slug(c[0]).toUpperCase(), c[1]?slug(c[1]).toUpperCase():''].filter(Boolean).join('-') : '';\n      r['Variant Grams']=$('grams').value||'0';\n      r['Variant Inventory Tracker']='shopify';\n      r['Variant Inventory Qty']=$('qty').value||'0';\n      r['Variant Inventory Policy']='deny';\n      r['Variant Fulfillment Service']='manual';\n      r['Variant Price']=(+$('price').value||0).toFixed(2);\n      var cp=$('cprice').value;\n      r['Variant Compare At Price']= cp!=='' ? (+cp).toFixed(2) : '';\n      r['Variant Requires Shipping']='TRUE';\n      r['Variant Taxable']='TRUE';\n      r['Image Src']=first&&img?img:'';\n      r['Image Position']=first&&img?'1':'';\n      r['Gift Card']=first?'FALSE':'';\n      r['Status']=first?status:'';\n      rows.push(COLS.map(function(k){ return r[k]===undefined?'':r[k] }));\n    });\n    var csv=rows.map(function(r){ return r.map(esc).join(',') }).join('\\r\\n');\n    $('out').textContent=csv;\n    $('nvar').textContent=combos.length;\n    $('nrow').textContent=rows.length-1;\n    $('nhandle').textContent=handle||'not set';\n    var warn=[];\n    if(!title) warn.push('Add a title, otherwise the import has nothing to name the product.');\n    if(combos.length>100) warn.push('Shopify allows 100 variants per product; this has '+combos.length+'.');\n    if($('handle').value.trim() && $('handle').value.trim()!==slug($('handle').value))\n      warn.push('Handles must be lowercase letters, numbers and hyphens only. Yours will be corrected on import.');\n    if(img && !/^https?:\\/\\//i.test(img)) warn.push('The image URL needs to start with http or https and be reachable publicly.');\n    $('note').textContent= warn.length ? warn.join(' ')\n      : combos.length+' variant'+(combos.length>1?'s':'')+' across '+(rows.length-1)+' rows. Only the first row carries the product details, which is what keeps this as one product rather than '+combos.length+'.';\n    if(window.WT) WT.resize();\n    return csv;\n  }\n  ['title','handle','vendor','type','body','tags','status','o1n','o1v','o2n','o2v',\n   'price','cprice','sku','qty','grams','img'].forEach(function(id){\n    $(id).addEventListener('input',build); $(id).addEventListener('change',build);\n  });\n  $('dl').addEventListener('click',function(){\n    var csv=build();\n    // the BOM keeps accented characters intact when the file is opened in Excel\n    var b=new Blob(['\\uFEFF'+csv],{type:'text/csv;charset=utf-8'});\n    var u=URL.createObjectURL(b),a=document.createElement('a');\n    a.href=u; a.download=(slug($('title').value)||'products')+'.csv';\n    document.body.appendChild(a); a.click();\n    setTimeout(function(){URL.revokeObjectURL(u);a.remove()},4000);\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy(build());\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy CSV'},1400);\n  });\n  build();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Shopify Product CSV Generator: Import File Builder",
+    "metaDescription": "Build a Shopify product import CSV with the correct columns, handle and variant rows. Free, runs in your browser, no upload.",
+    "keywords": [
+      "shopify product csv",
+      "shopify import csv",
+      "shopify csv template",
+      "bulk upload shopify products",
+      "shopify variant csv"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Shopify's product importer wants a very particular CSV: specific column names in a specific order, a handle that follows its own rules, and variant rows that repeat the handle while leaving the product columns empty. Get any of that wrong and the import either fails outright or, worse, succeeds and creates six separate products where you wanted one with six variants. This generator builds the file correctly. Fill in the product once, list your option values, and it produces every variant combination with the right SKU, the right stock fields and the product details on the first row only. It runs in your browser, so your product data and pricing are not uploaded anywhere."
+    ],
+    "howto": [
+      "Enter the product title. The handle is generated from it automatically, and the handle is what becomes the product's web address.",
+      "Fill in the vendor, type, description and tags. These only need to appear once and the generator puts them on the first row for you.",
+      "Set your options. Size with three values and Colour with two produces six variants, and you can see the count update as you type.",
+      "Enter the price, stock and weight. They are applied to every variant, which you can adjust in the file or in Shopify afterwards.",
+      "Download the CSV, then in Shopify go to Products, choose Import, and upload it. Preview the result before confirming."
+    ],
+    "benefits": [
+      "The variant row rule is the part that catches people, and it is not obvious from looking at an exported file. Every row carries the handle and its own option values, but the title, description, vendor, tags and status belong on the first row only. Repeat them on each variant row and the importer treats each row as its own product. This generator enforces that automatically, which removes the single most common reason a bulk import goes wrong.",
+      "It also handles the details that quietly cause trouble. Handles are slugified properly, including stripping accents, because Shopify only accepts lowercase letters, numbers and hyphens. SKUs are built per variant rather than repeated, so your inventory stays distinguishable. The download carries a byte order mark so accented product names survive being opened in Excel on the way through. And it warns you when you cross the hundred variant limit rather than letting the import discover it for you."
+    ],
+    "useCases": [
+      "Anyone launching a shop with more than a handful of products uses a CSV import rather than the admin form, because entering forty products by hand through a web interface is a day of work. This is equally the fastest way to add a new range to an existing shop, or to rebuild a catalogue after a supplier changes their line.",
+      "It is also useful as a template generator: produce one correct file, open it in a spreadsheet, and paste in the rest of your catalogue against columns you know are right. Our [CSV viewer](/tools/csv-viewer/) will open the result to check it before you upload, and the [profit margin calculator](/tools/profit-margin-calculator/) is worth a visit before you commit to the prices."
+    ],
+    "faqs": [
+      {
+        "q": "What is a handle and why does it matter?",
+        "a": "It is the product's identifier and the last part of its web address. Every row belonging to the same product must share it, which is how the importer knows six rows are six variants rather than six products. It must be lowercase letters, numbers and hyphens only."
+      },
+      {
+        "q": "Why are most columns empty on the variant rows?",
+        "a": "Because that is what the importer expects. Product level information belongs on the first row, and the rows after it only carry the handle, their own option values and their own variant fields. Filling them all in creates duplicate products."
+      },
+      {
+        "q": "Can I add images?",
+        "a": "One image URL per product is supported here, on the first row. It has to be a publicly reachable http or https address, since Shopify fetches it during the import. For several images per product, add extra rows carrying only the handle, the Image Src and an Image Position."
+      },
+      {
+        "q": "How many variants can a product have?",
+        "a": "One hundred, across a maximum of three options. The counter shows how many your combinations produce and warns you if you go over, which is easy to do with three options of five values each."
+      },
+      {
+        "q": "Will this overwrite my existing products?",
+        "a": "If a handle in your file matches an existing product, the import updates that product rather than creating a new one. That is useful for bulk price changes and dangerous if you reused a handle by accident, so preview the import before confirming it."
+      },
+      {
+        "q": "Is this made by Shopify?",
+        "a": "No, and it is not affiliated with or endorsed by them. It builds a file in the format their importer documents. Nothing you type is uploaded; the CSV is assembled in your browser."
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Spreadsheet Tools",
+  "icon": "table",
+  "emoji": "📊",
+  "color": "#1F8A55",
+  "desc": "Open, clean and convert CSV and Excel data without breaking it.",
+  "order": 2,
+  "seo": {
+    "heading": "Spreadsheet tools that do not damage your data",
+    "paragraphs": [
+      "Almost every problem people have with spreadsheets comes from the same place: the program guesses. Excel decides that 01234 is the number 1234, that a long order reference should be shown in scientific notation, and that a date written one way should be rewritten another. By the time you notice, the file has already been saved. The tools in this group all work the other way round. They show you exactly what is stored, character for character, and they never convert anything unless you ask.",
+      "Start with the [CSV viewer](/tools/csv-viewer/) when a file arrives from a shop, a payment provider or a CRM and you want to see what actually came before importing it anywhere. It works out the separator on its own, reads quoted fields containing commas and line breaks properly, and warns you when a row has a different number of columns to the header, which is the most common defect in exported data and the hardest to spot by eye.",
+      "For cleaning a list, [remove duplicate lines](/tools/remove-duplicate-lines/) does what Excel's own version cannot: match while ignoring case, or trailing spaces, or both. That matters because real duplicates hide in exactly those differences. It can also invert the question and show only the repeats, which is auditing rather than cleaning.",
+      "When the data has to move between systems, [CSV to JSON](/tools/csv-to-json/) and [JSON to CSV](/tools/json-to-csv/) go both ways, and both are careful about types so an account number does not quietly become a number and lose its leading zero. And when the problem is not the data but remembering the syntax, the [Excel formula generator](/tools/excel-formula-generator/) builds VLOOKUP, XLOOKUP, SUMIFS and the rest from plain English boxes, with the classic mistake noted beside each one.",
+      "Every tool here runs entirely in your browser. Nothing is uploaded, which matters more than usual for this category, because spreadsheets exported from real systems tend to be full of customer names, email addresses and order histories."
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "PDF Tools",
+  "icon": "file-image",
+  "emoji": "📄",
+  "color": "#C4402A",
+  "desc": "Build and convert PDF files without uploading anything.",
+  "order": 5,
+  "seo": {
+    "heading": "PDF tools that never see your documents",
+    "paragraphs": [
+      "PDF is the format people reach for when something matters: a signed contract, a passport page, a bank statement, an application pack. It is also the format most commonly handled by uploading it to whichever free website appears first, which means handing exactly those documents to a company you know nothing about, and trusting a deletion policy you have not read.",
+      "The tools in this group do not work that way. They run inside your browser and construct the file on your own device, so there is no upload, no queue, no account, and no copy sitting on a server. You can load the page, disconnect from the internet, and they still work.",
+      "[Image to PDF](/tools/image-to-pdf/) is the one most people need. It turns a folder of phone photos into a single PDF, in the order you choose, either fitting each page to its image or placing them on A4 or Letter pages with a margin. That is the exact shape of the job when a visa application, a university form or an expense claim insists on one file and you have seven photographs.",
+      "It is more careful than it looks. Images are re-encoded to baseline JPEG before being embedded, so the result opens in every reader rather than only the forgiving ones. Transparent areas are flattened onto white instead of turning black, which is the usual outcome when a PNG goes into a PDF. Very large photographs are scaled down first, because a 48 megapixel phone picture silently produces a blank page on an iPhone otherwise.",
+      "If the finished file is too large for an upload limit, the quality setting is the fastest fix, and running the photographs through the [image compressor](/tools/image-compressor/) first gives you more control still. More PDF tools will land in this group over time, and every one of them will keep the same rule: your documents stay on your device."
+    ]
+  }
+}

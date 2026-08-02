@@ -2,7 +2,7 @@
   "name": "CSV Viewer and Cleaner",
   "emoji": "📑",
   "icon": "table",
-  "category": "content/categories/developer.json",
+  "category": "content/categories/spreadsheet.json",
   "popular": true,
   "order": 30,
   "short": "Open a CSV, see it as a proper table, clean it up and save it back.",

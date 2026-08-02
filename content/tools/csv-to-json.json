@@ -2,7 +2,7 @@
   "name": "CSV to JSON Converter",
   "emoji": "🔄",
   "icon": "braces",
-  "category": "content/categories/developer.json",
+  "category": "content/categories/spreadsheet.json",
   "popular": false,
   "order": 32,
   "short": "Turn a spreadsheet export into clean JSON an API will accept.",

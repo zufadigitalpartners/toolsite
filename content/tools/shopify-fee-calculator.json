@@ -1,0 +1,77 @@
+{
+  "name": "Shopify Fee Calculator",
+  "emoji": "🏷️",
+  "icon": "percent",
+  "category": "content/categories/ecommerce.json",
+  "popular": true,
+  "order": 2,
+  "short": "See what actually lands in your account after payment fees, and which plan pays off.",
+  "code": {
+    "html": "<div class=\"row-2\">\n  <label><span>Average order value</span><input type=\"number\" id=\"aov\" value=\"45\" step=\"0.01\" min=\"0\"></label>\n  <label><span>Orders per month</span><input type=\"number\" id=\"orders\" value=\"200\" step=\"1\" min=\"0\"></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Cost of goods per order</span><input type=\"number\" id=\"cogs\" value=\"18\" step=\"0.01\" min=\"0\"></label>\n  <label><span>Currency symbol</span><input type=\"text\" id=\"sym\" value=\"$\" maxlength=\"3\"></label>\n</div>\n<p class=\"note\">Rates differ by country and change over time, so they are editable. Check your own dashboard and put the real figures in.</p>\n<div class=\"ic-plans\" id=\"plans\"></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy summary</button>\n  <button id=\"reset\">Reset rates</button>\n</div>\n<div class=\"ic-break\" id=\"brk\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".ic-plans{margin-top:var(--s5);border-top:1px solid var(--line)}\n.ic-plan{display:grid;grid-template-columns:minmax(0,1fr) 78px 78px 90px;gap:var(--s3);\n  align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}\n.ic-plan.best{background:var(--ok-bg)}\n.ic-plan .pn{font-weight:500;font-size:var(--t-14)}\n.ic-plan .pn small{display:block;color:var(--muted);font-weight:400;\n  font-family:var(--font-mono);font-size:var(--t-12)}\n.ic-plan input{height:38px;padding:0 8px;font-size:16px}\n.ic-plan .keep{text-align:right;font-family:var(--font-mono);font-weight:500;\n  font-variant-numeric:tabular-nums slashed-zero;font-size:var(--t-14)}\n.ic-plan .hd{font-family:var(--font-mono);font-size:var(--t-12);text-transform:uppercase;\n  letter-spacing:.08em;color:var(--muted)}\n.ic-break{margin-top:var(--s5);border-top:1px solid var(--line)}\n.ic-break div{display:flex;justify-content:space-between;gap:var(--s4);\n  padding:9px 0;border-bottom:1px solid var(--line);font-size:var(--t-14)}\n.ic-break b{font-weight:500;font-variant-numeric:tabular-nums slashed-zero}\n@media (max-width:560px){\n  .ic-plan{grid-template-columns:minmax(0,1fr) 64px 64px;row-gap:6px}\n  .ic-plan .keep{grid-column:1/-1;text-align:left}\n}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  // Published rates move and differ by country, so these are only starting\n  // points. Every one of them is an editable input.\n  var DEFAULTS=[\n    {name:'Basic',    sub:39,  pct:2.9, fixed:0.30},\n    {name:'Grow',     sub:105, pct:2.7, fixed:0.30},\n    {name:'Advanced', sub:399, pct:2.5, fixed:0.30}\n  ];\n  var plans=JSON.parse(JSON.stringify(DEFAULTS));\n  function sym(){ return $('sym').value||''; }\n  function money(n){ return sym()+n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }\n\n  function build(){\n    $('plans').innerHTML=\n      '<div class=\"ic-plan\"><span class=\"hd\">Plan and monthly fee</span>'+\n      '<span class=\"hd\">% fee</span><span class=\"hd\">Fixed</span><span class=\"hd keep\">Kept / month</span></div>'+\n      plans.map(function(p,i){\n        return '<div class=\"ic-plan\" data-i=\"'+i+'\">'+\n          '<span class=\"pn\">'+p.name+'<small><input type=\"number\" data-f=\"sub\" data-i=\"'+i+'\" value=\"'+p.sub+'\" step=\"1\" min=\"0\" style=\"width:86px;display:inline-block;margin-top:4px\"> per month</small></span>'+\n          '<input type=\"number\" data-f=\"pct\" data-i=\"'+i+'\" value=\"'+p.pct+'\" step=\"0.01\" min=\"0\">'+\n          '<input type=\"number\" data-f=\"fixed\" data-i=\"'+i+'\" value=\"'+p.fixed+'\" step=\"0.01\" min=\"0\">'+\n          '<span class=\"keep\" id=\"keep'+i+'\">none yet</span></div>';\n      }).join('');\n    $('plans').addEventListener('input',onEdit);\n    run();\n  }\n  function onEdit(e){\n    var t=e.target; if(!t.dataset||!t.dataset.f) return;\n    plans[+t.dataset.i][t.dataset.f]=+t.value||0;\n    run();\n  }\n  function run(){\n    var aov=+$('aov').value||0, orders=+$('orders').value||0, cogs=+$('cogs').value||0;\n    var revenue=aov*orders, goods=cogs*orders;\n    var results=plans.map(function(p){\n      var feePerOrder=aov*p.pct/100 + p.fixed;\n      var fees=feePerOrder*orders;\n      return { p:p, feePerOrder:feePerOrder, fees:fees,\n        keep: revenue - fees - p.sub, profit: revenue - fees - p.sub - goods };\n    });\n    var best=results.reduce(function(a,b){ return b.keep>a.keep?b:a }, results[0]);\n    results.forEach(function(r,i){\n      var el=$('keep'+i); if(el) el.textContent=money(r.keep);\n      var row=$('plans').querySelector('[data-i=\"'+i+'\"]');\n      if(row) row.classList.toggle('best', r===best);\n    });\n    var b=best;\n    $('brk').innerHTML=\n      '<div><span>Revenue</span><b>'+money(revenue)+'</b></div>'+\n      '<div><span>Payment fees on '+orders+' orders</span><b>-'+money(b.fees)+'</b></div>'+\n      '<div><span>Plan subscription</span><b>-'+money(b.p.sub)+'</b></div>'+\n      '<div><span>Cost of goods</span><b>-'+money(goods)+'</b></div>'+\n      '<div><span>Left after all of that</span><b>'+money(b.profit)+'</b></div>'+\n      '<div><span>Fee on a single '+money(aov)+' order</span><b>'+money(b.feePerOrder)+\n        ' ('+(aov>0?(b.feePerOrder/aov*100).toFixed(1):'0')+'%)</b></div>';\n    // where a dearer plan starts paying for itself\n    var msgs=[b.p.name+' keeps the most at this volume.'];\n    for(var i=1;i<plans.length;i++){\n      var lo=plans[i-1], hi=plans[i];\n      var rateGap=(lo.pct-hi.pct)/100;\n      if(rateGap>0){\n        var breakEven=(hi.sub-lo.sub)/(rateGap*aov);\n        if(isFinite(breakEven)&&breakEven>0)\n          msgs.push(hi.name+' overtakes '+lo.name+' at about '+Math.ceil(breakEven)+' orders a month at this order value.');\n      }\n    }\n    $('note').textContent=msgs.join(' ');\n    if(window.WT) WT.resize();\n  }\n  ['aov','orders','cogs','sym'].forEach(function(id){$(id).addEventListener('input',run)});\n  $('reset').addEventListener('click',function(){\n    plans=JSON.parse(JSON.stringify(DEFAULTS));\n    $('plans').innerHTML=''; build();\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('brk').textContent.replace(/\\s{2,}/g,' ')+' | '+$('note').textContent);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy summary'},1400);\n  });\n  build();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Shopify Fee Calculator: What You Actually Keep",
+    "metaDescription": "Work out payment fees, plan costs and what really lands in your account per month. Editable rates, and it shows which plan pays off at your volume.",
+    "keywords": [
+      "shopify fee calculator",
+      "shopify payment fees",
+      "shopify plan comparison",
+      "ecommerce fee calculator",
+      "shopify transaction fees"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every order loses a percentage plus a fixed amount to the payment processor, and on small baskets the fixed part hurts far more than the percentage does. Thirty cents on a fifteen dollar order is two percent on its own, on top of the rate. This calculator shows what actually reaches your account across the plans, what a single order really costs you in fees, and the point at which a more expensive plan with a lower rate starts saving you money rather than costing it. Every rate is an editable field, because published rates differ by country and change, and a calculator with last year's numbers baked in is worse than no calculator."
+    ],
+    "howto": [
+      "Enter your average order value and how many orders you take in a month. Both are on your dashboard.",
+      "Add your cost of goods per order if you want the profit figure as well as the payout figure. Leave it at zero to look at fees alone.",
+      "Check the rates against your own account and correct them. They vary by country, and the ones filled in are only a common starting point.",
+      "Read the Kept per month column. The highlighted row is the plan that leaves you with the most at your current volume.",
+      "Read the line underneath, which says at roughly how many orders a month each dearer plan overtakes the one below it."
+    ],
+    "benefits": [
+      "The comparison people actually need is not what each plan costs, it is what each plan leaves them with, and those rank differently. A cheaper subscription with a higher rate wins at low volume and loses at high volume, and the crossover depends on your average order value as much as your order count. Working that out by hand means three multiplications and a subtraction per plan, every time any number changes, which is why most people never do it and just stay on whatever they signed up for.",
+      "Making the rates editable rather than hardcoded is a deliberate choice. Payment rates differ by country, by whether you use the platform's own processor or a third party, and they get revised. A tool that quietly uses stale figures gives you a confident wrong answer, which is worse than making you check. The fee on a single order is shown as a percentage too, because that is the number that reveals how badly small baskets are treated."
+    ],
+    "useCases": [
+      "Shop owners approaching a plan decision use this to see whether an upgrade is justified yet, and the crossover figure gives them a target to watch rather than a guess. It is equally useful in the other direction, for anyone paying for a plan whose volume no longer justifies it.",
+      "It also settles pricing questions. Seeing that fees take four percent of a small order rather than the headline rate is usually what convinces someone to raise a minimum order value or add a small order fee. For the per product side of the same question, our [profit margin calculator](/tools/profit-margin-calculator/) handles cost, price and margin together, and payment fees belong in its other costs field."
+    ],
+    "faqs": [
+      {
+        "q": "Are these the current official rates?",
+        "a": "They are a common starting point, not a live feed. Rates differ by country, by plan and by whether you use the platform's own payment processing or an outside provider, and they change. Every field is editable, so put your real figures in from your own dashboard and the answer will be right."
+      },
+      {
+        "q": "What is the difference between the payment fee and the transaction fee?",
+        "a": "The payment fee is what the card processor charges on every order. A separate transaction fee is charged by some platforms when you use a third party gateway instead of theirs, and it stacks on top. If that applies to you, add it to the percentage field."
+      },
+      {
+        "q": "Why does a small order lose a larger share?",
+        "a": "Because of the fixed part. Thirty cents is two percent of a fifteen dollar order and a third of a percent of a ninety dollar one. This is the arithmetic behind minimum order values and why bundling smaller items together is worth doing."
+      },
+      {
+        "q": "How is the crossover point worked out?",
+        "a": "By finding the number of orders where the saving from the lower percentage exactly cancels the higher subscription. It divides the difference in monthly fees by the difference in rate applied to your average order value, so it moves as your order value moves."
+      },
+      {
+        "q": "Does it include tax or shipping?",
+        "a": "No. It works on the order value you enter, so include or exclude shipping to match how you think about your own numbers. Sales tax is normally collected on behalf of the authority and is not yours to keep, so leaving it out gives a truer picture."
+      },
+      {
+        "q": "Is this made by Shopify?",
+        "a": "No, and it is not affiliated with or endorsed by them. It is named that way because those are the fee structures it models and that is what people search for. Your figures are never sent anywhere."
+      }
+    ]
+  }
+}

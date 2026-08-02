@@ -1,7 +1,7 @@
 {
   "name": "JSON to CSV Converter",
   "emoji": "📊",
-  "category": "content/categories/developer.json",
+  "category": "content/categories/spreadsheet.json",
   "popular": false,
   "order": 18,
   "short": "Convert JSON to CSV for a spreadsheet, or CSV back to JSON.",

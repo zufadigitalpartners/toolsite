@@ -1,0 +1,77 @@
+{
+  "name": "Profit Margin Calculator",
+  "emoji": "💰",
+  "icon": "percent",
+  "category": "content/categories/ecommerce.json",
+  "popular": true,
+  "order": 1,
+  "short": "Work out margin and markup together, or the price that hits the margin you want.",
+  "code": {
+    "html": "<div class=\"tabs\" id=\"tabs\">\n  <button type=\"button\" data-m=\"from\" class=\"active\">I know the price</button>\n  <button type=\"button\" data-m=\"to\">I want a margin</button>\n</div>\n<div class=\"row-2\">\n  <label><span>Cost per unit</span><input type=\"number\" id=\"cost\" value=\"10\" step=\"0.01\" min=\"0\"></label>\n  <label id=\"lab2\"><span>Selling price</span><input type=\"number\" id=\"price\" value=\"15\" step=\"0.01\" min=\"0\"></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Other costs per unit</span><input type=\"number\" id=\"extra\" value=\"0\" step=\"0.01\" min=\"0\"></label>\n  <label><span>Units sold</span><input type=\"number\" id=\"qty\" value=\"100\" step=\"1\" min=\"1\"></label>\n</div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy result</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"margin\">0%</span><span class=\"label\">Margin</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"markup\">0%</span><span class=\"label\">Markup</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"each\">0</span><span class=\"label\">Profit each</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"total\">0</span><span class=\"label\">Profit total</span></div>\n</div>\n<div class=\"ic-break\" id=\"brk\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".ic-break{display:grid;gap:0;margin-top:var(--s5);border-top:1px solid var(--line)}\n.ic-break div{display:flex;justify-content:space-between;gap:var(--s4);\n  padding:9px 0;border-bottom:1px solid var(--line);font-size:var(--t-14)}\n.ic-break b{font-weight:500;font-variant-numeric:tabular-nums slashed-zero}\n.pm-loss{color:var(--danger)}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var money=function(n){return n.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})};\n  var mode='from';\n  function run(){\n    var cost=+$('cost').value||0, extra=+$('extra').value||0, qty=+$('qty').value||0;\n    var totalCost=cost+extra, price, margin;\n    if(mode==='from'){\n      price=+$('price').value||0;\n      margin = price>0 ? (price-totalCost)/price*100 : 0;\n    } else {\n      margin=+$('price').value||0;\n      // price from margin: price = cost / (1 - margin/100)\n      if(margin>=100){ $('note').textContent='A margin of 100% or more is impossible, because the price would have to be infinite.'; margin=99.99; }\n      price = totalCost/(1-margin/100);\n    }\n    var profit=price-totalCost;\n    var markup = totalCost>0 ? profit/totalCost*100 : 0;\n    $('margin').textContent=margin.toFixed(1)+'%';\n    $('markup').textContent=markup.toFixed(1)+'%';\n    $('each').textContent=money(profit);\n    $('total').textContent=money(profit*qty);\n    [$('margin'),$('markup'),$('each'),$('total')].forEach(function(e){\n      e.classList.toggle('pm-loss', profit<0);\n    });\n    $('brk').innerHTML=\n      '<div><span>Selling price</span><b>'+money(price)+'</b></div>'+\n      '<div><span>Cost per unit</span><b>'+money(cost)+'</b></div>'+\n      (extra?'<div><span>Other costs per unit</span><b>'+money(extra)+'</b></div>':'')+\n      '<div><span>Total cost per unit</span><b>'+money(totalCost)+'</b></div>'+\n      '<div><span>Revenue on '+qty+' units</span><b>'+money(price*qty)+'</b></div>';\n    if(profit<0) $('note').textContent='You are selling below cost. Every unit loses '+money(-profit)+'.';\n    else if(mode==='to') $('note').textContent='To make a '+margin.toFixed(1)+'% margin you need to charge '+money(price)+'.';\n    else $('note').textContent='Margin is profit as a share of the PRICE. Markup is the same profit as a share of the COST. They are never the same number and mixing them up is the most expensive mistake in pricing.';\n    if(window.WT) WT.resize();\n  }\n  $('tabs').addEventListener('click',function(e){\n    var b=e.target.closest('button[data-m]'); if(!b) return;\n    mode=b.dataset.m;\n    [].forEach.call(this.querySelectorAll('button'),function(x){x.classList.toggle('active',x===b)});\n    if(mode==='to'){ $('lab2').querySelector('span').textContent='Margin you want %'; $('price').value='40'; }\n    else { $('lab2').querySelector('span').textContent='Selling price'; $('price').value='15'; }\n    run();\n  });\n  ['cost','price','extra','qty'].forEach(function(id){$(id).addEventListener('input',run)});\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy('Margin '+$('margin').textContent+', markup '+$('markup').textContent+\n      ', profit '+$('each').textContent+' each and '+$('total').textContent+' in total.');\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy result'},1400);\n  });\n  run();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Profit Margin Calculator: Margin and Markup Together",
+    "metaDescription": "Work out profit margin and markup from cost and price, or enter the margin you want and get the price. Free, with the working shown.",
+    "keywords": [
+      "profit margin calculator",
+      "margin vs markup",
+      "markup calculator",
+      "selling price calculator",
+      "gross margin calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Buy at ten, sell at fifteen. That is a fifty percent markup and a thirty three percent margin, and those two numbers describe the same five pounds of profit. Confusing them is the most expensive mistake in retail pricing, because someone asks for a forty percent margin, someone else applies a forty percent markup, and the business quietly loses money on every sale. This calculator shows both at once, from the same inputs, so the difference is impossible to miss. It also works backwards: switch to the second tab, enter the margin you need, and it tells you what to charge. Everything runs in your browser."
+    ],
+    "howto": [
+      "Enter what the item costs you. Use the price you actually pay your supplier, before anything else.",
+      "Enter what you sell it for. If you would rather work the other way round, switch to the second tab and enter the margin you want instead.",
+      "Add any other costs per unit: packaging, the shipping you absorb, the payment processing fee, a per unit share of anything else. This is the number people leave out, and it is usually where the margin goes.",
+      "Set how many units you expect to sell to see the total rather than the per unit figure.",
+      "Read both percentages. Margin is profit as a share of the price. Markup is the same profit as a share of the cost."
+    ],
+    "benefits": [
+      "Showing margin and markup side by side is the entire point. Suppliers and wholesalers usually quote in markup, because it makes the number look bigger. Accountants, investors and marketplaces work in margin, because it is the share of revenue you keep. A forty percent markup is a twenty nine percent margin, and if you price a whole range believing those are the same you have given away eleven points of revenue without noticing. The two figures update together here so the gap is visible at every price you try.",
+      "The other costs field matters more than people expect. On a small basket, payment fees and packaging can be a larger share of the price than the item's own margin. Adding them turns a comfortable looking thirty percent into a realistic eighteen, which is the number to make decisions with. When the profit goes negative the figures turn red and say plainly how much each sale loses, because that situation is easy to arrive at by accident with free shipping and a discount code running at the same time."
+    ],
+    "useCases": [
+      "Anyone setting prices for a shop uses this constantly: when a supplier raises a cost, when deciding how deep a sale can go before it stops making sense, and when a marketplace changes its commission. Being able to enter the target margin and get the price is the faster direction for most of those jobs.",
+      "It is equally useful for freelancers and service businesses working out an hourly or project rate that survives their own costs. For the platform specific side of the same question, our [Shopify fee calculator](/tools/shopify-fee-calculator/) shows what payment processing actually takes out of each order, and the [percentage increase calculator](/tools/percentage-increase-calculator/) is handy for expressing a price change to a customer."
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between margin and markup?",
+        "a": "Both measure the same profit against a different base. Margin divides profit by the selling price and answers what share of revenue you keep. Markup divides profit by the cost and answers how much you added on top. Cost 10, price 15: margin is 33.3 percent, markup is 50 percent."
+      },
+      {
+        "q": "How do I work out the price for a margin I want?",
+        "a": "Divide the cost by one minus the margin as a decimal. For a 40 percent margin on a cost of 12: 12 divided by 0.6, which is 20. The second tab does this for you, including any other costs you have entered."
+      },
+      {
+        "q": "Why can I not have a margin of 100 percent?",
+        "a": "Because margin is a share of the selling price, and reaching 100 percent would mean the cost is zero. As you approach it the required price rises towards infinity. Markup has no such limit, which is another reason the two get confused."
+      },
+      {
+        "q": "Should payment fees go in cost or other costs?",
+        "a": "Other costs, so your supplier cost stays clean and comparable across products. It also makes it obvious how much of your margin the payment processor is taking, which is easy to forget on low value items."
+      },
+      {
+        "q": "Is this gross or net margin?",
+        "a": "Gross, unless you include everything in the two cost fields. Gross margin covers the direct costs of the item. Net margin also carries rent, salaries, software and advertising, which are not per unit costs and belong in a full profit and loss rather than here."
+      },
+      {
+        "q": "What is a good margin?",
+        "a": "It varies enormously. Grocery runs on a few percent, clothing often sits between 50 and 60, and software can exceed 80. The useful comparison is against your own previous prices and your own category, not against a general rule."
+      }
+    ]
+  }
+}

@@ -79,7 +79,7 @@
       "popularHeading": "Popular tools",
       "toolsGrowing": "{count} tools and growing",
       "viewAll": "View all {count}",
-      "toolsCount": "{count} tools",
+      "toolsCount": "{count} tool{s}",
       "heroEyebrow": "Runs locally · Nothing uploaded"
     },
     "toolPage": {
@@ -99,7 +99,7 @@
       "privacyNotRequired": "Not required"
     },
     "categoryPage": {
-      "toolsPill": "{count} tools",
+      "toolsPill": "{count} tool{s}",
       "moreHeading": "More categories"
     }
   },
