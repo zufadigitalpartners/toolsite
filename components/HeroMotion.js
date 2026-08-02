@@ -32,11 +32,19 @@ export default function HeroMotion() {
         // Scoped so every target is looked up inside the hero and the whole
         // lot can be reverted in one call on unmount.
         ctx = gsap.context(() => {
+          // Cancel the CSS fallback reveal before animating. An active CSS
+          // animation outranks inline styles, so without this the fallback
+          // would fight the timeline and win.
+          gsap.set(".hero-eyebrow, .hero .sub, .search-wrap, .hero-stat", {
+            animation: "none",
+            opacity: 0,
+          });
+
           const tl = gsap.timeline({
             defaults: { ease: "power3.out", duration: 0.7 },
           });
 
-          tl.from(".hero-eyebrow", { opacity: 0, y: 8, duration: 0.5 })
+          tl.to(".hero-eyebrow", { opacity: 1, y: 0, duration: 0.5 })
             // The underline draws left to right under the accent phrase. The
             // words are already on screen at full opacity underneath it.
             .fromTo(
@@ -45,19 +53,20 @@ export default function HeroMotion() {
               { "--u": "100%", duration: 0.9, ease: "power2.inOut" },
               "-=0.2"
             )
-            .from(".hero .sub", { opacity: 0, y: 10 }, "-=0.55")
-            .from(".search-wrap", { opacity: 0, y: 12 }, "-=0.5")
-            .from(
+            .fromTo(".hero .sub", { y: 10 }, { opacity: 1, y: 0 }, "-=0.55")
+            .fromTo(".search-wrap", { y: 12 }, { opacity: 1, y: 0 }, "-=0.5")
+            .fromTo(
               ".hero-stat",
-              { opacity: 0, y: 14, stagger: 0.09, duration: 0.6 },
+              { y: 14 },
+              { opacity: 1, y: 0, stagger: 0.09, duration: 0.6 },
               "-=0.45"
             );
         }, hero);
       })
       .catch(() => {
-        // A failed chunk must never leave the hero half animated. Everything
-        // above animates *from* a hidden state, so if GSAP never arrives the
-        // markup simply stays as the server rendered it: fully visible.
+        // Nothing to do. The hidden state and the reveal both live in CSS,
+        // so a chunk that never arrives simply means the fallback keyframe
+        // shows everything at 1.6s and no one sees a broken hero.
       });
 
     return () => {

@@ -18,6 +18,13 @@ export default function Home() {
           floating emoji, and no entrance animation: above-the-fold content
           being present at first paint is worth more than it moving. */}
       <section className="hero">
+        {/* Drifting light. Its own clipping wrapper, because the search
+            results panel opens downwards out of the hero and clipping the
+            hero itself would cut it off. */}
+        <div className="hero-fx" aria-hidden="true">
+          <span className="b1" />
+          <span className="b2" />
+        </div>
         <HeroScene />
         <HeroMotion />
         <div className="hero-inner">

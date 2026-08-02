@@ -403,6 +403,65 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
   z-index: 0;
 }
 
+/* Colour that moves.
+   Two blobs of light drift across the hero on transforms, which the
+   compositor handles without repainting, and the whole layer breathes
+   through a slow hue rotation so the blues wander towards violet and back.
+   That second part is the trick: one filter on one element makes every
+   colour underneath it feel alive, which is far cheaper than animating the
+   colours themselves.
+
+   It lives in its own clipping wrapper rather than clipping .hero, because
+   the search results panel opens downwards out of the hero and must not be
+   cut off. */
+.hero-fx {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  animation: hueDrift 26s ease-in-out infinite alternate;
+}
+.hero-fx span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+.hero-fx .b1 {
+  width: 46vw;
+  min-width: 340px;
+  aspect-ratio: 1;
+  left: -8%;
+  top: -28%;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.85), transparent 66%);
+  animation: driftA 21s ease-in-out infinite alternate;
+}
+.hero-fx .b2 {
+  width: 38vw;
+  min-width: 280px;
+  aspect-ratio: 1;
+  right: -6%;
+  top: 6%;
+  background: radial-gradient(circle, rgba(118, 62, 210, 0.75), transparent 66%);
+  animation: driftB 27s ease-in-out infinite alternate;
+}
+
+@keyframes hueDrift {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(-26deg); }
+}
+@keyframes driftA {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(9%, 7%, 0) scale(1.12); }
+}
+@keyframes driftB {
+  from { transform: translate3d(0, 0, 0) scale(1.06); }
+  to   { transform: translate3d(-11%, 5%, 0) scale(1); }
+}
+
 .hero-inner {
   position: relative;
   z-index: 1;   /* the words always sit above the field */
@@ -418,6 +477,24 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
   color: var(--on-ink-2);
   margin-bottom: var(--s5);
 }
+
+/* The hero entrance starts hidden in CSS, not in JavaScript.
+   GSAP arrives as an async chunk, so if it set the hidden state itself the
+   content would paint, vanish when the chunk landed, then fade back in. The
+   hidden state is applied before first paint instead, and a delayed CSS
+   keyframe reveals everything anyway if the chunk never arrives at all.
+   GSAP kills that fallback and takes over when it does load.
+
+   The h1 is deliberately absent from this list. It is the LCP element and
+   must be painted, final, in the first frame. */
+html.rvl-css .hero-eyebrow,
+html.rvl-css .hero .sub,
+html.rvl-css .search-wrap,
+html.rvl-css .hero-stat {
+  opacity: 0;
+  animation: heroFallback 420ms linear 1600ms forwards;
+}
+@keyframes heroFallback { to { opacity: 1; transform: none; } }
 
 .live-dot {
   width: 6px;
