@@ -44,16 +44,11 @@ export default function HeroMotion() {
             defaults: { ease: "power3.out", duration: 0.7 },
           });
 
+          // Nothing here touches the headline. It carries a gradient that
+          // breathes on its own in CSS, and it is the LCP element, so it
+          // paints once and is never animated.
           tl.to(".hero-eyebrow", { opacity: 1, y: 0, duration: 0.5 })
-            // The underline draws left to right under the accent phrase. The
-            // words are already on screen at full opacity underneath it.
-            .fromTo(
-              ".hero h1 .accent",
-              { "--u": "0%" },
-              { "--u": "100%", duration: 0.9, ease: "power2.inOut" },
-              "-=0.2"
-            )
-            .fromTo(".hero .sub", { y: 10 }, { opacity: 1, y: 0 }, "-=0.55")
+            .fromTo(".hero .sub", { y: 10 }, { opacity: 1, y: 0 }, "-=0.15")
             .fromTo(".search-wrap", { y: 12 }, { opacity: 1, y: 0 }, "-=0.5")
             .fromTo(
               ".hero-stat",

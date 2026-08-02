@@ -515,29 +515,50 @@ html.rvl-css .hero-stat {
   max-width: 15ch;
   margin: 0;
 }
-/* Emphasis by rule, not by gradient text. Gradient-clipped headlines fail
-   the moment a font does not load, and they read as 2021.
+/* The headline is painted with a gradient and breathes through a slow hue
+   rotation, which is the technique worth borrowing: one filter shifts every
+   stop at once, so four colours wander together for the cost of one
+   animated property.
 
-   Drawn as a sized background rather than text-decoration, because
-   text-decoration cannot be animated and this rule is what GSAP wipes in.
-   Registering --u with @property is what makes it interpolate as a length
-   instead of flipping between two strings; the 100% initial value means
-   that without any JavaScript the underline is simply there, complete. */
-@property --u {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 100%;
+   The stops are light tints of this site's own category colours rather than
+   a borrowed palette, and every one of them sits above 8.9:1 on the hero
+   ink, so the headline is more legible than most solid white text.
+
+   Two safety rules. The solid colour is declared first and only replaced
+   inside @supports, so a browser without background-clip: text shows a
+   normal white headline instead of nothing at all. And there is no opacity
+   anywhere: this is the LCP element and it must paint, finished, in the
+   first frame. A filter does not delay that. Fading it in would. */
+.hero h1 {
+  color: var(--on-ink);
 }
-.hero h1 .accent {
-  color: inherit;
-  background-image: linear-gradient(var(--accent-on-dark), var(--accent-on-dark));
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  background-size: var(--u) 3px;
-  padding-bottom: 0.12em;
-  /* each wrapped line gets its own underline rather than one running box */
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero h1 {
+    background-image: linear-gradient(
+      104deg,
+      #8fb8ff 0%,
+      #c3a6ff 28%,
+      #ffadd0 55%,
+      #93e7c6 82%,
+      #8fb8ff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hueBreathe 18s ease-in-out infinite alternate;
+  }
+  /* each wrapped line takes its own slice of the gradient rather than one
+     run stretched across the whole block */
+  .hero h1 .accent {
+    color: inherit;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+
+@keyframes hueBreathe {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(-30deg); }
 }
 
 .hero .sub {
