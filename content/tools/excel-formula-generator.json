@@ -1,0 +1,78 @@
+{
+  "name": "Excel Formula Generator",
+  "emoji": "🧮",
+  "icon": "table",
+  "category": "content/categories/calculators.json",
+  "popular": true,
+  "order": 24,
+  "short": "Build VLOOKUP, SUMIF, IF and the rest by filling in boxes instead of remembering the order.",
+  "code": {
+    "html": "<div class=\"tabs\" id=\"tabs\"></div>\n<div id=\"form\"></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy formula</button>\n  <button id=\"reset\">Reset</button>\n</div>\n<div class=\"out\" id=\"out\">=</div>\n<p class=\"note\" id=\"why\"></p>\n<div class=\"fg-tip\" id=\"tip\"></div>",
+    "css": ".fg-tip{margin-top:var(--s5);border-top:1px solid var(--line);padding-top:var(--s4);\n  font-size:var(--t-14);color:var(--muted)}\n.fg-tip b{color:var(--ink);font-weight:500;display:block;margin-bottom:6px}\n.fg-tip code{font-family:var(--font-mono);font-size:var(--t-14);\n  background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:1px 5px}\n#out{word-break:break-word}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  // Each recipe declares its fields, how to build the formula, and what the\n  // classic mistake is. Adding one is a matter of adding an entry here.\n  var R=[\n    { id:'vlookup', name:'VLOOKUP',\n      f:[['what','What to look up','A2'],['where','Table to search','Sheet2!A:D'],\n         ['col','Which column to return (1 = first)','4'],['exact','Exact match','yes']],\n      build:function(v){ return '=VLOOKUP('+v.what+','+v.where+','+v.col+','+(v.exact==='no'?'TRUE':'FALSE')+')'; },\n      why:'Looks for the value in the FIRST column of the table and returns something from the column you numbered.',\n      tip:'VLOOKUP can only look to the right. If what you are matching sits to the right of what you want back, use INDEX and MATCH instead, or XLOOKUP if you have Excel 365.' },\n    { id:'xlookup', name:'XLOOKUP',\n      f:[['what','What to look up','A2'],['lookIn','Column to search','Sheet2!A:A'],\n         ['giveBack','Column to return','Sheet2!D:D'],['notFound','If nothing matches','\"Not found\"']],\n      build:function(v){ return '=XLOOKUP('+v.what+','+v.lookIn+','+v.giveBack+','+v.notFound+')'; },\n      why:'Searches one column and returns the matching row from another. The columns can be in any order.',\n      tip:'XLOOKUP needs Excel 365 or Excel 2021. In older versions it shows as <code>_xlfn.XLOOKUP</code> and returns an error, so use VLOOKUP or INDEX and MATCH there.' },\n    { id:'indexmatch', name:'INDEX MATCH',\n      f:[['giveBack','Column to return','Sheet2!D:D'],['what','What to look up','A2'],['lookIn','Column to search','Sheet2!C:C']],\n      build:function(v){ return '=INDEX('+v.giveBack+',MATCH('+v.what+','+v.lookIn+',0))'; },\n      why:'MATCH finds the row number, INDEX pulls the value from that row. Works in every direction.',\n      tip:'The <code>0</code> at the end of MATCH means exact match. Leave it out and Excel assumes your data is sorted and returns quietly wrong answers.' },\n    { id:'sumif', name:'SUMIF',\n      f:[['range','Column to test','B:B'],['crit','Condition','\"Lahore\"'],['sum','Column to add up','D:D']],\n      build:function(v){ return '=SUMIF('+v.range+','+v.crit+','+v.sum+')'; },\n      why:'Adds up the numbers in one column, but only on the rows where another column meets your condition.',\n      tip:'Text conditions need quotes: <code>\"Lahore\"</code>. Comparisons go inside quotes too: <code>\"&gt;100\"</code>. To point at a cell instead, write <code>\"&gt;\"&amp;E1</code>.' },\n    { id:'sumifs', name:'SUMIFS',\n      f:[['sum','Column to add up','D:D'],['r1','First column to test','B:B'],['c1','First condition','\"Lahore\"'],\n         ['r2','Second column to test','C:C'],['c2','Second condition','\">100\"']],\n      build:function(v){ return '=SUMIFS('+v.sum+','+v.r1+','+v.c1+','+v.r2+','+v.c2+')'; },\n      why:'Same as SUMIF but with two or more conditions, all of which must be true.',\n      tip:'The order is the opposite of SUMIF: the column being added comes FIRST in SUMIFS and LAST in SUMIF. This catches almost everyone.' },\n    { id:'countif', name:'COUNTIF',\n      f:[['range','Column to count in','B:B'],['crit','Condition','\"Lahore\"']],\n      build:function(v){ return '=COUNTIF('+v.range+','+v.crit+')'; },\n      why:'Counts how many cells meet the condition.',\n      tip:'To find duplicates, put <code>=COUNTIF(A:A,A2)&gt;1</code> next to row 2 and fill down. Anything showing TRUE appears more than once.' },\n    { id:'if', name:'IF',\n      f:[['test','Condition','D2>1000'],['yes','If true','\"Big\"'],['no','If false','\"Small\"']],\n      build:function(v){ return '=IF('+v.test+','+v.yes+','+v.no+')'; },\n      why:'Returns one thing when the condition holds and another when it does not.',\n      tip:'Text results need quotes, numbers do not. To nest a second test, put another IF where the false result goes.' },\n    { id:'iferror', name:'IFERROR',\n      f:[['formula','Your formula','VLOOKUP(A2,Sheet2!A:D,4,FALSE)'],['fallback','Show instead of the error','\"\"']],\n      build:function(v){ return '=IFERROR('+String(v.formula).replace(/^=/,'')+','+v.fallback+')'; },\n      why:'Runs your formula and shows something friendlier if it fails.',\n      tip:'Useful, but hide errors carefully. IFERROR also swallows real mistakes like a typo in a range, so a blank column can mean everything failed rather than nothing matched.' },\n    { id:'textjoin', name:'Join columns',\n      f:[['sep','Put between them','\", \"'],['skip','Skip empty cells','yes'],['cells','Cells to join','A2,B2,C2']],\n      build:function(v){ return '=TEXTJOIN('+v.sep+','+(v.skip==='no'?'FALSE':'TRUE')+','+v.cells+')'; },\n      why:'Joins several cells into one with a separator, without leaving stray separators where a cell is blank.',\n      tip:'TEXTJOIN needs Excel 2019 or later. Before that, use <code>=A2&amp;\", \"&amp;B2</code>, which does leave the separator when a cell is empty.' },\n    { id:'split', name:'Split first and last name',\n      f:[['cell','Cell holding the full name','A2']],\n      build:function(v){ return 'First:  =LEFT('+v.cell+',FIND(\" \",'+v.cell+')-1)\\nLast:   =MID('+v.cell+',FIND(\" \",'+v.cell+')+1,LEN('+v.cell+'))'; },\n      why:'Two formulas: one takes everything before the first space, the other everything after it.',\n      tip:'Names with three parts put the middle name into Last. If the cell has no space at all, FIND returns an error, so wrap each in IFERROR.' },\n    { id:'datediff', name:'Days between dates',\n      f:[['from','Earlier date cell','A2'],['to','Later date cell','B2'],['unit','Count in','days']],\n      build:function(v){\n        if(v.unit==='days') return '='+v.to+'-'+v.from;\n        var u=v.unit==='months'?'\"M\"':(v.unit==='years'?'\"Y\"':'\"D\"');\n        return '=DATEDIF('+v.from+','+v.to+','+u+')';\n      },\n      why:'Excel stores dates as numbers, so subtracting gives whole days. DATEDIF handles whole months and years.',\n      tip:'Format the answer cell as Number, not Date, or Excel shows your 30 as the 30th of January 1900.' },\n    { id:'percent', name:'Percentage change',\n      f:[['old','Original value cell','A2'],['nw','New value cell','B2']],\n      build:function(v){ return '=('+v.nw+'-'+v.old+')/ABS('+v.old+')'; },\n      why:'The difference divided by the original. Format the cell as a percentage.',\n      tip:'ABS around the original is what makes negatives behave: without it, a rise from -50 to -25 shows as a fall.' }\n  ];\n  var cur=R[0], vals={};\n  function buildTabs(){\n    $('tabs').innerHTML=R.map(function(r){\n      return '<button type=\"button\" data-id=\"'+r.id+'\"'+(r.id===cur.id?' class=\"active\"':'')+'>'+r.name+'</button>';\n    }).join('');\n  }\n  function buildForm(){\n    vals={};\n    $('form').innerHTML='<div class=\"row\">'+cur.f.map(function(f){\n      var isYesNo = f[2]==='yes';\n      var input = isYesNo\n        ? '<select id=\"f_'+f[0]+'\"><option value=\"yes\">Yes</option><option value=\"no\">No</option></select>'\n        : '<input type=\"text\" id=\"f_'+f[0]+'\" value=\"'+String(f[2]).replace(/\"/g,'&quot;')+'\">';\n      return '<label><span>'+f[1]+'</span>'+input+'</label>';\n    }).join('')+'</div>';\n    cur.f.forEach(function(f){\n      vals[f[0]]=f[2];\n      var el=$('f_'+f[0]);\n      el.addEventListener('input',update); el.addEventListener('change',update);\n    });\n    update();\n  }\n  function update(){\n    cur.f.forEach(function(f){ vals[f[0]]=$('f_'+f[0]).value; });\n    $('out').textContent=cur.build(vals);\n    $('why').textContent=cur.why;\n    $('tip').innerHTML='<b>Worth knowing</b>'+cur.tip;\n    if(window.WT) WT.resize();\n  }\n  $('tabs').addEventListener('click',function(e){\n    var b=e.target.closest('button[data-id]'); if(!b) return;\n    cur=R.filter(function(r){return r.id===b.dataset.id})[0];\n    buildTabs(); buildForm();\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('out').textContent);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy formula'},1400);\n  });\n  $('reset').addEventListener('click',buildForm);\n  buildTabs(); buildForm();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Excel Formula Generator: VLOOKUP, SUMIF and More",
+    "metaDescription": "Build Excel formulas by filling in boxes. VLOOKUP, XLOOKUP, SUMIFS, COUNTIF, IF, TEXTJOIN and more, with the common mistakes explained.",
+    "keywords": [
+      "excel formula generator",
+      "vlookup builder",
+      "sumif formula",
+      "excel formula helper",
+      "how to write vlookup",
+      "excel formula maker"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Nobody forgets what VLOOKUP does. What people forget is the order of the arguments, whether the last one is TRUE or FALSE, and why SUMIFS wants the sum column first when SUMIF wants it last. This Excel formula generator removes that from the job: pick the formula you need, fill in plain English boxes, and copy the finished formula. It covers the twelve that come up most, including XLOOKUP and INDEX MATCH, splitting a full name into two columns, joining columns without stray commas, and counting duplicates. Each one comes with a note explaining what it actually does and the mistake that most often makes it fail. Nothing is uploaded and no spreadsheet is involved."
+    ],
+    "howto": [
+      "Pick the formula from the row of tabs. If you are not sure which, VLOOKUP and XLOOKUP both pull a value from another table, and SUMIF adds up rows that match a condition.",
+      "Fill in the boxes. They are already filled with a realistic example, so you can see the shape before replacing anything.",
+      "Cell references go in as you would write them: A2, B:B, Sheet2!A:D. Text needs quotes around it, such as \"Lahore\".",
+      "Read the line under the formula, which says in plain words what it will do.",
+      "Copy the formula and paste it into your spreadsheet. Then read the Worth knowing note, because that is usually the reason a formula returns an error or a wrong answer."
+    ],
+    "benefits": [
+      "The notes are the part that saves real time. SUMIF and SUMIFS take their arguments in opposite orders, which is probably the single most common Excel mistake in existence. MATCH without the trailing zero silently returns wrong answers instead of erroring, because it assumes your data is sorted. VLOOKUP physically cannot look to the left of the column it searches, which is the reason so many people conclude it is broken. Each of those is written next to the formula that causes it rather than buried in a help article.",
+      "It also tells you when a formula will simply not work in your version. XLOOKUP and TEXTJOIN are genuinely better than the older approaches, but they need Excel 2019 or 365, and in anything earlier they appear as an unfamiliar name with an error beside it. Knowing that before you paste it saves a confusing ten minutes, and the older alternative is named right there."
+    ],
+    "useCases": [
+      "Anyone who uses Excel occasionally rather than daily is the main audience. The logic is usually obvious, the syntax is not, and looking it up means wading through pages of examples that do not match your columns. Filling in four boxes is faster.",
+      "Students and people learning spreadsheets use it to see the shape of a formula and understand which part does what, since the labels name the job rather than the argument. Anyone building a report on a deadline uses it to get INDEX MATCH right first time. If your data still needs tidying before any of this, our [remove duplicate lines](/tools/remove-duplicate-lines/) and [CSV viewer](/tools/csv-viewer/) handle the cleanup."
+    ],
+    "faqs": [
+      {
+        "q": "Should I use VLOOKUP or XLOOKUP?",
+        "a": "XLOOKUP if your Excel has it, which means 365 or 2021. It searches in any direction, takes a not found value so you do not need IFERROR, and does not break when someone inserts a column. VLOOKUP is what to use for a file that has to open in older versions."
+      },
+      {
+        "q": "Why does my VLOOKUP return N/A?",
+        "a": "Usually one of three things. The value genuinely is not there. Or it is there but stored differently, such as a number on one sheet and text on the other. Or the thing you are searching for is not in the first column of the table, which VLOOKUP requires."
+      },
+      {
+        "q": "What is the difference between SUMIF and SUMIFS?",
+        "a": "SUMIF takes one condition and puts the column being added last. SUMIFS takes several conditions and puts the column being added first. The reversed order is deliberate in Excel and catches almost everyone at least once."
+      },
+      {
+        "q": "Do I need quotes around my condition?",
+        "a": "Around text, yes: \"Lahore\". Around comparisons, also yes: \">100\". Plain numbers do not need them. To compare against a cell rather than a fixed value, join them: \">\"&E1."
+      },
+      {
+        "q": "Will these work in Google Sheets?",
+        "a": "Nearly all of them, since Sheets supports the same function names including XLOOKUP and TEXTJOIN. DATEDIF works there too. The main difference is that Sheets sometimes wants semicolons instead of commas depending on your locale."
+      },
+      {
+        "q": "Is my data sent anywhere?",
+        "a": "There is no data to send. You are only typing cell references and conditions, and the formula is assembled in your browser. Your spreadsheet never comes near this page."
+      }
+    ]
+  }
+}

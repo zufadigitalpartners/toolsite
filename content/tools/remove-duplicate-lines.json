@@ -1,0 +1,77 @@
+{
+  "name": "Remove Duplicate Lines",
+  "emoji": "🧹",
+  "icon": "align-left",
+  "category": "content/categories/developer.json",
+  "popular": true,
+  "order": 31,
+  "short": "Paste a list and strip out repeats, with counts and the order kept.",
+  "code": {
+    "html": "<div class=\"row\">\n  <label><span>Your list, one item per line</span><textarea id=\"in\" placeholder=\"ayesha@example.com\nbilal@example.com\nayesha@example.com\"></textarea></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Matching</span><select id=\"mode\">\n    <option value=\"exact\" selected>Exact match</option>\n    <option value=\"ci\">Ignore upper and lower case</option>\n    <option value=\"trim\">Ignore spaces at the ends</option>\n    <option value=\"both\">Ignore case and spaces</option>\n  </select></label>\n  <label><span>Keep</span><select id=\"keep\">\n    <option value=\"first\" selected>First time each appears</option>\n    <option value=\"only\">Only lines that appear once</option>\n    <option value=\"dupes\">Only the repeated lines</option>\n  </select></label>\n</div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"sort\"><label for=\"sort\">Sort the result A to Z</label></div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"counts\"><label for=\"counts\">Show how many times each appeared</label></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy result</button>\n  <button id=\"dl\">Download</button>\n  <button id=\"clear\">Clear</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"nin\">0</span><span class=\"label\">Lines in</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nout\">0</span><span class=\"label\">Lines out</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"ndel\">0</span><span class=\"label\">Removed</span></div>\n</div>\n<div class=\"out\" id=\"out\">The result appears here</div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": "#out{max-height:340px;overflow:auto}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  function key(s){\n    var m=$('mode').value;\n    if(m==='ci') return s.toLowerCase();\n    if(m==='trim') return s.trim();\n    if(m==='both') return s.trim().toLowerCase();\n    return s;\n  }\n  function run(){\n    var raw=$('in').value;\n    var lines=raw.length ? raw.split(/\\r?\\n/) : [];\n    // a trailing newline should not count as an empty item\n    if(lines.length && lines[lines.length-1]==='') lines.pop();\n    var seen=Object.create(null), order=[], count=Object.create(null);\n    lines.forEach(function(l){\n      var k=key(l);\n      if(!(k in seen)){ seen[k]=l; order.push(k); count[k]=1; }\n      else count[k]++;\n    });\n    var keep=$('keep').value, out=order;\n    if(keep==='only') out=order.filter(function(k){return count[k]===1});\n    if(keep==='dupes') out=order.filter(function(k){return count[k]>1});\n    if($('sort').checked) out=out.slice().sort(function(a,b){\n      return String(seen[a]).localeCompare(String(seen[b]),undefined,{numeric:true,sensitivity:'base'});\n    });\n    var showCounts=$('counts').checked;\n    var text=out.map(function(k){\n      return showCounts ? seen[k]+'\\t'+count[k] : seen[k];\n    }).join('\\n');\n    $('nin').textContent=lines.length;\n    $('nout').textContent=out.length;\n    $('ndel').textContent=Math.max(0,lines.length-out.length);\n    $('out').textContent=text||'The result appears here';\n    var dupeCount=order.filter(function(k){return count[k]>1}).length;\n    $('note').textContent = lines.length\n      ? (dupeCount ? dupeCount+' value'+(dupeCount>1?'s appear':' appears')+' more than once.' : 'Every line is unique.')\n      : '';\n    if(window.WT) WT.resize();\n  }\n  ['in','mode','keep','sort','counts'].forEach(function(id){\n    $(id).addEventListener('input',run); $(id).addEventListener('change',run);\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('out').textContent);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy result'},1400);\n  });\n  $('dl').addEventListener('click',function(){\n    var b=new Blob([$('out').textContent],{type:'text/plain;charset=utf-8'});\n    var u=URL.createObjectURL(b),a=document.createElement('a');\n    a.href=u;a.download='deduplicated.txt';document.body.appendChild(a);a.click();\n    setTimeout(function(){URL.revokeObjectURL(u);a.remove()},4000);\n  });\n  $('clear').addEventListener('click',function(){$('in').value='';run()});\n  run();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Remove Duplicate Lines: Clean a List Instantly",
+    "metaDescription": "Paste a list and strip out repeated lines. Ignore case or spaces, keep only duplicates or only unique items, and see how often each one appeared.",
+    "keywords": [
+      "remove duplicate lines",
+      "delete duplicates online",
+      "dedupe list",
+      "remove duplicates from list",
+      "find duplicate values"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Removing duplicates is one of those jobs that sounds trivial until you try it on real data. Excel's own remove duplicates only matches exactly, so Ayesha@Example.com and ayesha@example.com both survive, and so does any value with a trailing space you cannot see. This tool lets you decide what counts as the same thing: exact, ignoring case, ignoring spaces at the ends, or both. It keeps the original order by default, can sort instead, and can show how many times each value appeared, which is often the more useful answer. It can also flip the question and show you only the duplicates, or only the values that appear exactly once. Everything runs in your browser."
+    ],
+    "howto": [
+      "Paste your list into the box, one item per line. Copying a column straight out of Excel gives you exactly that.",
+      "Choose how strictly to match. Ignore case and spaces is the right choice for email addresses, names and reference codes, because that is where invisible differences hide.",
+      "Choose what to keep. The first time each value appears is the normal answer. Only the repeated lines is how you audit a list rather than clean it.",
+      "Tick Show how many times each appeared if you want counts. The result comes out tab separated, so it pastes into two spreadsheet columns.",
+      "Copy the result or download it. The three figures tell you how many lines went in, how many came out and how many were removed."
+    ],
+    "benefits": [
+      "The matching options are the whole point. Real lists are messy in specific and predictable ways: case differences from different sign up forms, trailing spaces from copy and paste, and both at once. A tool that only does exact matching finds a fraction of the actual duplicates and gives you false confidence that the rest are clean. Being able to loosen the match and watch the removed count jump is usually the moment people realise how dirty their data was.",
+      "Showing only the duplicates is the other half. Cleaning a list and auditing a list are different jobs, and most tools only do the first. If you need to know which customers were entered twice, or which order references collided, the useful output is the repeats and their counts, not the tidied version. Because the counts come out tab separated they land in two columns when pasted into a spreadsheet, ready to sort by frequency."
+    ],
+    "useCases": [
+      "Anyone preparing an email list before importing it into a mailing platform starts here, since most platforms charge by contact and bill you for duplicates. The same applies to import files for any system that will happily create the same record twice.",
+      "It is equally common in data checking: finding repeated invoice numbers, duplicate SKUs in a product feed, or the same reference appearing in two exports. Developers use it on log output to see which errors actually repeat rather than scrolling. If your data is still in a spreadsheet file, our [CSV viewer](/tools/csv-viewer/) will open it and let you copy a single clean column out."
+    ],
+    "faqs": [
+      {
+        "q": "Does it keep the original order?",
+        "a": "Yes, unless you tick sort. Each value stays in the position where it first appeared, which matters when the order carries meaning, such as a chronological export."
+      },
+      {
+        "q": "What is the difference between the matching options?",
+        "a": "Exact treats any difference as a different value. Ignore case treats Ayesha and ayesha as the same. Ignore spaces removes whitespace at the start and end before comparing. Both does the two together, which catches the largest number of real duplicates."
+      },
+      {
+        "q": "Can I see which lines were duplicated instead of removing them?",
+        "a": "Yes. Set Keep to Only the repeated lines and you get an audit of exactly what appeared more than once, which you can pair with the counts option to see how often."
+      },
+      {
+        "q": "Does it change the lines it keeps?",
+        "a": "No. Even when matching ignores case and spaces, the line that is kept is the original text of the first occurrence, unmodified. The looser matching only decides what counts as a repeat."
+      },
+      {
+        "q": "How large a list can it handle?",
+        "a": "Comfortably into the hundreds of thousands of lines. Matching is done with a hash lookup rather than by comparing every line against every other, so it stays fast as the list grows."
+      },
+      {
+        "q": "Is anything uploaded?",
+        "a": "No. The text never leaves your browser, which is the point when the list is customer emails or anything else you should not be pasting into a random website."
+      }
+    ]
+  }
+}

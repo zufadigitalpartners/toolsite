@@ -1,0 +1,77 @@
+{
+  "name": "CSV to JSON Converter",
+  "emoji": "🔄",
+  "icon": "braces",
+  "category": "content/categories/developer.json",
+  "popular": false,
+  "order": 32,
+  "short": "Turn a spreadsheet export into clean JSON an API will accept.",
+  "code": {
+    "html": "<div class=\"row\">\n  <label><span>Paste CSV, or drop a file below</span><textarea id=\"raw\" placeholder=\"name,age,city\nAyesha,31,Lahore\nBilal,27,Karachi\"></textarea></label>\n</div>\n<div class=\"ic-drop\" id=\"drop\">\n  <button class=\"btn\" id=\"pick\">Choose a CSV file</button>\n  <input type=\"file\" id=\"file\" accept=\".csv,.tsv,.txt,text/csv,text/plain\" hidden>\n</div>\n<div class=\"row-2\" style=\"margin-top:16px\">\n  <label><span>Separator</span><select id=\"delim\">\n    <option value=\"auto\" selected>Detect automatically</option>\n    <option value=\",\">Comma</option><option value=\";\">Semicolon</option>\n    <option value=\"\t\">Tab</option><option value=\"|\">Pipe</option>\n  </select></label>\n  <label><span>Shape</span><select id=\"shape\">\n    <option value=\"objects\" selected>Array of objects</option>\n    <option value=\"arrays\">Array of arrays</option>\n    <option value=\"keyed\">Keyed by the first column</option>\n  </select></label>\n</div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"types\" checked><label for=\"types\">Convert numbers and true/false automatically</label></div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"pretty\" checked><label for=\"pretty\">Indent the output</label></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy JSON</button>\n  <button id=\"dl\">Download .json</button>\n  <button id=\"clear\">Clear</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"nrec\">0</span><span class=\"label\">Records</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nkey\">0</span><span class=\"label\">Keys</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nsize\">0</span><span class=\"label\">Output bytes</span></div>\n</div>\n<div class=\"out\" id=\"out\">The JSON appears here</div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".ic-drop{border:1px solid var(--line-strong);border-radius:var(--r-md);\n  background:var(--surface-2);box-shadow:var(--e-well);padding:var(--s4);text-align:center;margin-top:var(--s3)}\n.ic-drop.over{border-color:var(--accent);background:var(--surface)}\n#out{max-height:380px;overflow:auto}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  \n  function sniff(t){\n    var head=t.split(/\\r?\\n/)[0]||'';\n    var counts=[[',',0],[';',0],['\\t',0],['|',0]].map(function(d){\n      var n=0,q=false;\n      for(var i=0;i<head.length;i++){\n        var c=head[i];\n        if(c==='\"') q=!q; else if(c===d[0] && !q) n++;\n      }\n      return [d[0],n];\n    });\n    counts.sort(function(a,b){return b[1]-a[1]});\n    return counts[0][1]>0 ? counts[0][0] : ',';\n  }\n  function parseCSV(text, delim){\n    var rows=[], row=[], field='', q=false, i=0;\n    text=text.replace(/^\\uFEFF/,'');           // strip the BOM Excel adds\n    while(i<text.length){\n      var c=text[i];\n      if(q){\n        if(c==='\"'){ if(text[i+1]==='\"'){ field+='\"'; i++; } else q=false; }\n        else field+=c;\n      } else {\n        if(c==='\"') q=true;\n        else if(c===delim){ row.push(field); field=''; }\n        else if(c==='\\n'){ row.push(field); rows.push(row); row=[]; field=''; }\n        else if(c==='\\r'){ /* handled by the \\n */ }\n        else field+=c;\n      }\n      i++;\n    }\n    if(field!==''||row.length){ row.push(field); rows.push(row); }\n    return rows.filter(function(r){ return r.length>1 || (r[0]||'').trim()!==''; });\n  }\n  function toCSV(rows, delim){\n    return rows.map(function(r){\n      return r.map(function(v){\n        v = v==null ? '' : String(v);\n        return /[\"\\n\\r]|\\Q/.test(v.replace(/\\\\Q/g,delim)) || v.indexOf(delim)>=0\n          ? '\"'+v.replace(/\"/g,'\"\"')+'\"' : v;\n      }).join(delim);\n    }).join('\\r\\n');\n  }\n  function download(name, text, mime){\n    var b=new Blob([text],{type:mime||'text/csv;charset=utf-8'});\n    var u=URL.createObjectURL(b), a=document.createElement('a');\n    a.href=u; a.download=name; document.body.appendChild(a); a.click();\n    setTimeout(function(){ URL.revokeObjectURL(u); a.remove(); }, 4000);\n  }\n\n  function coerce(v){\n    if(!$('types').checked) return v;\n    var t=v.trim();\n    if(t==='') return '';\n    if(/^(true|false)$/i.test(t)) return t.toLowerCase()==='true';\n    // only plain numbers; a leading zero means an identifier, not a number,\n    // which is exactly the mistake spreadsheets make with postcodes\n    if(/^-?(0|[1-9]\\d*)(\\.\\d+)?$/.test(t)){\n      var n=Number(t);\n      if(String(n)===t || String(n)===t.replace(/^\\+/,'')) return n;\n    }\n    return v;\n  }\n  function uniqueKeys(head){\n    var used=Object.create(null);\n    return head.map(function(h,i){\n      var base=(h||'').trim()||('column'+(i+1));\n      var k=base, n=2;\n      while(k in used){ k=base+'_'+n; n++; }\n      used[k]=1; return k;\n    });\n  }\n  function run(){\n    var text=$('raw').value;\n    if(!text.trim()){ $('out').textContent='The JSON appears here'; $('note').textContent='';\n      ['nrec','nkey','nsize'].forEach(function(i){$(i).textContent='0'});\n      if(window.WT) WT.resize(); return; }\n    var d=$('delim').value==='auto'?sniff(text):$('delim').value;\n    var rows=parseCSV(text,d);\n    if(!rows.length){ $('out').textContent='Nothing could be read from that.'; if(window.WT) WT.resize(); return; }\n    var head=uniqueKeys(rows[0]), body=rows.slice(1);\n    var shape=$('shape').value, data;\n    if(shape==='arrays'){\n      data=body.map(function(r){return r.map(coerce)});\n    } else if(shape==='keyed'){\n      data={};\n      body.forEach(function(r){\n        var o={};\n        for(var i=1;i<head.length;i++) o[head[i]]=coerce(r[i]||'');\n        data[r[0]||'']=o;\n      });\n    } else {\n      data=body.map(function(r){\n        var o={};\n        for(var i=0;i<head.length;i++) o[head[i]]=coerce(r[i]||'');\n        return o;\n      });\n    }\n    var json=JSON.stringify(data, null, $('pretty').checked?2:0);\n    $('out').textContent=json;\n    $('nrec').textContent=body.length;\n    $('nkey').textContent=head.length;\n    $('nsize').textContent=new Blob([json]).size;\n    var dupes=head.filter(function(k){return /_\\d+$/.test(k)}).length;\n    $('note').textContent = dupes\n      ? dupes+' duplicate column name'+(dupes>1?'s were':' was')+' renamed, because JSON keys have to be unique.'\n      : 'Read with the '+({',':'comma',';':'semicolon','\\t':'tab','|':'pipe'}[d]||d)+' separator.';\n    if(window.WT) WT.resize();\n  }\n  ['raw','delim','shape','types','pretty'].forEach(function(id){\n    $(id).addEventListener('input',run); $(id).addEventListener('change',run);\n  });\n  $('pick').addEventListener('click',function(){$('file').click()});\n  $('file').addEventListener('change',function(){load(this.files[0])});\n  function load(f){ if(!f) return; var r=new FileReader();\n    r.onload=function(){$('raw').value=String(r.result);run()};\n    r.onerror=function(){$('note').textContent='That file could not be read.'};\n    r.readAsText(f); }\n  var drop=$('drop');\n  ['dragenter','dragover'].forEach(function(e){drop.addEventListener(e,function(ev){ev.preventDefault();drop.classList.add('over')})});\n  ['dragleave','drop'].forEach(function(e){drop.addEventListener(e,function(ev){ev.preventDefault();drop.classList.remove('over')})});\n  drop.addEventListener('drop',function(ev){load(ev.dataTransfer.files[0])});\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('out').textContent);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy JSON'},1400);\n  });\n  $('dl').addEventListener('click',function(){\n    download('data.json',$('out').textContent,'application/json');\n  });\n  $('clear').addEventListener('click',function(){$('raw').value='';run()});\n  run();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "CSV to JSON Converter: Spreadsheet to Clean JSON",
+    "metaDescription": "Convert a CSV or Excel export into JSON in your browser. Three output shapes, automatic number detection and no uploading.",
+    "keywords": [
+      "csv to json",
+      "convert csv to json",
+      "excel to json",
+      "csv to json online",
+      "spreadsheet to json"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Most data starts life in a spreadsheet and most software wants JSON, so this conversion happens constantly. This free CSV to JSON converter does it in your browser, with the details that usually go wrong handled properly. It reads quoted fields containing commas and line breaks, renames duplicate column headings so the keys stay unique, and is careful about types: it will turn 42 into a number and true into a boolean, but it leaves 01234 as text, because a leading zero means someone is storing a postcode or an account number rather than arithmetic. You can output an array of objects, an array of arrays, or an object keyed by the first column, which is the shape you want for lookups."
+    ],
+    "howto": [
+      "Paste your CSV into the box, or choose a file. Anything copied out of Excel or Google Sheets pastes as tab separated and is detected automatically.",
+      "Leave the separator on automatic unless the detection guesses wrong, which happens occasionally with files that have very few columns.",
+      "Pick the shape. Array of objects is what almost every API expects. Keyed by the first column gives you a lookup table, so you can fetch a record by its id without searching.",
+      "Decide whether to convert types. Leave it on for data going into an application, turn it off when every value must stay exactly as written.",
+      "Copy the JSON or download it as a file. The counts show how many records and keys were produced and how large the output is."
+    ],
+    "benefits": [
+      "Type conversion is where these converters usually cause damage. Being clever about it means turning 007 into 7 and destroying an employee number, or turning a long order reference into scientific notation. The rule here is deliberately narrow: only plain integers and decimals become numbers, and any value with a leading zero, a plus sign or anything else unusual stays as a string. That is the opposite of what a spreadsheet does to the same data, and it is the behaviour you want when the output is going into a database.",
+      "Duplicate headings are the other quiet failure. CSV allows two columns to be called Name; JSON does not allow two keys with the same name, so one silently overwrites the other and a column of data disappears. Here the second becomes Name_2 and the note tells you it happened, so you find out at conversion time rather than when something downstream is missing a field."
+    ],
+    "useCases": [
+      "Developers loading a client's spreadsheet into an application do this on almost every project, usually with data that has been edited by hand and cannot be trusted. Being able to see the record count and key count before importing catches the obvious problems immediately.",
+      "It is also used to seed test data, to prepare content for a headless CMS, and to convert exports for a system that only accepts JSON. If you need to go the other way, our [JSON to CSV converter](/tools/json-to-csv/) handles that, and [CSV viewer](/tools/csv-viewer/) is worth a look first if the file is messy enough that you want to see it before converting."
+    ],
+    "faqs": [
+      {
+        "q": "Which output shape do I need?",
+        "a": "Array of objects for almost everything, since that is what APIs and databases expect. Array of arrays when position matters more than names and you want the smallest output. Keyed by the first column when you want to look records up by id rather than searching a list."
+      },
+      {
+        "q": "Why did my number stay as text?",
+        "a": "Because it had a leading zero, a plus sign or some other character that means it is an identifier rather than a quantity. Converting those loses information, so they are left alone deliberately. Turn off type conversion if you want everything as text."
+      },
+      {
+        "q": "What happens to two columns with the same name?",
+        "a": "The second is renamed with a suffix, so Name and Name become Name and Name_2, and a note tells you it happened. Without that one of the columns would vanish, because JSON keys must be unique."
+      },
+      {
+        "q": "Does it handle commas inside a value?",
+        "a": "Yes, provided the value is quoted, which is what any correct CSV writer does. Line breaks inside quoted values are handled too, which is where simpler converters usually break."
+      },
+      {
+        "q": "Is the file uploaded anywhere?",
+        "a": "No. It is read and converted entirely in your browser. Nothing is transmitted, which matters because spreadsheets exported from real systems tend to contain personal data."
+      },
+      {
+        "q": "What about Excel .xlsx files?",
+        "a": "Save or export as CSV first. The .xlsx format is a zipped bundle of XML rather than text, so it needs different handling. Most spreadsheet programs offer Save As with CSV in the list."
+      }
+    ]
+  }
+}
