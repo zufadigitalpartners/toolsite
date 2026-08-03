@@ -58,7 +58,7 @@ Paste this whole thing. Change the numbers as they change.
 
 Add three items, in this order:
 
-1. **Link** to `https://toolsinpocket.com` — title it "48 free tools, nothing uploaded"
+1. **Link** to `https://toolsinpocket.com`: title it "48 free tools, nothing uploaded"
 2. **Link** to your best single tool, whichever one your analytics likes most
 3. **Link** to your first "building in public" post, once you have one
 
@@ -103,7 +103,7 @@ spreadsheets. That is the actual growth lever early on.
 
 Ready to paste. One idea each, and none of them is an advert.
 
-### Post 1 — the margin mistake
+### Post 1: the margin mistake
 
 > A 40% markup is not a 40% margin.
 >
@@ -125,7 +125,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #Ecommerce #SmallBusiness #Pricing #Retail
 
-### Post 2 — Excel destroys data
+### Post 2: Excel destroys data
 
 > Excel turned a client's postcodes into numbers and nobody noticed for
 > three weeks.
@@ -148,7 +148,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #Excel #DataQuality #Spreadsheets #CSV
 
-### Post 3 — the SUMIF trap
+### Post 3: the SUMIF trap
 
 > SUMIF and SUMIFS take their arguments in opposite orders.
 >
@@ -177,7 +177,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #Excel #Spreadsheets #Productivity #DataAnalysis
 
-### Post 4 — the YouTube hashtag rule
+### Post 4: the YouTube hashtag rule
 
 > Use more than 15 hashtags on a YouTube video and YouTube ignores all of
 > them. Not the extras. All of them.
@@ -199,7 +199,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #YouTube #ContentMarketing #SEO #VideoMarketing
 
-### Post 5 — hashtag counts are not universal
+### Post 5: hashtag counts are not universal
 
 > The right number of hashtags, by platform:
 >
@@ -222,7 +222,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #SocialMedia #ContentStrategy #DigitalMarketing #Hashtags
 
-### Post 6 — the upload habit
+### Post 6: the upload habit
 
 > Every time you compress an image on a random website, you upload it to
 > someone else's server.
@@ -245,7 +245,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #Privacy #WebDevelopment #Tools #Productivity
 
-### Post 7 — building in public
+### Post 7: building in public
 
 > 48 tools in nine days. Here is what I got wrong.
 >
@@ -273,7 +273,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #BuildingInPublic #WebDevelopment #Design #SEO
 
-### Post 8 — the duplicate problem
+### Post 8: the duplicate problem
 
 > Excel's Remove Duplicates only matches exactly.
 >
@@ -293,7 +293,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #Excel #DataQuality #CRM #Productivity
 
-### Post 9 — Shopify import failures
+### Post 9: Shopify import failures
 
 > Most failed Shopify product imports come from one rule nobody writes down.
 >
@@ -312,7 +312,7 @@ Ready to paste. One idea each, and none of them is an advert.
 >
 > #Shopify #Ecommerce #OnlineStore #CSV
 
-### Post 10 — the privacy constraint
+### Post 10: the privacy constraint
 
 > I set one rule before writing a line of this site: nothing a user gives it
 > ever leaves their device.
