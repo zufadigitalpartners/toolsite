@@ -1,0 +1,77 @@
+{
+  "name": "Hashtag Cleaner",
+  "emoji": "🧼",
+  "icon": "case-upper",
+  "category": "content/categories/social.json",
+  "popular": false,
+  "order": 4,
+  "short": "Turn a messy list of words into clean, working hashtags in one step.",
+  "code": {
+    "html": "<div class=\"row\">\n  <label><span>Paste anything: words, commas, half typed tags</span>\n    <textarea id=\"src\" placeholder=\"home workout, Beginner Lifting\n#fitfam  ##gym\nfitness motivation\"></textarea></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Style</span><select id=\"style\">\n    <option value=\"lower\" selected>alllowercase</option>\n    <option value=\"camel\">CamelCaseForReadability</option>\n    <option value=\"keep\">Leave the capitals as they are</option>\n  </select></label>\n  <label><span>Separate them with</span><select id=\"sep\">\n    <option value=\"space\" selected>A space</option>\n    <option value=\"nl\">A new line each</option>\n    <option value=\"comma\">A comma</option>\n    <option value=\"dotnl\">A dot on its own line (Instagram spacer)</option>\n  </select></label>\n</div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"dedupe\" checked><label for=\"dedupe\">Remove duplicates</label></div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"sortaz\"><label for=\"sortaz\">Sort A to Z</label></div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"hash\" checked><label for=\"hash\">Add the # symbol</label></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy result</button>\n  <button id=\"clear\">Clear</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"nin\">0</span><span class=\"label\">Items in</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nout\">0</span><span class=\"label\">Clean hashtags</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nfix\">0</span><span class=\"label\">Problems fixed</span></div>\n</div>\n<div class=\"out\" id=\"out\">Your clean hashtags appear here</div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": "#src{min-height:170px}\n#out{max-height:280px;overflow:auto}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  function camel(s){\n    return s.split(/\\s+/).filter(Boolean).map(function(x){\n      return x.charAt(0).toUpperCase()+x.slice(1);\n    }).join('');\n  }\n  function run(){\n    var raw=$('src').value;\n    // split on newlines and commas, but NOT on spaces, because a multi word\n    // phrase should become one hashtag rather than three\n    var parts=raw.split(/[\\n,]+/).map(function(s){return s.trim()}).filter(Boolean);\n    var fixes=0, seen={}, out=[];\n    parts.forEach(function(p){\n      var before=p;\n      // a line can hold several hashtags already\n      var chunks = /#/.test(p) ? p.split(/\\s+/).filter(Boolean) : [p];\n      chunks.forEach(function(c){\n        var s=c.replace(/^#+/,'');                       // ## and stray hashes\n        s=s.replace(/[^\\p{L}\\p{N}_ ]+/gu,' ');           // punctuation and emoji out\n        s=s.replace(/\\s+/g,' ').trim();\n        if(!s) return;\n        var styled = $('style').value==='camel' ? camel(s)\n                   : $('style').value==='keep' ? s.replace(/\\s+/g,'')\n                   : s.toLowerCase().replace(/\\s+/g,'');\n        if(!styled) return;\n        if(/^[0-9]+$/.test(styled)) { fixes++; return; }  // numbers alone are not hashtags\n        var key=styled.toLowerCase();\n        if($('dedupe').checked && seen[key]) { fixes++; return; }\n        seen[key]=1;\n        out.push(styled);\n        if(('#'+styled)!==before.trim()) fixes++;\n      });\n    });\n    if($('sortaz').checked) out.sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase())});\n    var h=$('hash').checked?'#':'';\n    var tagged=out.map(function(t){return h+t});\n    var joined;\n    var sep=$('sep').value;\n    if(sep==='nl') joined=tagged.join('\\n');\n    else if(sep==='comma') joined=tagged.join(', ');\n    else if(sep==='dotnl') joined='.\\n.\\n.\\n.\\n.\\n'+tagged.join(' ');\n    else joined=tagged.join(' ');\n    $('out').textContent = tagged.length ? joined : 'Your clean hashtags appear here';\n    $('nin').textContent=parts.length;\n    $('nout').textContent=out.length;\n    $('nfix').textContent=fixes;\n    $('note').textContent = sep==='dotnl'\n      ? 'The row of dots pushes the hashtags below the More link on Instagram, so the caption looks clean in the feed.'\n      : 'Spaces inside a phrase are removed rather than split, so \"home workout\" becomes one hashtag and not two.';\n    if(window.WT) WT.resize();\n  }\n  ['src','style','sep','dedupe','sortaz','hash'].forEach(function(id){\n    $(id).addEventListener('input',run); $(id).addEventListener('change',run);\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('out').textContent);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy result'},1400);\n  });\n  $('clear').addEventListener('click',function(){ $('src').value=''; run(); });\n  run();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Hashtag Cleaner: Turn Messy Words Into Working Hashtags",
+    "metaDescription": "Paste words, commas or half typed tags and get clean hashtags in the format you need. Removes duplicates, spaces and punctuation.",
+    "keywords": [
+      "hashtag cleaner",
+      "convert text to hashtags",
+      "hashtag formatter",
+      "make hashtags from words",
+      "hashtag generator from list"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Hashtags break in boring ways. A space in the middle splits one tag into two. An apostrophe or an emoji ends the tag early. A stray double hash stops it working at all. And a list copied out of a note or a spreadsheet arrives with commas, capitals and blank lines that all need stripping by hand. This cleaner does all of it at once: paste whatever you have, in whatever state it is in, and get back clean hashtags in the format you asked for. It even offers the row of dots that pushes a hashtag block below the More link on Instagram."
+    ],
+    "howto": [
+      "Paste your list. Commas, new lines, existing hashtags and plain phrases can all be mixed together.",
+      "Pick a style. Lowercase is the safe default. CamelCase is genuinely easier to read and is what screen readers need to say a multi word tag correctly.",
+      "Choose how to separate them. A space for pasting into a caption, one per line for a notes app, or the dot spacer for Instagram.",
+      "Leave Remove duplicates on unless you have a reason not to. Repeats waste your hashtag allowance.",
+      "Copy the result. The counts show how many items went in, how many clean tags came out, and how many problems were fixed on the way."
+    ],
+    "benefits": [
+      "The important detail is what happens to spaces. A naive cleaner splits on whitespace, so home workout becomes two useless tags. This one treats a phrase on one line as one hashtag and joins it, because that is what you meant. It only splits when a line genuinely contains several hashtags already, which it detects by looking for the hash symbols. That single rule is the difference between a tool that helps and one you have to correct afterwards.",
+      "CamelCase is worth choosing more often than people do. A screen reader given #homeworkoutforbeginners produces noise; given #HomeWorkoutForBeginners it reads the words. Instagram treats both identically for search, so the capitals cost you nothing and make the tag readable to everyone, including the people scanning past it. The fixed count also tells you how much was wrong, which is usually more than expected on a list pasted from somewhere else."
+    ],
+    "useCases": [
+      "Anyone keeping hashtag sets in a notes app or a spreadsheet uses this to convert them into something postable, since those lists are almost always comma separated and capitalised inconsistently. It is also the quickest way to turn a list of keywords from a content plan into tags without typing each one.",
+      "The Instagram dot spacer is a common reason people arrive here: it is the standard way to keep a caption clean while still carrying a block of tags. If you need the tags in the first place, our [hashtag generator](/tools/hashtag-generator/) builds a balanced set, and the [hashtag extractor](/tools/hashtag-extractor/) recovers them from old posts."
+    ],
+    "faqs": [
+      {
+        "q": "Why does it join words instead of splitting them?",
+        "a": "Because a hashtag cannot contain a space. Writing home workout as two tags gives you #home and #workout, which mean something completely different from #homeworkout. A line is treated as one tag unless it already contains hash symbols."
+      },
+      {
+        "q": "Should I use lowercase or CamelCase?",
+        "a": "Either works for search, they are treated identically. CamelCase is better for accessibility, because a screen reader can only pronounce the words if the capitals are there to separate them. It is also easier to read at a glance."
+      },
+      {
+        "q": "What is the dot spacer for?",
+        "a": "Instagram collapses long captions behind a More link, and a few lines containing only a dot push your hashtag block below that fold. The caption looks clean in the feed while the tags still count. It is a formatting trick, not a reach trick."
+      },
+      {
+        "q": "What happens to emoji and punctuation?",
+        "a": "They are removed, because a hashtag ends at the first character that is not a letter, number or underscore. Leaving them in would silently truncate the tag, so stripping them is the safer behaviour."
+      },
+      {
+        "q": "Why were some items dropped?",
+        "a": "Duplicates when that option is on, and anything made only of numbers, which no platform treats as a hashtag. The problems fixed count includes both, so you can see how many disappeared."
+      },
+      {
+        "q": "Does it work with non English text?",
+        "a": "Yes. Letters from any alphabet are kept, including Urdu, Arabic, Hindi and accented European characters, because the platforms accept them in hashtags too."
+      }
+    ]
+  }
+}

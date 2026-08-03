@@ -1,0 +1,18 @@
+{
+  "name": "Social Media Tools",
+  "icon": "sparkles",
+  "emoji": "📱",
+  "color": "#0B7285",
+  "desc": "Hashtags, captions and the small jobs that eat your posting time.",
+  "order": 6,
+  "seo": {
+    "heading": "Social media tools that do the fiddly parts",
+    "paragraphs": [
+      "Posting is quick. Everything around it is not. Working out which hashtags to use, counting them against a limit you half remember, pulling the good ones back out of an old caption, and getting line breaks to survive Instagram's caption box are all small jobs that take longer than writing the post did. The tools here handle those, and they all run in your browser with nothing uploaded.",
+      "Start with the [hashtag generator](/tools/hashtag-generator/) when you have a post and no idea what to tag it with. It does not throw thirty random tags at you; it builds a deliberate mix of broad, medium and niche hashtags, because that spread is what actually gets a small account seen. A post tagged only with the biggest hashtags in your category is buried in seconds, and a post tagged only with tiny ones is seen by nobody.",
+      "Before you publish, the [hashtag counter](/tools/hashtag-counter/) checks the caption against the real limits for each platform and warns you about the things that quietly cost reach: too many tags, repeated tags, and hashtags so long nobody will read them. The [hashtag extractor](/tools/hashtag-extractor/) does the reverse job, pulling every tag out of a block of captions and ranking them by how often they appear, which is how you find out what you have actually been using.",
+      "For the messy middle, the [hashtag cleaner](/tools/hashtag-cleaner/) turns a pasted jumble of keywords, commas and half typed tags into a clean list in whichever format you need, and the [caption formatter](/tools/caption-formatter/) fixes the line break problem that makes Instagram captions come out as one solid paragraph.",
+      "None of these tools connect to a social platform, ask you to log in, or need an account. That also means none of them can show you live post counts for a hashtag, because no platform offers that publicly any more and the services that claim to are scraping. What they can do is apply the rules and the structure that make a hashtag set work, which is the part most people get wrong anyway."
+    ]
+  }
+}

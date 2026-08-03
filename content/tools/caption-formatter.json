@@ -1,0 +1,77 @@
+{
+  "name": "Caption Formatter",
+  "emoji": "✍️",
+  "icon": "align-left",
+  "category": "content/categories/social.json",
+  "popular": false,
+  "order": 5,
+  "short": "Make line breaks survive Instagram, and place your hashtags where you want them.",
+  "code": {
+    "html": "<div class=\"row\">\n  <label><span>Write or paste your caption</span>\n    <textarea id=\"cap\" placeholder=\"Line one.\nLine two.\n\n#yourhashtags #here\"></textarea></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Where do the hashtags go?</span><select id=\"place\">\n    <option value=\"keep\" selected>Leave them where they are</option>\n    <option value=\"end\">Move them to the end</option>\n    <option value=\"hidden\">Hide them below the More link</option>\n    <option value=\"strip\">Take them out completely</option>\n  </select></label>\n  <label><span>Spacing between lines</span><select id=\"space\">\n    <option value=\"keep\" selected>As I typed it</option>\n    <option value=\"tight\">Remove blank lines</option>\n    <option value=\"airy\">A blank line between every line</option>\n  </select></label>\n</div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"invisible\" checked><label for=\"invisible\">Protect blank lines so Instagram keeps them</label></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy caption</button>\n  <button id=\"copytags\">Copy hashtags only</button>\n  <button id=\"clear\">Clear</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"nchar\">0</span><span class=\"label\">Characters</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nline\">0</span><span class=\"label\">Lines</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"ntag\">0</span><span class=\"label\">Hashtags</span></div>\n</div>\n<div class=\"cf-preview\" id=\"prev\"></div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": "#cap{min-height:200px}\n.cf-preview{margin-top:var(--s5);border:1px solid var(--line-strong);border-radius:var(--r-md);\n  overflow:hidden;background:var(--surface-2)}\n.cf-head{padding:8px var(--s4);border-bottom:1px solid var(--line);\n  font-family:var(--font-mono);font-size:var(--t-12);text-transform:uppercase;\n  letter-spacing:.08em;color:var(--muted)}\n.cf-body{padding:var(--s4);white-space:pre-wrap;word-break:break-word;font-size:var(--t-14);line-height:1.55}\n.cf-fold{border-top:1px dashed var(--line-strong);margin:var(--s3) 0;padding-top:var(--s3);\n  color:var(--muted);font-size:var(--t-12);font-family:var(--font-mono);\n  text-transform:uppercase;letter-spacing:.08em}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var TAG=/#[\\p{L}\\p{N}_]+/gu;\n  // U+2063 invisible separator. Instagram strips lines that are truly empty,\n  // so a blank line needs one invisible character to survive.\n  var INV='\\u2063';\n\n  function run(){\n    var src=$('cap').value;\n    var tags=src.match(TAG)||[];\n    var body=src, tail='';\n    var place=$('place').value;\n    if(place!=='keep'){\n      body=src.replace(TAG,'').replace(/[ \\t]{2,}/g,' ');\n      body=body.split('\\n').map(function(l){return l.replace(/\\s+$/,'')}).join('\\n').replace(/\\n{3,}/g,'\\n\\n').trim();\n      if(place==='end') tail='\\n\\n'+tags.join(' ');\n      if(place==='hidden') tail='\\n'+['.','.','.','.','.'].join('\\n')+'\\n'+tags.join(' ');\n    }\n    var lines=body.split('\\n');\n    var sp=$('space').value;\n    if(sp==='tight') lines=lines.filter(function(l){return l.trim()!==''});\n    if(sp==='airy'){\n      var a=[]; lines.filter(function(l){return l.trim()!==''}).forEach(function(l,i,arr){\n        a.push(l); if(i<arr.length-1) a.push('');\n      }); lines=a;\n    }\n    var outText=lines.join('\\n')+tail;\n    // Applied to the whole caption, tail included. Doing it to the body\n    // alone left the gap above a moved hashtag block unprotected, so\n    // Instagram collapsed the one blank line the user could actually see.\n    if($('invisible').checked){\n      outText=outText.split('\\n').map(function(l){ return l.trim()===''?INV:l; }).join('\\n');\n    }\n    $('cap').dataset.out=outText;\n\n    var chars=Array.from(outText).length;\n    $('nchar').textContent=chars;\n    $('nline').textContent=lines.length;\n    $('ntag').textContent = place==='strip' ? 0 : tags.length;\n\n    // preview with the Instagram fold drawn in at 125 characters\n    var shown=outText.replace(new RegExp(INV,'g'),'');\n    var cut=125, before=shown.slice(0,cut), after=shown.slice(cut);\n    $('prev').innerHTML='<div class=\"cf-head\">How it looks in the feed</div><div class=\"cf-body\">'+\n      esc(before)+ (after ? '<div class=\"cf-fold\">everything below here is hidden behind \"more\"</div>'+esc(after) : '')+\n      '</div>';\n    $('note').textContent = $('invisible').checked\n      ? 'Blank lines carry one invisible character, which is what stops Instagram collapsing them. Paste the copied version rather than retyping it.'\n      : 'Blank lines are plain, so Instagram may collapse them. Tick the box above to protect them.';\n    if(window.WT) WT.resize();\n  }\n  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }\n\n  ['cap','place','space','invisible'].forEach(function(id){\n    $(id).addEventListener('input',run); $(id).addEventListener('change',run);\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('cap').dataset.out||'');\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy caption'},1400);\n  });\n  $('copytags').addEventListener('click',function(){\n    var ok=WT.copy(($('cap').value.match(TAG)||[]).join(' '));\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy hashtags only'},1400);\n  });\n  $('clear').addEventListener('click',function(){ $('cap').value=''; run(); });\n  run();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Caption Formatter: Line Breaks That Survive Instagram",
+    "metaDescription": "Fix Instagram captions that collapse into one paragraph, move hashtags to the end or below the fold, and see how it will look in the feed.",
+    "keywords": [
+      "instagram caption formatter",
+      "instagram line break",
+      "caption spacing",
+      "hashtags first comment",
+      "instagram caption tool"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Type a caption with neat paragraphs, post it, and Instagram serves it back as one solid block. This has annoyed people for years and the cause is simple: the app strips lines that are completely empty. The fix is to put something in them that nobody can see. This formatter does that, along with the other caption jobs: moving hashtags to the end or hiding them below the More link, tightening or opening up your spacing, and showing you exactly where the feed will cut your caption off. Write it here, copy it, paste it in, and it keeps the shape you gave it."
+    ],
+    "howto": [
+      "Write or paste your caption, with the line breaks you actually want.",
+      "Decide where the hashtags go. Move them to the end keeps the caption readable, and hide them below the More link adds the row of dots that pushes them out of the preview.",
+      "Adjust the spacing if you want. A blank line between every line is the airy look a lot of accounts use.",
+      "Leave the protect blank lines box ticked. That is the part that makes the spacing survive.",
+      "Copy the caption and paste it into the app. Do not retype it, because the invisible characters are what make it work."
+    ],
+    "benefits": [
+      "The preview is the most useful part and almost nobody has it. It draws a line at 125 characters, which is where Instagram cuts a caption in the feed, so you can see whether your opening line survives or whether the first thing anyone reads is half a sentence. Moving one word before that line is often the difference between a caption people expand and one they scroll past, and it takes two seconds once you can see where the fold is.",
+      "The hashtag placement options exist because the caption looks better without a wall of tags in it, not because hiding them increases reach. That claim has been repeated for years and does not hold up. What is true is that a clean first line reads better in a feed, and both the dot spacer and moving tags to the end achieve that. The tool is honest about which of those is a presentation choice, which is more than most advice on the subject manages."
+    ],
+    "useCases": [
+      "Anyone who writes captions longer than a sentence hits the line break problem immediately, and this is the fastest fix. Accounts that post regularly use the spacing options to keep a consistent look without formatting each one by hand.",
+      "It is also useful when moving a caption between platforms, since what reads well on LinkedIn is usually too airy for X. To build the hashtag set first, our [hashtag generator](/tools/hashtag-generator/) creates a balanced mix, and the [hashtag counter](/tools/hashtag-counter/) checks the finished caption against every platform limit before you post."
+    ],
+    "faqs": [
+      {
+        "q": "Why does Instagram remove my line breaks?",
+        "a": "It strips lines that contain nothing at all. A line with a single invisible character in it is not empty, so it survives. That is exactly what the protect blank lines option adds, and it is why the copied version works when a retyped one does not."
+      },
+      {
+        "q": "Will the invisible characters show up anywhere?",
+        "a": "No. They have no width and no appearance in any app. They are a standard Unicode separator, not a trick character that might display as a box."
+      },
+      {
+        "q": "Does hiding hashtags below the fold increase reach?",
+        "a": "No. It makes no measurable difference, despite how often that is claimed. It makes the caption look cleaner in the feed, which is a good enough reason on its own."
+      },
+      {
+        "q": "Where exactly does Instagram cut the caption?",
+        "a": "At roughly 125 characters, which is where the preview draws its line. LinkedIn cuts at about 140. The number moves slightly between app versions and screen sizes, so treat the line as close rather than exact."
+      },
+      {
+        "q": "Can I use this for other platforms?",
+        "a": "Yes. The line break protection helps anywhere that collapses empty lines, and the spacing options are useful everywhere. The 125 character fold in the preview is specific to Instagram."
+      },
+      {
+        "q": "Is my caption stored anywhere?",
+        "a": "No. Everything happens in your browser, and nothing is uploaded or saved, which matters if you are drafting client work."
+      }
+    ]
+  }
+}

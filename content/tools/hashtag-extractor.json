@@ -1,0 +1,77 @@
+{
+  "name": "Hashtag Extractor",
+  "emoji": "🧲",
+  "icon": "align-left",
+  "category": "content/categories/social.json",
+  "popular": false,
+  "order": 3,
+  "short": "Pull every hashtag out of any text and see which ones you use most.",
+  "code": {
+    "html": "<div class=\"row\">\n  <label><span>Paste captions, posts or any text</span>\n    <textarea id=\"src\" placeholder=\"Paste one caption or fifty. Everything with a # in it gets pulled out.\"></textarea></label>\n</div>\n<div class=\"row-2\">\n  <label><span>Order them by</span><select id=\"sort\">\n    <option value=\"freq\" selected>Most used first</option>\n    <option value=\"az\">A to Z</option>\n    <option value=\"found\">Order they appear</option>\n    <option value=\"len\">Shortest first</option>\n  </select></label>\n  <label><span>Show</span><select id=\"filter\">\n    <option value=\"all\" selected>All hashtags</option>\n    <option value=\"rep\">Only ones used more than once</option>\n    <option value=\"once\">Only ones used once</option>\n  </select></label>\n</div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"keephash\" checked><label for=\"keephash\">Keep the # symbol</label></div>\n<div class=\"check-row\"><input type=\"checkbox\" id=\"lower\"><label for=\"lower\">Make everything lowercase</label></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy list</button>\n  <button id=\"copycsv\">Copy with counts</button>\n  <button id=\"clear\">Clear</button>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"ntotal\">0</span><span class=\"label\">Found</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nuniq\">0</span><span class=\"label\">Different ones</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"ntop\">none yet</span><span class=\"label\">Used most</span></div>\n</div>\n<div class=\"out\" id=\"out\">Your hashtags appear here</div>\n<div class=\"he-table\" id=\"table\"></div>",
+    "css": "#src{min-height:190px}\n#out{max-height:220px;overflow:auto}\n.he-table{margin-top:var(--s5)}\n.he-table:empty{display:none}\n.he-row{display:grid;grid-template-columns:minmax(0,1fr) 54px 90px;gap:var(--s3);\n  align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:var(--t-14)}\n.he-row .t{font-family:var(--font-mono);overflow:hidden;text-overflow:ellipsis}\n.he-row .c{font-family:var(--font-mono);text-align:right;font-variant-numeric:tabular-nums}\n.he-bar{height:6px;background:var(--surface-3);border-radius:99px;overflow:hidden}\n.he-bar i{display:block;height:100%;background:var(--accent)}\n.he-head{color:var(--muted);font-family:var(--font-mono);font-size:var(--t-12);\n  text-transform:uppercase;letter-spacing:.08em}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  function run(){\n    var text=$('src').value;\n    var found=text.match(/#[\\p{L}\\p{N}_]+/gu)||[];\n    var lower=$('lower').checked;\n    var counts={}, order=[], display={};\n    found.forEach(function(raw){\n      var body=raw.slice(1);\n      var key=body.toLowerCase();\n      if(!(key in counts)){ counts[key]=0; order.push(key); display[key]= lower?key:body; }\n      counts[key]++;\n    });\n    var keys=order.slice();\n    var f=$('filter').value;\n    if(f==='rep') keys=keys.filter(function(k){return counts[k]>1});\n    if(f==='once') keys=keys.filter(function(k){return counts[k]===1});\n    var s=$('sort').value;\n    if(s==='freq') keys.sort(function(a,b){ return counts[b]-counts[a] || a.localeCompare(b); });\n    if(s==='az') keys.sort(function(a,b){ return a.localeCompare(b); });\n    if(s==='len') keys.sort(function(a,b){ return a.length-b.length || a.localeCompare(b); });\n\n    var hash=$('keephash').checked?'#':'';\n    var out=keys.map(function(k){ return hash+display[k]; });\n    $('out').textContent = out.length ? out.join(' ') : 'Your hashtags appear here';\n    $('ntotal').textContent=found.length;\n    $('nuniq').textContent=order.length;\n    var top=order.slice().sort(function(a,b){return counts[b]-counts[a]})[0];\n    $('ntop').textContent= top ? '#'+display[top] : 'none yet';\n\n    var max=Math.max.apply(null,keys.map(function(k){return counts[k]}).concat([1]));\n    $('table').innerHTML = keys.length\n      ? '<div class=\"he-row he-head\"><span>Hashtag</span><span class=\"c\">Used</span><span></span></div>'+\n        keys.slice(0,80).map(function(k){\n          return '<div class=\"he-row\"><span class=\"t\">#'+display[k]+'</span>'+\n            '<span class=\"c\">'+counts[k]+'</span>'+\n            '<span class=\"he-bar\"><i style=\"width:'+(counts[k]/max*100).toFixed(1)+'%\"></i></span></div>';\n        }).join('')+\n        (keys.length>80?'<div class=\"he-row\"><span class=\"t\">and '+(keys.length-80)+' more, all included when you copy</span></div>':'')\n      : '';\n    if(window.WT) WT.resize();\n  }\n  ['src','sort','filter','keephash','lower'].forEach(function(id){\n    $(id).addEventListener('input',run); $(id).addEventListener('change',run);\n  });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('out').textContent);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy list'},1400);\n  });\n  $('copycsv').addEventListener('click',function(){\n    var rows=[].slice.call(document.querySelectorAll('.he-row')).slice(1).map(function(r){\n      var t=r.querySelector('.t'), c=r.querySelector('.c');\n      return t&&c ? t.textContent+'\\t'+c.textContent : '';\n    }).filter(Boolean).join('\\n');\n    var ok=WT.copy(rows);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy with counts'},1400);\n  });\n  $('clear').addEventListener('click',function(){ $('src').value=''; run(); });\n  run();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Hashtag Extractor: Pull Hashtags Out of Any Text",
+    "metaDescription": "Paste captions or posts and get every hashtag out, ranked by how often each appears. Free, works on any amount of text, nothing uploaded.",
+    "keywords": [
+      "hashtag extractor",
+      "extract hashtags from text",
+      "find hashtags in post",
+      "hashtag list from caption",
+      "hashtag frequency"
+    ]
+  },
+  "content": {
+    "intro": [
+      "This tool reads any amount of text and pulls out every hashtag in it, then tells you how often each one appears. Paste a single caption to lift the tags out of it, or paste fifty of your old posts to find out what you have actually been using, which is usually not what you think. The frequency ranking is the useful part: the tags you reach for without thinking rise straight to the top, and seeing that list is normally the moment people realise they have been posting the same twelve hashtags for a year. It runs entirely in your browser."
+    ],
+    "howto": [
+      "Paste your text into the box. One caption, a whole month of posts, or anything else containing hashtags.",
+      "Choose how to order the results. Most used first is the interesting one when you are auditing yourself; A to Z is better when you are building a clean list.",
+      "Filter if you want to narrow it. Only ones used more than once shows your habits; only ones used once shows the tags you tried and forgot.",
+      "Untick Keep the # symbol if you want a plain word list, for example to paste into a spreadsheet.",
+      "Copy the list, or use Copy with counts to get two columns you can paste straight into a spreadsheet."
+    ],
+    "benefits": [
+      "Auditing your own hashtag use is difficult by eye and obvious in a ranked list. Reusing the same block on every post is the single most common habit that stops working over time, because it narrows you to one audience and looks automated. The bar next to each count makes the pattern visible in a second: if two or three tags tower over everything else, that is what is happening.",
+      "It also handles the practical job of lifting tags out of text you did not write. Competitor captions, a post you liked, a screenshot you retyped: paste it in and the tags come out clean, deduplicated and ready to paste elsewhere. Matching is case insensitive so #FitFam and #fitfam count as the same tag, which is correct because the platforms treat them that way, but the original spelling is preserved unless you ask for lowercase."
+    ],
+    "useCases": [
+      "Anyone reviewing their own posting looks at the frequency list first, and it usually leads directly to changing the sets they reuse. People researching a niche paste in a batch of captions from accounts doing well in it and read off which tags come up repeatedly, which is a legitimate and fast way to learn a category.",
+      "It is also the quickest way to recover a hashtag set from an old post when you did not save it anywhere. Once you have the list, our [hashtag cleaner](/tools/hashtag-cleaner/) will reformat it however you need, and the [hashtag counter](/tools/hashtag-counter/) checks the finished caption against the platform limits."
+    ],
+    "faqs": [
+      {
+        "q": "How much text can I paste?",
+        "a": "As much as you like. It handles a single caption or a year of posts without slowing down, because it counts with a lookup rather than comparing every tag against every other."
+      },
+      {
+        "q": "Does it treat #FitFam and #fitfam as the same?",
+        "a": "Yes, for counting, because the platforms do. The original spelling of the first one it saw is what appears in the list, unless you tick Make everything lowercase."
+      },
+      {
+        "q": "Why does the table stop at 80 rows?",
+        "a": "So the page stays quick to read and scroll. Every hashtag is still included when you copy, whichever button you use."
+      },
+      {
+        "q": "What does Copy with counts give me?",
+        "a": "Two tab separated columns, the hashtag and the number of times it appeared. Pasting that into a spreadsheet lands it in two columns ready to sort or chart."
+      },
+      {
+        "q": "Can it pull hashtags from a link to a post?",
+        "a": "No. It works on text you paste, not on live pages, because reading a social platform's pages requires an account and would mean sending data to a server. Copy the caption text across and paste it in."
+      },
+      {
+        "q": "Is anything sent anywhere?",
+        "a": "No. The text stays in your browser, which matters if you are pasting in draft posts or client work."
+      }
+    ]
+  }
+}

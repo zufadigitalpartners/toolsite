@@ -1,0 +1,77 @@
+{
+  "name": "Hashtag Counter",
+  "emoji": "🔢",
+  "icon": "percent",
+  "category": "content/categories/social.json",
+  "popular": true,
+  "order": 2,
+  "short": "Paste your caption and check it against the real limits before you post.",
+  "code": {
+    "html": "<div class=\"row\">\n  <label><span>Paste your caption, hashtags and all</span>\n    <textarea id=\"cap\" placeholder=\"Sunday reset done. New week, same goals.\n\n#homeworkout #fitfam #fitnessmotivation #beginnerlifting\"></textarea></label>\n</div>\n<div class=\"row\">\n  <label><span>Where are you posting it?</span><select id=\"plat\"></select></label>\n</div>\n<div class=\"stats\">\n  <div class=\"stat\"><span class=\"num\" id=\"ntag\">0</span><span class=\"label\">Hashtags</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nchar\">0</span><span class=\"label\">Characters</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nleft\">0</span><span class=\"label\">Characters left</span></div>\n  <div class=\"stat\"><span class=\"num\" id=\"nvis\">0</span><span class=\"label\">Shown before \"more\"</span></div>\n</div>\n<div class=\"hc-checks\" id=\"checks\"></div>\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"copy\">Copy caption</button>\n  <button id=\"strip\">Remove all hashtags</button>\n  <button id=\"clear\">Clear</button>\n</div>\n<p class=\"note\" id=\"note\"></p>",
+    "css": ".hc-checks{margin-top:var(--s5)}\n.hc-checks:empty{display:none}\n.hc-item{display:flex;gap:var(--s3);align-items:flex-start;padding:11px 0;\n  border-top:1px solid var(--line);font-size:var(--t-14);line-height:1.45}\n.hc-mark{flex:0 0 20px;height:20px;border-radius:50%;display:grid;place-items:center;\n  font:500 12px/1 var(--font-sans);margin-top:1px}\n.hc-ok .hc-mark{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line)}\n.hc-warn .hc-mark{background:var(--danger-bg);color:var(--danger);border:1px solid var(--danger-line)}\n.hc-warn{color:var(--ink)}\n.hc-item b{font-weight:500}\n.hc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}\n.hc-tags span{font-family:var(--font-mono);font-size:var(--t-12);\n  background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:2px 6px}\n#cap{min-height:200px}",
+    "js": "(function(){\n  var $=function(id){return document.getElementById(id)};\n  var P={\n  instagram:{n:'Instagram',tags:30,chars:2200,note:'30 hashtags and 2,200 characters. Only the first 125 characters show before the More link.'},\n  tiktok:{n:'TikTok',tags:20,chars:2200,note:'2,200 characters including the hashtags. Three to six tags is normal.'},\n  x:{n:'X / Twitter',tags:10,chars:280,note:'280 characters for most accounts. One or two hashtags perform best.'},\n  linkedin:{n:'LinkedIn',tags:10,chars:3000,note:'3,000 characters, and only the first 140 or so show before See more.'},\n  youtube:{n:'YouTube',tags:15,chars:5000,note:'Only the first three hashtags appear above the title. Past 15 they are all ignored.'},\n  facebook:{n:'Facebook',tags:10,chars:63206,note:'Effectively no limit, but posts over 80 characters get less engagement.'},\n  pinterest:{n:'Pinterest',tags:20,chars:500,note:'500 characters. Hashtags act as keywords rather than links.'}\n};\n  $('plat').innerHTML=Object.keys(P).map(function(k){\n    return '<option value=\"'+k+'\"'+(k==='instagram'?' selected':'')+'>'+P[k].n+'</option>';\n  }).join('');\n\n  function tagsIn(text){\n    // a hashtag is # then letters, numbers or underscore. Numbers alone are\n    // not a hashtag on any platform, which is a common surprise.\n    var m=text.match(/#[\\p{L}\\p{N}_]+/gu)||[];\n    return m.map(function(t){return t.slice(1)});\n  }\n  function run(){\n    var text=$('cap').value, p=P[$('plat').value];\n    var tags=tagsIn(text);\n    var lower=tags.map(function(t){return t.toLowerCase()});\n    var chars=Array.from(text).length;\n    $('ntag').textContent=tags.length;\n    $('nchar').textContent=chars;\n    $('nleft').textContent=Math.max(0,p.chars-chars);\n    var cut = $('plat').value==='instagram'?125:($('plat').value==='linkedin'?140:0);\n    $('nvis').textContent = cut ? Math.min(chars,cut) : 'all';\n\n    var checks=[];\n    function add(ok,label,extra){ checks.push({ok:ok,label:label,extra:extra||''}); }\n\n    add(tags.length<=p.tags,\n      tags.length<=p.tags\n        ? tags.length+' hashtag'+(tags.length===1?'':'s')+', within the '+p.tags+' that '+p.n+' allows.'\n        : '<b>'+tags.length+' hashtags is over the limit.</b> '+p.n+' allows '+p.tags+', so '+(tags.length-p.tags)+' will be ignored or the post may be rejected.');\n\n    add(chars<=p.chars,\n      chars<=p.chars\n        ? chars+' characters, inside the '+p.chars.toLocaleString()+' limit.'\n        : '<b>'+chars+' characters is over the '+p.chars.toLocaleString()+' limit</b> by '+(chars-p.chars)+'.');\n\n    var dupes={}, repeated=[];\n    lower.forEach(function(t){ dupes[t]=(dupes[t]||0)+1; });\n    Object.keys(dupes).forEach(function(t){ if(dupes[t]>1) repeated.push(t); });\n    add(!repeated.length,\n      repeated.length\n        ? '<b>'+repeated.length+' hashtag'+(repeated.length===1?' appears':'s appear')+' more than once.</b> Repeats do not help and waste your allowance.'\n        : 'No repeated hashtags.',\n      repeated.length?repeated.map(function(t){return '#'+t}).join(' '):'');\n\n    var longOnes=tags.filter(function(t){return t.length>24});\n    add(!longOnes.length,\n      longOnes.length\n        ? longOnes.length+' hashtag'+(longOnes.length===1?' is':'s are')+' very long. Nobody reads or searches these, and they eat your character count.'\n        : 'No overly long hashtags.',\n      longOnes.length?longOnes.map(function(t){return '#'+t}).join(' '):'');\n\n    var numeric=tags.filter(function(t){return /^[0-9]+$/.test(t)});\n    add(!numeric.length,\n      numeric.length\n        ? '<b>'+numeric.length+' hashtag'+(numeric.length===1?' is':'s are')+' numbers only</b>, which no platform treats as a hashtag.'\n        : 'Every hashtag has letters in it.',\n      numeric.length?numeric.map(function(t){return '#'+t}).join(' '):'');\n\n    if(cut){\n      add(chars<=cut || text.indexOf('#')>cut,\n        text.indexOf('#')>=0 && text.indexOf('#')<cut\n          ? 'Your hashtags start inside the first '+cut+' characters, so they show in the preview before anyone taps More. Moving them to the end usually reads better.'\n          : 'Your first '+cut+' characters are clean, which is what shows in the feed before the More link.');\n    }\n\n    $('checks').innerHTML=checks.map(function(c){\n      return '<div class=\"hc-item '+(c.ok?'hc-ok':'hc-warn')+'\"><span class=\"hc-mark\">'+(c.ok?'\\u2713':'!')+'</span>'+\n        '<div>'+c.label+(c.extra?'<div class=\"hc-tags\">'+c.extra.split(' ').map(function(t){return '<span>'+t+'</span>'}).join('')+'</div>':'')+'</div></div>';\n    }).join('');\n    $('note').textContent=p.note;\n    if(window.WT) WT.resize();\n  }\n  ['cap','plat'].forEach(function(id){ $(id).addEventListener('input',run); $(id).addEventListener('change',run); });\n  $('copy').addEventListener('click',function(){\n    var ok=WT.copy($('cap').value);\n    this.textContent=ok?'Copied':'Press Ctrl+C';\n    var b=this; setTimeout(function(){b.textContent='Copy caption'},1400);\n  });\n  $('strip').addEventListener('click',function(){\n    $('cap').value=$('cap').value.replace(/#[\\p{L}\\p{N}_]+/gu,'').replace(/[ \\t]{2,}/g,' ').replace(/\\n{3,}/g,'\\n\\n').trim();\n    run();\n  });\n  $('clear').addEventListener('click',function(){ $('cap').value=''; run(); });\n  run();\n})();",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  },
+  "seo": {
+    "metaTitle": "Hashtag Counter: Check Your Caption Before You Post",
+    "metaDescription": "Count hashtags and characters against the real limits for Instagram, TikTok, X and LinkedIn, and catch repeats and dead tags before you publish.",
+    "keywords": [
+      "hashtag counter",
+      "instagram character counter",
+      "caption length checker",
+      "count hashtags",
+      "instagram hashtag limit"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Going over a limit does not always fail loudly. Instagram will quietly ignore hashtags past thirty, X will simply refuse the post, and a caption that runs long gets cut off mid sentence in the feed. This hashtag counter checks all of it before you publish: how many hashtags you have against what the platform allows, how many characters you have used, how much of your caption shows before the More link, and the smaller problems that quietly waste your allowance. It runs as you type, in your browser, with nothing uploaded."
+    ],
+    "howto": [
+      "Paste your whole caption in, hashtags included, exactly as you plan to post it.",
+      "Pick the platform. The limits and the advice change, because they really do differ.",
+      "Read the four figures. Characters left is the one to watch on X, and shown before more matters on Instagram and LinkedIn.",
+      "Work through the checks underneath. Anything with a red mark is worth fixing; anything green is fine.",
+      "Use Remove all hashtags if you want to move them to a first comment, then copy the clean caption."
+    ],
+    "benefits": [
+      "The checks catch the mistakes that do not announce themselves. Repeated hashtags are the most common: it is easy to paste two saved blocks together and use half your allowance twice on the same tags. Hashtags made only of numbers are not hashtags at all on any platform, so they sit there doing nothing. Very long hashtags nobody will ever type eat characters and reduce readability. None of these produce an error message anywhere; they just quietly cost you.",
+      "The preview length figure is the other useful one. On Instagram only the first 125 characters appear before someone has to tap More, and on LinkedIn about 140. If your hashtags start inside that window, the first thing anyone sees in the feed is a wall of tags instead of your opening line. The tool tells you when that is happening, which is a small change that makes a visible difference."
+    ],
+    "useCases": [
+      "Anyone posting to more than one platform uses this to check the same caption against each one, since a caption that is comfortable on Instagram is three times over the limit on X. It is also the fastest way to audit a block of saved hashtags you have been reusing, which usually turns out to contain repeats and a few dead ones.",
+      "Social media managers use it as a final check before scheduling, and anyone new to a platform uses it to learn the limits without memorising them. To build the hashtag set in the first place, our [hashtag generator](/tools/hashtag-generator/) creates a balanced mix, and the [caption formatter](/tools/caption-formatter/) sorts out the line breaks afterwards."
+    ],
+    "faqs": [
+      {
+        "q": "How many hashtags does Instagram allow?",
+        "a": "Thirty in the caption. Anything past that is ignored rather than rejected, so the post still publishes and you simply lose those tags. Most accounts do better with eight to fifteen chosen carefully than with thirty broad ones."
+      },
+      {
+        "q": "Do hashtags count towards the character limit?",
+        "a": "Yes, on every platform. They are part of the caption text. That matters most on X, where 280 characters disappear fast once you add a few tags."
+      },
+      {
+        "q": "What is the shown before more figure?",
+        "a": "How much of your caption appears in the feed before someone taps to expand it. Instagram cuts at roughly 125 characters and LinkedIn at about 140. Whatever falls inside that window is the only part most people will ever read."
+      },
+      {
+        "q": "Why is a hashtag of only numbers a problem?",
+        "a": "Because no platform treats it as one. #2024 is just text sitting in your caption, taking up characters and doing nothing. Adding a letter, as in #goals2024, makes it work."
+      },
+      {
+        "q": "Does putting hashtags in the first comment help?",
+        "a": "It makes no measurable difference to reach, despite the advice you will have seen. It does keep the caption clean in the feed, which is a presentation choice. The Remove all hashtags button prepares the caption for exactly that."
+      },
+      {
+        "q": "Is my caption uploaded anywhere?",
+        "a": "No. Everything is counted in your browser as you type, and nothing is sent to a server or stored."
+      }
+    ]
+  }
+}
