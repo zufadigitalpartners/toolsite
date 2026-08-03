@@ -5,7 +5,7 @@
   "category": "content/categories/social.json",
   "popular": true,
   "order": 1,
-  "short": "Build a balanced hashtag set from your topic, mixing big, medium and small tags.",
+  "short": "One tool for every platform, with the right number of tags for each.",
   "code": {
     "html": "<div class=\"hg-step\">\n  <span class=\"hg-num\">1</span>\n  <label><span>What is your post about?</span>\n    <input type=\"text\" id=\"topic\" placeholder=\"for example: banana bread recipe\" value=\"home workout for beginners\">\n  </label>\n</div>\n\n<div class=\"hg-step\">\n  <span class=\"hg-num\">2</span>\n  <div class=\"hg-grow\">\n    <label><span>Pick the closest topic</span><select id=\"niche\"></select></label>\n    <p class=\"hg-hint\" id=\"autohint\"></p>\n  </div>\n</div>\n\n<div class=\"hg-step\">\n  <span class=\"hg-num\">3</span>\n  <div class=\"hg-grow\">\n    <label><span>Where are you posting?</span><select id=\"plat\"></select></label>\n    <p class=\"hg-hint\" id=\"platadvice\"></p>\n  </div>\n</div>\n\n<div class=\"hg-step\">\n  <span class=\"hg-num\">4</span>\n  <div class=\"hg-grow\">\n    <label><span>How many hashtags? <b class=\"hg-v\" id=\"countV\">15</b></span>\n      <input type=\"range\" id=\"count\" min=\"3\" max=\"30\" value=\"15\"></label>\n    <p class=\"hg-hint\">More is not better. The slider stops at whatever the platform allows.</p>\n  </div>\n</div>\n\n<div class=\"btn-row\">\n  <button class=\"btn-primary\" id=\"go\">Build my hashtags</button>\n  <button id=\"copyall\">Copy all</button>\n  <button id=\"shuffle\">Try a different set</button>\n</div>\n\n<div class=\"out\" id=\"out\">Press the button and your hashtags appear here.</div>\n\n<div class=\"hg-groups\" id=\"groups\"></div>\n<p class=\"note\" id=\"note\"></p>",
     "css": ".hg-step{display:flex;gap:var(--s4);align-items:flex-start;padding:var(--s4) 0;border-bottom:1px solid var(--line)}\n.hg-step:first-child{padding-top:0}\n.hg-num{flex:0 0 26px;height:26px;border-radius:50%;background:var(--ink);color:var(--on-ink);\n  display:grid;place-items:center;font:500 13px/1 var(--font-sans);margin-top:2px}\n.hg-step label{flex:1}\n.hg-grow{flex:1;min-width:0}\n.hg-hint{margin:6px 0 0;font-size:var(--t-14);color:var(--muted);line-height:1.45}\n.hg-v{font-family:var(--font-mono);font-weight:400;color:var(--muted);margin-left:6px}\n.hg-groups{margin-top:var(--s5)}\n.hg-groups:empty{display:none}\n.hg-g{border-top:1px solid var(--line);padding:var(--s4) 0}\n.hg-g h4{margin:0 0 4px;font:500 var(--t-16)/1.3 var(--font-sans)}\n.hg-g p{margin:0 0 var(--s3);font-size:var(--t-14);color:var(--muted)}\n.hg-tags{display:flex;flex-wrap:wrap;gap:6px}\n.hg-tag{font-family:var(--font-mono);font-size:var(--t-14);padding:5px 9px;\n  border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface-2);\n  cursor:pointer;position:relative}\n.hg-tag::before{content:\"\";position:absolute;left:0;right:0;top:50%;height:44px;transform:translateY(-50%)}\n.hg-tag.off{opacity:.4;text-decoration:line-through}\n.hg-g .btn{margin-top:var(--s3);height:38px;padding:0 12px;font-size:var(--t-14)}\n.hg-count{float:right;font-family:var(--font-mono);font-size:var(--t-12);color:var(--muted)}\n#out{min-height:3em}",
@@ -18,60 +18,60 @@
     "apiFreeTier": ""
   },
   "seo": {
-    "metaTitle": "Hashtag Generator: A Balanced Set, Not Thirty Random Tags",
-    "metaDescription": "Enter your topic and get a hashtag set that mixes big, medium and small tags, sized to the platform you are posting on. Free, no login.",
+    "metaTitle": "Hashtag Generator for Every Platform, Free",
+    "metaDescription": "Generate hashtags for Instagram, TikTok, YouTube, X, LinkedIn, Facebook and Pinterest, each with the right count for that platform. Free, no login.",
     "keywords": [
       "hashtag generator",
-      "instagram hashtags",
-      "hashtag finder",
-      "best hashtags for",
-      "tiktok hashtags",
-      "hashtag ideas"
+      "hashtag generator for all platforms",
+      "how many hashtags to use",
+      "social media hashtags",
+      "hashtag tool",
+      "free hashtag generator"
     ]
   },
   "content": {
     "intro": [
-      "Most hashtag generators hand you thirty of the biggest tags in your category and leave you to it. That is close to useless, because a post tagged #fitness sits alongside several hundred million others and is out of sight in seconds. What actually works is a mix: a couple of big tags for the brief burst, a set of medium ones where your post stays visible long enough to be found, and a group of small specific ones where far fewer people are looking but the ones who are actually care. This free hashtag generator builds that mix for you, sized to the platform you are posting on, and it explains what each group is for so you can judge it rather than trust it."
+      "The number of hashtags that works is different on every platform, and it is different by a lot. Thirty is normal on Instagram and looks unhinged on X, where one or two genuinely perform better than five. YouTube shows exactly three above your title and switches all of them off if you use more than fifteen. Facebook barely reacts to them at all. This hashtag generator handles all seven platforms in one place: pick where you are posting and the limits, the advice and the number of tags all change to match. If you only ever post to one place, the dedicated tools linked below go deeper on each."
     ],
     "howto": [
-      "Type what your post is about in plain words, as you would describe it to a friend. Not keywords, just the sentence.",
-      "Check the topic it picked. It works this out from your words and tells you which one it chose, so if it guessed wrong you can change it in one tap.",
-      "Choose where you are posting. The advice underneath changes, because the platforms genuinely differ: thirty tags is normal on Instagram and looks like spam on X.",
-      "Set how many you want. The slider will not let you go past what the platform allows, and fewer good tags usually beats more weak ones.",
-      "Press Build. Tap any hashtag you do not like to drop it, then copy the whole set or just one group."
+      "Describe your post in plain words. The tool reads what you wrote rather than needing a keyword list.",
+      "Check which topic it matched. It shows you its guess so you can correct it in one tap instead of wondering.",
+      "Choose the platform. This is the step that changes everything: the cap on the slider, the advice underneath, and how many tags you get.",
+      "Set the count. The slider physically cannot exceed what the platform allows, so you cannot accidentally build a set that gets ignored.",
+      "Press Build, tap anything you do not want, then copy the whole set or one group at a time."
     ],
     "benefits": [
-      "The three groups are the point, and they are labelled in plain language rather than as tiers or difficulty scores. Big hashtags are described as what they are: huge audiences where you disappear in seconds. Small ones are described as fewer people but the right ones. Once someone reads that once, they understand why a set of thirty enormous tags never worked, and they can build sets themselves afterwards. A tool that teaches you the rule is worth more than one that hides it.",
-      "It also builds tags from your own words, not just from a stored list. A post about banana bread gets tags from the category and tags made from the phrase itself, which is what makes the set specific to your post rather than generic to your niche. And because everything is tappable, the output is a starting point you edit rather than a block you copy blindly. Try a different set reshuffles without changing your settings, so you can look at three or four options in a few seconds."
+      "Seven platforms, seven different answers, and most hashtag tools give you one. That is why so many people end up pasting an Instagram sized block onto TikTok or X, where it reads as spam and costs them engagement rather than earning it. Switching the platform here rewrites the advice line, so the reasoning is visible rather than hidden: you can see that YouTube only surfaces three, that X drops off past two, and that Facebook is largely indifferent.",
+      "The other half is the split between big, medium and small tags, which is weighted differently per platform because the platforms behave differently. Instagram rewards a spread across reach levels. TikTok mostly wants to know what category the video is in. YouTube needs its three visible tags to be the clearest search terms available. Getting that weighting right is the part a generic list of thirty tags can never do, whichever platform you paste it into."
     ],
     "useCases": [
-      "Small accounts and new businesses get the most from this, because the broad-only approach hurts them the most and the balanced mix is exactly what they are usually missing. Anyone posting regularly uses it to avoid repeating the same block of tags on every post, which platforms notice and which stops working quickly.",
-      "It is equally useful for people who manage several accounts in different niches and cannot hold twenty categories in their head, and for anyone moving a post between platforms, since the same caption needs a very different number of tags on Instagram and on LinkedIn. Before you publish, our [hashtag counter](/tools/hashtag-counter/) checks the finished caption against the platform limits, and the [caption formatter](/tools/caption-formatter/) fixes the line breaks."
+      "Anyone posting the same content in several places uses this as the one stop, adapting a caption from Instagram to TikTok to LinkedIn without keeping three sets of rules in their head. It is also the fastest way to learn those rules, since the advice changes in front of you as you switch.",
+      "If you only post to one platform, the dedicated tools are better tuned: [Instagram](/tools/instagram-hashtag-generator/) for the thirty tag mix, [TikTok](/tools/tiktok-hashtag-generator/) for the three to six that categorise a video, [YouTube](/tools/youtube-hashtag-generator/) for the three that show above your title, [X](/tools/x-twitter-hashtag-generator/) for the one or two that beat a long list, and [Facebook](/tools/facebook-hashtag-generator/) for an honest account of how little they do there. Before publishing, the [hashtag counter](/tools/hashtag-counter/) checks the finished caption against whichever limit applies."
     ],
     "faqs": [
       {
-        "q": "Does this show how many posts use each hashtag?",
-        "a": "No, and no free tool can do that honestly any more. The platforms stopped offering post counts publicly, so anything claiming to show live numbers is scraping and will break, usually without telling you. What this does instead is apply the structure that makes a set work, which is the part most people get wrong regardless of the numbers."
+        "q": "How many hashtags should I use on each platform?",
+        "a": "Instagram allows 30, and 8 to 15 chosen well beats all 30 broad. TikTok works on 3 to 6. YouTube shows 3 above the title and ignores everything if you pass 15. X performs best on 1 or 2. LinkedIn takes 3 to 5 at the end of a post. Facebook, 2 or 3, though they do very little there. Pinterest treats them as keywords rather than links."
       },
       {
-        "q": "How many hashtags should I actually use?",
-        "a": "It depends on the platform, and the advice updates as you switch. Instagram allows thirty but most accounts do better with eight to fifteen chosen carefully. On X, one or two beat more. On LinkedIn, three to five at the end of the post. On TikTok, three to six."
+        "q": "Why does the advice change when I switch platform?",
+        "a": "Because the platforms genuinely differ, in their caps, in how hashtags are displayed, and in what their audiences read as spam. A single number for all of them would be wrong for at least five of the seven."
       },
       {
-        "q": "Why mix big and small hashtags?",
-        "a": "Because they do different jobs. A big tag gives you a few seconds in front of a very large audience before newer posts push you out. A small tag might only be checked by a few hundred people, but your post stays near the top of it for hours and those people chose to follow that specific subject. Small accounts get almost all their reach from the second kind."
+        "q": "Should I use the same hashtags everywhere?",
+        "a": "The subject can carry across; the quantity and the format should not. Taking a thirty tag Instagram block to X is the most common version of this mistake and it visibly costs engagement."
       },
       {
-        "q": "Should I put hashtags in the caption or the first comment?",
-        "a": "It makes no measurable difference to reach on Instagram, despite years of advice claiming otherwise. Putting them in the first comment keeps the caption clean, which is a design choice rather than a growth one. Our caption formatter can prepare either."
+        "q": "Does this show live post counts for each hashtag?",
+        "a": "No, and nothing free does so honestly any more. The platforms stopped publishing those numbers, so anything claiming them is scraping and breaks quietly. This applies the structure and the rules instead, which is the part most sets get wrong regardless of the counts."
       },
       {
-        "q": "Will using the same hashtags every time hurt me?",
-        "a": "It stops helping, which amounts to the same thing. Repeating an identical block looks automated and narrows you to the same audience every post. Use Try a different set between posts and swap the small tags to match what each post is actually about."
+        "q": "What is the difference between this and the platform tools?",
+        "a": "This one covers all seven and is built for switching between them. The dedicated tools start with the right count already set, weight the tag mix for that platform specifically, and their guidance goes deeper into how that one platform actually treats hashtags."
       },
       {
         "q": "Is my topic sent anywhere?",
-        "a": "No. The whole tool, including the hashtag data, runs in your browser. Nothing you type is transmitted and no account is needed."
+        "a": "No. The hashtag data and every calculation live in your browser. Nothing is uploaded and no account is required."
       }
     ]
   }
