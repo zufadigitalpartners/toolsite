@@ -1,0 +1,77 @@
+{
+  "name": "Merge PDF",
+  "emoji": "🔗",
+  "icon": "file-image",
+  "category": "content/categories/pdf.json",
+  "popular": true,
+  "order": 1,
+  "short": "Join several PDFs into one, in the order you choose, without uploading them.",
+  "seo": {
+    "metaTitle": "Merge PDF: Combine Files Without Uploading Them",
+    "metaDescription": "Join several PDFs into one file in your browser. Reorder before merging, no size limit beyond your device, and nothing is ever uploaded.",
+    "keywords": [
+      "merge pdf",
+      "combine pdf files",
+      "join pdf",
+      "merge pdf offline",
+      "merge pdf without uploading"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Merging PDFs is the single most common thing anyone does to a PDF, and it is almost always done by uploading the files to a website. Think about what those files usually are: a signed contract, a set of bank statements, a passport page and a visa form, an invoice bundle for an accountant. This merger does not upload anything. It reads your files in your browser, builds a new PDF on your own device, and hands it straight back. There is no queue, no account, no watermark and no daily limit, because there is no server involved to meter anything."
+    ],
+    "howto": [
+      "Drop your PDFs onto the box, or press Choose files. You can add more later without starting again.",
+      "Check the order in the list. The arrows move a file up or down, and the order shown is the order in the finished document.",
+      "Remove anything you added by mistake with the cross.",
+      "Press Merge into one PDF. The combined file downloads immediately.",
+      "Check the page count shown before you merge, since that is the fastest way to spot a file that did not load properly."
+    ],
+    "benefits": [
+      "Pages keep their own size. That sounds obvious and a surprising number of mergers get it wrong, flattening everything onto one common page size so an A4 contract and a scanned receipt come out distorted. Here each page is copied with its own dimensions, its own rotation and its own resources, so a mixed bundle looks the way it did before you started.",
+      "The limits are your device's rather than a pricing tier's. Most free PDF sites cap you at a handful of files, or a few megabytes, or a number of tasks per day, and the cap exists to sell you the paid plan rather than because the work is expensive. Since this runs on your own machine there is nothing to meter, so the honest answer on limits is simply how much memory your browser has. Files that fail to open are reported by name, including password protected ones, rather than failing silently."
+    ],
+    "useCases": [
+      "Applications are the most common reason people arrive: visa, university, mortgage and job forms almost always demand a single PDF while the documents themselves arrive as separate files. Being able to set the order matters here, because those forms usually specify a sequence.",
+      "Accountants and freelancers merge invoice and receipt bundles for a period. Anyone scanning paper on a phone ends up with one PDF per page and needs them joined. If your documents are photographs rather than PDFs, our [image to PDF converter](/tools/image-to-pdf/) turns them into a PDF first, and [split PDF](/tools/split-pdf/) does the opposite job when you need pages back out."
+    ],
+    "faqs": [
+      {
+        "q": "How many PDFs can I merge at once?",
+        "a": "Up to forty files in one go, and the practical limit is your device's memory rather than a policy. There is no daily cap and no account, because nothing is being metered on a server."
+      },
+      {
+        "q": "Will it keep my page sizes and orientation?",
+        "a": "Yes. Every page is copied with its own dimensions and rotation, so mixing A4 documents with scanned receipts or landscape spreadsheets works properly instead of squashing everything onto one size."
+      },
+      {
+        "q": "Can I change the order of the files?",
+        "a": "Yes, with the arrows next to each file. The list order is the final order, so arrange it before pressing merge."
+      },
+      {
+        "q": "What about password protected PDFs?",
+        "a": "A file that is encrypted will usually fail to open, and it is named in the message rather than silently skipped. Remove the password in your PDF reader first, then merge."
+      },
+      {
+        "q": "Does it reduce the quality?",
+        "a": "No. Pages are copied across as they are, not re-rendered, so text stays selectable and images stay at their original quality. The merged file is roughly the sum of the parts."
+      },
+      {
+        "q": "Is my PDF uploaded anywhere?",
+        "a": "No. The file is read by your own browser and rewritten on your device. Nothing is transmitted, there is no queue and no copy sits on a server. You can load this page, disconnect from the internet, and it still works, which is the simplest way to prove it to yourself."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  }
+}

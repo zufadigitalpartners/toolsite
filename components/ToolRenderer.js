@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import ToolEmbed from "@/components/ToolEmbed";
 import { buildEmbedDoc } from "@/lib/embedStyles";
 
@@ -10,6 +11,26 @@ import PasswordGenerator from "@/components/tools/PasswordGenerator";
 import QrGenerator from "@/components/tools/QrGenerator";
 import RandomNumber from "@/components/tools/RandomNumber";
 import WordCounter from "@/components/tools/WordCounter";
+
+// The PDF tools are components rather than CMS code because they need
+// pdf-lib, which cannot be pasted into a text field.
+//
+// Loaded through next/dynamic, not imported directly. A plain import put
+// their code into the shared client graph, which pushed the homepage's
+// first load from 196 kB to 325 kB for six tools it never renders. These
+// are file editors that cannot do anything server side anyway, so there is
+// nothing lost by having them arrive with the page they belong to.
+const pdfTool = (loader) => dynamic(loader, {
+  ssr: false,
+  loading: () => <p className="note">Loading the PDF tools…</p>,
+});
+
+const MergePdf = pdfTool(() => import("@/components/tools/pdf/MergePdf"));
+const SplitPdf = pdfTool(() => import("@/components/tools/pdf/SplitPdf"));
+const RotatePdf = pdfTool(() => import("@/components/tools/pdf/RotatePdf"));
+const DeletePdfPages = pdfTool(() => import("@/components/tools/pdf/DeletePdfPages"));
+const PdfPageNumbers = pdfTool(() => import("@/components/tools/pdf/PdfPageNumbers"));
+const WatermarkPdf = pdfTool(() => import("@/components/tools/pdf/WatermarkPdf"));
 
 // Tools that ship as real React components. Anything not listed here falls
 // back to the code stored on the tool in TinaCMS, which is how new tools
@@ -24,6 +45,13 @@ export const BUILT_IN_TOOLS = {
   "qr-code-generator": QrGenerator,
   "random-number-generator": RandomNumber,
   "word-counter": WordCounter,
+
+  "merge-pdf": MergePdf,
+  "split-pdf": SplitPdf,
+  "rotate-pdf": RotatePdf,
+  "delete-pages-from-pdf": DeletePdfPages,
+  "add-page-numbers-to-pdf": PdfPageNumbers,
+  "watermark-pdf": WatermarkPdf,
 };
 
 // Reads the grouped shape and the older flat one.

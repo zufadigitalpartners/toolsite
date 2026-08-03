@@ -1,0 +1,77 @@
+{
+  "name": "Delete Pages from PDF",
+  "emoji": "🗑️",
+  "icon": "file-image",
+  "category": "content/categories/pdf.json",
+  "popular": false,
+  "order": 4,
+  "short": "Take out the blank scans, the cover sheet, or anything you would rather not send.",
+  "seo": {
+    "metaTitle": "Delete Pages from PDF: Remove What You Do Not Need",
+    "metaDescription": "Remove pages from a PDF in your browser. The pages you keep are copied into a clean new file, so the removed ones are genuinely gone.",
+    "keywords": [
+      "delete pages from pdf",
+      "remove pdf pages",
+      "pdf page remover",
+      "delete blank pages pdf",
+      "remove page from pdf free"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Most PDFs that arrive from a scanner have pages nobody wants: blank backs, a cover sheet, the fax header, a duplicated scan. And most documents you send on have pages the recipient does not need to see. This removes them properly. Say which pages should go, and everything else is copied into a clean new file, which means the removed pages are genuinely gone rather than hidden from view. That distinction matters when the pages you are dropping are the ones you would rather a stranger did not read. Everything happens in your browser."
+    ],
+    "howto": [
+      "Drop in your PDF. The page count appears immediately so you know the range you are working with.",
+      "Type the pages you want removed: 1, 4-6, 12. Single pages, ranges, or both.",
+      "Read the line underneath, which confirms how many are going and how many will be left before you commit.",
+      "Press Remove those pages. The trimmed file downloads straight away.",
+      "Anything you typed that is outside the document is named rather than ignored, so a typo does not pass silently."
+    ],
+    "benefits": [
+      "The pages you keep are copied into a new document rather than the unwanted ones being deleted in place. That is not the same thing. Deleting in place can leave the removed pages' content in the file, recoverable by anyone who looks properly, which is exactly the wrong outcome when you removed them because they contained something private. Building the file from the pages you kept means what is gone is actually gone.",
+      "The count is shown before you act, which is a small thing that prevents the common mistake. Typing 1-10 when you meant 1, 10 removes nine pages you wanted, and you find out after the file has downloaded and the original is closed. Seeing removing 10, keeping 2 in front of you first catches it. Asking to remove every page is refused outright rather than producing an empty document."
+    ],
+    "useCases": [
+      "Cleaning up scans is the everyday use: blank reverse sides, the separator sheet, the page that went through twice. Anyone who scans a stack of paper ends up with several of these in every bundle.",
+      "The more important use is trimming a document before sending it on. A bank statement where only one month is relevant, a contract where the schedules are not for this recipient, a report where the appendix is internal. If you want to keep the pages you are removing as their own file, use [split PDF](/tools/split-pdf/) instead, and [merge PDF](/tools/merge-pdf/) puts documents back together afterwards."
+    ],
+    "faqs": [
+      {
+        "q": "Are the removed pages really gone?",
+        "a": "Yes. The tool builds a new document from the pages you kept rather than marking the others as deleted, so their content is not carried into the saved file. That is the safer behaviour when you removed them for privacy reasons."
+      },
+      {
+        "q": "How do I say which pages to remove?",
+        "a": "The same way you would say it out loud: 1, 4-6, 12. Single pages, ranges, or a mixture, separated by commas."
+      },
+      {
+        "q": "What if I type a page that does not exist?",
+        "a": "It is named in the note underneath and ignored, and the count of what will actually be removed updates, so a typo is visible before you press the button."
+      },
+      {
+        "q": "Can I remove every page?",
+        "a": "No, and the tool refuses rather than producing an empty file. If you want nothing from a document, you do not need a tool."
+      },
+      {
+        "q": "Does it change the pages I keep?",
+        "a": "No. They are copied with their own size, rotation and content intact, so text stays selectable and images keep their quality."
+      },
+      {
+        "q": "Is my PDF uploaded anywhere?",
+        "a": "No. The file is read by your own browser and rewritten on your device. Nothing is transmitted, there is no queue and no copy sits on a server. You can load this page, disconnect from the internet, and it still works, which is the simplest way to prove it to yourself."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  }
+}

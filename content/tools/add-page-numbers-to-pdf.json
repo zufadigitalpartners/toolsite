@@ -1,0 +1,77 @@
+{
+  "name": "Add Page Numbers to PDF",
+  "emoji": "🔢",
+  "icon": "file-image",
+  "category": "content/categories/pdf.json",
+  "popular": false,
+  "order": 5,
+  "short": "Number the pages of a contract or submission, with the cover left bare.",
+  "seo": {
+    "metaTitle": "Add Page Numbers to PDF, Free and Offline",
+    "metaDescription": "Put page numbers on a PDF in your browser. Choose position, format and where the count starts, and leave the cover page bare. Nothing uploaded.",
+    "keywords": [
+      "add page numbers to pdf",
+      "number pdf pages",
+      "pdf page numbering",
+      "insert page numbers pdf",
+      "pdf numbering tool"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Page numbers are one of those things nobody thinks about until a document has to be referred to out loud. A contract where somebody says see clause four on page nine, a submission where the guidance says number every page, a report that will be printed and handed round a table. Word processors do this easily; a PDF that arrived as a scan does not. This adds real page numbers to any PDF, in the position and format you choose, with the option to leave the first page bare because a cover sheet should not be page one. It runs entirely in your browser."
+    ],
+    "howto": [
+      "Drop in the PDF you want numbered.",
+      "Choose where the number sits. Bottom centre is the safe default and the one most submission guidelines expect.",
+      "Choose how it reads. Just the number, 1 of 12, Page 1, or the dashed style used in legal documents.",
+      "Set where the count starts if this document continues from another one, and adjust the text size if the default looks small on a large page.",
+      "Tick the cover option if the first page is a title page, then press Add page numbers."
+    ],
+    "benefits": [
+      "The cover page option exists because almost every formal document needs it and almost no free tool offers it. A title page numbered 1 pushes everything out by one against the contents list, and fixing that afterwards means renumbering by hand. Here the first page stays bare and the count starts at one on the page after it, which is what a submission guideline means when it says number the body.",
+      "Starting the count somewhere other than one matters for anything split across files. A bundle where the second document continues from page 34 needs to start at 35, not at 1, and that is a two second change here rather than a reason to give up and do it in Word. The four formats cover the conventions people are actually asked for, including the dashed style that legal and academic documents tend to specify."
+    ],
+    "useCases": [
+      "Legal and contractual documents are the heaviest use, because being able to cite a page is the entire point and unnumbered contracts cause real arguments. Academic submissions and grant applications usually state a numbering requirement in the guidance.",
+      "Anything that will be printed and passed around a meeting benefits, since a dropped stack of unnumbered paper is unrecoverable. If your document is assembled from several files, run [merge PDF](/tools/merge-pdf/) first and number the finished bundle so the sequence is continuous, rather than numbering the parts separately."
+    ],
+    "faqs": [
+      {
+        "q": "Can I leave the cover page without a number?",
+        "a": "Yes, and it is a single tick. The first page stays bare and the count starts at one on the page after it, which is what most submission guidelines mean when they ask for the body to be numbered."
+      },
+      {
+        "q": "Can I start numbering at something other than one?",
+        "a": "Yes. Set the starting number, which is what you need when a document continues from another one in the same bundle."
+      },
+      {
+        "q": "Where should the number go?",
+        "a": "Bottom centre is the safest and what most guidelines expect. Bottom right suits documents that will be bound on the left. Top positions are worth avoiding if your pages already have headers."
+      },
+      {
+        "q": "Will it cover up my content?",
+        "a": "It sits in the page margin, which is usually clear. On a scan with almost no margin, or a page with a footer already, check the result and try a different position or a smaller size if it collides."
+      },
+      {
+        "q": "Can I remove them afterwards?",
+        "a": "Not with this tool, since the numbers become part of the page once saved. Keep your original file, which is good practice before any PDF edit."
+      },
+      {
+        "q": "Is my PDF uploaded anywhere?",
+        "a": "No. The file is read by your own browser and rewritten on your device. Nothing is transmitted, there is no queue and no copy sits on a server. You can load this page, disconnect from the internet, and it still works, which is the simplest way to prove it to yourself."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  }
+}

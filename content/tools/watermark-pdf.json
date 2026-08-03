@@ -1,0 +1,77 @@
+{
+  "name": "Watermark PDF",
+  "emoji": "💧",
+  "icon": "file-image",
+  "category": "content/categories/pdf.json",
+  "popular": false,
+  "order": 6,
+  "short": "Mark a document as a draft or a copy before you send it on.",
+  "seo": {
+    "metaTitle": "Watermark PDF: Add DRAFT or CONFIDENTIAL, Free",
+    "metaDescription": "Add a text watermark across every page of a PDF in your browser. Choose the wording, angle, colour and how faint it sits. Nothing uploaded.",
+    "keywords": [
+      "watermark pdf",
+      "add watermark to pdf",
+      "draft stamp pdf",
+      "confidential watermark",
+      "pdf watermark free"
+    ]
+  },
+  "content": {
+    "intro": [
+      "A watermark answers a question before anyone asks it: is this the final version, and is it meant to be passed on. DRAFT across a proposal stops it being quoted back at you as a commitment. CONFIDENTIAL on a document you had to share sets an expectation. COPY on a certificate makes clear which one is the original. This adds that text diagonally across every page of a PDF, in your choice of wording, colour, angle and strength, in your browser and without uploading the document. That last part matters, because the documents that need marking are the ones you would least like sitting on someone else's server."
+    ],
+    "howto": [
+      "Drop in the PDF you want to mark.",
+      "Type the wording. DRAFT, CONFIDENTIAL, COPY, a client name, or anything up to forty characters.",
+      "Pick a colour and an angle. Diagonal is the convention and it reads clearly without following any line of text.",
+      "Set how faint it should be. Around fifteen percent is visible without fighting the words underneath.",
+      "Press Add the watermark. Every page is marked and the file downloads."
+    ],
+    "benefits": [
+      "The strength control is the part that decides whether a watermark works. Too faint and it disappears when printed, which defeats the purpose. Too strong and the document becomes hard to read, so people ignore it or ask for a clean copy, which also defeats the purpose. Around fifteen percent is the range that survives printing and stays out of the way, and the slider lets you judge it against your own document rather than accepting somebody's default.",
+      "The text is placed from the centre of each page and offset against its own rotated width, which is why it stays centred at every angle. Watermarks that rotate about their starting point drift towards a corner as the angle changes, and on a diagonal setting they often run off the edge entirely. Getting that right is the difference between a mark that looks deliberate and one that looks like a mistake."
+    ],
+    "useCases": [
+      "Agencies and freelancers mark proposals and mockups as drafts before sending them, which is the cheapest protection against work being used before it is paid for. Legal and HR teams mark documents shared outside their organisation.",
+      "It is also used to mark copies of certificates and identity documents, so a scan that leaks cannot easily be passed off as an original. Once marked, our [merge PDF](/tools/merge-pdf/) can bundle it with a cover letter, and [add page numbers](/tools/add-page-numbers-to-pdf/) finishes a formal submission."
+    ],
+    "faqs": [
+      {
+        "q": "How faint should the watermark be?",
+        "a": "Around fifteen percent. Below about eight it can vanish when printed on a light printer, and above about thirty it starts to fight the text. The slider shows the effect so you can judge it against your own document."
+      },
+      {
+        "q": "Does a watermark protect my document?",
+        "a": "No, and it is worth being clear about that. It marks a document and sets an expectation. Anyone with the right software can remove it. If you need real protection you need a password or a rights managed file, not a watermark."
+      },
+      {
+        "q": "Can I use my logo instead of text?",
+        "a": "Not in this tool, which handles text only. An image watermark needs the logo embedded and positioned per page size, which is a different job."
+      },
+      {
+        "q": "Will it go on every page?",
+        "a": "Yes, every page, centred and at the angle you chose. Each page is measured individually, so a document that mixes page sizes still comes out centred throughout."
+      },
+      {
+        "q": "Can I remove it later?",
+        "a": "Not with this tool. Once saved the text is drawn onto the pages. Keep your unmarked original, which is worth doing before any PDF edit."
+      },
+      {
+        "q": "Is my PDF uploaded anywhere?",
+        "a": "No. The file is read by your own browser and rewritten on your device. Nothing is transmitted, there is no queue and no copy sits on a server. You can load this page, disconnect from the internet, and it still works, which is the simplest way to prove it to yourself."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  }
+}

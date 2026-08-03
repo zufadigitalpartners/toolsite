@@ -1,0 +1,77 @@
+{
+  "name": "Rotate PDF",
+  "emoji": "🔄",
+  "icon": "scaling",
+  "category": "content/categories/pdf.json",
+  "popular": true,
+  "order": 3,
+  "short": "Straighten pages that were scanned sideways, all of them or just some.",
+  "seo": {
+    "metaTitle": "Rotate PDF: Fix Sideways Scanned Pages",
+    "metaDescription": "Turn PDF pages the right way up in your browser. Rotate everything or just the pages that are wrong, and save it permanently. Nothing uploaded.",
+    "keywords": [
+      "rotate pdf",
+      "turn pdf pages",
+      "fix sideways pdf",
+      "rotate pdf and save",
+      "rotate pdf pages online"
+    ]
+  },
+  "content": {
+    "intro": [
+      "A PDF full of sideways pages is almost always a scanner's fault, and the frustrating part is that turning them in your PDF reader does not stick. The reader rotates the view; the file itself is unchanged, so the next person who opens it sees the same sideways pages. This tool changes the file. Turn everything or just the pages that are wrong, save it, and it stays fixed for everyone who opens it afterwards. It runs in your browser, so the scan, which is usually a document you would not upload lightly, stays on your machine."
+    ],
+    "howto": [
+      "Drop in the PDF with the pages that are the wrong way round.",
+      "Choose how far to turn: 90 degrees clockwise for a page lying on its side, 180 for one that is upside down.",
+      "Choose whether to turn every page or only some. Most scans have a mix, so Only some pages is the common answer.",
+      "If only some, list them the way you would say them: 1-3, 7.",
+      "Press Rotate and save. The corrected file downloads immediately."
+    ],
+    "benefits": [
+      "Rotation is added to whatever the page already carries rather than replacing it. That sounds like a detail and it is the difference between working and not: a scanned page often already has a 90 degree rotation stored in it, so a tool that sets rather than adds leaves you exactly where you started, or worse, turns a correct page sideways. Here a page that is already at 90 and needs another 90 ends up at 180, which is what you asked for.",
+      "Being able to rotate only some pages matters because scanners rarely get every page wrong in the same way. A twenty page bundle where four pages went through the feeder sideways needs those four turned and the rest left alone, which is impossible in tools that only offer all or nothing. And because the change is written into the file rather than into a viewer's settings, it survives being emailed, printed and opened on somebody else's computer."
+    ],
+    "useCases": [
+      "Anyone digitising paper with a phone or a flatbed scanner hits this constantly, and it is the last step before a document is presentable enough to send. Applications and submissions are the usual destination, and a sideways page in a formal submission looks careless even when the content is right.",
+      "Offices dealing with received scans use it to tidy documents before filing. If the same bundle also needs unwanted pages taken out, our [delete pages from PDF](/tools/delete-pages-from-pdf/) handles that, and [merge PDF](/tools/merge-pdf/) puts several corrected documents together."
+    ],
+    "faqs": [
+      {
+        "q": "Why does rotating in my PDF reader not save?",
+        "a": "Because most readers rotate the view rather than the document. It looks right on your screen and nobody else sees the change. This tool writes the rotation into the file itself, so it stays."
+      },
+      {
+        "q": "Can I rotate only some pages?",
+        "a": "Yes. Choose Only some pages and list them, for example 1-3, 7. That is usually what you need, since scanners rarely get every page wrong the same way."
+      },
+      {
+        "q": "What if a page is already rotated?",
+        "a": "The turn is added to what is already there rather than replacing it, so a page sitting at 90 that needs another 90 ends up at 180. Tools that set rather than add are why rotation sometimes appears to do nothing."
+      },
+      {
+        "q": "Which direction is 90 degrees?",
+        "a": "Clockwise, which is what you want for a page whose top edge is on the left. If it goes the wrong way, use 90 anticlockwise instead."
+      },
+      {
+        "q": "Does it affect the text or images?",
+        "a": "No. Rotation is a property of the page, not a redraw, so nothing is re-rendered and quality is untouched. Text stays selectable."
+      },
+      {
+        "q": "Is my PDF uploaded anywhere?",
+        "a": "No. The file is read by your own browser and rewritten on your device. Nothing is transmitted, there is no queue and no copy sits on a server. You can load this page, disconnect from the internet, and it still works, which is the simplest way to prove it to yourself."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Split PDF",
+  "emoji": "✂️",
+  "icon": "scaling",
+  "category": "content/categories/pdf.json",
+  "popular": true,
+  "order": 2,
+  "short": "Pull out the pages you need, or break a long PDF into equal pieces.",
+  "seo": {
+    "metaTitle": "Split PDF: Extract Pages Without Uploading",
+    "metaDescription": "Take specific pages out of a PDF or break it into equal parts, in your browser. Write 1-3, 7 and get exactly those pages. Nothing uploaded.",
+    "keywords": [
+      "split pdf",
+      "extract pages from pdf",
+      "separate pdf pages",
+      "split pdf online free",
+      "pdf page extractor"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Splitting a PDF is usually one of two jobs, and most tools only do one of them properly. Either you want a few specific pages out of a long document, or you want to break a long document into equal chunks. This does both. Type 1-3, 7, 10-12 and you get exactly those pages in one new file, in that order. Or set a chunk size and get the whole document broken into pieces, downloaded one after another. It runs entirely in your browser, so the document you are cutting up, which is often a contract or a statement, never leaves your device."
+    ],
+    "howto": [
+      "Drop in the PDF you want to cut. The page count appears straight away, which tells you what you have to work with.",
+      "Choose Pick pages if you want specific ones, or Break into pieces if you want the whole thing divided up.",
+      "For specific pages, write them the way you would say them: 1-3, 7, 10-12. Single pages, ranges, or both together.",
+      "For pieces, set how many pages each one should have. It tells you how many files that produces before you commit.",
+      "Press Split. A single file downloads immediately; pieces arrive one after another a moment apart."
+    ],
+    "benefits": [
+      "The page range parser is deliberately forgiving, because people type these in a hurry. Spaces anywhere are fine. Either kind of dash works. A reversed range like 9-5 is read the way it was obviously meant. And a page number that does not exist is reported rather than silently ignored, so asking for page 40 of a 12 page document tells you what went wrong instead of quietly giving you nothing.",
+      "Order is preserved as you wrote it, which matters more than it sounds. Asking for 7, 1-3 gives you page seven first, because that is what you asked for. Tools that sort the pages numerically make it impossible to reorder while extracting, which turns a one step job into two. Downloads of multiple pieces are also spaced out on purpose, because browsers throttle rapid repeated downloads and files silently go missing otherwise."
+    ],
+    "useCases": [
+      "Sending one section of a long report to somebody who does not need the rest is the everyday case, and doing it without uploading the whole report to a website is the reason to do it here. Removing the pages of a bank statement that are not relevant to an application is another, and one where privacy is the entire point.",
+      "Students split scanned textbooks and lecture packs into chapters. Anyone dealing with a large scanned bundle uses the equal pieces mode to make it manageable. If you need to put pages back together afterwards, our [merge PDF](/tools/merge-pdf/) does that, and [delete pages from PDF](/tools/delete-pages-from-pdf/) is the better tool when you want to keep most of a document and drop a few pages."
+    ],
+    "faqs": [
+      {
+        "q": "How do I write the page numbers?",
+        "a": "Exactly as you would say them: 1-3, 7, 10-12. Single pages, ranges, or a mix, separated by commas. Spaces are ignored and both kinds of dash work."
+      },
+      {
+        "q": "Does the order I type them matter?",
+        "a": "Yes, and that is deliberate. Typing 7, 1-3 gives you page seven first. It means you can extract and reorder in one step rather than two."
+      },
+      {
+        "q": "What if I ask for a page that does not exist?",
+        "a": "It tells you, and names how many pages the document actually has. Silently ignoring it would leave you wondering why the output is short."
+      },
+      {
+        "q": "Why do the pieces download one at a time?",
+        "a": "Browsers throttle rapid repeated downloads and start dropping them, so the files are spaced a moment apart to make sure every one arrives."
+      },
+      {
+        "q": "Does splitting reduce quality?",
+        "a": "No. The pages are copied rather than re-rendered, so text stays selectable and images keep their original quality."
+      },
+      {
+        "q": "Is my PDF uploaded anywhere?",
+        "a": "No. The file is read by your own browser and rewritten on your device. Nothing is transmitted, there is no queue and no copy sits on a server. You can load this page, disconnect from the internet, and it still works, which is the simplest way to prove it to yourself."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiName": "",
+    "apiDocs": "",
+    "apiKey": "",
+    "apiBaseUrl": "",
+    "apiFreeTier": ""
+  }
+}

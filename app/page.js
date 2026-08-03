@@ -5,12 +5,27 @@ import HeroMotion from "@/components/HeroMotion";
 import HeroScene from "@/components/HeroScene";
 import Icon from "@/lib/icons";
 import { site, ui } from "@/lib/site";
-import { tools, categories, toolsByCategory, popularTools } from "@/lib/tools";
+import { tools, categories, toolsByCategory, popularTools, getCategory } from "@/lib/tools";
 
 // Icons for the trust strip, in the order the CMS lists the items.
 const WHY_ICONS = ["badge-check", "shield", "user-x", "smartphone"];
 
 export default function Home() {
+  // Everything the search box needs and nothing it does not. Flattened here
+  // so the client never receives a tool's code, article or SEO block.
+  const searchIndex = tools.map((t) => {
+    const c = getCategory(t.category);
+    return {
+      slug: t.slug,
+      name: t.name,
+      short: t.short,
+      icon: t.icon,
+      emoji: t.emoji,
+      catName: c?.name,
+      catColor: c?.color,
+    };
+  });
+
   return (
     <>
       {/* ============ HERO ============
@@ -39,7 +54,10 @@ export default function Home() {
           </h1>
           <p className="sub">{site.hero.subheading}</p>
 
-          <SearchBar />
+          {/* Six fields per tool, built here on the server. Letting the
+              search box import the registry itself sent every tool's code
+              and article to the browser. */}
+          <SearchBar items={searchIndex} />
 
           <div className="hero-stats">
             {site.hero.stats.map((stat, i) => (
