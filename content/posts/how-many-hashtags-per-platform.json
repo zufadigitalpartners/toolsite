@@ -2,6 +2,8 @@
   "title": "How many hashtags to use on each platform",
   "excerpt": "Thirty is normal on Instagram and looks like spam on X. Three is the whole strategy on YouTube. Here is the real number for each platform, and why they differ so much.",
   "date": "2026-08-04",
+  "cover": "/uploads/hashtags.jpg",
+  "coverAlt": "",
   "category": "content/categories/social.json",
   "relatedTools": [
     "hashtag-generator",
@@ -10,22 +12,10 @@
     "hashtag-counter",
     "caption-formatter"
   ],
-  "coverAlt": "",
   "outbound": {
     "label": "YouTube Help: using hashtags",
     "url": "https://support.google.com/youtube/answer/6390658",
     "note": "YouTube's own documentation, including the rule that using more than fifteen hashtags causes it to ignore all of them. Worth reading because almost nobody knows that one."
-  },
-  "seo": {
-    "metaTitle": "How Many Hashtags Per Platform: The Real Numbers",
-    "metaDescription": "Instagram allows 30, X drops off after 2, YouTube ignores all of them past 15. The working number for every platform, and the reasoning behind each.",
-    "keywords": [
-      "how many hashtags",
-      "hashtags per platform",
-      "instagram hashtag limit",
-      "youtube hashtag rules",
-      "twitter hashtags"
-    ]
   },
   "sections": [
     {
@@ -110,5 +100,16 @@
       "q": "Do hashtags count towards the character limit?",
       "a": "Yes, on every platform. They are part of the caption text, which matters most on X and Pinterest where the limits are tight."
     }
-  ]
+  ],
+  "seo": {
+    "metaTitle": "How Many Hashtags Per Platform: The Real Numbers",
+    "metaDescription": "Instagram allows 30, X drops off after 2, YouTube ignores all of them past 15. The working number for every platform, and the reasoning behind each.",
+    "keywords": [
+      "how many hashtags",
+      "hashtags per platform",
+      "instagram hashtag limit",
+      "youtube hashtag rules",
+      "twitter hashtags"
+    ]
+  }
 }
