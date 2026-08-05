@@ -2,6 +2,8 @@
   "title": "How to compress an image to an exact file size",
   "excerpt": "Portals that demand under 200 KB, forms that reject your photo, and the quality setting that will not tell you what it produces. Here is how to hit a number reliably.",
   "date": "2026-08-05",
+  "cover": "/uploads/compress-an-image-to-an-exact-file-size.jpg",
+  "coverAlt": "",
   "category": "content/categories/image.json",
   "relatedTools": [
     "image-compressor",
@@ -9,22 +11,10 @@
     "image-to-pdf",
     "image-to-base64"
   ],
-  "coverAlt": "",
   "outbound": {
     "label": "MDN: HTMLCanvasElement.toBlob()",
     "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob",
     "note": "The browser API every in-browser compressor is built on, including ours. Worth a look if you want to understand why the quality setting behaves the way it does."
-  },
-  "seo": {
-    "metaTitle": "Compress an Image to an Exact File Size (200 KB, 100 KB)",
-    "metaDescription": "Government forms and exam portals demand exact file sizes. Here is why the quality slider cannot hit them, and the method that can.",
-    "keywords": [
-      "compress image to 200kb",
-      "reduce image file size",
-      "compress image to exact size",
-      "resize image for form upload",
-      "compress jpg online"
-    ]
   },
   "sections": [
     {
@@ -110,5 +100,16 @@
       "q": "Is it safe to compress a passport photo online?",
       "a": "Only if the tool does not upload it. Most do. Check whether the site says the work happens in your browser, and test it by disconnecting from the internet after the page loads. If it still works, nothing is being sent."
     }
-  ]
+  ],
+  "seo": {
+    "metaTitle": "Compress an Image to an Exact File Size (200 KB, 100 KB)",
+    "metaDescription": "Government forms and exam portals demand exact file sizes. Here is why the quality slider cannot hit them, and the method that can.",
+    "keywords": [
+      "compress image to 200kb",
+      "reduce image file size",
+      "compress image to exact size",
+      "resize image for form upload",
+      "compress jpg online"
+    ]
+  }
 }
