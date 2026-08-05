@@ -6,6 +6,7 @@ import HeroScene from "@/components/HeroScene";
 import Icon from "@/lib/icons";
 import { site, ui } from "@/lib/site";
 import { tools, categories, toolsByCategory, popularTools, getCategory } from "@/lib/tools";
+import { posts, coverSvg } from "@/lib/posts";
 
 // Icons for the trust strip, in the order the CMS lists the items.
 const WHY_ICONS = ["badge-check", "shield", "user-x", "smartphone"];
@@ -25,6 +26,9 @@ export default function Home() {
       catColor: c?.color,
     };
   });
+
+  // Three newest, so the row stays one line on desktop as the blog grows.
+  const latestPosts = posts.slice(0, 3);
 
   return (
     <>
@@ -133,6 +137,55 @@ export default function Home() {
           </div>
         </section>
       ))}
+
+      {/* ============ BLOG ============ */}
+      {latestPosts.length > 0 && (
+        <section className="section" id="blog">
+          <div className="container">
+            <div className="section-eyebrow">{ui("home.blogEyebrow", "From the blog")}</div>
+            <div className="section-head">
+              <h2>{ui("home.blogHeading", "Guides worth the read")}</h2>
+              <Link className="view-all" href="/blog/">
+                {ui("home.blogViewAll", "All articles")}
+                <Icon name="arrow-right" size={16} />
+              </Link>
+            </div>
+            <div className="blog-list">
+              {latestPosts.map((p) => {
+                const cat = getCategory(p.category);
+                return (
+                  <article className="blog-card" key={p.slug} style={{ "--cc": cat?.color || "var(--accent)" }}>
+                    {/* aria-hidden: the heading link below already names the
+                        post, so the cover would be a duplicate stop. */}
+                    <Link href={`/blog/${p.slug}/`} className="bc-cover" aria-hidden="true" tabIndex={-1}>
+                      {p.cover ? (
+                        <img src={p.cover} alt="" loading="lazy" />
+                      ) : (
+                        <span dangerouslySetInnerHTML={{ __html: coverSvg(p.title, cat?.color) }} />
+                      )}
+                    </Link>
+                    <div className="bc-body">
+                      <div className="bc-meta">
+                        {cat && (
+                          <span className="bc-cat">
+                            <Icon name={cat.icon} emoji={cat.emoji} size={14} />
+                            {cat.name}
+                          </span>
+                        )}
+                        <span>{p.readMinutes} min read</span>
+                      </div>
+                      <h3>
+                        <Link href={`/blog/${p.slug}/`}>{p.title}</Link>
+                      </h3>
+                      <p>{p.excerpt}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ============ TRUST ============ */}
       <section className="section">

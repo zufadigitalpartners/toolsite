@@ -642,14 +642,13 @@ export default defineConfig({
           defaultItem: () => ({
             title: "New article",
             excerpt: "One or two sentences describing what the reader gets. This shows on the blog index and in Google.",
-            metaTitle: "New article",
-            metaDescription: "Around 150 characters, containing the phrase somebody would search for.",
             date: new Date().toISOString().slice(0, 10),
-            readMinutes: 5,
+            // readMinutes left out on purpose: empty means it is counted
+            // from the finished text, which is right more often than a guess.
             cover: "",
             coverAlt: "",
             outbound: { label: "", url: "", note: "" },
-            related: [],
+            relatedTools: [],
             sections: [
               {
                 heading: "First heading",
@@ -659,6 +658,11 @@ export default defineConfig({
               },
             ],
             faqs: [],
+            seo: {
+              metaTitle: "New article",
+              metaDescription: "Around 150 characters, containing the phrase somebody would search for.",
+              keywords: [],
+            },
           }),
         },
         fields: [
