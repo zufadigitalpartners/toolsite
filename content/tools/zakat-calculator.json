@@ -29,15 +29,15 @@
   "content": {
     "intro": [
       "Zakat is the third pillar of Islam and, mechanically, a wealth calculation: 2.5% of qualifying wealth, due once that wealth has been at or above the nisab threshold for a lunar year. The principle is clear; the arithmetic across cash, gold at today's price, silver, business stock, money owed to you and debts you owe is where people reach for a calculator. This is that calculator, and it treats the subject with the privacy it deserves: a complete inventory of your wealth is nobody's data to collect, so nothing here is uploaded, stored or seen by anyone but you.",
-      "You enter what you own in each category, today's gold and silver prices in your currency from your local market, and any due debts. The tool totals your zakatable wealth, checks it against nisab on the basis you choose, silver by default as most scholars advise since it obligates charity at a lower threshold, and if zakat is due, computes the 2.5%. The classical constants are used throughout: 87.48 grams for the gold nisab, 612.36 for silver."
+      "You enter what you own, in tola or grams for the metals because both are how people actually count them, and the nisab threshold comes from whichever source you prefer: the figure your country's authorities publish in currency each year, typed straight in, or derived from today's gold or silver price. The classical thresholds are tola figures at heart: 7.5 tola of gold or 52.5 tola of silver, most scholars advising the silver basis since it obligates charity at the lower line."
     ],
     "howto": [
-      "Enter your cash, in hand and across bank accounts, as of your zakat date.",
-      "Enter gold and silver in grams, and today's price per gram for each in your currency. Any jeweller's listing has the price.",
-      "Add business stock at its value, money genuinely owed to you, and shares or investments.",
+      "Enter your cash, business stock, receivables and investments as of your zakat date.",
+      "Enter gold and silver in tola or grams, with today's price per the same unit. Skip what you do not own.",
       "Enter debts you owe that are due now; these reduce the zakatable amount.",
-      "Choose the nisab basis. Silver is the default and the more cautious choice; gold sets a higher threshold.",
-      "Read the result: your net zakatable wealth, the nisab it is measured against, and the zakat due at 2.5%."
+      "Set the nisab: type the published amount for your country, or derive it from the silver or gold price.",
+      "Read the result: net zakatable wealth, the nisab it is measured against, and the 2.5% due.",
+      "Anything unusual in your situation, ask a scholar; the calculator computes, it does not rule."
     ],
     "benefits": [
       "Two design choices define this tool. First, prices are typed, not fetched. A calculator bundled with last month's gold price would silently compute the wrong nisab, and an API call would betray the privacy promise; the correct price is the one in your market today, in your currency, and you know it better than any feed. Second, the disclaimer is honest and specific: this tool does arithmetic with the classical constants, and it is not a fatwa. Whether personal-use jewellery is zakatable differs between schools, which debts deduct differs, and business assets have detail this page cannot judge. The tool says so plainly and points you to a scholar rather than pretending the questions away.",
@@ -66,8 +66,8 @@
         "a": "The common position deducts debts due now or within the year: bills owed, instalments currently payable, borrowed money being repaid. A 20-year mortgage's full balance is generally not deducted, though positions differ on the year's instalments. This is one of the questions worth a scholar's answer for your situation."
       },
       {
-        "q": "Do I calculate on today's gold price or my purchase price?",
-        "a": "Today's market price on your zakat date, for the metal content by weight. What you paid is irrelevant; zakat is on present wealth. That is why the tool asks for the current per-gram price rather than remembering anything."
+        "q": "Why does it ask in tola, and how big is a tola?",
+        "a": "Because that is how gold is actually counted across South Asia: one tola is 11.664 grams, and the classical nisab thresholds are exactly 7.5 tola of gold and 52.5 tola of silver. The unit toggle converts precisely, so tola and gram entries give identical results."
       },
       {
         "q": "Is my information private?",
@@ -76,6 +76,10 @@
       {
         "q": "Do I pay zakat on money saved for a specific purpose, like hajj or a house?",
         "a": "The common position is yes: savings are zakatable regardless of what they are earmarked for, if they have been held a lunar year above nisab. Intention does not exempt wealth. Some detailed situations, like money already contractually committed, have differing treatments, which is scholar territory rather than calculator territory."
+      },
+      {
+        "q": "Where do I find the published nisab amount?",
+        "a": "Central banks and zakat authorities announce it yearly, usually silver-based, and any search for nisab with the current year and your country returns it. Typing that figure is the easiest path, and it is also the figure official deductions use in several countries."
       }
     ]
   }
