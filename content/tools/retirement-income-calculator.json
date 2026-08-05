@@ -2,7 +2,7 @@
   "name": "Retirement Income Calculator",
   "emoji": "🌴",
   "icon": "landmark",
-  "category": "content/categories/calculators.json",
+  "category": "content/categories/finance.json",
   "popular": false,
   "order": 23,
   "short": "See what your savings will be worth at retirement and the yearly income they support.",

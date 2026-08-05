@@ -2,7 +2,7 @@
   "name": "Mortgage Payment Calculator",
   "emoji": "🏠",
   "icon": "landmark",
-  "category": "content/categories/calculators.json",
+  "category": "content/categories/finance.json",
   "popular": true,
   "order": 20,
   "short": "Work out your full monthly mortgage payment including tax, insurance and PMI.",

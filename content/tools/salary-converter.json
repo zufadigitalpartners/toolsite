@@ -1,0 +1,82 @@
+{
+  "name": "Salary Converter",
+  "icon": "banknote",
+  "emoji": "💵",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 8,
+  "short": "Hourly, daily, weekly, monthly, yearly. Type any one, read the rest.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Salary Converter: Hourly to Yearly and Back",
+    "metaDescription": "Convert pay between hourly, daily, weekly, monthly and yearly instantly. Set your real hours and weeks. Works in any currency, nothing stored.",
+    "keywords": [
+      "salary converter",
+      "hourly to salary",
+      "salary to hourly",
+      "25 an hour is how much a year",
+      "monthly to yearly salary",
+      "wage calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Pay is quoted in whatever unit makes it sound best. Contractors hear hourly, job ads say yearly, budgets think monthly, and somewhere in between everyone ends up doing the same multiplication on a phone keypad, usually with an error in it. Twenty-five an hour is how much a year? Depends entirely on hours and weeks, which is why the honest answer is a converter with those assumptions visible rather than a folk formula.",
+      "This one converts between all five units at once: type into whichever box matches the offer in front of you, and the other four update instantly. The hours per day, days per week and paid weeks per year sit right below, editable, because those three assumptions are the entire calculation. The defaults are the standard full-time week; the interesting answers appear when you change them to match a real situation."
+    ],
+    "howto": [
+      "Type the number you have into its matching box: the hourly rate from a contract, the yearly figure from a job ad, the monthly from your budget.",
+      "Read the other four boxes; they update as you type.",
+      "Adjust hours per day, days per week and paid weeks if your situation is not the standard 8, 5 and 52.",
+      "Comparing contracting against employment? Set paid weeks to what you would genuinely invoice, perhaps 44 to 46, and compare again.",
+      "Part-time offers convert honestly once the real days per week are set.",
+      "The stats row keeps hourly, monthly and yearly in view together, which is the comparison most decisions need."
+    ],
+    "benefits": [
+      "The assumptions being editable is the entire product. Every quick-answer site converts 25 an hour to 52,000 a year silently assuming 40 hours and 52 weeks, and both assumptions are wrong exactly when the question matters: contractors do not bill 52 weeks, part-timers do not work 40 hours, and several countries run 4-day weeks or 6-day weeks. Here the assumptions sit in editable boxes below the conversion, so the arithmetic is always visible and always yours. Change weeks from 52 to 46 and watch the equivalent hourly rate of a salaried offer rise; that single edit is the honest comparison between employment and contracting that both sides of the table routinely fudge.",
+      "The converter is also deliberately currency-free. It never asks where you are or what symbol to display, which means it works identically for rupees, dollars, euros or dirhams, offline, with nothing typed leaving the device. For the follow-on questions it pairs with the [freelance rate calculator](/tools/freelance-rate-calculator/) when the real question is what to charge rather than what an offer converts to, and the [percentage increase calculator](/tools/percentage-increase-calculator/) when the offer is a raise and you want it as a percentage.",
+      "A note on the daily rate, because it is the unit contracts argue about. A day is not always eight hours: agencies quote 7.5-hour days, some markets assume 9. The converter derives the day from your hours-per-day box, so set it to what the contract actually means before comparing day rates, and the number stays honest. The same discipline applies to the six-day weeks common in retail and the four-day weeks appearing in tech: the boxes exist precisely because the standard week is less standard than it looks."
+    ],
+    "useCases": [
+      "Job seekers comparing offers quoted in different units are the core: an hourly contract against a monthly salary against a yearly package, all converted to one basis in seconds. Negotiators flip a proposed raise between units, because 2 more an hour and 350 more a month and 4,000 more a year are the same offer wearing three costumes, and one of them will sound small in the room.",
+      "Employers budget the other direction, converting the market's hourly chatter into a yearly cost. Part-time workers and students see what an evening job's hourly rate really amounts to monthly. People moving between countries convert between the units each market quotes in, which differ more than expected. And anyone reading salary threads online uses it to normalize the boasting into comparable numbers."
+    ],
+    "faqs": [
+      {
+        "q": "25 an hour is how much a year?",
+        "a": "At 8 hours, 5 days and 52 paid weeks: 52,000. At 46 invoiced weeks, the contractor's honest version: 46,000. The difference between those answers is why this converter shows its assumptions instead of picking one silently."
+      },
+      {
+        "q": "Which weeks number should a contractor use?",
+        "a": "The weeks you genuinely expect to invoice: subtract holidays, sick time and the gaps between contracts. 44 to 46 is a common honest range for busy contractors. Using 52 flatters the rate and is how contracting incomes get overestimated."
+      },
+      {
+        "q": "Does the conversion account for overtime or bonuses?",
+        "a": "No, it converts base pay at the hours you set. Regular paid overtime can be modelled by raising hours per day; bonuses vary too much to fold in honestly, so compare them separately."
+      },
+      {
+        "q": "Is monthly just yearly divided by 12?",
+        "a": "Yes, which matches how salaries are paid in most of the world. Countries with 13th-month payments effectively pay a bonus; treat it as one rather than changing the divisor."
+      },
+      {
+        "q": "Why does it not ask my currency?",
+        "a": "Because the arithmetic is identical in all of them and asking would add a step without adding accuracy. Type numbers in your currency; the answers come back in it, by construction."
+      },
+      {
+        "q": "Is anything I type stored?",
+        "a": "No. The conversion happens in your browser and leaves no trace. Salary numbers are exactly the kind of thing ad networks would love to know; this page has no way to tell them."
+      },
+      {
+        "q": "How do I compare a contract day rate to a salary?",
+        "a": "Convert both to yearly using honest assumptions for each: the contract at the weeks you would genuinely invoice, say 45, and the salary at 52 paid weeks because holidays are paid. Then remember the salary carries pension, insurance and sick pay the contract does not, which is commonly valued at 20 to 30 percent on top. A day rate has to clear that bar before it is actually the better offer."
+      }
+    ]
+  }
+}

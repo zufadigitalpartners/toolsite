@@ -1,0 +1,82 @@
+{
+  "name": "Savings Goal Calculator",
+  "icon": "target",
+  "emoji": "🎯",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 9,
+  "short": "How much per month, how long it takes, or where you end up. One goal, three answers.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Savings Goal Calculator: Monthly Amount and Timeline",
+    "metaDescription": "Work out the monthly saving a target needs, how long your current rate takes, or what a habit grows into. With interest, computed exactly, nothing stored.",
+    "keywords": [
+      "savings goal calculator",
+      "how much to save per month",
+      "savings calculator",
+      "save for house deposit",
+      "emergency fund calculator",
+      "savings timeline"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every savings goal is one question asked from three directions. I need 20,000 for a deposit in three years: how much per month? I can spare 300 a month: how long until 20,000? I will save 300 for three years: where do I land? Same formula each time, solved for a different unknown, and this calculator asks you which direction you are facing rather than making you rearrange algebra.",
+      "Interest is included properly, with contributions landing at the end of each month the way standing orders actually do, and the answers are exact rather than approximated. The tool is also honest about the thing savings marketing is not: over short horizons, the interest rate barely matters. On a three-year goal the difference between 2% and 5% is small next to the difference between saving 250 and 350 a month. The saving is the engine; the rate is trim. Seeing that clearly redirects energy to the number you control."
+    ],
+    "howto": [
+      "Pick your question: how much per month, how long will it take, or what will I end up with.",
+      "Enter what you already have saved toward the goal.",
+      "Fill the two knowns for your question: target and years, target and monthly amount, or monthly amount and years.",
+      "Set the yearly interest rate your money earns. Your savings account's rate, or 0 to plan without it.",
+      "Read the answer, plus how much of the outcome is your money versus interest.",
+      "Change one input and watch the answer move; the point of a plan is negotiating with it."
+    ],
+    "benefits": [
+      "The three-directions design removes the main friction of savings tools, which is that life asks the question in all three forms and most calculators answer only one. A deadline-driven goal, a wedding or a visa fund, is a monthly-amount question. An open-ended goal, get to six months of expenses, is a how-long question. A habit you already have is a where-do-I-land question. Switching tabs keeps the same inputs where they overlap, so exploring the goal from another angle costs one click rather than re-entry.",
+      "The honesty about interest is worth having in print. Compounding is real and glorious over decades, which is the [compound interest calculator](/tools/compound-interest-calculator/)'s territory, and close to a rounding error over 24 months, which is this tool's usual territory. The interest line in the results shows its actual contribution to your goal, and for short goals that small number is itself the lesson: stop shopping for rates and set up the transfer. For goals a decade out, the [FIRE calculator](/tools/fire-calculator/) takes over with market assumptions and a chart.",
+      "An emergency fund is the special case worth naming: the target is your monthly expenses times three to six, the rate is whatever instant-access pays, and the how-long answer tells you when you can stop holding your breath. Run it with the [debt payoff planner](/tools/debt-payoff-planner/) beside it when deciding how to split spare money between the two."
+    ],
+    "useCases": [
+      "Deposit savers are the biggest group: a house deposit with a rough deadline, converted here into a standing order amount that either fits the budget or forces an honest conversation about the deadline. Parents run education goals long enough that interest starts genuinely helping, and see the crossover on screen. Travellers and wedding planners run short, sharp goals where the monthly number is everything.",
+      "Emergency-fund builders use the time direction: at this monthly rate, safety is that many months away, which turns an anxious abstraction into a countdown. People choosing between paying extra debt and saving run this beside the debt planner and compare what each route earns. And savers reviewing a year use the result direction as a mirror: this habit, continued, becomes exactly this."
+    ],
+    "faqs": [
+      {
+        "q": "How much should I save per month?",
+        "a": "For a specific goal, this calculator answers it exactly from the target, timeline and rate. As a general habit with no fixed goal, common guidance is 15 to 20% of income; put it in the result direction and see what a decade of it builds."
+      },
+      {
+        "q": "Does the interest rate really not matter?",
+        "a": "Over short horizons, barely: on a two-year goal the difference between rates is usually a restaurant meal, and the results show it honestly. Over ten or more years it compounds into a large share of the outcome. The rule of thumb: under five years, optimize the saving; over ten, the rate earns attention."
+      },
+      {
+        "q": "Should the emergency fund earn interest?",
+        "a": "It should sit in instant-access savings at whatever that pays; its job is existing, not growing. Chasing rate with notice periods or investments defeats the purpose the fund serves. Set the rate here to your instant-access rate and let the answer be slightly conservative."
+      },
+      {
+        "q": "Contributions at the start or end of the month?",
+        "a": "End, matching how a standing order after payday behaves, which very slightly understates growth versus saving on the 1st. The difference is minutes of interest; the consistency matters more."
+      },
+      {
+        "q": "What if the monthly amount the goal needs is impossible?",
+        "a": "Then the calculator has done its job early. The levers are the deadline, the target and the starting amount; move one and re-read. A plan that fails on screen in January beats one that fails in the account in November."
+      },
+      {
+        "q": "Is my goal stored anywhere?",
+        "a": "No. The numbers live in your browser for as long as the tab is open and go nowhere. Financial goals are private; this page cannot remember yours."
+      },
+      {
+        "q": "Should I save monthly or in lumps when I can?",
+        "a": "Whatever actually happens beats whatever is theoretically better. A standing order the day after payday is the strategy with the best track record because it removes the decision. If your income is irregular, save a fixed percentage of each payment instead of a fixed amount, and use the how-long direction here with your average month to keep the timeline honest."
+      }
+    ]
+  }
+}

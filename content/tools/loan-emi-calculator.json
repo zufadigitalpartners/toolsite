@@ -1,7 +1,7 @@
 {
   "name": "Loan EMI Calculator",
   "emoji": "🏦",
-  "category": "content/categories/calculators.json",
+  "category": "content/categories/finance.json",
   "popular": true,
   "order": 22,
   "short": "Work out your monthly instalment, total interest and total payable.",

@@ -1,0 +1,82 @@
+{
+  "name": "Break-even Calculator",
+  "icon": "trending-up",
+  "emoji": "📈",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 10,
+  "short": "How many units you must sell before the business stops losing money.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Break-even Calculator: Units, Revenue, Safety Margin",
+    "metaDescription": "Work out the sales volume where revenue covers costs, the contribution each sale makes, and your margin of safety. Free, instant, nothing stored.",
+    "keywords": [
+      "break even calculator",
+      "break even point",
+      "break even analysis",
+      "contribution margin calculator",
+      "how many units to sell",
+      "margin of safety"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every business has a number of sales below which it is a hobby that costs money, and above which it is a business. That number is the break-even point, and it is the first thing to compute about any venture, ideally before the venture exists. The formula is short: fixed costs divided by what each sale contributes after its own costs. The insight it produces is not short at all, because most founders have never seen their break-even as an actual number of units per month.",
+      "This calculator takes your fixed monthly costs, your selling price and your variable cost per unit, and gives you the break-even in units and revenue, plus the contribution margin that drives it. Add your expected sales and it computes the margin of safety, the distance between where you are and where losses begin, which is the number that should decide how you sleep. And when the price does not cover the unit cost at all, it says so bluntly, because no volume of sales fixes selling at a loss."
+    ],
+    "howto": [
+      "Enter your fixed costs per month: rent, salaries, software, insurance, everything that happens whether you sell or not.",
+      "Enter the selling price of one unit.",
+      "Enter the variable cost of one unit: materials, packaging, payment fees, shipping you cover.",
+      "Read the break-even: units to sell and the revenue they bring, plus the contribution each sale makes.",
+      "Add expected monthly sales to see your margin of safety, or the size of the gap if you are below.",
+      "Test decisions before making them: change the price and watch the break-even move."
+    ],
+    "benefits": [
+      "The contribution margin is the concept this tool quietly teaches, and it reorganizes how you see every sale. A unit sold for 25 with 15 of variable costs contributes 10, and until the 10s have covered the rent, they are not profit, they are survival. Once the fixed costs are covered, each further sale drops its full contribution into profit, which is why months at a business's break-even feel desperate and months slightly past it feel transformed. Seeing your own numbers in that structure explains a year of feelings in one screen.",
+      "The what-if speed is the practical benefit. Raise the price by 2 and the break-even falls by a precise number of units; move to a cheaper supplier and it falls again; hire someone and the fixed costs push it back up. Each decision becomes a before-and-after pair of break-evens, which is the cheapest form of business planning that exists. The margin of safety converts it into risk language: sales can fall this far before losses start, and a business at 8% safety is a different animal from one at 40%, whatever their profits look like this month.",
+      "It belongs beside the [profit margin calculator](/tools/profit-margin-calculator/), which prices a single unit while this tool prices the whole operation, and the [invoice generator](/tools/invoice-generator/) and [barcode generator](/tools/barcode-generator/) for the day the units start moving. For service businesses, run hours as units and your rate as the price; the arithmetic is identical."
+    ],
+    "useCases": [
+      "Anyone starting something is the primary user, ideally at the spreadsheet-dream stage: the moment the imagined shop or product line becomes '412 units a month before profit exists', the plan either firms up or usefully dies. Existing small businesses run it before every structural change: a hire, a bigger workshop, a price rise, each of which moves the break-even in a direction worth knowing in advance.",
+      "Sellers on marketplaces where fees eat the margin use the variable-cost field to face the true contribution per sale, which platform dashboards obscure. Cafes and food businesses with brutal fixed costs use it to see what daily volume the rent actually demands. And freelancers converting to products run it to learn the difference between selling hours, where every sale contributes, and selling products, where the contribution starts working only after the fixed costs are fed."
+    ],
+    "faqs": [
+      {
+        "q": "What exactly is the break-even point?",
+        "a": "The sales volume where total revenue equals total costs: fixed costs divided by the contribution per unit, which is price minus variable cost. Below it each month loses money; above it, each further sale's contribution is profit."
+      },
+      {
+        "q": "Which costs are fixed and which are variable?",
+        "a": "Fixed happens regardless of sales: rent, salaries, subscriptions, insurance. Variable happens per unit: materials, packaging, payment processing, per-order shipping. A cost that grows with sales but in steps, like a second oven, is fixed until the step; model the step as a what-if."
+      },
+      {
+        "q": "The tool says break-even is impossible. What now?",
+        "a": "Your variable cost meets or exceeds the price, so each sale loses money and volume only multiplies the loss. The price must rise, the unit cost must fall, or the product must change. Hearing it from a calculator is cheaper than hearing it from the bank."
+      },
+      {
+        "q": "What is a good margin of safety?",
+        "a": "There is no universal number, but the reading is: below 10%, one bad month starts losses; 20 to 30% absorbs normal shocks; above 40% is resilient. New businesses usually start thin, which is fine if seen and planned for rather than discovered."
+      },
+      {
+        "q": "How do service businesses use this?",
+        "a": "Units become billable hours or projects, price becomes your rate, and variable costs are small per unit. The break-even then reads as the hours per month the fixed costs demand, which for a freelancer with heavy software and insurance costs is a genuinely clarifying number."
+      },
+      {
+        "q": "Is my business data stored?",
+        "a": "No. Costs, prices and volumes are computed in your browser and leave no trace. Competitors would enjoy your numbers; this page has nowhere to keep them."
+      },
+      {
+        "q": "Should I include my own salary in fixed costs?",
+        "a": "Yes, and the businesses that skip this discover their break-even was a fiction. Pay yourself a defined amount and put it in fixed costs; a business that only breaks even when the owner works free is below break-even. The one honest exception is a deliberate launch period with a planned end date, and even then the plan should name the month the salary starts."
+      }
+    ]
+  }
+}

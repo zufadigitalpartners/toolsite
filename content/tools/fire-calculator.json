@@ -1,0 +1,79 @@
+{
+  "name": "FIRE Calculator",
+  "icon": "flame",
+  "emoji": "🔥",
+  "category": "content/categories/finance.json",
+  "popular": true,
+  "order": 2,
+  "short": "Your financial independence number, and the year you reach it.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "FIRE Calculator: Your FI Number and Date",
+    "metaDescription": "Work out your financial independence number from your spending, and see the year your investments cover life. Projection chart included. Nothing stored.",
+    "keywords": [
+      "fire calculator",
+      "financial independence calculator",
+      "early retirement calculator",
+      "fi number",
+      "4 percent rule calculator",
+      "coast fire"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Financial independence has a number, and the formula fits in one sentence: yearly spending divided by the withdrawal rate. Spend 30,000 a year and use the classic 4% rule, and the number is 750,000. The day your investments cross it, work becomes a choice. Everything else in the FIRE world is commentary on that one division.",
+      "This calculator does the division, then does the part that actually takes thinking: how long your current saving rate takes to get there. It walks your portfolio forward month by month at your expected return, draws the path as a chart, marks the crossing, and if you give it your age, tells you how old you will be. Change the monthly amount and watch the date move; that feedback loop is the whole point, because the distance to FI is set far more by your saving rate than by anything the market does."
+    ],
+    "howto": [
+      "Enter what you have invested so far and what you invest per month.",
+      "Set an expected yearly return. 7% is the common long-run assumption for global stocks before inflation; lower is more cautious.",
+      "Enter your yearly spending. Be honest; this number sets the target more than any other.",
+      "Leave the withdrawal rate at 4% unless you have a view. Lower is safer and raises the target.",
+      "Add your age if you want the finish line as an age rather than a duration.",
+      "Read the FI number, the years to reach it, and the chart. Then try changing the monthly amount and watch what moves."
+    ],
+    "benefits": [
+      "The design principle is honesty about what is knowable. The FI number is arithmetic and therefore solid. The date is a projection at a constant return, and the tool says so in plain words, because real markets deliver 7% as minus 18 one year and plus 26 the next, and anyone promising a smooth line is selling something. What the projection is genuinely good for is comparing your own choices: saving 800 versus 1,200 a month moves the date by years, and that comparison holds even though the absolute date wobbles with the market.",
+      "The chart earns its place for one reason: it shows the curve bending. Early on, the line is almost straight, all contributions. Later it steepens as growth takes over, and the moment you see that bend you understand compounding better than any paragraph explains it. Of the final pot, the tool shows exactly how much is money you put in versus growth, which is regularly a shock in a pleasant direction.",
+      "Around it, the [compound interest calculator](/tools/compound-interest-calculator/) isolates the growth mechanics, the [savings goal calculator](/tools/savings-goal-calculator/) handles nearer targets like a house deposit, and the [retirement income calculator](/tools/retirement-income-calculator/) answers the other end: what a pot actually pays out once you start drawing it down.",
+      "One number in the inputs deserves suspicion every time: the expected return. It is the input you control least and the one optimism inflates most. The useful discipline is running the calculator twice, once at your hopeful number and once two points lower, and treating the gap between the two dates as the honest answer. If the plan only works at the hopeful number, it is not a plan yet; if it works at both, the date is robust to the market having average luck."
+    ],
+    "useCases": [
+      "The core user is anyone mid-career wondering whether the saving they are doing amounts to anything. Ten minutes here replaces vague unease with a date, and dates can be negotiated with: more monthly, lower spending, later, earlier. People considering a spending change use the sharpest feature: cutting yearly spending hits twice, shrinking the target while freeing money to invest, and the calculator shows both effects at once.",
+      "Freelancers and business owners use it to price freedom: what the business must produce monthly to make work optional by fifty. Couples run it twice, once each, and then once combined, which reliably starts the most productive money conversation they have had. And people well along the path use it as a dashboard: update the invested amount quarterly and watch the remaining years fall."
+    ],
+    "faqs": [
+      {
+        "q": "What is the 4% rule?",
+        "a": "A guideline from retirement research: a portfolio of stocks and bonds has historically survived a retiree withdrawing 4% of its starting value yearly, adjusted for inflation, over a 30-year retirement. It is a planning assumption, not a law. Early retirees often plan at 3.5% or lower for a longer horizon, which raises the target."
+      },
+      {
+        "q": "Is 7% a realistic return?",
+        "a": "It is in the range long-run global stock averages have delivered before inflation, and it is only an average: individual decades vary wildly. Run the calculator at 5% and 7% and treat the two dates as a range rather than either as a promise."
+      },
+      {
+        "q": "Does the calculation account for inflation?",
+        "a": "Use real terms and it handles itself: enter today's spending, a return net of inflation (say 5% instead of 7%), and the answer comes out in today's money. Mixing today's spending with a nominal return makes the date look closer than it is."
+      },
+      {
+        "q": "What about taxes?",
+        "a": "Taxes on investment gains and withdrawals vary too much by country and account type for one honest model. The clean workaround: pad your yearly spending by what withdrawals will cost you in tax, and the target adjusts accordingly."
+      },
+      {
+        "q": "Is my financial information stored?",
+        "a": "No. The calculation runs in your browser and nothing you enter is transmitted or saved. Close the tab and it is gone."
+      },
+      {
+        "q": "What if the calculator says 40 years?",
+        "a": "Then the current saving rate does not reach the current target, which is exactly worth knowing. The levers, in order of power: spend less yearly, which cuts the target and raises saving simultaneously; earn and invest more monthly; and question whether full FI is the goal versus a smaller buffer that buys flexibility sooner."
+      }
+    ]
+  }
+}

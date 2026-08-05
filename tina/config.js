@@ -12,14 +12,15 @@ const branch =
 // by the Tina CLI, which does not compile JSX. Add an icon there, add its name
 // here, and it appears in the dropdown.
 const ICON_OPTIONS = [
-  "activity", "align-left", "arrow-right", "badge-check", "barcode", "binary",
-  "braces", "cake", "calculator", "calendar-days", "camera", "case-upper",
-  "chevron-down", "clock", "dices", "file-image", "fingerprint", "git-compare",
-  "image", "image-down", "images", "key-round", "landmark", "link", "link-2",
-  "list-reorder", "palette", "percent", "qr-code", "receipt", "ruler",
+  "activity", "align-left", "arrow-right", "badge-check", "banknote", "barcode",
+  "binary", "braces", "briefcase", "cake", "calculator", "calendar-days",
+  "camera", "case-upper", "chevron-down", "clock", "coins", "dices",
+  "file-image", "fingerprint", "flame", "git-compare", "image", "image-down",
+  "images", "key-round", "landmark", "link", "link-2", "list-reorder",
+  "moon-star", "palette", "percent", "qr-code", "receipt", "ruler", "scales",
   "scaling", "scan-text", "search", "shield", "signature", "smartphone",
-  "sparkles", "square", "table", "table-down", "terminal", "text", "type",
-  "user-x", "wheel",
+  "sparkles", "square", "table", "table-down", "target", "terminal", "text",
+  "trending-up", "type", "user-x", "wheel",
 ];
 
 const slugify = (values) =>

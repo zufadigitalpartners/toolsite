@@ -1,0 +1,82 @@
+{
+  "name": "VAT Calculator",
+  "icon": "percent",
+  "emoji": "🧾",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 6,
+  "short": "Add tax to a price, or pull the exact tax out of a total. Both directions, done right.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "VAT Calculator: Add or Remove Tax Correctly",
+    "metaDescription": "Add VAT, GST or sales tax to a net price, or extract the exact tax from a gross total. The reverse calculation done right, with common rate presets.",
+    "keywords": [
+      "vat calculator",
+      "gst calculator",
+      "remove vat from price",
+      "reverse vat calculator",
+      "sales tax calculator",
+      "vat inclusive to exclusive"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Adding tax to a price is easy and everyone gets it right. Taking tax back out of a total is where the mistakes live, and they are everywhere: in expense claims, in bookkeeping, in quotes compared against invoices. The tax inside a gross price of 118 at 18% is 18, not 21.24, because the 18% was charged on the net 100, not on the 118. Subtracting 18% of the gross is the classic error, it always overstates the tax, and spreadsheets full of it are reconciled painfully every month.",
+      "This calculator does both directions correctly. Add mode takes a net price and a rate and gives the gross; remove mode takes a tax-inclusive total and pulls out the exact net and tax by dividing rather than subtracting. Preset buttons cover the rates people actually meet, from 5% in the Gulf to 25% in Scandinavia, with Pakistan's 18% sales tax in the middle. It works for VAT, GST and any percentage sales tax, because underneath the local name it is the same arithmetic."
+    ],
+    "howto": [
+      "Pick the direction. Add tax when you have a net price and need the total; take tax out when you have a receipt total and need the net.",
+      "Enter the amount.",
+      "Set the rate: tap a preset or type any rate, including fractional ones.",
+      "Read the three numbers: net, tax and gross. All three always shown, whichever direction you came from.",
+      "For expense claims, the tax figure is the reclaimable part; for quotes, the gross is what the customer pays.",
+      "Check the note under the result when removing tax; it shows why the answer is smaller than the naive subtraction."
+    ],
+    "benefits": [
+      "The reverse direction is the whole reason this tool earns a page. Receipts show totals; accounting wants net and tax separated; and the difference between dividing by 1.18 and subtracting 18% is real money that reconciles wrongly. On a 118 receipt the naive method overstates the tax by more than 3, and across a month of expenses that error compounds into a mess an accountant bills hours to untangle. The tool shows the working in a sentence under the answer, so the person reviewing your numbers can see why they are right.",
+      "It is also deliberately currency-blind and jurisdiction-blind. Tax percentages work identically in rupees, dirhams, euros and pounds, so the tool never asks where you are, never fetches anything and works offline once loaded. The presets are conveniences, not authorities: rates change with budgets and vary by category of goods, and the rate on your actual invoice always wins.",
+      "For the surrounding jobs, the [percentage calculator](/tools/percentage-calculator/) handles arbitrary percentage questions, the [invoice generator](/tools/invoice-generator/) puts the tax line on a document a client can pay, and the [profit margin calculator](/tools/profit-margin-calculator/) answers whether the price minus all of this tax still leaves a business."
+    ],
+    "useCases": [
+      "Bookkeepers and freelancers doing expenses are the daily users: a stack of tax-inclusive receipts, accounting software that wants net amounts, and this tool in a second tab doing the extraction correctly every time. Small sellers price in both directions, working out what to charge so that after tax the target margin survives, or checking what a competitor's gross price implies about their net.",
+      "Shoppers and businesses crossing borders use it to compare prices quoted inclusive in one country and exclusive in another, which is the same number wearing two masks. Contractors verify that the tax line on a supplier's invoice is actually the stated percentage of the net, which catches both errors and the occasional optimism. And anyone filing a tax return with reclaimable input tax uses the remove direction to get the claimable figure from gross receipts."
+    ],
+    "faqs": [
+      {
+        "q": "How do I take 18% VAT out of a total?",
+        "a": "Divide the total by 1.18 to get the net; the tax is the difference. From 118 that gives net 100 and tax 18. Subtracting 18% of the total is wrong because the percentage was charged on the net, and it overstates the tax every time."
+      },
+      {
+        "q": "What is the difference between VAT, GST and sales tax?",
+        "a": "Administratively a great deal, arithmetically nothing. All are a percentage added to a net price. The calculator works for all of them; use the rate and name your country applies."
+      },
+      {
+        "q": "Why does removing 20% and adding 20% not cancel out?",
+        "a": "They do here, because the removal divides. The confusion comes from the naive method: taking 20% off 120 gives 96, not 100, because the 20% was of a different base. Divide 120 by 1.2 and the original 100 comes back exactly."
+      },
+      {
+        "q": "Are the preset rates always correct for my country?",
+        "a": "They are common national rates, but countries run reduced rates for food, books, medicine and more, and budgets change rates. The rate on your invoice or your tax authority's site is the authority; the presets just save typing."
+      },
+      {
+        "q": "Can I use fractional rates like 7.7%?",
+        "a": "Yes, type any rate. The math is identical, and fractional rates exist in several countries."
+      },
+      {
+        "q": "Is what I enter stored anywhere?",
+        "a": "No. The arithmetic runs in your browser, there is no server call, and the page works offline once loaded. Financial figures you type into random websites usually become someone's data; here there is nowhere for them to go."
+      },
+      {
+        "q": "My invoice shows a different tax amount than the calculator. Who is wrong?",
+        "a": "Check three things in order: whether the invoice rate matches the rate you entered, whether some line items carry a reduced or zero rate, and whether the seller rounded per line rather than on the total. Per-line rounding can differ from total rounding by a few cents legitimately. Beyond that, the arithmetic here is exact, and a larger gap means the invoice deserves a question."
+      }
+    ]
+  }
+}

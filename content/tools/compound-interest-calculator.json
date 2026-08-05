@@ -2,7 +2,7 @@
   "name": "Compound Interest Calculator",
   "emoji": "📈",
   "icon": "activity",
-  "category": "content/categories/calculators.json",
+  "category": "content/categories/finance.json",
   "popular": true,
   "order": 21,
   "short": "See how savings grow when interest earns interest, with regular deposits included.",

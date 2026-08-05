@@ -1,0 +1,82 @@
+{
+  "name": "Amortization Schedule",
+  "icon": "table",
+  "emoji": "📅",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 3,
+  "short": "Every payment of a loan's life, and what extra payments save you.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Amortization Schedule with Extra Payments, Free",
+    "metaDescription": "Full month-by-month loan schedule: principal, interest and balance for every payment. Model extra monthly and lump-sum payments, download as CSV.",
+    "keywords": [
+      "amortization schedule",
+      "loan schedule calculator",
+      "extra payment calculator",
+      "mortgage payoff early",
+      "amortization table",
+      "loan balance calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "A monthly payment is one number, but inside it two things happen: part pays interest on what you still owe, part actually reduces the debt. Early in a long loan the split is brutal. On a 30-year mortgage at 6%, the first payment is roughly three quarters interest, and the halfway point of the debt arrives years after the halfway point of the term. An amortization schedule is the table that makes this visible, one row per payment, and banks are strangely reluctant to show it to you.",
+      "This tool builds the full schedule for any loan in your browser, and then does the genuinely useful part: it models extra payments. Add an amount per month, or a one-time lump sum in a chosen month, and it recalculates the whole life of the loan, telling you exactly how much interest disappears and how many months fall off the end. The numbers are regularly astonishing, which is why lenders do not volunteer them. The whole table downloads as a CSV for your spreadsheet."
+    ],
+    "howto": [
+      "Enter the loan amount, the yearly interest rate and the term in years. The base schedule appears immediately.",
+      "Read the three headline numbers: the monthly payment, the total interest over the life, and the payoff time.",
+      "Add an extra monthly amount to see the accelerated schedule, or a one-time lump sum and the month it lands.",
+      "The savings line shows interest avoided and months removed. Try a few amounts; the response is not linear.",
+      "Open the full table to see any month's exact split of principal, interest and remaining balance.",
+      "Download the CSV if you want the schedule in Excel or Google Sheets, for example to check a bank statement against it."
+    ],
+    "benefits": [
+      "The extra-payment modelling is the reason to be here. Every extra unit goes straight at the principal, and principal removed early stops earning interest against you for the entire remaining term, which is why 200 extra a month on a 250,000 loan at 6% removes about 86,000 of interest and nearly eight years. That is not a special example; that is the ordinary arithmetic of long loans, sitting in the open where anyone can check it. The one-time lump sum answers the bonus question: what does putting this windfall into the mortgage actually buy?",
+      "The schedule also protects you. Banks occasionally apply extra payments to future instalments instead of principal, which quietly destroys the benefit; with your own schedule you can see what the balance should be and compare it to the statement. The tool also refuses garbage: a rate high enough that the payment cannot cover interest gets an honest warning instead of a nonsense table.",
+      "For the quick version of the same questions, the [loan EMI calculator](/tools/loan-emi-calculator/) and [mortgage payment calculator](/tools/mortgage-payment-calculator/) give the headline payment. For choosing between two offers before any schedule exists, the [loan comparison tool](/tools/loan-comparison/) puts them side by side."
+    ],
+    "useCases": [
+      "Homeowners are the main audience, at the moment the question changes from 'what can we borrow' to 'how do we get out of this faster'. The schedule turns a vague intention to overpay into a plan with a number and a finish date. Car loans and personal loans get the same treatment at smaller scale; the proportional savings are similar.",
+      "Borrowers checking their bank use the CSV: reconcile the statement balance against the schedule and misapplied payments show up immediately. People near a refinancing decision read their current schedule to see how much interest remains, which is the number the new offer has to beat. And anyone teaching themselves finance gets more from watching the principal column grow row by row than from any definition of amortization."
+    ],
+    "faqs": [
+      {
+        "q": "Why is my early payment mostly interest?",
+        "a": "Interest is charged on the outstanding balance, and early on the balance is at its largest. As the balance falls, the interest portion shrinks and the principal portion grows, with the same total payment. The schedule shows exactly where the split crosses fifty-fifty, which on long loans is later than most people guess."
+      },
+      {
+        "q": "Do extra payments really make that much difference?",
+        "a": "Yes, and the mechanism is simple: extra money reduces principal immediately, and that principal would otherwise have been charged interest every month for the rest of the term. The earlier it lands, the more months of interest it cancels. The tool shows the exact figure for your loan rather than a slogan."
+      },
+      {
+        "q": "Should I check anything with my bank before overpaying?",
+        "a": "Two things: whether early repayment carries a penalty, common on fixed-rate mortgages in some countries, and whether extra payments are applied to principal rather than parked against future instalments. The second one matters more than people expect, and your own schedule is how you verify it."
+      },
+      {
+        "q": "Lump sum now or extra monthly?",
+        "a": "Money available now does more now; a lump sum in month 1 beats the same total spread over years. But most people do not have the lump sum, and the monthly habit is what exists. Model both here and compare; the tool takes each in the same schedule."
+      },
+      {
+        "q": "Is this the same as my bank's official schedule?",
+        "a": "The arithmetic is the standard annuity formula banks use, so it matches to within rounding conventions. Fees, insurance bundled into the payment, or daily rather than monthly interest accrual can cause small differences. For decisions, the shape and scale here are exact; for the legal document, the bank's schedule governs."
+      },
+      {
+        "q": "Is anything I enter stored?",
+        "a": "No. The schedule is computed in your browser and vanishes when you leave. The CSV goes to your downloads folder and nowhere else."
+      },
+      {
+        "q": "Does the schedule work for any currency or country?",
+        "a": "Yes. The annuity arithmetic is universal and the tool never asks where you are. What differs by country is convention: some markets quote flat rates rather than reducing-balance rates, and a flat 8 percent is far more expensive than a reducing 8 percent. This schedule uses reducing balance, the standard for mortgages and bank loans; if your loan is quoted flat, the comparable reducing rate is roughly double."
+      }
+    ]
+  }
+}

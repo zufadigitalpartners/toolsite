@@ -1,0 +1,82 @@
+{
+  "name": "Freelance Rate Calculator",
+  "icon": "briefcase",
+  "emoji": "💼",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 7,
+  "short": "Work backwards from the income you want to the hourly rate you must charge.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Freelance Rate Calculator: Your Real Hourly Floor",
+    "metaDescription": "Work out the hourly and day rate your income goal actually requires, counting costs, holidays and unbillable time. The floor most freelancers set too low.",
+    "keywords": [
+      "freelance rate calculator",
+      "hourly rate calculator",
+      "how much to charge freelance",
+      "day rate calculator",
+      "consulting rate",
+      "freelance pricing"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Most freelancers set their rate by feel, and the feel is calibrated by fear. The employed brain does the damage: 60,000 a year sounds like 30 an hour, because that is roughly what a salary divides to across a full-time year. But a salary comes with paid holidays, sick days, equipment, insurance and, above all, someone else filling the timesheet. A freelancer earns nothing while writing proposals, invoicing, learning, or waiting for the next project, and those unbilled hours are a third to half of every honest week.",
+      "This calculator runs the arithmetic in the correct direction: start from the income you want, add what the business costs you, divide by the hours clients will actually pay for. The result is the floor, the rate below which the year cannot mathematically reach your goal. It is nearly always higher than the number people are charging, which is precisely why the calculation is worth two minutes."
+    ],
+    "howto": [
+      "Enter the yearly income you want before tax. The number you would accept from a good employer is a decent start.",
+      "Enter the business's yearly costs: software, hardware, insurance, accountant, workspace, that annual conference.",
+      "Set billable hours per week honestly. 22 is the default; full-time freelancers billing 35+ are rare and briefly.",
+      "Set your weeks off: holidays, sick days, and the quiet weeks between projects count too.",
+      "Read the floor: minimum hourly rate, an 8-hour day rate, and the billable hours the year actually contains.",
+      "Quote at or above the floor. Below it, the gap comes out of your evenings or your savings."
+    ],
+    "benefits": [
+      "The billable-hours default is the tool's strongest opinion. New freelancers assume 40 billable hours because the employed week had 40, and the assumption quietly halves their real rate. Marketing, proposals, calls that lead nowhere, bookkeeping, email and learning new tools are all work and all unbilled; 20 to 25 billable hours is what sustainable freelancing actually looks like, and the tool defaults there deliberately. Change it if your reality differs, but change it with data from a tracked month rather than optimism.",
+      "The output rounds up on purpose, and the notes stay honest about what the floor is: a minimum, not a price. Value-based pricing, scarcity and reputation can carry you far above it, and nothing here argues otherwise. The floor's job is to catch the opposite error, quoting below the level where the year works, which freelancers do constantly and discover in December. Tax deserves its own honesty: the result is pre-tax income, and your accountant's reserve percentage belongs in your income goal, not discovered later.",
+      "The [invoice generator](/tools/invoice-generator/) turns the rate into the document that collects it, the [salary converter](/tools/salary-converter/) compares the freelance floor against employed offers on equal terms, and the [profit margin calculator](/tools/profit-margin-calculator/) covers the version of this question where you sell products rather than hours."
+    ],
+    "useCases": [
+      "The person about to go freelance is the most important user: running this before quitting turns a leap into a plan, and the floor tells them what the market must bear for the move to work. Existing freelancers run it annually, and after every cost increase; rates have a way of staying flat for years while software subscriptions and insurance do not.",
+      "Freelancers weighing a big contract use the day rate: a three-month engagement priced below the floor is a loss dressed as security. Side-hustlers use it to sanity-check whether evening work is actually profitable once tools and time are counted. And agencies quoting for contractor talent reverse it, working out what a sustainable subcontractor rate looks like before squeezing one below it."
+    ],
+    "faqs": [
+      {
+        "q": "Why is the calculated rate so much higher than I expected?",
+        "a": "Because employment hid the overheads: holidays, sick days, equipment, insurance, and thirty-plus unbillable hours a month of finding and administering the work. The rate covers all of it now. Clients familiar with freelancing expect this arithmetic; the rate only looks high against a salary divided naively."
+      },
+      {
+        "q": "How many billable hours per week is realistic?",
+        "a": "Tracked studies and freelancer surveys land between 20 and 30 for full-timers, with the rest going to admin, sales and gaps between projects. The default of 22 reflects that. Track one honest month and use your own number; it is the input that moves the answer most."
+      },
+      {
+        "q": "Does the result include tax?",
+        "a": "It is income before tax, like a salary figure. Self-employment tax arrangements differ by country and setup, so ask an accountant what fraction to reserve, and raise the income goal accordingly so the reserve is built into your rate rather than subtracted from your life."
+      },
+      {
+        "q": "Should I charge hourly or per project?",
+        "a": "Quote projects where you can, using the floor internally: estimate the hours honestly, multiply by your rate, and add margin for the unknowns. Per-project pricing rewards your speed and experience; hourly pricing gives them away. The floor keeps either method from underwater."
+      },
+      {
+        "q": "What if the market will not pay my floor?",
+        "a": "Then the message is about the numbers, not the market: costs too high, income goal needing adjustment, too few billable hours, or a niche that needs changing. Better to read that message from a calculator in January than from a bank statement in December."
+      },
+      {
+        "q": "Is my financial information stored?",
+        "a": "No. Everything runs in your browser and nothing is sent or saved. Income goals are private; this page has no way to remember yours."
+      },
+      {
+        "q": "Should my rate be higher for short projects?",
+        "a": "Yes, and most experienced freelancers do it openly. Every project carries fixed overhead: onboarding, contracts, invoicing, context-switching. On a three-month engagement that overhead dissolves; on a three-day job it is a third of the work. A day-rate premium for short engagements, often 20 to 50 percent, is standard practice and worth building into how you quote, with the floor from this calculator underneath it."
+      }
+    ]
+  }
+}

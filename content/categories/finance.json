@@ -1,0 +1,19 @@
+{
+  "name": "Finance Tools",
+  "emoji": "💰",
+  "color": "#4338CA",
+  "desc": "Loans, debt, savings and rates. Serious money math, nothing stored.",
+  "order": 3,
+  "icon": "landmark",
+  "seo": {
+    "heading": "Free finance calculators that show their working",
+    "paragraphs": [
+      "Money decisions are where a wrong number costs the most, and it is also where the web's tools are at their worst: lead-generation forms dressed up as calculators, results gated behind an email address, and arithmetic you cannot check. Everything in this category runs in your browser, shows the formula's working in the open, and stores nothing. Type your real numbers with confidence; they never leave your device.",
+      "The debt side is covered end to end. The [loan EMI calculator](/tools/loan-emi-calculator/) and [mortgage payment calculator](/tools/mortgage-payment-calculator/) answer what a loan costs per month, the [amortization schedule](/tools/amortization-schedule/) shows every payment of its life and what an extra monthly payment saves, the [loan comparison tool](/tools/loan-comparison/) puts two offers side by side, and the [debt payoff planner](/tools/debt-payoff-planner/) turns a pile of debts into a dated plan using the snowball or avalanche method.",
+      "On the growing side, the [compound interest calculator](/tools/compound-interest-calculator/) shows what money does when left alone, the [savings goal calculator](/tools/savings-goal-calculator/) works out the monthly amount a target needs, the [FIRE calculator](/tools/fire-calculator/) estimates the portfolio that makes work optional, and the [retirement income calculator](/tools/retirement-income-calculator/) answers what a pot pays out. For working money, the [salary converter](/tools/salary-converter/), [freelance rate calculator](/tools/freelance-rate-calculator/), [VAT calculator](/tools/vat-calculator/), [break-even calculator](/tools/break-even-calculator/) and [zakat calculator](/tools/zakat-calculator/) cover the questions that come up between payday and tax day.",
+      "None of this is financial advice, and the tools do not pretend to be advisors. They are honest arithmetic, computed exactly, explained plainly, and kept private. The decisions stay yours; the working is ours to get right."
+    ],
+    "metaTitle": "Finance Calculators: Loans, Debt, Savings and Rates",
+    "metaDescription": "Free finance calculators for EMI, amortization, debt payoff, FIRE, savings goals, VAT and zakat. Exact working shown, nothing you enter is stored."
+  }
+}

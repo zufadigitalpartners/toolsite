@@ -1,0 +1,82 @@
+{
+  "name": "Zakat Calculator",
+  "icon": "moon-star",
+  "emoji": "🌙",
+  "category": "content/categories/finance.json",
+  "popular": true,
+  "order": 5,
+  "short": "Work out your zakat: assets, nisab check, and the 2.5% due.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Zakat Calculator: Nisab Check and 2.5%, Private",
+    "metaDescription": "Calculate zakat on cash, gold, silver, business stock and investments. Nisab checked on the gold or silver basis. Runs privately in your browser.",
+    "keywords": [
+      "zakat calculator",
+      "nisab calculator",
+      "zakat on gold",
+      "zakat on savings",
+      "how to calculate zakat",
+      "zakat percentage"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Zakat is the third pillar of Islam and, mechanically, a wealth calculation: 2.5% of qualifying wealth, due once that wealth has been at or above the nisab threshold for a lunar year. The principle is clear; the arithmetic across cash, gold at today's price, silver, business stock, money owed to you and debts you owe is where people reach for a calculator. This is that calculator, and it treats the subject with the privacy it deserves: a complete inventory of your wealth is nobody's data to collect, so nothing here is uploaded, stored or seen by anyone but you.",
+      "You enter what you own in each category, today's gold and silver prices in your currency from your local market, and any due debts. The tool totals your zakatable wealth, checks it against nisab on the basis you choose, silver by default as most scholars advise since it obligates charity at a lower threshold, and if zakat is due, computes the 2.5%. The classical constants are used throughout: 87.48 grams for the gold nisab, 612.36 for silver."
+    ],
+    "howto": [
+      "Enter your cash, in hand and across bank accounts, as of your zakat date.",
+      "Enter gold and silver in grams, and today's price per gram for each in your currency. Any jeweller's listing has the price.",
+      "Add business stock at its value, money genuinely owed to you, and shares or investments.",
+      "Enter debts you owe that are due now; these reduce the zakatable amount.",
+      "Choose the nisab basis. Silver is the default and the more cautious choice; gold sets a higher threshold.",
+      "Read the result: your net zakatable wealth, the nisab it is measured against, and the zakat due at 2.5%."
+    ],
+    "benefits": [
+      "Two design choices define this tool. First, prices are typed, not fetched. A calculator bundled with last month's gold price would silently compute the wrong nisab, and an API call would betray the privacy promise; the correct price is the one in your market today, in your currency, and you know it better than any feed. Second, the disclaimer is honest and specific: this tool does arithmetic with the classical constants, and it is not a fatwa. Whether personal-use jewellery is zakatable differs between schools, which debts deduct differs, and business assets have detail this page cannot judge. The tool says so plainly and points you to a scholar rather than pretending the questions away.",
+      "The calculation itself is complete for the common case: all the standard asset classes, liabilities deducted, the nisab comparison shown with its working so you can check every step. If your wealth is near the threshold, the display makes that visible instead of burying it, because at the margin the silver-versus-gold basis decision changes the obligation and you should see that clearly.",
+      "Adjacent needs are covered nearby: the [percentage calculator](/tools/percentage-calculator/) for quick checks of any other rate, and the [savings goal calculator](/tools/savings-goal-calculator/) for planning the year's giving alongside everything else the money must do."
+    ],
+    "useCases": [
+      "Most users arrive once a year, in Ramadan or on their personal zakat anniversary, with a bank balance, some savings, and jewellery whose gram weight they know but whose zakat treatment they do not. The calculator handles the arithmetic in two minutes, and its notes flag the jewellery question as one where schools differ, which is exactly the point to ask your scholar rather than a website.",
+      "Small business owners use the stock and receivables fields, valuing inventory at its selling price on the zakat date. Families calculate for elderly parents. New Muslims and young earners crossing nisab for the first time use it to learn the mechanics, with each step shown rather than hidden. And people paying in instalments through the year compute the annual figure here first, then divide."
+    ],
+    "faqs": [
+      {
+        "q": "Which nisab basis should I use, gold or silver?",
+        "a": "Silver sets the lower threshold, which means zakat becomes due on less wealth, and most scholars advise it precisely because it favours those who receive. Gold raises the bar. If your wealth clears both, the choice does not change the amount, only the eligibility check. Near the margin, ask your scholar."
+      },
+      {
+        "q": "Is zakat due on jewellery my wife wears?",
+        "a": "This is a genuine point of difference: the Hanafi school holds gold and silver zakatable regardless of use, others exempt personal-use jewellery within customary limits. Enter it or not according to the position you follow, and if unsure, ask. The calculator computes either way; it does not rule."
+      },
+      {
+        "q": "What about my house and car?",
+        "a": "Personal-use assets are not zakatable: the home you live in, the car you drive, furniture, clothing. Property bought to resell is trade stock and belongs in the business field; property earning rent has its rental income zakated as part of your cash."
+      },
+      {
+        "q": "Which debts can I deduct?",
+        "a": "The common position deducts debts due now or within the year: bills owed, instalments currently payable, borrowed money being repaid. A 20-year mortgage's full balance is generally not deducted, though positions differ on the year's instalments. This is one of the questions worth a scholar's answer for your situation."
+      },
+      {
+        "q": "Do I calculate on today's gold price or my purchase price?",
+        "a": "Today's market price on your zakat date, for the metal content by weight. What you paid is irrelevant; zakat is on present wealth. That is why the tool asks for the current per-gram price rather than remembering anything."
+      },
+      {
+        "q": "Is my information private?",
+        "a": "Completely. The calculation runs in your browser and nothing you enter is transmitted, stored or logged. For a complete statement of a family's wealth, that is not a feature, it is a requirement, and it is the reason this tool exists."
+      },
+      {
+        "q": "Do I pay zakat on money saved for a specific purpose, like hajj or a house?",
+        "a": "The common position is yes: savings are zakatable regardless of what they are earmarked for, if they have been held a lunar year above nisab. Intention does not exempt wealth. Some detailed situations, like money already contractually committed, have differing treatments, which is scholar territory rather than calculator territory."
+      }
+    ]
+  }
+}

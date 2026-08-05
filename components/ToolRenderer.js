@@ -42,6 +42,16 @@ const lazyTool = (loader) => dynamic(loader, {
 });
 
 const HeicToJpg = lazyTool(() => import("@/components/tools/HeicToJpg"));
+const DebtPayoffPlanner = lazyTool(() => import("@/components/tools/DebtPayoffPlanner"));
+const FireCalculator = lazyTool(() => import("@/components/tools/FireCalculator"));
+const AmortizationSchedule = lazyTool(() => import("@/components/tools/AmortizationSchedule"));
+const LoanComparison = lazyTool(() => import("@/components/tools/LoanComparison"));
+const ZakatCalculator = lazyTool(() => import("@/components/tools/ZakatCalculator"));
+const VatCalculator = lazyTool(() => import("@/components/tools/VatCalculator"));
+const FreelanceRateCalculator = lazyTool(() => import("@/components/tools/FreelanceRateCalculator"));
+const SalaryConverter = lazyTool(() => import("@/components/tools/SalaryConverter"));
+const SavingsGoal = lazyTool(() => import("@/components/tools/SavingsGoal"));
+const BreakEvenCalculator = lazyTool(() => import("@/components/tools/BreakEvenCalculator"));
 const ImageToText = lazyTool(() => import("@/components/tools/ImageToText"));
 const ExifRemover = lazyTool(() => import("@/components/tools/ExifRemover"));
 const ExcelToCsv = lazyTool(() => import("@/components/tools/ExcelToCsv"));
@@ -81,6 +91,17 @@ export const BUILT_IN_TOOLS = {
   "barcode-generator": BarcodeGenerator,
   "signature-maker": SignatureMaker,
   "spin-the-wheel": SpinTheWheel,
+
+  "debt-payoff-planner": DebtPayoffPlanner,
+  "fire-calculator": FireCalculator,
+  "amortization-schedule": AmortizationSchedule,
+  "loan-comparison": LoanComparison,
+  "zakat-calculator": ZakatCalculator,
+  "vat-calculator": VatCalculator,
+  "freelance-rate-calculator": FreelanceRateCalculator,
+  "salary-converter": SalaryConverter,
+  "savings-goal-calculator": SavingsGoal,
+  "break-even-calculator": BreakEvenCalculator,
 };
 
 // Reads the grouped shape and the older flat one.

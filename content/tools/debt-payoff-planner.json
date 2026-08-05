@@ -1,0 +1,83 @@
+{
+  "name": "Debt Payoff Planner",
+  "icon": "coins",
+  "emoji": "💳",
+  "category": "content/categories/finance.json",
+  "popular": true,
+  "order": 1,
+  "short": "Turn a pile of debts into a dated plan. Snowball and avalanche, side by side.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Debt Payoff Planner: Snowball vs Avalanche, Free",
+    "metaDescription": "List your debts, set what you can pay, and see the exact month you are debt free under snowball and avalanche. Private: your debts never leave your device.",
+    "keywords": [
+      "debt payoff calculator",
+      "debt snowball calculator",
+      "debt avalanche calculator",
+      "pay off debt plan",
+      "credit card payoff calculator",
+      "debt free date"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Debt is heaviest when it is vague. Four balances, four rates, four minimums, and no idea whether the end is two years away or ten: that fog is what makes people stop opening the statements. The fix is not motivation, it is a date. This planner takes your actual debts and gives you the actual month you are done, under the two strategies that work.",
+      "The snowball method pays the smallest balance first for the quick win. The avalanche method pays the highest interest rate first, which is mathematically cheapest. Every debt site on the internet argues about which is better; this planner just runs both on your numbers and shows you what each costs in months and money, because the difference is often smaller than the arguing suggests, and the plan you stick to beats the plan you abandon.",
+      "One thing matters more than anything here: this is the single most sensitive data a calculator can hold, and it never leaves your device. The debts you type are stored in your own browser so you can update balances each month, and nowhere else. No account, no server, no email asking how your journey is going."
+    ],
+    "howto": [
+      "List each debt: a name, the current balance, the yearly interest rate and the minimum payment. Credit cards, loans, car finance, borrowed money, all of it.",
+      "Enter the extra amount you can put toward debt each month on top of the minimums. Even a small number changes the picture.",
+      "Read the comparison: debt free date and total interest under avalanche, snowball, and minimums only.",
+      "Check the per-debt table to see when each debt disappears under each plan.",
+      "Pick the strategy you will actually follow, and pay the exact amounts each month.",
+      "Come back monthly, update the balances, and watch the date move closer. The list is saved on this device."
+    ],
+    "benefits": [
+      "The comparison is the honest part. Most debt tools pick a side; this one shows the real gap. Avalanche always wins on interest, and the table shows by exactly how much, but snowball shows its first paid-off debt sooner, and for a lot of people that early win is the difference between following the plan and drifting off it after three months. Seeing both, with your numbers, lets you make that trade deliberately. The minimums-only row stays visible on purpose: it is the price of doing nothing, and it is usually the most motivating number on the page.",
+      "The simulation is real, not approximate. Interest accrues monthly on every balance, minimums are paid on everything, the extra goes to the target debt, and when a debt dies its minimum payment rolls into the next target, which is the compounding effect that makes both strategies accelerate toward the end. The planner also catches the quiet disaster: a minimum payment that does not even cover that debt's monthly interest, which means the balance grows forever. It warns you instead of pretending.",
+      "When a windfall lands, the [savings goal calculator](/tools/savings-goal-calculator/) answers whether it should go to debt or savings by showing what each route earns. And once the debts are gone, the same monthly amount pointed at the [FIRE calculator](/tools/fire-calculator/) shows what that payment habit builds when it works for you instead of a bank."
+    ],
+    "useCases": [
+      "The classic user carries three to six debts: a credit card or two, a car loan, maybe a personal loan and something borrowed from family. Individually manageable, collectively foggy. Ten minutes here turns the fog into a date, and the date into a monthly routine. People in windfall moments use it differently: a bonus arrives and the plan shows exactly which debt it should hit and how many months it removes.",
+      "Couples use it to get two sets of debts onto one screen before deciding anything, which is calmer than deciding from memory. And people who are already disciplined use the avalanche view as a checkup: is the extra actually going to the most expensive debt, or to the one that shouts loudest? The answer is frequently embarrassing and always fixable."
+    ],
+    "faqs": [
+      {
+        "q": "Snowball or avalanche, which should I pick?",
+        "a": "Avalanche is always cheapest in interest; the table shows the exact saving on your numbers. Snowball kills its first debt sooner, and that visible win keeps many people going. If the interest gap is small, pick snowball for the motivation. If it is large, the money argument gets hard to ignore."
+      },
+      {
+        "q": "Is my debt information private?",
+        "a": "Yes, and by construction rather than policy. The planner runs in your browser and the debts are stored in this browser's local storage only, so you can come back and update balances. Nothing is transmitted anywhere. Clear everything with one button whenever you like."
+      },
+      {
+        "q": "What does the extra payment actually do?",
+        "a": "The minimums keep every debt current; the extra is what makes progress. It goes entirely to the target debt, and when that debt is finished, its minimum payment joins the extra against the next target. That rolling effect is why the last debts fall much faster than the first."
+      },
+      {
+        "q": "Why does it warn about one of my minimums?",
+        "a": "Because that minimum is smaller than the monthly interest on the debt, so paying only the minimum means the balance grows every month, forever. Cards near their limit at high rates do this. Any real plan starts with paying more than the interest on that debt."
+      },
+      {
+        "q": "Should I save or pay off debt first?",
+        "a": "Arithmetically, paying a 24% debt is a guaranteed 24% return, which no savings account offers, so high-rate debt first wins. Most people still keep a small emergency cushion so a surprise does not go straight back on the card. That is a judgement call; the numbers here inform it rather than make it."
+      },
+      {
+        "q": "My debts are in different currencies. Can I use this?",
+        "a": "The planner never asks for a currency, so it works in any single one. Mixed currencies do not combine meaningfully in one plan; run each currency's debts as its own list."
+      },
+      {
+        "q": "Should I consolidate my debts instead?",
+        "a": "Consolidation trades several debts for one, ideally at a lower rate, and it can genuinely help, but the planner shows the number the consolidation offer must beat: your avalanche total interest. Compare the consolidation loan, fees included, in our loan comparison tool against that figure. Consolidation that stretches the term can cost more in total while feeling cheaper monthly, which is exactly the trap the true-cost view catches."
+      }
+    ]
+  }
+}

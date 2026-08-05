@@ -1,0 +1,82 @@
+{
+  "name": "Loan Comparison",
+  "icon": "scales",
+  "emoji": "⚖️",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 4,
+  "short": "Two loan offers side by side, judged on true total cost, fees included.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Loan Comparison Calculator: True Cost, Fees Included",
+    "metaDescription": "Compare two loan offers on total cost including upfront fees, not just the rate. See the refinance break-even month. Free, private, no signup.",
+    "keywords": [
+      "loan comparison calculator",
+      "compare two loans",
+      "refinance calculator",
+      "refinance break even",
+      "loan fees comparison",
+      "which loan is cheaper"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Two loan offers are never actually comparable the way banks present them. One has the lower rate, the other lower fees; one runs fifteen years, the other twenty; and the brochure highlights whichever number flatters that bank. There is exactly one honest way to compare: the total amount of money that leaves your pocket over the life of each loan, fees included. This tool computes that number for both offers and puts them in one table.",
+      "It also answers the refinancing version of the question, which is where the trap lives. A refinance offer with a better rate but 3,000 in closing costs is only better after the monthly savings have paid the 3,000 back. The tool shows that break-even month explicitly. Sell or refinance again before it, and the 'better' offer loses money. Bankers know this arithmetic; now it runs on your side of the desk, on your device, with nothing typed here going anywhere."
+    ],
+    "howto": [
+      "Enter Loan A: amount, yearly rate, term and any upfront fees, arrangement charges or closing costs.",
+      "Enter Loan B the same way. For a refinance comparison, A is staying put and B is the new offer with its costs.",
+      "Read the table: monthly payment, total interest, fees, and the true total cost line for each.",
+      "The verdict states which loan is cheaper overall and by how much over the full term.",
+      "If the cheaper-monthly loan charges higher fees, the break-even line shows the month the fees pay for themselves.",
+      "Judge the break-even against your real plans: how long will you actually hold this loan?"
+    ],
+    "benefits": [
+      "The tool's one opinion is that the true total cost row outranks everything else on the page, and it is an opinion worth adopting. A rate of 5.9% with 3,000 in fees against 6.5% with none is not obviously better or worse; it depends on amount, term, and how long you keep the loan, which is exactly the arithmetic people skip when a lower number is printed in a bigger font. The comparison also exposes the term trick: stretching the same amount over more years drops the monthly payment and raises the total cost, and offers lean on that constantly.",
+      "The break-even month is the single most useful number in refinancing and the one most reliably absent from refinance marketing. Fees divided by monthly saving: that many months before the new loan has paid for itself. People move house, refinance again, or pay off early far more often than they expect, and a break-even of 40 months against a plan to sell in 24 is a decision made in one glance.",
+      "Once the winner is chosen, the [amortization schedule](/tools/amortization-schedule/) shows its full life month by month and what overpaying does to it, and the [EMI calculator](/tools/loan-emi-calculator/) handles quick single-loan payments. For what the payment does to your monthly budget, the [salary converter](/tools/salary-converter/) puts income in the same units."
+    ],
+    "useCases": [
+      "Mortgage shoppers with two or three offers in hand are the obvious case: the offers differ in rate, fees and term simultaneously, which is precisely the comparison human intuition does badly and this table does instantly. Refinancers are the second: the current loan against the new offer, with closing costs in B's fee box, gives the break-even month that decides the whole question.",
+      "Car buyers compare dealer financing against the bank, where the dealer's rate is often padded with fees the table surfaces. Borrowers offered a longer term to lower the payment can see what the extra years cost in total, which reframes the offer accurately as buying breathing room with interest. And anyone being sold a consolidation loan can put their current situation as A and the consolidation as B, fees included, and see whether it actually saves anything."
+    ],
+    "faqs": [
+      {
+        "q": "Why compare total cost rather than the rate?",
+        "a": "Because the rate ignores fees and term, and both move the real cost enormously. A lower rate with high fees on a short holding period regularly loses. Total cost counts every unit of money that leaves your pocket, which is the thing you actually care about."
+      },
+      {
+        "q": "What counts as fees?",
+        "a": "Everything paid upfront to get the loan: arrangement and origination charges, closing costs, valuation and legal fees you would not otherwise pay, points bought to lower the rate. If it leaves your pocket because of this loan, it belongs in the box."
+      },
+      {
+        "q": "How does the refinance break-even work?",
+        "a": "The new loan's extra upfront fees divided by its monthly saving. Fees of 3,000 with a saving of 120 a month break even at month 25. Keep the loan longer than that and refinancing won; leave earlier and it lost, no matter how good the rate looked."
+      },
+      {
+        "q": "The terms are different lengths. Is the comparison fair?",
+        "a": "The table is honest arithmetic for each offer as it stands, and a longer term will show a lower payment with a higher total. Both facts are displayed, which IS the fair comparison: cheaper per month is not the same claim as cheaper."
+      },
+      {
+        "q": "Does this cover variable-rate loans?",
+        "a": "It compares them at the rates entered, which is the offer as quoted. A variable rate can move afterwards, and no calculator knows where; compare the starting terms here and treat the variable one's future as the risk it is."
+      },
+      {
+        "q": "Is anything I type stored?",
+        "a": "No. The comparison runs in your browser and nothing is saved or sent. Banks would pay for the numbers people type into tools like this, which is exactly why this one has no server to collect them."
+      },
+      {
+        "q": "One offer is a flat rate and the other reducing. Can I compare them here?",
+        "a": "Not directly, and this trap costs real money. A flat rate charges interest on the original amount for the whole term, so flat 7 percent costs roughly what reducing 13 percent costs. Convert the flat offer to its reducing equivalent first, or ask the lender for the APR, which is the legally comparable number in most countries, and enter that."
+      }
+    ]
+  }
+}
