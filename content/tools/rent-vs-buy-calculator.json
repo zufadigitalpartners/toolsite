@@ -1,0 +1,82 @@
+{
+  "name": "Rent vs Buy Calculator",
+  "icon": "home",
+  "emoji": "🏠",
+  "category": "content/categories/property.json",
+  "popular": true,
+  "order": 1,
+  "short": "Both paths, year by year, with the break-even where buying starts winning.",
+  "seo": {
+    "metaTitle": "Rent vs Buy Calculator: The Break-even Year",
+    "metaDescription": "Simulate renting against buying year by year: rent growth, mortgage, upkeep, appreciation and equity, with the break-even year computed honestly.",
+    "keywords": [
+      "rent vs buy calculator",
+      "should i rent or buy",
+      "buying vs renting",
+      "rent or buy house",
+      "break even buying home",
+      "is buying worth it"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Rent or buy is the biggest money question most people ever ask, and almost everyone answering it in public is selling one of the answers: agents and banks on one side, landlord-hating slogans on the other. The honest method is unglamorous: simulate both paths year by year with your numbers, count everything, and find where the lines cross. That is what this calculator does, in a model simple enough to audit.",
+      "The renter pays rent that grows yearly. The buyer pays entry costs once, then mortgage, upkeep and taxes, and accumulates two things back: equity as the loan amortizes, and appreciation as the price moves. The comparison is net cost against net cost, and the break-even year, where owning's net cost drops below the rent total, is the answer's headline: stay past it and buying won; leave before it and the fees and interest were rent paid to a bank."
+    ],
+    "howto": [
+      "Enter your current rent and a yearly rent growth rate; check old listings in your area for honesty.",
+      "Enter the price of the home you would actually buy, with your down payment percent and mortgage terms.",
+      "Set buying costs, the taxes and fees of the purchase itself; 3 to 6 percent is typical.",
+      "Set upkeep and property taxes as a yearly percent of value; 1 to 2 percent is the honest range.",
+      "Set appreciation modestly; long-run housing tends to track inflation plus a little.",
+      "Read the break-even year and the table, then test pessimistic appreciation before believing anything."
+    ],
+    "benefits": [
+      "The model's restraint is its integrity. It deliberately excludes the renter-invests-the-difference argument, not because it is wrong but because it doubles the assumptions, and a model with ten knobs convinces anyone of anything; what remains is cash against cash with equity honestly counted, auditable in a spreadsheet by any reader. The break-even framing also translates directly into the real decision, which is never 'is buying good' but 'will I stay long enough': five-year break-evens argue against buying for the mobile and for it for the settled, and the number moves honestly with every input.",
+      "The table teaches the two facts headline debates skip: early mortgage years are mostly interest, so equity builds slowly at first, and entry costs put buying behind from day one, which is why short ownerships lose almost regardless of the market. Appreciation is the swing variable and the one most lied about, which is why the instructions say to test a flat market before trusting any conclusion. The [home affordability calculator](/tools/home-affordability-calculator/) sets the realistic price to test, the [mortgage payment calculator](/tools/mortgage-payment-calculator/) details the payment, and the [down payment calculator](/tools/down-payment-calculator/) plans the entry this comparison prices.",
+      "One output deserves special respect: the equity column, because it shows the forced-saving effect that makes ownership build wealth for people who would never invest the difference voluntarily. The model excludes voluntary investing for honesty, but the involuntary kind, principal repayment baked into every mortgage payment, is right there in the table. For many households that automation, not appreciation, is the real financial argument for buying, and seeing it accumulate year by year states it better than any slogan."
+    ],
+    "useCases": [
+      "The genuinely undecided get the most value: real rent, realistic purchase, honest horizon, and the break-even either fits their life plans or does not. People pressured by the 'rent is throwing money away' chorus run a flat-appreciation scenario and discover how long buying takes to win even then, which resets the conversation. People itching to buy in expensive cities see the price-to-rent arithmetic that makes renting rational there, stated by a calculator with no listing to sell.",
+      "Relocators with three-to-five-year horizons find their answer fastest, since short stays rarely clear the entry costs. And couples disagreeing about it stop trading slogans and start moving one slider at a time, which is the most peace this question ever produces."
+    ],
+    "faqs": [
+      {
+        "q": "What does the break-even year mean?",
+        "a": "The year owning's net cost, everything paid minus equity and appreciation gained, drops below what renting would have cost in total. Stay past it and buying was the cheaper path; sell before it and renting won, mostly because entry costs and early interest never got repaid."
+      },
+      {
+        "q": "Why exclude investing the renter's savings?",
+        "a": "Because it doubles the assumptions: now the model needs market returns, discipline assumptions and tax treatment, and the answer becomes whatever the assumer wanted. The lean model compares cash paths honestly; add the investment argument on top consciously if it applies to you."
+      },
+      {
+        "q": "What appreciation rate is honest?",
+        "a": "Long-run housing roughly tracks inflation plus a little, with huge local variation and decade-long deviations both ways. Test your realistic number and a flat one; a decision that survives both is a decision, a decision that needs 7% forever is a hope."
+      },
+      {
+        "q": "What goes into buying costs?",
+        "a": "Transfer taxes, legal fees, valuation, agent fees where buyers pay them: typically 3 to 6 percent of the price, unrecoverable, and the main reason short ownership loses. They hit at year zero, which the table shows plainly."
+      },
+      {
+        "q": "Does the model include ownership's non-money factors?",
+        "a": "No, and it says so: stability, freedom to renovate, and the forced-saving effect of amortization on one side; mobility and repair-free living on the other. The table prices what can be priced; the rest is genuinely yours to weigh."
+      },
+      {
+        "q": "Is my financial data stored?",
+        "a": "No. The simulation runs in your browser and vanishes with the tab."
+      },
+      {
+        "q": "How does a bigger deposit change the comparison?",
+        "a": "It cuts interest costs and entry leverage, pulling the break-even earlier, while also parking more cash in one asset. Run the model at your realistic deposit and at 20% and compare; the down payment calculator plans whichever target the comparison favours."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "name": "Receipt Maker",
+  "icon": "clipboard-check",
+  "emoji": "🧾",
+  "category": "content/categories/ecommerce.json",
+  "popular": false,
+  "order": 7,
+  "short": "A clean payment receipt PDF: who paid, for what, how. Done in a minute.",
+  "seo": {
+    "metaTitle": "Free Receipt Maker: Payment Receipt PDF",
+    "metaDescription": "Make a professional payment receipt PDF with payment method, date and line items. For cash, transfers and deposits. No signup, nothing uploaded.",
+    "keywords": [
+      "receipt maker",
+      "receipt generator",
+      "payment receipt template",
+      "cash receipt",
+      "rent receipt",
+      "proof of payment"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Money changed hands; now somebody needs it on paper. The tenant paying cash wants proof, the client who paid a deposit wants it acknowledged, the buyer of your old camera wants something for their records, and bookkeeping on both sides wants a document with a date, an amount and a method. A receipt is the smallest business document there is, and this tool produces a proper one in about a minute.",
+      "It runs on the same engine as our invoice and quote tools, so your details and logo are already in place, and the receipt-specific fields are exactly two: the payment date and the payment method, cash, transfer, card, whichever. The notes line handles the balance-remaining case that deposits create, which is the sentence most improvised receipts forget and most disputes later hinge on."
+    ],
+    "howto": [
+      "Your business or personal details load from the shared saved block; adjust if needed.",
+      "Enter who paid, the receipt number, the date and the payment method.",
+      "Describe what was paid for as line items; one line is often enough.",
+      "Add tax only if the receipt needs to show it; otherwise leave it at zero.",
+      "Use the notes line for what remains owing, if anything: 'balance of 500 due on delivery'.",
+      "Download the PDF, send one copy, keep one."
+    ],
+    "benefits": [
+      "Cash is the reason this tool exists: transfers and cards document themselves, cash documents nothing, and the receipt is the only record either side will ever have. Rent paid in cash, market sales, second-hand deals, deposits in trades where cash is customary: all of them need the date-amount-method triangle on paper with both parties named, and improvising it in a text message is how 'I already paid you' arguments are born. A numbered PDF with your details printed settles the matter before it becomes one.",
+      "The balance-remaining note is the professional touch that costs nothing here: a deposit receipt that states what remains and when converts a vague arrangement into a schedule, and the client who signed off on that receipt has agreed to the schedule without a single awkward conversation. The engine's privacy carries over as always, which for receipts means your cash flow is not a template site's analytics. The [invoice generator](/tools/invoice-generator/) requests the money this document confirms, and the [credit note generator](/tools/credit-note-generator/) handles the day some of it goes back.",
+      "The numbering habit turns receipts from favours into records: a sequential series with dates is a cash ledger assembled one document at a time, and at tax season the difference between a shoebox of memories and a folder of numbered PDFs is measured in accountant hours you pay for. The tool numbers by default because the habit should not depend on remembering to have it."
+    ],
+    "useCases": [
+      "Landlords issuing rent receipts, legally required in some places and simply wise everywhere cash is involved, produce a numbered monthly trail in minutes. Freelancers acknowledge deposits with balance terms attached, quietly locking the payment schedule. Sellers of second-hand goods give buyers the proof of purchase that makes both sides comfortable in person-to-person deals.",
+      "Small services, tutors, cleaners and repair trades hand clients something bookkeepers accept at tax time. And anyone reimbursed in cash by an employer or a friend for a group purchase closes the loop with a document instead of a memory."
+    ],
+    "faqs": [
+      {
+        "q": "Is a receipt from this tool valid?",
+        "a": "A receipt's validity comes from what it records: who paid whom, how much, when, by what method, for what. This produces exactly that as a clean numbered PDF. For tax-regulated retail receipts, some countries require registered systems; for ordinary proof of payment between parties, this is the standard form."
+      },
+      {
+        "q": "What is the difference between an invoice and a receipt?",
+        "a": "Direction of time: an invoice requests payment that has not happened; a receipt confirms payment that has. A deposit often produces both: an invoice for the total, then a receipt for the deposit with the balance noted."
+      },
+      {
+        "q": "How do I write a rent receipt?",
+        "a": "Landlord details as sender, tenant as payer, the month as the line item, the amount, the date and the method, plus a running receipt number. Issue one per payment and both sides keep a trail; the tool numbers them for you."
+      },
+      {
+        "q": "Do I add tax on a receipt?",
+        "a": "Only if the underlying sale is taxed and the receipt is documenting the tax: then it shows the same split as the invoice. Pure proof-of-payment receipts, rent between individuals for example, usually show only the amount."
+      },
+      {
+        "q": "Can I make one for a partial payment?",
+        "a": "Yes, and the balance note is the point: state the amount received and what remains with its due date. The next payment gets its own numbered receipt, and the trail tells the whole story."
+      },
+      {
+        "q": "Is anything uploaded?",
+        "a": "No. The PDF is built in your browser; the transaction stays between you, the payer, and the copies you both keep."
+      },
+      {
+        "q": "Should I keep copies of receipts I issue?",
+        "a": "Always: your copy is your record of income received, and the sequence's integrity depends on keeping every number. A folder per year of the PDFs, named by number, is bookkeeping enough for most small operations."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

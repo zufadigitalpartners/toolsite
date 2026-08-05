@@ -1,0 +1,82 @@
+{
+  "name": "Rental Yield Calculator",
+  "icon": "building",
+  "emoji": "🏢",
+  "category": "content/categories/property.json",
+  "popular": false,
+  "order": 3,
+  "short": "Gross, net and cash-on-cash yield, because listings quote whichever flatters.",
+  "seo": {
+    "metaTitle": "Rental Yield Calculator: Gross, Net, Cash-on-Cash",
+    "metaDescription": "Compute gross yield, net yield and cash-on-cash return with vacancy, costs and mortgage included. The landlord arithmetic listings avoid.",
+    "keywords": [
+      "rental yield calculator",
+      "cash on cash return",
+      "cap rate calculator",
+      "buy to let calculator",
+      "rental property roi",
+      "net rental yield"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every property listing aimed at investors quotes a yield, and it is always the flattering one: rent times twelve over price, gross, before the tenant leaves, the boiler dies or the agent takes their cut. Real landlording lives in the other numbers: net yield after costs and vacancy, and, for financed purchases, cash-on-cash return, what your actual invested cash earns after the mortgage eats its share. This calculator computes all three from one form, with the working shown as a yearly cash table.",
+      "The vacancy line deserves its own sentence, because it is the one beginners zero: a single empty month is 8 percent of the year's rent gone, and one month between tenants is normal, not unlucky. Costs land around a quarter to a third of rent once real repairs arrive. Enter honest numbers and the brochure yield deflates into the number you would actually live on, which is the entire point."
+    ],
+    "howto": [
+      "Enter the purchase price and the monthly rent it would honestly achieve; nearby listings tell you.",
+      "Enter yearly costs: property tax, insurance, agent fees, maintenance reserve.",
+      "Set vacancy as a percent of the year; 4 to 8 percent is one honest month-ish.",
+      "For a financed purchase, set the deposit percent, rate and term; for cash, leave the deposit at 100.",
+      "Read the three yields and the yearly cash table from rent down to cash flow.",
+      "Compare the cash-on-cash line against what the same cash earns elsewhere; that is the decision."
+    ],
+    "benefits": [
+      "Three yields exist because three questions exist. Gross compares properties to each other quickly and is the only number listings print. Net, the cap rate, prices the property as a business before financing, which is how professionals compare across markets. Cash-on-cash answers the personal question: my actual money in, my actual cash out, at what rate, and it is the number that decides whether the venture beats the boring alternatives. The calculator computes them together so the gaps between them, which are the costs and the leverage, stay visible instead of buried.",
+      "Leverage's two faces show up honestly here: a mortgage can push cash-on-cash above the net yield when rent covers debt service with room to spare, and it can push cash flow negative on the same property at a worse rate, making the owner pay monthly for the privilege of hoping appreciation shows up. Both outcomes appear in the table as plain numbers before any contract is signed. The [amortization schedule](/tools/amortization-schedule/) details the mortgage side, the [property appreciation calculator](/tools/property-appreciation-calculator/) prices the hope honestly, and the [rent vs buy calculator](/tools/rent-vs-buy-calculator/) answers the sibling question for a home you would live in.",
+      "The maintenance reserve deserves defending because it is the line beginners delete first: boilers, roofs and appliances do not bill monthly, they bill occasionally and brutally, and a reserve of one month's rent per year is what smooths those spikes into arithmetic. Landlords running without one are not earning a higher yield; they are borrowing from a future repair at unknown interest. The calculator's costs field is where that honesty lives, and the habit of funding it monthly is what separates businesses from gambles."
+    ],
+    "useCases": [
+      "First-time landlords deflate their first brochure with it, which is the cheapest education in property. Comparers rank candidate purchases on net yield, then stress the financing on each to find where cash flow survives a rate rise. Existing landlords audit reality yearly: current market rent, actual cost history, the mortgage's current terms, and a cash-on-cash figure that either justifies the hassle or funds the conversation about selling.",
+      "Overseas and out-of-city buyers, pitched glossy gross yields, run the local costs and vacancy honestly before wiring anything. And people comparing property against index funds finally get the like-for-like number, cash-on-cash after everything, that the argument actually needs."
+    ],
+    "faqs": [
+      {
+        "q": "What is a good rental yield?",
+        "a": "Gross above 6-8% draws investor attention in many markets; net above 5% is solid; cash-on-cash is judged against your alternatives, since it is a return on your cash like any other. Prime-city properties often run lower yields betting on appreciation; that bet is a choice to make knowingly, not a default."
+      },
+      {
+        "q": "What is the difference between net yield and cap rate?",
+        "a": "Effectively the same number: net operating income over price. The cap rate framing prices the property as a business independent of financing, which is why professionals use it to compare across deals and markets."
+      },
+      {
+        "q": "What should I include in costs?",
+        "a": "Property tax, insurance, agent or management fees, service charges, and an honest maintenance reserve: boilers, paint, appliances amortized across years. A quarter to a third of rent is the experienced range; zero is the beginner's number and it never survives year three."
+      },
+      {
+        "q": "Why does vacancy matter so much?",
+        "a": "Because rent is monthly but the year has twelve of them: one empty month between tenancies is 8.3% of gross income gone, before re-letting fees. Budgeting 4 to 8 percent vacancy is realism, not pessimism, and skipping it is how spreadsheets beat reality until reality wins."
+      },
+      {
+        "q": "When is negative cash flow acceptable?",
+        "a": "Only as a conscious bet that appreciation will outrun the monthly subsidy, which some investors in growth markets deliberately make. As a surprise, it is a mistake. The table's cash-flow line exists so it can never be a surprise."
+      },
+      {
+        "q": "Is my data stored?",
+        "a": "No. Prices, rents and financing stay in your browser and disappear with the tab."
+      },
+      {
+        "q": "Should I count my own management time?",
+        "a": "If you would otherwise pay an agent, your hours have that price: self-managing 'saves' the fee by paying it to yourself in evenings and phone calls. Enter the agent fee as a cost and treat doing it yourself as earning that fee, which prices the hassle honestly and makes the sell-versus-keep math truthful."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

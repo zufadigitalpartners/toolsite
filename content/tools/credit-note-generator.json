@@ -1,0 +1,82 @@
+{
+  "name": "Credit Note Generator",
+  "icon": "undo-arrow",
+  "emoji": "↩️",
+  "category": "content/categories/ecommerce.json",
+  "popular": false,
+  "order": 9,
+  "short": "The formal way to un-invoice: credits and refunds your bookkeeper will accept.",
+  "seo": {
+    "metaTitle": "Free Credit Note Generator: Refund PDF",
+    "metaDescription": "Issue proper credit notes against invoices: returns, corrections and goodwill credits documented the way bookkeeping needs. No signup, private.",
+    "keywords": [
+      "credit note generator",
+      "credit note template",
+      "credit memo",
+      "refund document",
+      "credit against invoice",
+      "how to issue credit note"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Sooner or later every seller needs to take money back off an invoice: goods came back, a line was overbilled, a delivery disappointed and goodwill demands a gesture. The amateur move is deleting or editing the original invoice, which corrupts the numbering trail and makes a bookkeeper's eye twitch; the correct instrument is the credit note, a numbered document that references the original invoice and states what is being credited and why. Accounting stays clean, tax stays right, and the paper trail tells the true story.",
+      "This generator issues proper credit notes on the family engine: your details, the client's, a reference to the original invoice number, the credited lines, and the reason in writing. The tax line mirrors the original invoice's treatment, because a credit reverses the tax exactly as it reverses the charge, which is precisely the detail improvised refund emails get wrong."
+    ],
+    "howto": [
+      "Your details load from the shared block; enter the client the credit goes to.",
+      "Number the credit note in its own sequence, and reference the original invoice number in its field.",
+      "List what is being credited: returned items, overbilled lines, or the goodwill amount as its own line.",
+      "Apply the same tax rate the original invoice charged, so the reversal is exact.",
+      "State the reason in the notes: returned damaged, billing correction, goodwill. One sentence suffices.",
+      "Download, send, and apply the credit against the invoice or refund it, as agreed."
+    ],
+    "benefits": [
+      "Never editing issued invoices is the accounting law this tool operationalizes: an invoice, once sent, exists in two sets of records, and silently changing your copy desynchronizes them forever. The credit note corrects in the open, with its own number, a reference, and a reason, and audits, tax inspections and end-of-year reconciliations all read the story cleanly. The reason line matters more than it looks, too: 'returned, damaged in transit' versus 'billing correction' land in different places in bookkeeping and say different things about the business, and writing it at issue beats reconstructing it at year end.",
+      "The tax mirroring is the technical detail that justifies using a proper tool: a credit against a taxed invoice must reverse the tax proportionally, or somebody's tax return quietly drifts from reality; the engine computes it exactly as the invoice did. Sequential numbering in its own CN series keeps the trail auditable. The [invoice generator](/tools/invoice-generator/) issues what this document amends, the [receipt maker](/tools/receipt-maker/) documents the refund payment if money physically returns, and the [vat calculator](/tools/vat-calculator/) sanity-checks the tax split when anyone doubts it.",
+      "The credit note is also the diplomatic instrument of business relationships: issued promptly and cleanly, it converts a complaint into an administrative non-event, which clients remember. The seller who argues about a return for a week and the one whose credit note arrives within the hour sell the same products at very different reputations. The document costs a minute; the impression it purchases lasts contracts."
+    ],
+    "useCases": [
+      "Product sellers issue credits for returns, full or partial, with the original invoice referenced and restocking honesty in the reason line. Service businesses correct overbilled hours or scrapped scope without touching the issued invoice. Anyone offering a goodwill gesture after a rough delivery formalizes it, which turns an apology into a document the client's bookkeeping can actually use, a courtesy business clients notice.",
+      "Businesses selling to companies discover credit notes are demanded, not optional: corporate accounts payable cannot process 'just pay less on the next one'. And at year end, the seller with a clean CN trail closes their books in an afternoon while the invoice-editor reconstructs history from email."
+    ],
+    "faqs": [
+      {
+        "q": "When do I issue a credit note versus editing the invoice?",
+        "a": "Once an invoice has been sent, always the credit note: the original exists in the client's records and editing yours breaks the match. Catch an error before sending and you may simply reissue; after sending, the credit note is the correction that keeps both sets of books true."
+      },
+      {
+        "q": "Does a credit note mean I pay money back?",
+        "a": "Not necessarily: it creates a credit, which can offset the open invoice, carry against future ones, or be refunded in cash. The document records the credit; the settlement is whatever you agree, ideally noted on it."
+      },
+      {
+        "q": "How do I handle the tax on a credit?",
+        "a": "Mirror the original: credit at the same tax rate the invoice charged, so the tax reverses proportionally. The tool computes it; getting this wrong is how refund-heavy months quietly corrupt tax returns."
+      },
+      {
+        "q": "Do credit notes need their own numbering?",
+        "a": "Yes: a CN series separate from invoices, sequential and gap-free, each referencing its invoice. Auditors read the pattern instantly, which is the point of having one."
+      },
+      {
+        "q": "Can I issue a partial credit?",
+        "a": "Absolutely, and most credits are: two damaged items out of ten, one overbilled line, a percentage gesture. List exactly what is credited; the referenced invoice covers the rest untouched."
+      },
+      {
+        "q": "Is any of this uploaded?",
+        "a": "No. Credits, reasons and clients stay in your browser and in the PDFs you choose to send."
+      },
+      {
+        "q": "Can I apply a credit to a future invoice instead of refunding?",
+        "a": "Yes, and it is common: the note records the credit, and the next invoice shows it as a deduction line referencing the CN number. Cash flow stays smooth, the paper trail stays complete, and the client keeps a reason to return."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

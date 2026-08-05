@@ -1,0 +1,83 @@
+{
+  "name": "Crypto Profit Calculator",
+  "icon": "candlestick",
+  "emoji": "📈",
+  "category": "content/categories/crypto.json",
+  "popular": true,
+  "order": 1,
+  "short": "What a trade actually made after both fees, and the real break-even price.",
+  "seo": {
+    "metaTitle": "Crypto Profit Calculator: After Fees, With Break-even",
+    "metaDescription": "Work out crypto profit after buy and sell fees, ROI on what you spent, and the true break-even price. No wallet, no API, nothing leaves your browser.",
+    "keywords": [
+      "crypto profit calculator",
+      "bitcoin profit calculator",
+      "crypto roi calculator",
+      "crypto break even price",
+      "crypto fees calculator",
+      "trading profit calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every crypto trade ends with the same question: what did I actually make? Not the number that glows on the exchange, which conveniently ignores what you paid in fees on the way in and will pay on the way out, but the honest figure after both. I built this calculator because doing that arithmetic on a phone at midnight is exactly when mistakes happen, and because most profit calculators online are wrapped in exchange affiliate links pushing you to trade more.",
+      "This one takes what you spent, your buy and sell prices, and the fee percentage each side charges, and gives you three numbers: profit after everything, return on the money you put in, and the break-even sell price, which sits above your buy price by exactly the fees. That last number is worth knowing before the trade, not after. Nothing here connects to a wallet or an exchange; you type numbers, the arithmetic runs on your device, and no one learns your position sizes."
+    ],
+    "howto": [
+      "Enter the amount you spent on the position, in your currency.",
+      "Enter the price you bought at and the price you sold at, or plan to sell at.",
+      "Set the fee percentages. Spot fees are commonly 0.1% to 1% per side; check your exchange's tier.",
+      "Read the profit after fees, the return on spend, and the break-even price.",
+      "Planning rather than reviewing? Leave the sell price at a target and see what that exit is worth.",
+      "The break-even line tells you the minimum sell price at which the trade stops losing money."
+    ],
+    "benefits": [
+      "Fees are the quiet edge of every exchange, and small percentages compound into real money faster than intuition expects. A 1% fee each way on a position means roughly 2% of it belongs to the exchange before you have earned anything, and the break-even price this calculator shows makes that visible: buy at 50,000 with 1% fees each side and you need about 51,010 just to leave whole. Traders who never compute this systematically overestimate their results, which is precisely how high-fee platforms stay profitable.",
+      "The calculator is also deliberately disconnected. It asks for no wallet address, no API key, no login with an exchange, because the arithmetic does not need any of that and your positions are your business. It pairs naturally with the [crypto average cost calculator](/tools/crypto-average-cost-calculator/) when the position was built over several buys, and the [position size calculator](/tools/position-size-calculator/) for deciding how large the next trade should be before it exists.",
+      "One honest note: profit in your currency is only realized when you actually sell. A calculator can price the exit; whether to take it is the decision no tool makes for you, and this one does not pretend to. It is arithmetic, not advice.",
+      "There is a psychology packaged into showing the break-even before the profit: traders anchored on their buy price hold losers past every sane exit because 'it just has to get back to what I paid', when the honest anchor sits higher, at buy price plus both fees. Small reframe, real behavioural difference, and the calculator performs it silently every time by putting the true zero where it belongs. What you do at that line remains your decision; where the line actually is stops being a feeling."
+    ],
+    "useCases": [
+      "The commonest use is the post-trade reckoning: the position closed, the exchange shows a green number, and you want the true figure after fees for your own records or your tax notes. The second is planning: before entering, set your intended exit and see whether the trade is worth the fees at all, which for small moves on high-fee platforms is frequently no.",
+      "People comparing exchanges use the fee fields to see what the same trade costs at 0.1% versus 0.5% versus 1%, a difference that dwarfs most price movements people chase. And anyone helping a friend understand why their winning trade lost money has, in this page, the explanation drawn with their own numbers."
+    ],
+    "faqs": [
+      {
+        "q": "Why is my break-even above my buy price?",
+        "a": "Fees. Buying cost you a fee, selling will cost another, and the price must climb past both before profit begins. The calculator shows the exact figure; with 1% each side it is roughly 2% above the buy price."
+      },
+      {
+        "q": "Does this connect to my exchange or wallet?",
+        "a": "No, and that is the point. You type the numbers, the arithmetic runs in your browser, and nothing is transmitted anywhere. No API keys, no addresses, no account."
+      },
+      {
+        "q": "How do I find my fee percentage?",
+        "a": "Exchanges publish fee schedules by tier: spot trades commonly cost 0.1% to 0.6% per side at retail volumes, more with instant-buy features, which can quietly charge 1.5% or worse. The instant-buy premium is exactly the kind of cost this calculator makes visible."
+      },
+      {
+        "q": "Does it handle partial sells?",
+        "a": "This tool prices one position at one exit. For a position built or reduced across several trades, use our crypto average cost calculator, which tracks the running cost basis and break-even as you list each buy and sell."
+      },
+      {
+        "q": "What about taxes on the profit?",
+        "a": "Tax treatment varies by country: many tax crypto gains as capital gains or income, with rules about holding periods and lot methods. The profit figure here is pre-tax arithmetic; your jurisdiction's rules apply on top, and a local accountant beats any website on them."
+      },
+      {
+        "q": "Is this investment advice?",
+        "a": "No. It computes what a trade made or would make at prices you supply. It has no opinion about any coin, and neither the numbers you type nor any record of your visit is kept."
+      },
+      {
+        "q": "Can I use this for a planned trade that has not happened?",
+        "a": "That is arguably its best use: set the intended entry, the target exit and the fees, and see whether the trade pays enough to bother before any money moves. Plenty of small scalps die honourably at this stage once the fee drag is visible."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

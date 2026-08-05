@@ -1,0 +1,82 @@
+{
+  "name": "Macro Calculator",
+  "icon": "utensils",
+  "emoji": "🍽️",
+  "category": "content/categories/health.json",
+  "popular": false,
+  "order": 2,
+  "short": "Calories into protein, carbs and fat, the way coaches actually split them.",
+  "seo": {
+    "metaTitle": "Macro Calculator: Protein, Carbs and Fat Split",
+    "metaDescription": "Split your daily calories into macros with protein anchored to body weight, the structure evidence-based coaches use. Adjustable and private.",
+    "keywords": [
+      "macro calculator",
+      "macronutrient calculator",
+      "protein intake calculator",
+      "how much protein per day",
+      "iifym calculator",
+      "carbs fat protein split"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Percent-based macro splits, the 40/30/30 of a thousand blog posts, share a quiet flaw: protein scales with your calorie budget instead of your body, so a small person cutting hard gets too little and a big eater gets a number picked by arithmetic coincidence. The structure evidence-based coaches actually use anchors protein to body weight first, sets fat as a fraction of calories for hormones and palatability, and lets carbohydrates take whatever remains as training fuel. This calculator runs that structure with the knobs exposed.",
+      "Bring a calorie number, ideally from our calorie calculator, and your weight; pick a protein level from sedentary baseline to hard-cutting, and a fat preference; the grams fall out. If protein and fat alone overrun the calories, the tool says so rather than emitting a nonsense negative-carb plan, which is more honesty than several famous apps manage."
+    ],
+    "howto": [
+      "Get your daily calorie target first; the calorie calculator's number drops straight in.",
+      "Enter your weight in kilograms.",
+      "Pick the protein level that matches your training and goal; 1.8 g/kg suits most people who train.",
+      "Pick a fat share; the balanced 28% default suits most diets.",
+      "Read the grams: protein, carbs and fat, with the calories each contributes.",
+      "Hit the protein target most days, land within ten grams elsewhere, and let nobody weigh rice grains at a restaurant."
+    ],
+    "benefits": [
+      "Protein-first is the load-bearing decision, and the reasons are worth owning: protein preserves muscle in a deficit and builds it in a surplus, it is the most satiating macronutrient per calorie, and it carries the highest thermic cost of digestion. The per-kilogram levels map to the research bands: 1.2 for the sedentary, 1.6 to 1.8 for people who train, up to 2.2 when cutting hard while trying to keep everything earned. Fat's floor matters for hormonal health, which is why the options bottom out at a fifth of calories rather than the fat-phobic near-zero of older diet culture; carbs, taking the remainder, are not filler but fuel, and the calculator's structure says so by giving them everything the other two do not claim.",
+      "The flexibility notes keep the tool livable: within ten grams is compliance, protein is the macro to be least flexible about, and the Atwater values behind the arithmetic, four calories per gram for protein and carbs, nine for fat, are stated rather than assumed. Rigid macro tracking has a shelf life measured in weeks; ranges with one anchored priority survive contact with restaurants and birthdays, which is why coaches phrase it that way, and why this page does. The [calorie calculator](/tools/calorie-calculator/) sets the budget this tool divides, and the [water intake calculator](/tools/water-intake-calculator/) covers the other input people forget while optimizing the first three.",
+      "Meal-count arithmetic makes the targets livable: 160 grams of protein across four meals is a manageable 40 per plate, across two meals a grim 80. The grams do not care how they arrive, and neither does the body within reason, so splitting them across your actual eating pattern is the difference between a plan and a wish. Most people who 'cannot hit their protein' are trying to do it in two meals; the fix is a schedule, not a supplement."
+    ],
+    "useCases": [
+      "Cutting with muscle retention is the headline case: calories down, protein anchored high, and the difference between looking lean and looking deflated largely rides on that anchor. Lean bulkers do the reverse, letting carbs absorb the surplus around a fixed protein base. Beginners to tracking use the grams as their first shopping-list translator, discovering what 160 grams of protein means in chicken, eggs, dal and yogurt terms.",
+      "Plant-based eaters use the protein target as their planning constraint, since hitting 1.8 g/kg without animal products takes actual intent. And people bouncing between diet ideologies find the structure clarifying: keto, low-fat and balanced diets are all just different fat-share settings around the same protein anchor, which demystifies most of the shouting."
+    ],
+    "faqs": [
+      {
+        "q": "How much protein do I actually need?",
+        "a": "The research bands: 0.8 g/kg is survival minimum, 1.2 suits sedentary health, 1.6 to 1.8 covers most training goals, and up to 2.2 helps when cutting hard. More than that shows no added benefit for most people; it just crowds out carbs your training wanted."
+      },
+      {
+        "q": "Are carbs bad for fat loss?",
+        "a": "Fat loss tracks the calorie deficit, not the carb count: controlled comparisons at matched calories and protein show similar results across carb levels. Pick the fat share that makes food enjoyable enough to sustain; sustainability, not carb-phobia, decides outcomes."
+      },
+      {
+        "q": "What if I train fasted or do keto?",
+        "a": "Keto is effectively the highest-fat setting with carbs minimal; this calculator's structure covers moderate splits, not ketogenic ratios. Fasted training changes timing, not totals; daily grams still govern results."
+      },
+      {
+        "q": "Do I need to hit these numbers exactly?",
+        "a": "Within about ten grams each is genuine compliance; bodies do not audit to the gram. Protein deserves the most consistency. Chasing exactness to the decimal is how tracking becomes miserable and ends."
+      },
+      {
+        "q": "Why does it say my calories are too low for the split?",
+        "a": "Protein and fat at your settings already exceed the calorie budget, leaving carbs negative, which is not a diet but an error. Either the calorie number is very low for your weight, or a lower protein or fat setting fits it honestly. The tool refuses to print nonsense."
+      },
+      {
+        "q": "Is my data stored?",
+        "a": "No. Weight and targets compute in your browser and disappear with the tab."
+      },
+      {
+        "q": "Are protein powders necessary to hit these numbers?",
+        "a": "Necessary, no: food covers any target with planning. Convenient, often: a shake is 25-30 grams without cooking, which rescues busy days. Treat powder as food logistics rather than magic, and let whole meals carry the base."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

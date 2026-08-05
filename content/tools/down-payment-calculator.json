@@ -1,0 +1,82 @@
+{
+  "name": "Down Payment Calculator",
+  "icon": "coins",
+  "emoji": "🪙",
+  "category": "content/categories/property.json",
+  "popular": false,
+  "order": 4,
+  "short": "The deposit target, extras included, turned into a monthly saving plan.",
+  "seo": {
+    "metaTitle": "Down Payment Calculator: Deposit Plan by Month",
+    "metaDescription": "Turn a home deposit target, buying costs included, into the monthly saving it needs at your timeline and interest rate. Honest and private.",
+    "keywords": [
+      "down payment calculator",
+      "house deposit calculator",
+      "save for house",
+      "20 percent down payment",
+      "deposit savings plan",
+      "how much deposit do i need"
+    ]
+  },
+  "content": {
+    "intro": [
+      "A house deposit is the biggest number most people ever save toward, and the classic mistake is aiming at the wrong number: the deposit alone, when the true entry price includes transfer taxes, legal fees, surveys, and the buffer that moving month always devours. Fall short on those and the choices are ugly: a credit card at the worst possible moment, or a smaller deposit that triggers loan insurance and worse rates.",
+      "This calculator builds the honest target, deposit percent of your expected price plus the extras, subtracts what you have, and converts the rest into a monthly amount at your timeline and savings rate. It reuses the same verified annuity math as our savings tools, and it answers the reverse question too: at a given monthly amount, how long until the keys."
+    ],
+    "howto": [
+      "Enter the price range you expect to buy in; the affordability calculator helps set it honestly.",
+      "Set the deposit percent you are targeting; 20 avoids loan insurance in most markets.",
+      "Add the extras line: buying costs and a moving buffer, easily five figures together.",
+      "Enter what you already have and the years until you want to buy.",
+      "Set your savings rate, and read the monthly amount the plan needs.",
+      "Automate that amount the day pay lands, and revisit yearly as prices and plans move."
+    ],
+    "benefits": [
+      "The 20-percent threshold earns its prominence with three simultaneous payoffs: no lender's insurance, which is pure cost protecting the bank at your expense; better rate brackets, since lower loan-to-value prices as lower risk; and a smaller loan besides. Below-20 purchases are legitimate and common, and the calculator prices any percent, but the note stands: the threshold is where several savings meet, and knowing that turns an arbitrary-feeling target into a chosen one.",
+      "The extras line is the tool's quiet realism: transfer taxes and fees run 3 to 6 percent in many markets, surveys and legal work are fixed costs, and moving month multiplies small expenses into a real one. Folding them into the target from day one is the difference between a plan and a surprise. The horizon honesty from our savings tools applies here too: over a three-to-five-year deposit timeline, the interest rate is trim and the monthly amount is the engine, so the plan's success lives in the standing order, not the rate-shopping. The [savings goal calculator](/tools/savings-goal-calculator/) generalizes the math, the [home affordability calculator](/tools/home-affordability-calculator/) keeps the target price honest, and the [rent vs buy calculator](/tools/rent-vs-buy-calculator/) checks the premise while the fund grows.",
+      "The plan's psychology is engineered into its structure: a named target with a date and an automated monthly amount survives the months that motivation does not, and progress toward a house measured in standing orders lands differently than progress measured in hope. Couples reviewing it quarterly report the same effect the debt planner's users do: the number moving is the motivation, and the automation is what keeps it moving between reviews."
+    ],
+    "useCases": [
+      "Renters starting the climb get the headline number and the monthly reality in one screen, which either fits or triggers the honest conversation about timeline, city or expectations. Couples split the monthly figure and automate both halves. Families gifting toward a deposit use the calculator to size the gift against the threshold that kills loan insurance, the highest-leverage point for every unit given.",
+      "People two years out run the reverse question quarterly as prices move, adjusting the standing order rather than the dream. And buyers deciding between 10 now and 20 later run both timelines against what insurance and worse rates cost meanwhile, a comparison the tools here make concrete."
+    ],
+    "faqs": [
+      {
+        "q": "Do I really need 20 percent?",
+        "a": "Need, no: many markets lend at 5 to 15 down with insurance added. Want, mostly yes: 20 typically removes the insurance, improves the rate and shrinks the loan at once. The calculator prices any target; the threshold is just where the discounts stack."
+      },
+      {
+        "q": "What extras should I budget?",
+        "a": "Transfer taxes and fees, legal work, valuation and survey, and a moving buffer: 3 to 6 percent of the price plus a few thousand is the honest range in many markets. Local taxes vary widely, so check yours; the mistake to avoid is budgeting zero."
+      },
+      {
+        "q": "Where should the deposit fund live?",
+        "a": "Boring and safe: instant-access or short-notice savings at the best rate you can find. A deposit with a deadline does not belong in markets, where a bad year arrives uninvited; the arithmetic here shows how little the rate matters against the monthly amount anyway."
+      },
+      {
+        "q": "Prices keep rising while I save. What then?",
+        "a": "Re-run the plan quarterly with current prices: the monthly amount adjusts while the habit holds. In fast markets this is the argument for buying earlier with insurance; in flat ones, for patience. The calculator prices both honestly."
+      },
+      {
+        "q": "Should I pause deposit saving to clear debt?",
+        "a": "High-interest debt usually wins the arithmetic, and clearing it also raises the affordability ceiling through the lending ratios, a double effect our affordability calculator shows. Cheap debt is more situational. Run both paths and let the numbers argue."
+      },
+      {
+        "q": "Is my plan stored?",
+        "a": "No. Amounts compute in your browser and vanish with the tab."
+      },
+      {
+        "q": "What if rates on savings change mid-plan?",
+        "a": "Re-run with the new rate and let the monthly adjust: over deposit timelines the difference is usually small, which the tool makes visible. The plan's engine is the standing order; the rate is weather."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

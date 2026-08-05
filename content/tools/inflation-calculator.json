@@ -1,0 +1,82 @@
+{
+  "name": "Inflation Calculator",
+  "icon": "basket",
+  "emoji": "🛒",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 13,
+  "short": "What money will be worth, and what things will cost, at any inflation rate.",
+  "seo": {
+    "metaTitle": "Inflation Calculator: Future Cost and Buying Power",
+    "metaDescription": "See what today's money buys in future years and what prices will rise to, at any inflation rate. The arithmetic behind every long-term plan.",
+    "keywords": [
+      "inflation calculator",
+      "purchasing power calculator",
+      "future value of money",
+      "cost of living calculator",
+      "inflation rate calculator",
+      "money value over time"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Inflation is the tax nobody legislates: a few percent a year, compounding quietly, until the money that felt substantial buys half of what it did. The arithmetic is simple compounding, but human intuition fails at compounding in both directions, which is why 'six percent inflation' sounds mild while its ten-year consequence, a third of purchasing power gone, sounds impossible. This calculator makes the consequence visible in both directions: what a sum will be worth, and what things will cost.",
+      "Pick the question, set the rate and years, and read the answer with a horizon table showing the erosion or escalation year by year. The rate is yours to choose, and honesty demands saying why: official averages are baskets, and your basket, heavier in rent or food or school fees, usually runs hotter than the headline. Enter the inflation you actually live, and the plans built on the answer get more honest with the input."
+    ],
+    "howto": [
+      "Choose the direction: what today's amount will be worth later, or what something costing this much will cost later.",
+      "Enter the amount, the yearly inflation rate, and the years.",
+      "Read the headline answer and the horizon table at one, five, ten, twenty and thirty years.",
+      "For salary planning, run your income through the cost direction: that is the income needed later to live identically.",
+      "For savings, run the balance through the worth direction and compare against what interest is adding.",
+      "Test both a moderate and a bad decade; the plan that survives both is a plan."
+    ],
+    "benefits": [
+      "The both-directions design mirrors how the question actually arrives. Savers ask what their cash will buy at retirement; parents ask what university will cost in twelve years; both are the same compounding, mirrored, and switching between them keeps the mirror visible. The horizon table earns its space by showing the curve rather than a point: at 6%, money loses 25% of its power in five years, 44% in ten, 69% in twenty, and watching that sequence reorganizes a person's relationship with idle cash faster than any lecture.",
+      "The calculator also names its politics plainly: holding long-term savings as cash is a slow guaranteed loss at any positive inflation rate, and every investment return must first beat inflation before a single unit of real gain exists. The [compound interest calculator](/tools/compound-interest-calculator/) runs the growth side of the same race, the [cagr calculator](/tools/cagr-calculator/) converts nominal investment results into honest rates to compare against, and the [FIRE calculator](/tools/fire-calculator/) is where the real-terms discipline decides an entire retirement.",
+      "The table's thirty-year line is the one retirement planning cannot skip: at even 4%, prices more than triple across a thirty-year retirement, which means the income that feels comfortable at sixty-five buys a third as much at ninety-five. Every pension decision, annuity choice and withdrawal plan is quietly a bet on this table, and running it once reframes 'inflation-linked' from insurance jargon into the single most valuable word in a pension document."
+    ],
+    "useCases": [
+      "Retirement planning is the heavyweight case: a pension adequate today meets the cost direction and twenty years, and the shortfall appears while there is still time to fix it. Salary negotiators bring the cost of living direction to reviews: a raise below inflation is a pay cut wearing a bow, and the calculator states the break-even raise exactly.",
+      "Parents cost out education a decade ahead; savers judge whether an account's interest beats erosion, which at many banks' rates it does not; and people comparing eras translate a grandparent's salary or a childhood price into today's money, an exercise in humility for every generation involved."
+    ],
+    "faqs": [
+      {
+        "q": "What inflation rate should I enter?",
+        "a": "Start with your country's recent average, then adjust for your basket: renters, parents of school-age children and frequent travellers usually live above the headline rate. For planning, run a moderate and a pessimistic rate and treat the range as the answer."
+      },
+      {
+        "q": "Why do the two directions give different numbers?",
+        "a": "They are reciprocal, not identical: costs multiply by the factor while purchasing power divides by it. A 6% decade multiplies prices by 1.79 and shrinks money to 0.56 of itself, and 0.56 is not one minus 0.79. The mirror is exact, just not symmetric."
+      },
+      {
+        "q": "Does the calculator use my country's real inflation data?",
+        "a": "No, deliberately: you supply the rate. Official series are averages over baskets that are not yours, and this tool works offline in any country. For historical CPI lookups, your national statistics office publishes the series."
+      },
+      {
+        "q": "How do I inflation-proof savings?",
+        "a": "The classic answers are assets that grow or yield above inflation over long periods: broad equities, inflation-linked bonds where available, and property in some markets. Cash for emergencies, investments for horizons: the calculator quantifies why the split matters. What to buy is advice territory, which this page does not enter."
+      },
+      {
+        "q": "Is deflation supported?",
+        "a": "Enter a low positive rate to model near-zero inflation. True sustained deflation is rare and strange enough, economically, that a simple compounding model would mislead more than help."
+      },
+      {
+        "q": "Is anything stored?",
+        "a": "No. Amounts and rates stay in your browser and vanish with the tab."
+      },
+      {
+        "q": "Why does everyone use different inflation numbers?",
+        "a": "Because there are many true ones: headline CPI, core inflation, regional rates and personal baskets all measure different bundles. For planning, your spending mix is the honest basket: renters and parents typically run above headline, mortgage-free homeowners below. Pick the number that matches your life, not the news."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

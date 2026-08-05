@@ -1,0 +1,82 @@
+{
+  "name": "Net Worth Calculator",
+  "icon": "wallet",
+  "emoji": "💼",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 14,
+  "short": "Everything you own minus everything you owe, itemized, saved on your device.",
+  "seo": {
+    "metaTitle": "Net Worth Calculator: Track It Privately",
+    "metaDescription": "List assets and debts, get your net worth, and track it over time. Saved in your browser only: the most private net worth tracker there is.",
+    "keywords": [
+      "net worth calculator",
+      "net worth tracker",
+      "assets and liabilities",
+      "personal balance sheet",
+      "calculate net worth",
+      "wealth tracker"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Net worth is the one number that summarizes the whole financial machine: everything owned at today's value, minus everything owed. It is not a score to compare with anyone else's; it is a direction indicator, and its movement over time is the honest verdict on whether the earning, spending, saving and borrowing are collectively going anywhere. Most people have never computed it, which is like driving without ever glancing at the fuel gauge.",
+      "This calculator is two lists and a subtraction, itemized so the answer explains itself. What you own: home at what it would sell for, car likewise, savings, investments, gold. What you owe: mortgage balance, loans, cards. The lists persist in this browser, and only there, so updating next quarter takes a minute. A complete statement of your wealth is the most sensitive document that exists about you, which is why this one is built to never leave your device."
+    ],
+    "howto": [
+      "List what you own, at realistic sale prices today, not purchase prices and not hopes.",
+      "List what you owe, from the latest statements: mortgage balance, loans, cards, money borrowed.",
+      "Read the three numbers: assets, liabilities, and the net worth line.",
+      "Write the date and the number somewhere, or simply return here: the lists are saved in this browser.",
+      "Update quarterly or twice a year; the trend across updates is the real product.",
+      "Watch the direction, not the level: rising from any starting point is winning."
+    ],
+    "benefits": [
+      "The itemized structure teaches while it computes. Seeing the home's equity as value minus mortgage clarifies what refinancing or overpaying actually changes; seeing the car as a large number that our [car depreciation calculator](/tools/car-depreciation-calculator/) shrinks yearly reframes vehicle spending permanently; seeing consumer debt lined against assets makes the [debt payoff planner](/tools/debt-payoff-planner/) the obvious next tab. The single number gets the attention; the lists deliver the insight.",
+      "Privacy here is structural, not promised. Every hosted net worth app wants account connections and holds a database describing exactly how much every user is worth, a database that exists until it leaks. This page has no server, no accounts and no analytics on your figures: the lists live in your browser's local storage, clearable with one button, and nothing else. A negative result gets a straight answer too: early careers with student debt or a fresh mortgage often start below zero, the number is common and recoverable, and the trend is the thing to manage.",
+      "The list structure also surfaces concentration, the risk nobody computes: when one line, usually the home, is three quarters of the assets, the household's fortunes ride one market whether anyone chose that or not. Seeing the proportions on one screen is how rebalancing conversations start, and it costs nothing but honesty. Similarly, the debts list ranked by size quietly ranks the payoff priorities; the planner next door does it by interest rate, which is usually the better order."
+    ],
+    "useCases": [
+      "The quarterly ritual is the ideal use: fifteen minutes, statements open, lists updated, number written down. Households preparing to meet a mortgage adviser arrive already knowing the balance sheet the adviser will construct. Couples merging finances build the combined picture once, honestly, which is less romantic than a dinner and more useful than most of them.",
+      "People in repair mode, after debt or divorce or a business failure, use the trend as the scoreboard of recovery, because a rising line from a bad number is the most motivating chart in personal finance. And the young use it earliest to learn the reframe that matters most: income is not wealth, and the lists prove it either way."
+    ],
+    "faqs": [
+      {
+        "q": "What should I include in assets?",
+        "a": "Things with sale value: property, vehicles, savings, investments, gold, business equity, significant items you could genuinely sell. Convention excludes household contents unless notable. Pensions are commonly included at current value; just be consistent between updates."
+      },
+      {
+        "q": "What value do I put on my home?",
+        "a": "What it would realistically sell for today, not what you paid or what a hopeful listing nearby asks. Recent sales of similar properties are the honest anchor. The same discipline applies to cars, where realistic means the used market, not the showroom memory."
+      },
+      {
+        "q": "Is my financial data stored on a server?",
+        "a": "No. The lists persist in your browser's local storage on your device, so returning and updating is easy, and nowhere else. Clear them with one button. No account exists, and nothing you type is transmitted."
+      },
+      {
+        "q": "My net worth is negative. Should I worry?",
+        "a": "It is common early on: student debt or a young mortgage against a short earning history lands many people below zero. The number matters less than its direction, and both debt repayment and saving move it the same way. Track the trend, not the shame."
+      },
+      {
+        "q": "How often should I update it?",
+        "a": "Quarterly is the sweet spot: often enough to see the trend, rare enough that market noise does not masquerade as progress. Monthly tracking of a long-term number mostly manufactures anxiety."
+      },
+      {
+        "q": "Do I count my partner's finances?",
+        "a": "Either works: separate sheets or a combined one, as long as it is consistent. Shared assets and debts split naturally in half on separate sheets, or sit whole on a joint one."
+      },
+      {
+        "q": "Should I include my pension?",
+        "a": "Common practice includes accessible pension values at their current statement figure, flagged mentally as long-horizon money. State pensions and defined-benefit promises are income streams rather than pots and usually stay off the sheet. Whichever convention you pick, keep it constant between updates so the trend stays honest."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

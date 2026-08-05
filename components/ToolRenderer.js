@@ -52,6 +52,37 @@ const FreelanceRateCalculator = lazyTool(() => import("@/components/tools/Freela
 const SalaryConverter = lazyTool(() => import("@/components/tools/SalaryConverter"));
 const SavingsGoal = lazyTool(() => import("@/components/tools/SavingsGoal"));
 const BreakEvenCalculator = lazyTool(() => import("@/components/tools/BreakEvenCalculator"));
+
+const CryptoProfit = lazyTool(() => import("@/components/tools/CryptoProfit"));
+const CryptoAverageCost = lazyTool(() => import("@/components/tools/CryptoAverageCost"));
+const ImpermanentLossCalc = lazyTool(() => import("@/components/tools/ImpermanentLossCalc"));
+const StakingRewardsTool = lazyTool(() => import("@/components/tools/StakingRewards"));
+const SatoshiConverter = lazyTool(() => import("@/components/tools/SatoshiConverter"));
+const PositionSize = lazyTool(() => import("@/components/tools/PositionSize"));
+const CagrCalculator = lazyTool(() => import("@/components/tools/CagrCalculator"));
+const InflationCalculator = lazyTool(() => import("@/components/tools/InflationCalculator"));
+const BudgetCalculator = lazyTool(() => import("@/components/tools/BudgetCalculator"));
+const NetWorth = lazyTool(() => import("@/components/tools/NetWorth"));
+const LifeInsuranceCalculator = lazyTool(() => import("@/components/tools/LifeInsuranceCalculator"));
+const OutOfPocketCalculator = lazyTool(() => import("@/components/tools/OutOfPocketCalculator"));
+const CarDepreciation = lazyTool(() => import("@/components/tools/CarDepreciation"));
+const CalorieCalculator = lazyTool(() => import("@/components/tools/CalorieCalculator"));
+const MacroCalculator = lazyTool(() => import("@/components/tools/MacroCalculator"));
+const BodyFatCalculator = lazyTool(() => import("@/components/tools/BodyFatCalculator"));
+const IdealWeightCalculator = lazyTool(() => import("@/components/tools/IdealWeightCalculator"));
+const WaterIntakeCalculator = lazyTool(() => import("@/components/tools/WaterIntakeCalculator"));
+const PregnancyDueDate = lazyTool(() => import("@/components/tools/PregnancyDueDate"));
+const RentVsBuy = lazyTool(() => import("@/components/tools/RentVsBuy"));
+const HomeAffordability = lazyTool(() => import("@/components/tools/HomeAffordability"));
+const RentalYield = lazyTool(() => import("@/components/tools/RentalYield"));
+const DownPaymentCalculator = lazyTool(() => import("@/components/tools/DownPaymentCalculator"));
+const PropertyAppreciation = lazyTool(() => import("@/components/tools/PropertyAppreciation"));
+const RentSplit = lazyTool(() => import("@/components/tools/RentSplit"));
+const QuoteGenerator = lazyTool(() => import("@/components/tools/docs/QuoteGenerator"));
+const ReceiptMaker = lazyTool(() => import("@/components/tools/docs/ReceiptMaker"));
+const PurchaseOrderGenerator = lazyTool(() => import("@/components/tools/docs/PurchaseOrderGenerator"));
+const CreditNoteGenerator = lazyTool(() => import("@/components/tools/docs/CreditNoteGenerator"));
+const PackingSlipGenerator = lazyTool(() => import("@/components/tools/docs/PackingSlipGenerator"));
 const ImageToText = lazyTool(() => import("@/components/tools/ImageToText"));
 const ExifRemover = lazyTool(() => import("@/components/tools/ExifRemover"));
 const ExcelToCsv = lazyTool(() => import("@/components/tools/ExcelToCsv"));
@@ -102,6 +133,37 @@ export const BUILT_IN_TOOLS = {
   "salary-converter": SalaryConverter,
   "savings-goal-calculator": SavingsGoal,
   "break-even-calculator": BreakEvenCalculator,
+
+  "crypto-profit-calculator": CryptoProfit,
+  "crypto-average-cost-calculator": CryptoAverageCost,
+  "impermanent-loss-calculator": ImpermanentLossCalc,
+  "staking-rewards-calculator": StakingRewardsTool,
+  "satoshi-converter": SatoshiConverter,
+  "position-size-calculator": PositionSize,
+  "cagr-calculator": CagrCalculator,
+  "inflation-calculator": InflationCalculator,
+  "budget-calculator": BudgetCalculator,
+  "net-worth-calculator": NetWorth,
+  "life-insurance-calculator": LifeInsuranceCalculator,
+  "health-insurance-cost-calculator": OutOfPocketCalculator,
+  "car-depreciation-calculator": CarDepreciation,
+  "calorie-calculator": CalorieCalculator,
+  "macro-calculator": MacroCalculator,
+  "body-fat-calculator": BodyFatCalculator,
+  "ideal-weight-calculator": IdealWeightCalculator,
+  "water-intake-calculator": WaterIntakeCalculator,
+  "pregnancy-due-date-calculator": PregnancyDueDate,
+  "rent-vs-buy-calculator": RentVsBuy,
+  "home-affordability-calculator": HomeAffordability,
+  "rental-yield-calculator": RentalYield,
+  "down-payment-calculator": DownPaymentCalculator,
+  "property-appreciation-calculator": PropertyAppreciation,
+  "rent-split-calculator": RentSplit,
+  "quote-generator": QuoteGenerator,
+  "receipt-maker": ReceiptMaker,
+  "purchase-order-generator": PurchaseOrderGenerator,
+  "credit-note-generator": CreditNoteGenerator,
+  "packing-slip-generator": PackingSlipGenerator,
 };
 
 // Reads the grouped shape and the older flat one.

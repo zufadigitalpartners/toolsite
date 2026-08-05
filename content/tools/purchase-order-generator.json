@@ -1,0 +1,82 @@
+{
+  "name": "Purchase Order Generator",
+  "icon": "cart",
+  "emoji": "🛒",
+  "category": "content/categories/ecommerce.json",
+  "popular": false,
+  "order": 8,
+  "short": "A proper PO with number and delivery date, so suppliers ship what you meant.",
+  "seo": {
+    "metaTitle": "Free Purchase Order Generator: PO PDF",
+    "metaDescription": "Create purchase order PDFs with PO number, delivery date and terms. The document that makes supplier orders traceable. No signup, nothing uploaded.",
+    "keywords": [
+      "purchase order generator",
+      "po template",
+      "purchase order pdf",
+      "create purchase order",
+      "po number",
+      "supplier order form"
+    ]
+  },
+  "content": {
+    "intro": [
+      "A purchase order is the buyer's side of the paperwork: what you are ordering, at what agreed price, delivered by when, under a number that every later document must quote. Businesses beyond a certain size refuse to work without them, and for good reason: the PO turns a WhatsApp order into a traceable commitment, and its number is the thread that ties the supplier's invoice to what was actually agreed when the two disagree, which is exactly when paperwork earns its keep.",
+      "This generator produces a proper PO on the same engine as our other document tools: your details as the ordering party, the supplier's, numbered lines with agreed prices, a delivery date, and terms. The footer asks the supplier to confirm and to quote the number on all paperwork, which is the whole discipline of purchase ordering in one sentence."
+    ],
+    "howto": [
+      "Your details load as the ordering party; enter the supplier's.",
+      "Assign the PO number; keep the sequence in your records, because the number is the point.",
+      "List what you are ordering: description, quantity, agreed unit price.",
+      "Set the delivery date and add tax and shipping as agreed.",
+      "Put payment terms and delivery specifics in the terms line.",
+      "Download, send, and file your copy; when the invoice arrives, match it line by line against this."
+    ],
+    "benefits": [
+      "The matching discipline is what a PO buys: invoice arrives, sits next to the PO, and every line either matches the agreement or starts a conversation, with price creep, quantity padding and surprise charges caught on paper rather than absorbed. That check, three-way when a delivery note joins in, is the entire accounts-payable control system of larger companies, and a small operation gets the same protection from a numbered PDF and the habit of matching. Suppliers behave measurably better toward buyers who send POs, because the document announces that this buyer keeps records.",
+      "The delivery date field converts 'as soon as you can' into a commitment with a reference, which changes late-delivery conversations entirely. And the PO number's tyranny is constructive: quoted on the invoice, the delivery note and the packing slip, it makes every document about the same order findable years later. The [invoice generator](/tools/invoice-generator/) is this document's mirror on the selling side, the [packing slip generator](/tools/packing-slip-generator/) travels with the goods, and the [break-even calculator](/tools/break-even-calculator/) knows whether the prices being ordered at leave a business worth running.",
+      "POs also protect against the most expensive supplier behaviour: substitution. Ordered items arriving as 'equivalent' alternatives at the same price is a margin game played on buyers without paperwork; a PO with exact descriptions makes the substitution visible and refusable at delivery, while the matching packing slip catches it at the door. Paperwork sounds slow until the pallet of not-quite-what-you-ordered arrives, at which point it is the fastest thing in the building."
+    ],
+    "useCases": [
+      "Small retailers ordering stock issue POs so the restock arrives as priced, not as remembered. Restaurants and workshops with weekly supplier orders build the numbered trail that makes month-end reconciliation a matching exercise instead of archaeology. Businesses selling to larger companies discover the reverse need: the client demands a PO number on every invoice, and now they can run the system from both sides.",
+      "Event and project managers commit budgets in writing, per supplier, against which every invoice must justify itself. And any buyer burned once by 'the price went up since we spoke' adopts the PO habit permanently, which is how everyone else adopted it too."
+    ],
+    "faqs": [
+      {
+        "q": "What is a PO number and why does it matter?",
+        "a": "Your sequential reference for the order. Quoted on the supplier's invoice and delivery paperwork, it ties every document about the order together, which is what makes disputes short and reconciliation possible. Keep the sequence gap-free in your records."
+      },
+      {
+        "q": "Is a purchase order a contract?",
+        "a": "An accepted PO generally forms one: offer at stated prices, accepted by confirmation or by shipping. That is why the prices, quantities and terms on it matter, and why the footer asks for confirmation. Large or complex purchases still deserve a proper agreement above it."
+      },
+      {
+        "q": "What is three-way matching?",
+        "a": "The control larger companies run: PO, delivery note and invoice must all agree before payment. A small business does it with this PO, our packing slip on arrival, and the supplier's invoice: three documents, one order, no surprises paid for."
+      },
+      {
+        "q": "Do small businesses really need POs?",
+        "a": "For ad-hoc buying, no. From the moment orders repeat or exceed pocket-money amounts, the PO habit costs one minute per order and prevents exactly the disputes that cost afternoons. Suppliers also take numbered buyers more seriously; the effect is real."
+      },
+      {
+        "q": "PO number on their invoice does not match mine. Now what?",
+        "a": "That is the system working: refuse the mismatch, ask for a corrected invoice quoting your PO. The discipline sounds bureaucratic until the day two orders' invoices arrive tangled, which is the day it becomes obvious."
+      },
+      {
+        "q": "Is my order data uploaded?",
+        "a": "No. The PDF builds in your browser; what you buy, from whom, at what price stays your business."
+      },
+      {
+        "q": "Do I need a PO for services, not just goods?",
+        "a": "They shine there too: scope, deliverables and agreed rates on a numbered document prevent exactly the drift that service engagements suffer. Agencies and contractors working against client POs also get paid faster, since accounts payable can match the invoice without questions."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

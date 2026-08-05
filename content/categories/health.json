@@ -1,0 +1,18 @@
+{
+  "name": "Health Tools",
+  "emoji": "🩺",
+  "color": "#65A30D",
+  "order": 4,
+  "icon": "activity",
+  "desc": "Calories, body metrics and dates. Standard formulas, everything on your device.",
+  "seo": {
+    "heading": "Health calculators with the formulas shown",
+    "paragraphs": [
+      "Health numbers deserve two things they rarely get online: the actual published formula, and privacy. Every calculator here names the equation it uses, and everything you enter about your body stays in your browser, because weight, measurements and due dates are nobody's marketing data.",
+      "The [calorie calculator](/tools/calorie-calculator/) runs the Mifflin-St Jeor equation for BMR and TDEE, and the [macro calculator](/tools/macro-calculator/) splits the result into protein, carbs and fat for your goal. The [body fat calculator](/tools/body-fat-calculator/) uses the US Navy tape method, the [ideal weight calculator](/tools/ideal-weight-calculator/) shows four published formulas side by side instead of pretending one is truth, and the [BMI calculator](/tools/bmi-calculator/) does the classic screen with its limits stated. The [water intake calculator](/tools/water-intake-calculator/) and [pregnancy due date calculator](/tools/pregnancy-due-date-calculator/) round out the set.",
+      "None of this is medical advice, and every page says so where it matters. These are the standard screening formulas clinicians and coaches start from, computed exactly, with their assumptions in the open."
+    ],
+    "metaTitle": "Health Calculators: Calories, Body Fat, Due Date",
+    "metaDescription": "Free health calculators using the published formulas: Mifflin-St Jeor calories, Navy body fat, ideal weight, water intake and pregnancy due date. Private."
+  }
+}

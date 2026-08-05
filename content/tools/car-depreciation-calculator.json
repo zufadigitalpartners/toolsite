@@ -1,0 +1,82 @@
+{
+  "name": "Car Depreciation Calculator",
+  "icon": "car",
+  "emoji": "🚗",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 18,
+  "short": "The biggest cost of a car has no monthly bill. See it, year by year.",
+  "seo": {
+    "metaTitle": "Car Depreciation Calculator: Value Year by Year",
+    "metaDescription": "Project a car's value with the standard depreciation curve, editable rates, and a year-by-year table. The real cost of ownership, made visible.",
+    "keywords": [
+      "car depreciation calculator",
+      "car value calculator",
+      "vehicle depreciation",
+      "how much is my car worth",
+      "new vs used car cost",
+      "car resale value"
+    ]
+  },
+  "content": {
+    "intro": [
+      "The most expensive thing about a car is invisible on every statement: it sheds value continuously, hardest at the start, and the total dwarfs fuel and insurance for most owners. The industry's rule of thumb is brutal in print: around twenty percent gone in the first year, then roughly fifteen percent of the remaining value each year after. Five years in, half the price has quietly left, and nobody ever received an invoice for it.",
+      "This calculator draws that curve for any price, with both rates editable because brands and markets genuinely differ: durable-reputation models shed slower, luxury cars and many EVs faster, and your local used market has its own opinions. The table shows value and cumulative loss year by year, which reframes two of the biggest money decisions people make: whether to buy new, and how long to keep."
+    ],
+    "howto": [
+      "Enter the price of the car when new.",
+      "Adjust the first-year and later-year loss rates if you know your model's reputation; the defaults are the industry rule of thumb.",
+      "Set the years to project.",
+      "Read the headline: value at the end, total lost, and the share of the price gone.",
+      "Scan the table for the shape: the early years do the damage, the later years flatten.",
+      "Compare a new purchase against a three-year-old one by running both prices; the difference is what someone else already paid."
+    ],
+    "benefits": [
+      "The three-year-old-car argument makes itself once the table exists: the first owner absorbs the cliff, the second buys the flat part of the curve, and running both scenarios prices the difference exactly. Per-year cost of ownership falls out of the same table, and it is the number that settles keep-or-replace debates: an older car losing four percent of a small value each year is astonishingly cheap to own compared with anything new, whatever the repair bills feel like. Leasing quotes become decodable too, since a lease is depreciation plus financing plus margin, and knowing the depreciation reveals the rest.",
+      "The tool is equally clear about what it is not: a valuation. Real prices swing with mileage, condition, colour, fuel type and market moods that no curve predicts, and selling or insurance arguments deserve live listings for your exact model and year. The model here is for decisions and comparisons, where the shape of the curve, applied consistently, is precisely what is needed. It sits naturally beside the [loan comparison tool](/tools/loan-comparison/) when financing enters the picture, and the [net worth calculator](/tools/net-worth-calculator/), where the car's honest current value belongs, updated yearly and downward.",
+      "The table also reveals the trade-cycle trap that finances most dealerships: swapping cars every three years means permanently living on the steepest part of every curve, paying the cliff again and again, usually wrapped in financing that obscures it. The owner who buys at three years and keeps until ten pays one flat stretch instead of three cliffs. Across a driving lifetime the difference funds a house deposit, and the table makes it countable rather than rhetorical."
+    ],
+    "useCases": [
+      "The new-versus-used decision is the headline case, run in two tabs with real prices from local listings. Budgeters add the yearly depreciation line to fuel and insurance for the true cost of the car habit, a number that has redirected many people toward the three-year-old market or better public transport. Keep-or-replace deliberations use the flattening curve: the old car's cheap remaining depreciation against a new one's steep opening years.",
+      "Sellers time the market knowingly: value sheds every year regardless, and the table shows what waiting another two years donates. Lease evaluators reverse-engineer quotes. And parents helping a first-time buyer have, in the table, the whole lecture about why the shiny new one is the expensive one, pre-delivered by arithmetic."
+    ],
+    "faqs": [
+      {
+        "q": "Are the default rates accurate for my car?",
+        "a": "They are the industry-wide rule of thumb: about 20% in year one, about 15% of remaining value yearly after. Reliable-reputation brands shed slower, luxury models and many EVs faster, and markets differ by country. Adjust the rates toward your model's used listings for a closer fit."
+      },
+      {
+        "q": "Why do cars lose so much in the first year?",
+        "a": "The showroom premium evaporates on contact: taxes and dealer margin are unrecoverable, the car becomes legally used, and the first owner pays for the new-car experience. Mechanically the car is nearly identical a year later; financially it is a different object."
+      },
+      {
+        "q": "Do electric cars depreciate differently?",
+        "a": "Many have shed faster so far: battery-life anxiety, rapid model turnover and price cuts on new EVs pushed used values down. That may stabilize as batteries prove out. For an EV, set a steeper first-year rate and check your model's actual used market."
+      },
+      {
+        "q": "How do I slow depreciation?",
+        "a": "Buy the curve, not the car: enter at three years old, keep it long, maintain records, choose sober colours and durable brands. Mileage matters too. Nothing stops depreciation; buying used and holding long simply makes someone else pay the steep part."
+      },
+      {
+        "q": "Is this a valuation of my actual car?",
+        "a": "No: it is a planning model. Real value depends on mileage, condition and the local market this week. For selling or insurance, check live listings for your exact model, year and mileage; for decisions and comparisons, the curve is the honest tool."
+      },
+      {
+        "q": "Is anything stored?",
+        "a": "No. Prices and rates stay in your browser and vanish with the tab."
+      },
+      {
+        "q": "Does mileage matter more than age?",
+        "a": "They interact: age drives the curve here, and unusually high or low mileage shifts a specific car off it, roughly a band either side. Very low-mileage older cars carry their own risks, since seals and batteries age by calendar. For valuation precision, listings for your exact mileage bracket beat any curve."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

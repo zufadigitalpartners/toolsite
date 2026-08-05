@@ -1,7 +1,7 @@
 {
   "name": "BMI Calculator",
   "emoji": "⚖️",
-  "category": "content/categories/calculators.json",
+  "category": "content/categories/health.json",
   "popular": true,
   "order": 15,
   "short": "Work out your body mass index in metric or imperial units.",

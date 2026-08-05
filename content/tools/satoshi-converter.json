@@ -1,0 +1,82 @@
+{
+  "name": "Satoshi Converter",
+  "icon": "bitcoin",
+  "emoji": "₿",
+  "category": "content/categories/crypto.json",
+  "popular": false,
+  "order": 5,
+  "short": "BTC, sats, mBTC and bits, converted exactly, with value at any price.",
+  "seo": {
+    "metaTitle": "Satoshi Converter: BTC to Sats, Exact",
+    "metaDescription": "Convert between bitcoin, satoshi, millibitcoin and bits with exact integer math, and value any amount at a price you set. No API, works offline.",
+    "keywords": [
+      "satoshi converter",
+      "btc to sats",
+      "sats to usd",
+      "satoshi to bitcoin",
+      "bitcoin unit converter",
+      "how many satoshis in a bitcoin"
+    ]
+  },
+  "content": {
+    "intro": [
+      "One bitcoin is exactly one hundred million satoshi, and between those two units live the slips that cost people money: a misplaced decimal reading a fee, a lightning invoice in sats mistaken for something else, a 0.001 that should have been 0.0001. This converter moves between BTC, satoshi, millibitcoin and bits with the decimal handled by arithmetic instead of eyesight, and it does the sums in whole satoshi underneath, so the four lines can never disagree by a floating-point hair.",
+      "Type into whichever unit you have and the others update instantly. Add the current price in your currency, typed by you rather than fetched, and any amount gets its money value: what 50,000 sats are worth today, what your currency buys in sats. No price feed, no API, no tracking; the page works offline once loaded, which is exactly how a unit converter should behave."
+    ],
+    "howto": [
+      "Type the amount you have into its unit's box: BTC, mBTC, bits or satoshi.",
+      "Read the other three boxes; they convert as you type, exact to the satoshi.",
+      "For money values, type the current BTC price in your currency into the price field.",
+      "The value line then prices your amount at that rate.",
+      "Working backwards from money? Enter the price, then adjust the BTC amount until the value matches your budget.",
+      "The page keeps working offline; the price is whatever you last typed, which the page reminds you of by never pretending to know it."
+    ],
+    "benefits": [
+      "Exactness is the feature. Floating-point arithmetic famously mangles small decimals, and 0.1 plus 0.2 not equalling 0.3 is cute in a programming talk and unfunny in a transaction. This converter stores everything as integer satoshi and derives the display from that, so what you see is exact at every magnitude from one sat to twenty-one million coins. The units carry their history honestly too: millibitcoin and bits were pushes to make small amounts readable, lightning wallets standardized on sats, and knowing all four means no interface can confuse you.",
+      "Typing the price rather than fetching it is a deliberate choice, and not only for privacy. A fetched price is one exchange's number at one moment with one spread; the price that matters is the one on the screen where you are about to transact. Type that, and the conversion speaks your reality. It also means this page makes no requests at all once loaded: no analytics event fires when you check what your holdings are worth, which is information no website deserves. For the trade arithmetic around these amounts, the [crypto profit calculator](/tools/crypto-profit-calculator/) and [crypto average cost calculator](/tools/crypto-average-cost-calculator/) pick up where units end.",
+      "Thinking in sats is also a practical defence against unit-slip scams and interface tricks: a wallet showing 0.00120000 invites misreading in ways 120,000 sats does not, and fee screens quoting sats-per-byte become comparable across wallets once the unit is second nature. The converter is training wheels for that fluency, and the integer arithmetic underneath means the fluency is built on exact numbers rather than rounded ones."
+    ],
+    "useCases": [
+      "Lightning users convert constantly: invoices arrive in sats, balances display in BTC, and the mental decimal shuffle is exactly where errors live. Fee-watchers convert the sats-per-byte arithmetic of on-chain fees into money to decide whether a transaction can wait. Newcomers use it to de-mystify: discovering that their modest holding is a satisfying number of satoshi is a small pleasure, and discovering how much a whole coin costs in sats-per-unit-of-currency terms is an education.",
+      "Sellers and freelancers pricing in bitcoin quote cleanly by converting their local price at their chosen rate. And anyone reading old posts, where amounts appear in mBTC and bits, translates the archaeology into modern units in a keystroke."
+    ],
+    "faqs": [
+      {
+        "q": "How many satoshi are in one bitcoin?",
+        "a": "Exactly 100,000,000, one hundred million. The satoshi is bitcoin's smallest unit, an eight-decimal subdivision named after its pseudonymous creator. A millibitcoin is 100,000 sats; a bit is 100."
+      },
+      {
+        "q": "Why does the converter not show a live price?",
+        "a": "By design. Fetching a price would need a server call, ending the page's offline and no-tracking behaviour, and it would be one exchange's number rather than yours. Type the price from the screen you are actually transacting on; the conversion is then exact for your situation."
+      },
+      {
+        "q": "What are mBTC and bits, and does anyone use them?",
+        "a": "Millibitcoin (a thousandth) and bits (a millionth) were readability pushes from bitcoin's earlier years. Sats won. They remain here because older posts, some wallets and some price displays still speak them."
+      },
+      {
+        "q": "Is the math really exact?",
+        "a": "Yes: everything converts through whole satoshi internally, so the lines always agree exactly and no floating-point drift can appear, at any size from 1 sat upward."
+      },
+      {
+        "q": "Can I price in currencies other than dollars?",
+        "a": "Any currency: the price field is unitless, so type the BTC price in rupees, euros or dirhams and the value line answers in the same currency. The tool never asks which one because it never needs to know."
+      },
+      {
+        "q": "Does anything I type leave my device?",
+        "a": "No. There is no server side, no price feed, and no analytics on your amounts. Load the page, go offline, and everything still works."
+      },
+      {
+        "q": "Why do wallets show different decimal places?",
+        "a": "Display choice: BTC amounts truncate or pad to different precisions per wallet, which is cosmetic. The underlying ledger counts whole satoshi, exactly as this converter does, so converting to sats is how you compare two wallets' displays without the cosmetics."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

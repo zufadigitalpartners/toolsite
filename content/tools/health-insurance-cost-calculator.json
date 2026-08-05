@@ -1,0 +1,82 @@
+{
+  "name": "Health Insurance Cost Calculator",
+  "icon": "medical-cross",
+  "emoji": "🏥",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 17,
+  "short": "Deductible, coinsurance, out-of-pocket max: what a medical bill costs YOU.",
+  "seo": {
+    "metaTitle": "Health Insurance Cost Calculator: Your Share of a Bill",
+    "metaDescription": "See exactly how a medical bill splits between you and your insurance: deductible, coinsurance and out-of-pocket maximum, computed step by step.",
+    "keywords": [
+      "health insurance calculator",
+      "deductible calculator",
+      "coinsurance calculator",
+      "out of pocket maximum",
+      "medical bill calculator",
+      "how much will i pay hospital"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Health insurance is a machine with three gears, and almost nobody is taught how they mesh: the deductible you pay first, the coinsurance split after it, and the out-of-pocket maximum that finally caps your year. The confusion is not cosmetic; people delay care they could afford and agree to bills they should question, because the policy language reads like it was designed to prevent arithmetic. This calculator is that arithmetic, done in the open, step by step.",
+      "Enter your plan's three numbers, what you have already paid this year, and a bill. The tool walks the bill through the gears and shows the split: your share, the insurer's share, and how much room remains before your cap. The explanation line narrates each stage with your numbers, because the point is not just the answer but finally seeing the machine work."
+    ],
+    "howto": [
+      "Enter the bill amount you are expecting or holding.",
+      "Enter your plan's yearly deductible and how much of it you have already met this year.",
+      "Enter the coinsurance percentage you pay after the deductible; 20% is common.",
+      "Enter the out-of-pocket maximum and what you have already spent toward it.",
+      "Read the split: your payment, the insurer's, and the distance left to your cap.",
+      "The narration below shows each stage: deductible first, then coinsurance, then the cap taking over if reached."
+    ],
+    "benefits": [
+      "The narration is the product: not just what you owe, but which gear produced each part of it. Watching a large bill hit the deductible, spill into coinsurance and slam into the out-of-pocket cap teaches the year's most valuable insurance lesson: after the cap, covered in-network care costs you nothing more, and timing elective care into a year where the cap is already met is worth real money. People who grasp that schedule surgeries differently, and this page exists to make the grasping take five minutes.",
+      "The tool is deliberately plan-agnostic and country-flexible: deductibles, coinsurance and caps appear under various names in many systems and in private cover generally, and the arithmetic is identical wherever the three gears exist. It is equally deliberate about limits: real policies add copays, network tiers, excluded services and prior authorizations that no calculator can read from your PDF. The answer here is the standard mechanism on your numbers; the policy document remains the law. For budgeting around the results, the [budget calculator](/tools/budget-calculator/) and the [savings goal calculator](/tools/savings-goal-calculator/) put the out-of-pocket maximum where it belongs: pre-funded, as the emergency number it is.",
+      "The calculator also equips the specific phone call that saves the most money: pre-authorization and network confirmation before planned care. Running the numbers shows what an in-network procedure costs you under the gears; asking the provider to confirm network status and the insurer to pre-authorize converts that estimate into something enforceable. The gap between quoted and billed medicine lives largely in those two unmade phone calls, and arriving with the arithmetic done changes both conversations."
+    ],
+    "useCases": [
+      "The pre-procedure estimate is the classic: a quoted price, five plan numbers, and a realistic figure for what reaches your account, before agreeing to dates. Bill-checking is its twin: hospitals miscalculate patient shares surprisingly often, and a bill that does not match the gears' arithmetic deserves a phone call with this page open.",
+      "Open-enrollment season turns it into a comparison engine: the low-premium plan with the huge deductible against the pricier plan with the low one, each run against your family's realistic bad-year bills, converts a premium decision into a total-cost decision, which is the only version worth making. And parents budgeting for a birth, the commonest large planned bill, use the cap logic to know the worst case in advance."
+    ],
+    "faqs": [
+      {
+        "q": "What is a deductible, exactly?",
+        "a": "The amount you pay for covered care each year before the insurer starts sharing. It resets yearly. Premiums do not count toward it; only qualifying bills do, and some services may bypass it entirely per your policy."
+      },
+      {
+        "q": "How does coinsurance differ from a copay?",
+        "a": "Coinsurance is a percentage split of the bill after the deductible: you pay 20%, the insurer 80%. A copay is a flat fee per visit regardless of the bill. Many plans use both for different services; this calculator models the deductible-plus-coinsurance path, the one that dominates large bills."
+      },
+      {
+        "q": "What does the out-of-pocket maximum include?",
+        "a": "Typically your deductible, coinsurance and copays for covered in-network care, summed across the year. Premiums never count, and out-of-network care often has a separate, higher cap or none. After the cap, covered care is fully paid by the insurer for the rest of the year."
+      },
+      {
+        "q": "Why is my hospital bill different from the calculation?",
+        "a": "Common causes: services billed out-of-network, items the policy excludes, copays alongside coinsurance, or negotiated rates differing from the sticker price the hospital quoted. A mismatch is precisely the signal to request an itemized bill and ask questions; the arithmetic here gives you the baseline to argue from."
+      },
+      {
+        "q": "Does this work outside the US?",
+        "a": "Wherever cover uses a deductible or excess, a percentage split and a yearly cap, which includes much private insurance worldwide, the mechanism and the calculator apply. Names change by country; the gears do not."
+      },
+      {
+        "q": "Is my health information stored?",
+        "a": "No, and the tool never asks what the bill is for: only amounts. Everything computes in your browser and disappears with the tab."
+      },
+      {
+        "q": "What is the difference between deductible and premium?",
+        "a": "The premium is the subscription: paid monthly, keeps the policy alive, counts toward nothing else. The deductible is the yearly amount you pay for care before cost-sharing begins. Low-premium plans usually carry high deductibles and vice versa, which is why comparing plans on premium alone is the classic open-enrollment mistake."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

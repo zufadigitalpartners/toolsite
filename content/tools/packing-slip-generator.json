@@ -1,0 +1,82 @@
+{
+  "name": "Packing Slip Generator",
+  "icon": "clipboard-list",
+  "emoji": "📦",
+  "category": "content/categories/ecommerce.json",
+  "popular": false,
+  "order": 10,
+  "short": "What is in the box, minus the prices. The document that belongs in the parcel.",
+  "seo": {
+    "metaTitle": "Free Packing Slip Generator: No-Price Shipping PDF",
+    "metaDescription": "Create packing slips with items and quantities but no prices: for parcels, gifts and clean warehouse checking. Built in your browser, no signup.",
+    "keywords": [
+      "packing slip generator",
+      "packing slip template",
+      "shipping document",
+      "packing list pdf",
+      "delivery note",
+      "packing slip without prices"
+    ]
+  },
+  "content": {
+    "intro": [
+      "The document inside the box has one job: say what the box contains so the receiver can check it, and one rule: no prices. The invoice, with its money talk, goes to whoever pays, by email or post; the packing slip travels with the goods, readable by warehouse staff, couriers, receptionists and gift recipients, none of whom need to know what anything cost. Mixing the two documents is the small-business tell; separating them is one click of professionalism.",
+      "This generator produces the price-free version from the same engine and saved details as our other document tools: sender and ship-to blocks, the order number the receiver will match against their records, the ship date, and item lines with quantities only. The total line counts items, not money, and the footer invites the receiver to check contents against the slip, which is the entire ceremony of goods-in, printed."
+    ],
+    "howto": [
+      "Your details load as the sender; enter the delivery address in the ship-to block.",
+      "Reference the order number, so the receiver can match the parcel to their purchase.",
+      "List the items and quantities; descriptions should match what the buyer ordered by name.",
+      "Add handling notes where they help: fragile, wrapped individually, box 1 of 2.",
+      "Download the PDF and put it in the parcel; keep a copy against the courier's tracking.",
+      "For business buyers, the slip is their goods-in document; expect it to come back annotated if anything is short."
+    ],
+    "benefits": [
+      "The no-price design is the feature, and gift orders prove it weekly: marketplace sellers shipping presents directly to recipients need contents documented without the awkwardness of a price tag in the birthday box, and 'packing slip without prices' is one of the most-searched document questions among small sellers for exactly that reason. Business receivers want the same document for a different motive, since warehouse checkers should verify quantities without payroll browsing the invoice values.",
+      "The slip also carries the humble operational load of shipping: multi-box orders get 'box 1 of 2' clarity, short shipments get caught at the door instead of at month-end, and the courier dispute about what was actually sent meets a dated document rather than a memory. Together with the [purchase order generator](/tools/purchase-order-generator/) on the buying side and the [invoice generator](/tools/invoice-generator/) on the money side, it completes the three-document set that makes small-scale trade auditable, which is the entire paperwork stack most product businesses ever need. The [barcode generator](/tools/barcode-generator/) labels the boxes these slips travel inside.",
+      "The check-at-the-door ceremony the slip enables has a quiet insurance function: shortages and damage claimed against couriers or suppliers succeed on documentation and die on memory, and the slip is the dated inventory that starts every successful claim. Receivers who annotate and photograph against the slip at delivery hold evidence; those who unpack casually hold opinions. One sheet of paper decides which side of that line an operation lives on."
+    ],
+    "useCases": [
+      "Marketplace and independent sellers drop one in every parcel: the professional touch that costs a sheet of paper and reads as an operation rather than a hobby. Gift-heavy shops make it standard, since any parcel might be going to someone who should never see prices. Makers shipping wholesale orders give the shop's goods-in process the document it expects, and get fewer 'we think something was missing' emails, because checking happened at the door.",
+      "Households shipping belongings, movers and senders of multi-box consignments use the box-of-N pattern to keep consignments countable. And sellers facing courier claims discover the slip's dated inventory is exactly the evidence the claim form wants."
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between a packing slip and an invoice?",
+        "a": "Audience and money: the invoice bills the buyer and shows prices; the slip travels with the goods and shows contents only. Buyer and receiver are often different people, gifts and company orders especially, which is why the two documents exist separately."
+      },
+      {
+        "q": "Is a packing slip the same as a delivery note?",
+        "a": "Near enough: naming varies by country and trade. Both list what was delivered without necessarily pricing it; a delivery note sometimes adds a signature line for proof of delivery, which the notes field here can carry."
+      },
+      {
+        "q": "Do I legally need packing slips?",
+        "a": "Rarely by law for ordinary domestic parcels; practically, business buyers expect them and disputes reward them. International shipments need customs documents, which are their own regulated thing and not this slip."
+      },
+      {
+        "q": "Why exclude prices from the parcel?",
+        "a": "Gifts, privacy, and clean operations: recipients are not always buyers, warehouse checking does not need values, and paper in transit is readable by anyone who opens the box. The invoice reaches the payer separately and securely."
+      },
+      {
+        "q": "How do I handle an order shipped in several boxes?",
+        "a": "One slip per box listing that box's contents with 'box 1 of 3' in the notes, or one master slip in box one listing everything with box numbers per line. Either way the receiver can count to done."
+      },
+      {
+        "q": "Is my shipping data uploaded?",
+        "a": "No. Addresses and contents stay in your browser and in the paper you print."
+      },
+      {
+        "q": "Should the sender or receiver keep the slip?",
+        "a": "Both: the copy in the box serves the receiver's check, the sender's file copy pairs with the courier tracking. When a claim or dispute arrives, the two copies plus photos are the whole case file."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

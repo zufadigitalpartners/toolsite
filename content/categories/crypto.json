@@ -1,0 +1,18 @@
+{
+  "name": "Crypto Tools",
+  "emoji": "🪙",
+  "color": "#C2410C",
+  "order": 8,
+  "icon": "coins",
+  "desc": "Profit, cost basis, staking and DeFi math. No wallet, no API, no tracking.",
+  "seo": {
+    "heading": "Crypto calculators that never see your wallet",
+    "paragraphs": [
+      "Crypto tooling has a trust problem: portfolio apps want wallet addresses, exchanges want API keys, and every calculator site is wrapped in affiliate links to exchanges. The tools here are plain arithmetic in your browser. No wallet connection exists to ask for, no prices are fetched, and nothing you type is stored. You bring the numbers, the math runs on your device, and that is the entire transaction.",
+      "The [crypto profit calculator](/tools/crypto-profit-calculator/) settles the after-fees question every trade ends with, and the [average cost calculator](/tools/crypto-average-cost-calculator/) turns a messy series of buys into one honest cost basis and break-even price. The [staking rewards calculator](/tools/staking-rewards-calculator/) compounds an APY forward, the [impermanent loss calculator](/tools/impermanent-loss-calculator/) puts a number on the liquidity-pool trade-off, and the [satoshi converter](/tools/satoshi-converter/) moves between BTC, sats and value without the unit slips that cost real money.",
+      "For the trading side, the [position size calculator](/tools/position-size-calculator/) in our finance section does the risk arithmetic that keeps accounts alive. None of this is investment advice; it is the arithmetic under your own decisions, computed correctly and privately."
+    ],
+    "metaTitle": "Crypto Calculators: Profit, Staking, DeFi Math",
+    "metaDescription": "Free crypto calculators for profit after fees, average cost basis, staking rewards, impermanent loss and satoshi conversion. No wallet, no tracking."
+  }
+}

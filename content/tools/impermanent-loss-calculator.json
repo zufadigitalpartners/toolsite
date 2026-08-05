@@ -1,0 +1,82 @@
+{
+  "name": "Impermanent Loss Calculator",
+  "icon": "waves",
+  "emoji": "🌊",
+  "category": "content/categories/crypto.json",
+  "popular": false,
+  "order": 3,
+  "short": "Put a number on the liquidity-pool trade-off before you provide.",
+  "seo": {
+    "metaTitle": "Impermanent Loss Calculator: LP vs Just Holding",
+    "metaDescription": "Calculate impermanent loss for a 50/50 liquidity pool at any price change, and compare providing liquidity against simply holding. Free and private.",
+    "keywords": [
+      "impermanent loss calculator",
+      "liquidity pool calculator",
+      "defi calculator",
+      "lp calculator",
+      "amm impermanent loss",
+      "yield farming loss"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Providing liquidity sounds like free yield until the price moves. The pool constantly rebalances your two assets against each other, and the result is a position mathematically guaranteed to be worth less than simply holding the same deposit whenever prices diverge. That gap is impermanent loss, it has an exact formula, and this calculator computes it: for a 50/50 pool, IL equals 2 times the square root of the price ratio, divided by one plus the ratio, minus one.",
+      "Enter what you deposited and how one asset's price has moved against the other, and you get the loss percentage, the value of your LP position, and what holding would have been worth. The reference table shows the whole curve at a glance: a 25% move costs 0.6%, a doubling costs 5.7%, a four-fold move costs 20%. Whether the pool's trading fees repaid that gap is the entire profitability question of liquidity provision, and now it is a comparison of two visible numbers."
+    ],
+    "howto": [
+      "Enter the value of your deposit when you entered the pool.",
+      "Enter the price change factor between the two assets since then: 2 if one doubled against the other, 0.5 if it halved.",
+      "Read the impermanent loss percentage and the two values: your LP position versus having simply held.",
+      "The difference in money is the fee income the pool must have paid you for providing to have been worth it.",
+      "Check the reference table to see how the loss curve steepens with bigger moves.",
+      "Considering a volatile pair? Read the 4x row first and imagine it happening, because in crypto it does."
+    ],
+    "benefits": [
+      "The number most people meet too late is that the loss is symmetric: the formula only cares about divergence, so a halving costs exactly what a doubling costs, 5.72%. Providers imagine they are safe if their favourite asset pumps; the pool disagrees and sells it down all the way up. Seeing this before depositing, with the curve in a table, is worth more than any yield-farm APY banner, because that banner is precisely what the impermanent loss must be subtracted from.",
+      "The tool states its scope honestly: the classic 50/50 constant-product pool, the design most pairs on major DEXes still use. Concentrated liquidity positions lose faster inside their range, and weighted pools lose differently; the principle transfers, the exact numbers do not. Fees earned are excluded on purpose, because they vary by pool and period; the calculator gives you the hurdle, your pool dashboard gives the fee income, and profitability is the comparison. For the wider position, the [crypto average cost calculator](/tools/crypto-average-cost-calculator/) tracks the assets themselves, and the [staking rewards calculator](/tools/staking-rewards-calculator/) prices the boring alternative that never diverges.",
+      "One subtlety the calculator's symmetry teaches: providing liquidity is effectively selling your winners continuously. As one asset rises, the pool rebalances away from it, which is why the LP position lags holding in every direction of divergence. Fees are the payment for that service, and framing it as a service you sell, rather than yield you farm, is the mental model that predicts which pools are worth it: high honest volume pays well for rebalancing, mercenary emissions do not."
+    ],
+    "useCases": [
+      "The moment before providing is the tool's best moment: pick the pair, imagine a realistic divergence over your holding period, and see the hurdle fees must clear. Stable pairs show why they are popular, hovering near zero loss; volatile pairs show why their APYs are high, because they must be. Existing providers use it in reverse, computing what a position has lost against holding and judging whether accumulated fees covered it.",
+      "It also serves the person explaining DeFi to a friend, because impermanent loss is the concept most mangled by influencers, and a live curve beats every analogy. And auditors of their own past decisions enter old positions to learn, sometimes wincing, what the farm actually yielded net."
+    ],
+    "faqs": [
+      {
+        "q": "Why is it called impermanent?",
+        "a": "Because it only becomes real when you withdraw; if prices return to the entry ratio, the loss vanishes. The name is optimistic marketing for what is, at any moment you might withdraw, a real gap against holding. Treat it as real when deciding."
+      },
+      {
+        "q": "Does the direction of the move matter?",
+        "a": "No, only the size of divergence. A doubling and a halving both cost 5.72% on a 50/50 pool. This surprises almost everyone, and it is why providing the asset you expect to pump underperforms just holding it."
+      },
+      {
+        "q": "Are trading fees included?",
+        "a": "No, deliberately. Fees vary by pool, volume and period, and pretending a number would hide the real question. The calculator gives the loss; your pool's dashboard gives the fees; providing was profitable if the second beats the first."
+      },
+      {
+        "q": "Does this apply to concentrated liquidity?",
+        "a": "The principle yes, the numbers no. Concentrated positions experience amplified impermanent loss within their range and stop earning outside it. The 50/50 formula here is the floor, not the ceiling, for those designs."
+      },
+      {
+        "q": "What about pools with unequal weights?",
+        "a": "An 80/20 pool suffers less impermanent loss than 50/50 for the same divergence, at the cost of less fee income per unit deposited. The formula here is the classic even split; weighted pools sit between it and just holding."
+      },
+      {
+        "q": "Is anything I enter recorded?",
+        "a": "No. The computation is a few lines of arithmetic in your browser, with no server behind it and nothing stored. Your positions are not our data."
+      },
+      {
+        "q": "Does impermanent loss apply to stablecoin pairs?",
+        "a": "Only to the extent the peg wobbles: two solid stables diverge by fractions of a percent, making IL nearly zero, which is why stable pools can pay modest fees and still net positive. A depegging event, however, is a large divergence with the full curve applied, and several famous losses live in that fine print."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

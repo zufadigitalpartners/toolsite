@@ -1,0 +1,82 @@
+{
+  "name": "Position Size Calculator",
+  "icon": "crosshair",
+  "emoji": "🎯",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 11,
+  "short": "Risk a fixed slice of the account, size every trade from the stop.",
+  "seo": {
+    "metaTitle": "Position Size Calculator: Risk-Based Sizing",
+    "metaDescription": "Size trades from your account, risk percent and stop-loss distance, with reward-to-risk on your target. For stocks, crypto and forex. Private and free.",
+    "keywords": [
+      "position size calculator",
+      "risk management calculator",
+      "stop loss position size",
+      "1 percent rule trading",
+      "trade size calculator",
+      "risk reward calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every blown trading account dies the same way: position sizes chosen by feeling, then one oversized trade meets one adverse move. The professionals' defence is boring and mechanical: decide what fraction of the account one trade may lose, put the stop where the idea is wrong, and let those two numbers dictate the size. Money at risk divided by risk per unit equals units. This calculator is that mechanism.",
+      "Enter the account, the risk percentage, entry and stop, and it returns the position size, its total value, and exactly what hits the account if the stop fires. Add a target and it computes reward-to-risk, the ratio that decides whether the setup deserves money at all. It works identically for stocks, crypto and forex, because risk arithmetic does not care what the chart is selling, and it detects short setups automatically from a stop above the entry."
+    ],
+    "howto": [
+      "Enter your account size and the percentage of it you accept losing on this one trade. One percent is the classic discipline; two is aggressive.",
+      "Enter the entry price and the stop-loss price where the idea is invalidated.",
+      "Read the position size in units, its total value, and the money at risk.",
+      "Add the target price to see reward-to-risk; below about 1.5:1, most setups are not worth taking.",
+      "If the position value exceeds the account, the tool states the leverage required, so it is a decision rather than a surprise.",
+      "Size every trade this way, and no single trade can end the account."
+    ],
+    "benefits": [
+      "The one-percent rule sounds absurdly conservative until it is framed as survival arithmetic: at 1% risk, ten consecutive losses, which happen to good strategies in bad months, cost under 10% of the account, fully recoverable. At 10% risk, the same streak destroys two thirds of it, and the arithmetic of recovery turns vicious, since a 65% loss needs a 186% gain to repair. Sizing from risk is the difference between a bad month and a funeral, and this calculator makes the discipline effortless.",
+      "The reward-to-risk line enforces the other professional habit: refusing trades. A setup risking 100 to make 80 is a donation with extra steps, whatever the win rate feels like; the ratio computed next to the size makes the refusal automatic. The leverage note keeps derivatives honest, stating the multiple required when the computed position exceeds the account instead of letting the exchange's slider decide. It composes with the [crypto profit calculator](/tools/crypto-profit-calculator/) for the after-fees view and the [cagr calculator](/tools/cagr-calculator/) for judging whether all this activity actually beats sitting still.",
+      "The deepest habit the calculator installs is separating conviction from size: the idea can be exciting while the position stays boring, because size is dictated by the stop distance and the risk budget, not by enthusiasm. Traders who let conviction size their positions are running a system where their most excited moments carry their largest risks, which is precisely backwards. Mechanical sizing makes the excited trades and the routine ones cost the same when wrong, which is the only condition under which a strategy's statistics mean anything."
+    ],
+    "useCases": [
+      "Day and swing traders run it before every entry, until the arithmetic becomes reflex; the calculator is training wheels that many keep permanently. Crypto traders on leverage use the leverage line as the honesty check their exchange's interface avoids providing. Forex traders translate pip-based stops into unit sizes without the customary spreadsheet.",
+      "Longer-horizon investors use it more quietly: even a position held for years has a level at which the thesis is wrong, and sizing from that level keeps any single conviction from being able to sink the portfolio. And anyone teaching a beginner has, in one page, the single most protective concept in trading with the arithmetic done live."
+    ],
+    "faqs": [
+      {
+        "q": "What risk percentage should I use?",
+        "a": "The classic discipline is 1% per trade, 2% for the aggressive. The test is streak survival: whatever percentage you pick, assume eight to ten straight losses will happen eventually and check the account survives them in a state you can rebuild from."
+      },
+      {
+        "q": "Where does the stop go?",
+        "a": "At the price where the trade idea is objectively wrong: below the support you bought, beyond the level that invalidates the pattern. Placing the stop from the size you want, rather than sizing from the stop you need, is the classic inversion that defeats the whole mechanism."
+      },
+      {
+        "q": "What does the leverage note mean?",
+        "a": "When the computed position value exceeds your account, you would need leverage to hold it: the note states the multiple. Tight stops produce large sizes; the risk money stays fixed, but liquidation risk and fees scale with the leverage, which deserves its own decision."
+      },
+      {
+        "q": "Does this work for forex pips?",
+        "a": "Yes, via prices: enter entry and stop as prices and the per-unit risk is their distance. For pip-denominated thinking, convert the pip distance into price terms first, then the units returned are base-currency units."
+      },
+      {
+        "q": "Is 2:1 reward-to-risk necessary?",
+        "a": "Not sacred, but instructive: at 1:1 you must win more than half your trades after fees to profit; at 2:1, forty percent wins suffice. The ratio buys tolerance for being wrong, which every honest trader needs more of than they think."
+      },
+      {
+        "q": "Is my account size stored?",
+        "a": "No. Everything computes in your browser and vanishes with the tab. Account sizes are private; this page has no server to tell."
+      },
+      {
+        "q": "Should the risk percent change with confidence?",
+        "a": "Systematic traders mostly say no: fixed fractional risk keeps the statistics interpretable and the account safe from enthusiasm. Some size up modestly on defined A-plus setups, a quarter to half percent more, with rules written before the trade. Doubling risk because this one feels certain is the classic account-ender."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

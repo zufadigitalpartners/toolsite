@@ -1,0 +1,82 @@
+{
+  "name": "Crypto Average Cost Calculator",
+  "icon": "layers",
+  "emoji": "🧮",
+  "category": "content/categories/crypto.json",
+  "popular": false,
+  "order": 2,
+  "short": "Turn a messy list of buys into one average cost and a true break-even.",
+  "seo": {
+    "metaTitle": "Crypto Average Cost Calculator: DCA Cost Basis",
+    "metaDescription": "List your buys and sells, get your average cost, break-even price and unrealized P/L. Perfect for DCA positions. Runs in your browser, nothing stored.",
+    "keywords": [
+      "crypto average cost calculator",
+      "crypto cost basis",
+      "dca calculator crypto",
+      "average down calculator",
+      "bitcoin average price calculator",
+      "crypto break even"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Anyone who buys crypto more than once eventually loses track of the only number that matters: the average price actually paid. Ten buys across two years, a couple of panic sells, a dip bought harder than planned, and the question 'am I up or down?' has no honest answer without arithmetic. This calculator is that arithmetic. List the trades, and it maintains the running position: coins held, money in, average cost, and the break-even price the market has to beat.",
+      "It handles sells properly, reducing the position at its average cost and tracking what those sells realized, which is where spreadsheet attempts usually go wrong. Add a current price and it prices the whole position: value now, unrealized profit or loss, and the percentage against your cost. Every row stays on your device; a list of your trades is a map of your holdings, and no website should be collecting that."
+    ],
+    "howto": [
+      "Add each trade as a row: buy or sell, the number of coins, and the price per coin.",
+      "Order does not matter for buys; sells apply against the average cost of everything bought before the calculation.",
+      "Read the average cost. That is your break-even: above it the position is green.",
+      "Enter today's price in the optional field to see the position valued, with unrealized P/L in money and percent.",
+      "Thinking about averaging down? Add the hypothetical buy as a row and watch the average move before spending anything.",
+      "The realized line shows what your sells have already banked, kept separate from paper gains."
+    ],
+    "benefits": [
+      "The averaging-down preview is the feature that earns the bookmark. Adding a hypothetical buy shows exactly where the new average lands, which turns 'should I buy the dip' from a feeling into a number: 0.5 more coins at 30,000 moves break-even from 45,000 to 40,000, and now the question is whether the market beats 40,000, stated plainly. People make calmer decisions when the number is in front of them, and worse ones when it is imagined.",
+      "The sell handling deserves its sentence: sells here reduce holdings at average cost, the portfolio convention, and the page says so rather than letting you assume. Tax authorities in many countries insist on FIFO or specific-lot accounting instead, which produces different realized figures; use your jurisdiction's method for tax and this tool for the trading truth. When the position closes entirely, the [crypto profit calculator](/tools/crypto-profit-calculator/) prices the single exit with fees, and the [percentage calculator](/tools/percentage-calculator/) covers the quick side-questions.",
+      "The tool also ends a specific self-deception: selective memory about the expensive buys. A position assembled across a bull run feels cheap because the early buys are the ones remembered fondly, while the euphoric top-ups fade; the list refuses the edit, averages everything, and the break-even that emerges is frequently a surprise in the sobering direction. Facing that number is better than trading around a flattering imaginary one, which is what most people otherwise do."
+    ],
+    "useCases": [
+      "DCA investors are the natural users: a standing weekly or monthly buy produces dozens of rows a year, and this page turns any number of them into one cost basis in seconds. Dip buyers use the hypothetical-row trick before every add. Anyone recovering their history from exchange statements rebuilds the position here and finally answers whether the whole adventure is up or down.",
+      "It also settles arguments. Two people who bought 'around the same time' compare averages rather than memories. And people switching wallets or exchanges, where history gets lost, reconstruct the position once and keep the list in a note for next time, since the tool stores nothing by design."
+    ],
+    "faqs": [
+      {
+        "q": "Which order do I enter trades in?",
+        "a": "For buys alone, any order gives the same average. Sells apply against the average of what was bought before them in the list, so keep the list roughly chronological if you have sold along the way."
+      },
+      {
+        "q": "How are sells handled exactly?",
+        "a": "A sell reduces coins at the current average cost and books the difference against the sell price as realized profit or loss. The remaining position keeps the same average, which matches how portfolio trackers behave, and differs from tax methods like FIFO."
+      },
+      {
+        "q": "Can I use this for stocks or gold?",
+        "a": "Yes. Nothing in the arithmetic is crypto-specific: any asset bought in lots at different prices averages the same way. Coins simply become shares or grams."
+      },
+      {
+        "q": "Why does my exchange show a different average?",
+        "a": "Exchanges variously include fees in cost basis, count only completed orders, or track per-account rather than per-coin. Add your fees into the prices you enter here if you want fee-inclusive basis; the arithmetic then matches the strictest definition."
+      },
+      {
+        "q": "Is my trade list stored anywhere?",
+        "a": "No. It lives on the page while the tab is open and disappears after. A list of trades reveals your entire position, which is exactly why this tool has no server, no analytics on your inputs, and nothing to remember you by."
+      },
+      {
+        "q": "What about fees on each trade?",
+        "a": "Fold them in: enter a slightly higher effective price for buys and lower for sells, or add fees as their own consideration when the position closes using our crypto profit calculator, which takes fees explicitly."
+      },
+      {
+        "q": "How many rows can I add?",
+        "a": "As many as your history needs; the arithmetic is instant at any realistic count. For years of dense DCA history, entering monthly subtotals instead of every single buy gives the same average with a tenth of the typing."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

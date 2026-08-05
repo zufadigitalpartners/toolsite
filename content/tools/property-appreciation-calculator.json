@@ -1,0 +1,82 @@
+{
+  "name": "Property Appreciation Calculator",
+  "icon": "trending-up",
+  "emoji": "📈",
+  "category": "content/categories/property.json",
+  "popular": false,
+  "order": 5,
+  "short": "Future property value, nominal and after inflation, without the folklore.",
+  "seo": {
+    "metaTitle": "Property Appreciation Calculator: Honest Projections",
+    "metaDescription": "Project property value at any growth rate, see it in today's money after inflation, and add rent for total return. The honest version of the housing dream.",
+    "keywords": [
+      "property appreciation calculator",
+      "house value calculator",
+      "real estate appreciation",
+      "home value in 10 years",
+      "property growth rate",
+      "house price projection"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Property appreciation is the most folklore-rich number in personal finance: everyone's uncle doubled his money, nobody adjusts for the twenty years it took or what money itself did meanwhile. The honest projection has two lines, and this calculator draws both: the nominal value the deed will show, and that value deflated into today's purchasing power. A house up 80 percent over a period when prices generally rose 60 is a modest real gain wearing a dramatic costume.",
+      "Enter today's value, a growth rate, years, and an inflation assumption; read the two lines and a horizon table. Add net rent if the property earns any, counted flat without compounding, the conservative reading, and the total-gain line completes the picture. The rate is yours to choose, and the notes say what the long-run record suggests: housing tends to track inflation plus a little, with local exceptions in both directions that never announce themselves in advance."
+    ],
+    "howto": [
+      "Enter the property's value today.",
+      "Set a yearly appreciation rate; the long-run average in most markets is inflation plus one to two points.",
+      "Set the years and an inflation rate for the honest second line.",
+      "Add net yearly rent if it earns any, after costs.",
+      "Read the nominal value, the today's-money value, and the horizon table.",
+      "Re-run with a flat and a pessimistic rate; conclusions that survive all three deserve belief."
+    ],
+    "benefits": [
+      "The two-line output is a vaccination against the oldest trick in property conversation, quoting nominal gains across inflationary decades as though they were wealth. Real, inflation-adjusted appreciation in most developed markets has averaged one to two percent yearly over long periods, punctuated by booms and stagnations that dominate anecdotes; the table shows what any assumed rate compounds into, and the deflated line shows what it means. Both lines together let a reader hold optimism and arithmetic simultaneously, which is rarer than it should be.",
+      "The rent line completes the return honestly, since total property return is appreciation plus net income, and skipping either half misprices the asset in whichever direction the speaker prefers. Counting rent flat is deliberate conservatism; reinvestment assumptions belong to the [rental yield calculator](/tools/rental-yield-calculator/) and the [compound interest calculator](/tools/compound-interest-calculator/), which compound what this line deliberately does not. For the decision this projection usually serves, the [rent vs buy calculator](/tools/rent-vs-buy-calculator/) runs the full comparison, and the [cagr calculator](/tools/cagr-calculator/) reduces any past property story, the uncle's included, to its honest yearly rate.",
+      "The flat-rate scenario earns its recommendation because property optimism is procyclical: belief in high appreciation peaks precisely when prices already have, which is historically the worst moment to need the belief. A purchase that only works at 6% forever is a leveraged bet on a number nobody controls; one that works at flat prices is a home with upside. Running both takes thirty seconds, and the discipline is the entire difference between planning and hoping."
+    ],
+    "useCases": [
+      "Owners project their equity horizon for retirement or the next move, in both currencies: the deed's and reality's. Heirs and sellers deciding hold-versus-sell run the property's realistic growth against what the sale proceeds could earn, finally comparing like with like. Buyers pressured by appreciation pitches enter the pitch's rate and watch the today's-money line deflate it in public.",
+      "Landlords add the rent line for the whole-return view that either justifies the tenancy hassle or does not. And anyone tempted to treat a single house as a retirement plan sees, in the flat-rate scenario, why diversification advice keeps surviving contact with property enthusiasm."
+    ],
+    "faqs": [
+      {
+        "q": "What appreciation rate is realistic?",
+        "a": "Long-run averages in most developed markets land near inflation plus one to two points, so 3 to 5 percent nominal in ordinary times. Specific cities and decades deviate wildly in both directions. Project your realistic rate and a flat one; the pair brackets the truth."
+      },
+      {
+        "q": "Why show the inflation-adjusted line?",
+        "a": "Because nominal gains across decades mostly restate inflation: a doubling over 24 years at 3 percent inflation is barely a real gain at all. The deflated line is the wealth line, and it is the one property folklore never quotes."
+      },
+      {
+        "q": "How is rent counted?",
+        "a": "Flat, net of costs, no compounding: yearly rent times years, the conservative floor. Reinvested rent compounds and our other calculators model that; this line deliberately understates rather than romanticizes."
+      },
+      {
+        "q": "Does this predict my house's value?",
+        "a": "No: it compounds an assumption you choose. Markets, streets and single houses deviate from every average. The tool exists to price scenarios honestly, which is different from prophecy and more useful."
+      },
+      {
+        "q": "Property or index funds?",
+        "a": "The honest comparison is total real return after costs on both sides, with leverage, effort and concentration counted. These pages give the property side its honest numbers; the decision involves your market, taxes and temperament, and belongs to you, possibly with an adviser."
+      },
+      {
+        "q": "Is anything stored?",
+        "a": "No. Values and rates stay in your browser and vanish with the tab."
+      },
+      {
+        "q": "Do renovations count as appreciation?",
+        "a": "No: improvements are capital you inject, not market growth, and mixing them flatters the rate. Track renovation spend separately against the value it adds, which for most projects is less than it cost, kitchens and bathrooms included. The market rate here is for the untouched asset."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

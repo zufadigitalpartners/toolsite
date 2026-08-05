@@ -1,0 +1,82 @@
+{
+  "name": "Calorie Calculator",
+  "icon": "apple",
+  "emoji": "🍎",
+  "category": "content/categories/health.json",
+  "popular": true,
+  "order": 1,
+  "short": "BMR and daily calories by the Mifflin-St Jeor equation, with honest goals.",
+  "seo": {
+    "metaTitle": "Calorie Calculator: BMR and TDEE, Mifflin-St Jeor",
+    "metaDescription": "Calculate your BMR and daily calorie needs with the Mifflin-St Jeor equation clinicians use, plus honest targets for losing or gaining. Private.",
+    "keywords": [
+      "calorie calculator",
+      "tdee calculator",
+      "bmr calculator",
+      "how many calories should i eat",
+      "maintenance calories",
+      "calorie deficit calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every diet argument eventually lands on the same floor: energy in against energy out. What 'out' actually is has a measured answer, and the equation clinicians use to estimate it has been the Mifflin-St Jeor since 1990: a formula over weight, height, age and sex that predicts resting burn better than the older Harris-Benedict it replaced. This calculator runs it, multiplies by an honestly-labelled activity factor, and gives you three numbers: BMR, maintenance, and a target for your goal.",
+      "The honesty concentrates in two places. The activity labels describe what the levels actually mean, because 'moderately active' in the literature means real training three to five days a week, not intending to gym; choosing flattering labels is the single commonest reason calculated calories fail. And the goal adjustments are stated plainly: five hundred below maintenance for a sustainable loss of roughly half a kilo a week, three hundred above for a lean gain, no crash numbers on offer."
+    ],
+    "howto": [
+      "Enter age, weight and height in kilograms and centimetres, and select your body type for the formula's constant.",
+      "Pick the activity level by what you actually do in a normal week, not an aspirational one.",
+      "Pick the goal: lose, maintain or gain.",
+      "Read the three numbers: BMR at complete rest, maintenance with your activity, and the goal target.",
+      "Eat near the target for two or three weeks and watch the scale's weekly average, not its daily noise.",
+      "Adjust by 100 to 200 in whichever direction reality votes; the formula starts the process, your data finishes it."
+    ],
+    "benefits": [
+      "Using the equation practitioners actually use matters, and so does saying its accuracy out loud: Mifflin-St Jeor predicts within about ten percent for most people, which on a 2,000-calorie budget is a 200-calorie error bar. That is not a flaw to hide; it is the reason the method is calculate-then-calibrate, and this page builds the calibration into the instructions rather than pretending the first number is destiny. Metabolisms vary; arithmetic plus two weeks of data beats arithmetic alone, every time.",
+      "The three-number output teaches the model most people are missing. BMR is what a coma would burn, the floor almost nobody should eat below; the activity multiplier turns it into maintenance, the actual break-even; and goals are deliberate distances from that break-even, not magic menus. Once that structure clicks, most diet marketing loses its power, which is the quiet purpose of the page. The [macro calculator](/tools/macro-calculator/) splits the target into protein, carbs and fat next, and the [water intake calculator](/tools/water-intake-calculator/) rounds out the basics. For medical situations, pregnancy or a history of disordered eating, a professional outranks every calculator, this one included, and the page says so.",
+      "A note on why the calculator resists crash numbers: very large deficits lose muscle alongside fat, slow the metabolism the plan depends on, and collapse adherence, which is the variable that actually predicts outcomes. The sustainable deficit that runs for eight months beats the heroic one abandoned in three weeks by every metric including speed. Boring is the technology; the calculator just refuses to pretend otherwise."
+    ],
+    "useCases": [
+      "The commonest user is starting a cut and wants a number that is neither a crash diet nor a guess: maintenance minus five hundred, run for three weeks, adjusted by results. Lifters use the gain target for controlled bulks where the surplus builds muscle rather than mostly storage. Maintainers, the forgotten majority, use the middle number after reaching a goal, which is exactly when most regain happens for lack of a target.",
+      "People whose loss has stalled recalculate at their new weight, because burn falls as bodies shrink and last year's deficit is this year's maintenance; the recalculation is the fix for most plateaus. And anyone comparing the calculator against a fitness tracker's burn estimate learns the honest hierarchy: equations and consistent tracking beat optimistic wristware."
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between BMR and TDEE?",
+        "a": "BMR is the burn at complete rest, the body's idle draw. TDEE multiplies it by an activity factor to estimate total daily burn, the break-even for eating. Targets are set against TDEE; BMR is the floor to respect, not a goal to eat at."
+      },
+      {
+        "q": "How accurate is Mifflin-St Jeor?",
+        "a": "Within roughly ten percent for most people, the best of the standard equations, which is why clinical practice adopted it. Treat the output as a strong starting estimate, run it for two or three weeks, and let your scale's weekly average calibrate it."
+      },
+      {
+        "q": "Which activity level should I pick?",
+        "a": "The one describing your actual week. Desk plus no training is sedentary; real workouts three to five days is moderate. Overstating activity is the classic error, adding hundreds of phantom calories. When torn between two levels, pick the lower and let results argue upward."
+      },
+      {
+        "q": "Is a 500-calorie deficit right for everyone?",
+        "a": "It is the sustainable default, roughly half a kilo a week. Smaller people and lean people cutting further should use smaller deficits; larger deficits trade muscle and adherence for speed and usually lose the trade. Slower is faster over a year."
+      },
+      {
+        "q": "Why did my weight loss stall?",
+        "a": "The commonest cause is arithmetic: a lighter body burns less, so the old target quietly became maintenance. Recalculate at the current weight. Water retention also masks fat loss for weeks at a time, which is why weekly averages, not daily readings, are the signal."
+      },
+      {
+        "q": "Is my data stored?",
+        "a": "No. Body statistics are computed in your browser and vanish with the tab: no account, no tracking, nothing sent anywhere."
+      },
+      {
+        "q": "Do I eat back exercise calories?",
+        "a": "The activity multiplier already counts your normal training, so eating back tracked workouts on top double-counts them, a classic stall cause. Only genuinely unusual extra activity, a hiking day for a desk worker, deserves extra fuel on that day."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

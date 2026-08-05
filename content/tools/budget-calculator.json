@@ -1,0 +1,82 @@
+{
+  "name": "Budget Calculator",
+  "icon": "pie-chart",
+  "emoji": "📋",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 15,
+  "short": "The 50/30/20 rule on your income, with the ratios yours to bend.",
+  "seo": {
+    "metaTitle": "Budget Calculator: 50/30/20 Rule, Adjustable",
+    "metaDescription": "Split your income into needs, wants and savings with the 50/30/20 rule, adjust the ratios to your city, and see the amounts instantly. Private and free.",
+    "keywords": [
+      "budget calculator",
+      "50 30 20 rule",
+      "budget planner",
+      "monthly budget calculator",
+      "needs wants savings",
+      "how to budget salary"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Most budgets fail by being novels: forty categories, tracked for three weeks, abandoned by the fourth. The 50/30/20 rule survives because it is a haiku: half the take-home for needs, thirty percent for wants, twenty for savings and debt beyond the minimums. Three buckets is few enough to actually run, and the split is strict enough to mean something. This calculator applies it to your income in one field, then lets you bend the ratios, because the rule is a starting point and your rent has opinions.",
+      "The honest part is the diagnosis it enables. Enter your income, then compare the needs bucket against your actual fixed costs: if rent, utilities, transport and groceries alone blow past fifty percent, the budget is not telling you to skip coffee, it is telling you the housing or transport is the problem, which is a harder truth and a more useful one. Rules of thumb earn their keep by making the real conversation unavoidable."
+    ],
+    "howto": [
+      "Enter your monthly take-home income, after tax.",
+      "Read the three amounts at the classic 50/30/20 split.",
+      "Adjust the percentages to your reality; the amounts follow, and the tool flags if they stop summing to 100.",
+      "Sort your actual spending into the three buckets, honestly: subscriptions are wants, minimum debt payments are needs, extra payments are the savings bucket.",
+      "Compare bucket by bucket. The overflowing one is where the work is.",
+      "Automate the savings bucket the day pay lands; what remains divides itself."
+    ],
+    "benefits": [
+      "Three buckets beat forty categories because classification is instant: any expense is a need, a want, or future-you, and the five-second sort keeps the system alive where detailed budgets die of administration. The bucket definitions carry the discipline: needs are what arrives whether you like it or not, wants are chosen, and the savings bucket includes debt payments beyond minimums, since both build net worth. That last classification quietly teaches the deepest lesson in the rule: paying down a card at 24% IS saving, at a guaranteed rate no market offers.",
+      "The adjustable ratios keep the rule honest across geographies. Fifty percent for needs is achievable in some cities and satire in others; a high-rent city might live at 60/20/20 without failure, and a low-cost one can push 40/30/30. The point is not the exact split but that a split exists, chosen deliberately, with the savings line automated first. The [savings goal calculator](/tools/savings-goal-calculator/) turns that line into targets with dates, the [debt payoff planner](/tools/debt-payoff-planner/) deploys it against debts in the cheapest order, and the [net worth calculator](/tools/net-worth-calculator/) keeps the score across quarters.",
+      "The automation advice hides the mechanism that makes the rule work at all: transfers that happen before spending is possible convert discipline from a daily performance into a one-time setup. Willpower budgets fail on the tired Thursday; standing orders do not have Thursdays. Set the savings transfer for payday, let needs bills draw as they always did, and the wants bucket becomes the only place decisions happen, which is exactly one bucket's worth of decisions more than most months can spare."
+    ],
+    "useCases": [
+      "First-salary earners are the perfect audience: three numbers, automated on payday, before lifestyle has opinions. Couples merging money use the buckets as neutral language, since 'our wants bucket is 40%' argues better than 'your shopping'. People whose money vanishes monthly run the diagnosis: sort one month's statement into three piles and the leak identifies itself, usually in the want-that-thinks-it-is-a-need aisle.",
+      "High earners who save nothing, a species more common than admitted, meet the percentages as a mirror: income minus lifestyle equals zero at any salary unless a ratio is enforced. And anyone counselling a friend in money trouble has, in one page, a framework simple enough to survive the conversation."
+    ],
+    "faqs": [
+      {
+        "q": "Is 50/30/20 before or after tax?",
+        "a": "After: take-home pay, what actually lands. If an employer pension contribution already saves for you, count it toward the 20 and let the cash split adjust; the rule cares about the function, not the label."
+      },
+      {
+        "q": "What counts as a need versus a want?",
+        "a": "Needs arrive regardless: rent, utilities, groceries, transport to work, insurance, minimum debt payments. Wants are chosen: restaurants, subscriptions, travel, upgrades. The honest test: what happens in a bad month if it stops? Needs have consequences; wants have feelings."
+      },
+      {
+        "q": "My needs are way over 50%. Am I failing?",
+        "a": "No, you are learning where the problem is, which most budgets never reveal. High-cost cities do this to everyone. Either the structural costs shift over time, housing being the big lever, or the ratios adjust to something sustainable and honest, like 60/20/20, chosen rather than suffered."
+      },
+      {
+        "q": "Do debt payments count as savings?",
+        "a": "Beyond the minimums, yes: extra payments build net worth exactly like deposits, at the debt's interest rate, guaranteed. Minimum payments are needs, since skipping them has consequences. This one classification redirects more money wisely than any app."
+      },
+      {
+        "q": "Should the 20% go to savings or debt first?",
+        "a": "The arithmetic favours the highest interest rate: a 24% card beats any savings account. Most people still keep a small emergency cushion first so surprises stop becoming new debt. Our debt payoff planner and savings goal calculator run the two paths with real numbers."
+      },
+      {
+        "q": "Is my income figure stored?",
+        "a": "No. The split computes in your browser and nothing is kept or sent. Budgets are private; this page has no memory."
+      },
+      {
+        "q": "How do irregular incomes use this?",
+        "a": "Percentage-wise rather than amount-wise: each payment splits by the same ratios on arrival, and a base-month budget built on your realistic minimum handles the fixed bills. Good months overfill the savings bucket instead of the lifestyle, which is the entire game for freelancers."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

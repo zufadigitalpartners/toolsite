@@ -1,0 +1,82 @@
+{
+  "name": "Staking Rewards Calculator",
+  "icon": "sprout",
+  "emoji": "🌱",
+  "category": "content/categories/crypto.json",
+  "popular": false,
+  "order": 4,
+  "short": "APR compounded honestly: what a stake grows into, and the real APY.",
+  "seo": {
+    "metaTitle": "Staking Rewards Calculator: APR to APY, Honestly",
+    "metaDescription": "Project staking rewards with daily, weekly or monthly compounding, and see the real APY behind an advertised APR. Free, private, no wallet needed.",
+    "keywords": [
+      "staking calculator",
+      "staking rewards calculator",
+      "apy calculator crypto",
+      "apr vs apy",
+      "eth staking calculator",
+      "compound staking"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Staking is compound interest wearing a hoodie, and the platforms advertising it exploit one confusion relentlessly: APR versus APY. APR is the simple yearly rate; APY is what you actually earn once rewards compound. At 8% they differ modestly; at the double-digit rates crypto loves, the gap becomes marketing material, and platforms quote whichever reads bigger. This calculator does the conversion in the open: enter the APR, pick how often rewards compound, and read both the final amount and the effective APY.",
+      "The result comes back in whatever unit you entered. Stake 1,000 coins and the answer is coins, which is the honest framing: staking pays you in the asset, and what that asset is worth in money remains its own adventure entirely. A 12% yield on a token that halves is a loss, and no rewards calculator changes that arithmetic. This one just refuses to hide it."
+    ],
+    "howto": [
+      "Enter the amount staked, in coins or in currency; the result uses the same unit.",
+      "Enter the advertised APR percentage.",
+      "Pick the compounding: daily for most proof-of-stake rewards that auto-restake, monthly or never for platforms that pay out simply.",
+      "Set the period in years; fractions like 0.5 work.",
+      "Read the final amount, the rewards earned, and the effective APY the compounding produces.",
+      "Compare platforms by entering each one's terms; the effective APY line is the comparable number."
+    ],
+    "benefits": [
+      "The APR-to-APY line settles a daily confusion. 12% APR compounded daily is 12.75% APY; compounded never, it is 12% flat; and a platform advertising '12.75% APY!' next to a competitor's honest '12% APR' is describing the same deal. Seeing the conversion computed kills the trick permanently. The compounding options match reality: chain-level staking often compounds automatically each epoch, while centralized platforms frequently pay weekly or monthly to a spendable balance that only compounds if you restake it, a difference the calculator prices exactly.",
+      "What the calculator deliberately does not do is pretend yield is free. Staking carries risks the arithmetic cannot see: lockup periods during which the price does what it likes, slashing on some networks, and platform risk on custodial services, which history suggests is the largest of the three. The notes say so, because a tool that computes growth while ignoring the ways the principal vanishes would be an accomplice. For the fiat view of the same mathematics, our [compound interest calculator](/tools/compound-interest-calculator/) is this tool's older sibling, and the [inflation calculator](/tools/inflation-calculator/) reminds you what the currency alternative quietly loses.",
+      "The years field deserves deliberate use rather than a default: short staking terms barely distinguish APR from APY, while multi-year horizons magnify the gap and also the risks the arithmetic cannot see. Running one year and five years side by side takes seconds and shows both truths at once: compounding's promise and the length of exposure it demands. The number that matters is not what five years of compounding yields, it is whether the platform and the asset deserve five years of trust."
+    ],
+    "useCases": [
+      "Comparing staking offers is the core use: two platforms, two rates, two compounding schedules, one comparable APY line. Long-term holders project what auto-restaking does to a position over years, which at crypto rates is genuinely dramatic and worth seeing computed rather than imagined.",
+      "The tool also serves the sanity check that saves people: a platform offering 40% APY on a stablecoin gets its number entered, the doubling time appears, and the question 'who exactly is paying this and why' asks itself. Unsustainable yields look normal in a banner and absurd in a compounding table, which is a public service the arithmetic performs for free."
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between APR and APY?",
+        "a": "APR is the simple yearly rate; APY includes compounding. At 8% APR compounded daily, the APY is 8.33%. Platforms advertise whichever is larger for their product, which is why the conversion is the first thing this calculator shows."
+      },
+      {
+        "q": "Which compounding option should I pick?",
+        "a": "Match the platform: native proof-of-stake rewards that automatically restake are close to daily; exchange programs paying to a spendable balance are simple interest unless you restake by hand. The platform's terms page states it, usually quietly."
+      },
+      {
+        "q": "Are the rewards guaranteed?",
+        "a": "No. Network reward rates float with total staked and network parameters, platforms change terms, and some networks slash misbehaving validators. The calculator projects a rate you supply; the rate itself is a moving target."
+      },
+      {
+        "q": "Why is my result in coins, not money?",
+        "a": "Because staking pays in the asset. The money value of the reward depends on the token's price when you sell, which no calculator predicts. Enter a currency amount instead if you prefer; the arithmetic is identical."
+      },
+      {
+        "q": "What risks does the calculation ignore?",
+        "a": "Price risk on the staked asset, lockup and unbonding periods, slashing on some networks, and custodial risk on platforms. All are real, none appear in yield arithmetic, and several have cost stakers far more than staking ever paid."
+      },
+      {
+        "q": "Is anything sent to a server?",
+        "a": "No. The compounding runs in your browser and your amounts stay on your device. No wallet connection exists to ask for."
+      },
+      {
+        "q": "Should I restake rewards or take them out?",
+        "a": "Restaking compounds, and the calculator shows exactly what that is worth; taking rewards out de-risks continuously. The arithmetic favours restaking; risk management often favours skimming. Deciding the split deliberately, with the compounding number in view, beats defaulting either way."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

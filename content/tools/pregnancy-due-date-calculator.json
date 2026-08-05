@@ -1,0 +1,82 @@
+{
+  "name": "Pregnancy Due Date Calculator",
+  "icon": "calendar-days",
+  "emoji": "🤰",
+  "category": "content/categories/health.json",
+  "popular": true,
+  "order": 6,
+  "short": "Due date by Naegele's rule, with weeks along and trimester milestones.",
+  "seo": {
+    "metaTitle": "Pregnancy Due Date Calculator: Naegele's Rule",
+    "metaDescription": "Estimate the due date from the last period with cycle-length adjustment, see weeks along and trimester dates. Private: nothing you enter is stored.",
+    "keywords": [
+      "due date calculator",
+      "pregnancy calculator",
+      "how many weeks pregnant",
+      "naegele rule",
+      "trimester calculator",
+      "estimated due date"
+    ]
+  },
+  "content": {
+    "intro": [
+      "The due date every clinic quotes comes from arithmetic older than the stethoscope in the room: Naegele's rule, two centuries old, counts 280 days from the first day of the last period. It assumes ovulation on day 14 of a 28-day cycle, which is why the honest version, the one obstetric textbooks actually print, adjusts for cycle length: a 35-day cycle shifts the estimate a week later. This calculator runs the honest version.",
+      "Enter the date and, if known, the cycle length, and read the estimated due date, how many weeks along today is, the trimester, and the milestone dates. The word 'estimated' is doing real work: about one baby in twenty arrives on the date itself, while the strong majority arrive within a fortnight either side. The dating scan between weeks 8 and 14 measures the embryo directly and overrides every calendar, this page included, which this page is the rare calculator to say."
+    ],
+    "howto": [
+      "Enter the first day of your last period.",
+      "Adjust the cycle length if yours is not 28 days; the estimate shifts with it.",
+      "Read the due date, the weeks and days along today, and the trimester.",
+      "Check the milestone table for when the second and third trimesters begin.",
+      "Note the days-to-go line for the countdown everyone actually wants.",
+      "Take the estimate to your booking appointment, and let the dating scan refine it."
+    ],
+    "benefits": [
+      "The cycle adjustment is the difference between folklore and the textbook: skipping it misdates pregnancies for everyone whose cycle is not 28 days, which is most people, and a week of misdating matters when screening windows and viability decisions are keyed to gestational age. The trimester milestones use the obstetric convention, weeks 14 and 28, and the weeks-along arithmetic counts from the period as clinics do, which is why 'four weeks pregnant' contains roughly two weeks of embryo, a confusion this page defuses in a sentence.",
+      "Privacy is not a footnote here: a due-date calculation is an announcement to any server that receives it, and pregnancy data has been subpoenaed, sold and leaked in ways that make this the single clearest case for local-only tools on this site. This page computes in your browser, stores nothing, and has no analytics on your dates. The [age calculator](/tools/age-calculator/) will take over for the birthday arithmetic afterwards, and the [date difference calculator](/tools/date-difference-calculator/) handles every other counting question the year will bring.",
+      "The weeks arithmetic quietly runs the entire prenatal calendar: screening windows, gestational diabetes testing, viability thresholds and leave paperwork all key to it, which is why knowing your honest week matters beyond curiosity. The calculator's cycle adjustment keeps that arithmetic truthful for the majority whose cycles are not textbook, and the milestone table turns the abstraction into dates a family can plan around."
+    ],
+    "useCases": [
+      "The two-lines morning is the primary moment: the test is positive, the first question is 'when', and this page answers it with textbook arithmetic before any appointment exists. Planning follows immediately: milestone dates drive when to tell work, when travel is wise, when the screening windows land.",
+      "Partners use the weeks-along line to follow along honestly. People with irregular or long cycles use the adjustment to avoid the standard week of misdating, and arrive at the booking scan with realistic expectations. And after the scan re-dates things, as it often slightly does, the calculator remains the quick reference for converting between dates and weeks all pregnancy long."
+    ],
+    "faqs": [
+      {
+        "q": "How accurate is the due date?",
+        "a": "It is an estimate with a spread: about 5% of babies arrive on the date, roughly two thirds within a week either side, and the vast majority within two weeks. The dating scan tightens the estimate; biology keeps the spread."
+      },
+      {
+        "q": "Why count from the period rather than conception?",
+        "a": "Because the period's first day is knowable and conception's usually is not. The convention makes 'weeks pregnant' include about two pre-conception weeks, which is why week four is early news rather than a month of pregnancy."
+      },
+      {
+        "q": "My cycles are 35 days. Does it matter?",
+        "a": "Yes, about a week: longer cycles ovulate later, so the due date shifts later by the difference from 28. Enter your length and the adjustment applies; skipping it is how long-cycle pregnancies get misdated early."
+      },
+      {
+        "q": "What if I know my conception date?",
+        "a": "Add 266 days, which the cycle-adjusted rule approximates. IVF pregnancies have exactly known dates and clinics date them precisely; this calculator serves the commoner, less certain case."
+      },
+      {
+        "q": "Will my scan date differ from this?",
+        "a": "Often by a few days: the dating scan measures the embryo and overrides the calendar, and that scan date becomes the official one. Arithmetic starts the process; measurement finishes it."
+      },
+      {
+        "q": "Is my date stored anywhere?",
+        "a": "No, and for this calculator that is a serious promise: pregnancy data is aggressively collected across the internet. This page has no server, no analytics on your inputs, and nothing to leak."
+      },
+      {
+        "q": "Can stress or activity change the due date?",
+        "a": "The date estimates when pregnancy reached term, not what daily life does; ordinary stress and activity do not move conception math. What varies is when labour actually starts, which biology spreads across weeks regardless of calendars."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

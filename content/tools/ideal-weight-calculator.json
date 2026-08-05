@@ -1,0 +1,82 @@
+{
+  "name": "Ideal Weight Calculator",
+  "icon": "scales",
+  "emoji": "⚖️",
+  "category": "content/categories/health.json",
+  "popular": false,
+  "order": 4,
+  "short": "Four published formulas side by side, plus the honest healthy range.",
+  "seo": {
+    "metaTitle": "Ideal Weight Calculator: Four Formulas, Honestly",
+    "metaDescription": "Devine, Robinson, Miller and Hamwi ideal weights side by side, with the healthy BMI band. The honest answer is a range, and here it is.",
+    "keywords": [
+      "ideal weight calculator",
+      "ideal body weight",
+      "devine formula",
+      "healthy weight for height",
+      "how much should i weigh",
+      "ideal weight by height"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Ask the internet how much you should weigh and you get a single confident number, which is the first sign something is wrong: the four classic formulas doctors actually cite disagree with each other by several kilograms at most heights, and every one of them was invented for clinical arithmetic, mostly drug dosing, not as a target for a human to chase. Showing one as 'the' ideal is a lie of omission. This calculator shows all four, named and dated, beside the answer that actually has population evidence behind it: the healthy BMI band for your height.",
+      "Devine from 1974, the medical default; Robinson and Miller, its 1983 refits; Hamwi from 1964, the diabetes-practice rule of thumb. Enter height and body type and read them together, with their average and the band. The spread between them is not a bug in this page; it is the honest finding, and seeing it inoculates against every site that picked one formula and called it truth."
+    ],
+    "howto": [
+      "Enter your height in centimetres and select your body type.",
+      "Read the four formula results in the table, each with its origin.",
+      "Read the healthy BMI band, which is the range with actual population evidence behind it.",
+      "Notice the spread between formulas: several kilograms at most heights, which is the honest answer.",
+      "Treat anywhere inside the band as weight not being a health concern by itself.",
+      "For what the weight is made of, which matters more, our body fat calculator measures composition."
+    ],
+    "benefits": [
+      "Naming the formulas' origins does real work: Devine was built so hospital pharmacists could dose drugs on a standardized body, Hamwi so diabetes educators could set quick targets in clinic, and none of the four ever saw a validation study as health targets. Repeating them as goals is internet folklore, and the calculator says so while still showing them, because knowing what a number is for is the difference between information and noise. The BMI band, for all of BMI's own famous limits, is at least derived from population health outcomes, which makes it the least dishonest single answer on offer.",
+      "The deeper reframe is in the notes: bodies at the same height and weight differ enormously in build and composition, a fit heavyweight fails every formula while being perfectly healthy, and composition, not scale weight, is the variable that tracks health and appearance. That is why the [body fat calculator](/tools/body-fat-calculator/) is this page's real sibling, the [calorie calculator](/tools/calorie-calculator/) is where a chosen target becomes a plan, and the [BMI calculator](/tools/bmi-calculator/) carries the screening question with its limits stated. A tool that hands out one magic number would be simpler and worse; the range with context is the adult version.",
+      "There is a historical irony the table quietly displays: the formulas disagree most at the heights where most people live, and converge only for the very tall, whom none of them were validated on either. Medicine keeps them because dosing needs a standardized body, not because anyone believes in the numbers as destinations; the moment a formula number becomes a personal goal, it has left its jurisdiction. The band plus composition is the modern answer, and the table exists to retire the folklore gently."
+    ],
+    "useCases": [
+      "People planning a weight change use the band to set a sane target zone rather than a fetishized single number, and the formula average as a rough midpoint if they want one. Patients hearing a Devine-based number at a clinic look it up here and understand where it came from and what it was for, which makes the conversation with the doctor better rather than worse.",
+      "Coaches use the spread as a teaching tool against numerology in fitness culture. Parents worried about a teenager find, in the band's width, a calmer frame than any single-number chart. And the naturally heavy-built, slandered by every one-number site, finally see the disagreement between formulas that their bodies have been arguing all along."
+    ],
+    "faqs": [
+      {
+        "q": "Why do the four formulas disagree?",
+        "a": "Different authors, decades and clinical purposes: each fitted a simple height-based line for its own dosing or clinic use. The disagreement, several kilograms at most heights, is the strongest evidence that no single 'ideal' number exists."
+      },
+      {
+        "q": "Which formula should I trust?",
+        "a": "For drug dosing, whichever your clinician uses, typically Devine. As a health target, none of them: the healthy BMI band, for all its bluntness, is the range with population evidence. Composition and habits beat all of it."
+      },
+      {
+        "q": "Does frame size matter?",
+        "a": "Genuinely: broad and narrow builds at the same height differ in lean mass by far more than the formulas' spread. Old wrist-size adjustments were folklore on folklore. This is precisely why the band beats a point and composition beats the band."
+      },
+      {
+        "q": "Is the BMI band right for athletes?",
+        "a": "Muscular bodies overshoot BMI bands while being lean; the band screens populations, not individuals. An athlete's better question is body fat percentage, which our Navy-method calculator estimates with a tape measure."
+      },
+      {
+        "q": "Should I aim for the average of the formulas?",
+        "a": "It is shown because people ask, and as a midpoint it is as reasonable as any single number can be, which is to say: less useful than the band, and far less useful than composition. Use it as a landmark, not a destination."
+      },
+      {
+        "q": "Is anything I enter stored?",
+        "a": "No. Height and the results stay in your browser and vanish with the tab."
+      },
+      {
+        "q": "My weight is above the band but my body fat is fine. Which wins?",
+        "a": "Composition wins: the band screens populations where high weight usually means high fat, and muscular exceptions are exactly that. A healthy body fat percentage with good fitness markers outranks scale-derived bands in every modern guideline."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

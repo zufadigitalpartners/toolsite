@@ -1,0 +1,82 @@
+{
+  "name": "Home Affordability Calculator",
+  "icon": "key",
+  "emoji": "🔑",
+  "category": "content/categories/property.json",
+  "popular": false,
+  "order": 2,
+  "short": "The 28/36 lending ratios banks use, run before they run them on you.",
+  "seo": {
+    "metaTitle": "Home Affordability Calculator: The 28/36 Rule",
+    "metaDescription": "How much house you can afford by the lending ratios banks apply: 28% housing, 36% total debt. Know the ceiling before viewing anything.",
+    "keywords": [
+      "home affordability calculator",
+      "how much house can i afford",
+      "mortgage affordability",
+      "28 36 rule",
+      "dti mortgage",
+      "house budget calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Banks decide what you can borrow with two ratios older than most banks' software: housing costs within 28 percent of gross monthly income, and all debt payments within 36. Between those lines and your down payment sits the actual ceiling on what you can buy, and it is knowable in a minute, which makes viewing homes above it a strange hobby the property industry actively encourages.",
+      "This calculator runs the ratios in the open: income, existing debts, rate, term and deposit in; maximum payment, loan and price out, with the binding constraint named. Sometimes the housing ratio caps you, but for anyone carrying car loans and cards it is usually the total-debt line, which quietly means the fastest way to afford more house is often to clear a loan, not to earn more."
+    ],
+    "howto": [
+      "Enter gross monthly income, before tax, for everyone on the application.",
+      "Enter existing monthly debt payments: car loans, cards' minimums, student loans.",
+      "Set the mortgage rate and term you expect, and the down payment you have.",
+      "Read the ceiling: maximum monthly payment, loan and price, with which ratio binds.",
+      "If the total-debt ratio binds, note what clearing a loan does to the ceiling; it is often startling.",
+      "Set your own viewing budget below the ceiling; the difference is your life."
+    ],
+    "benefits": [
+      "Knowing the binding constraint is the actionable part. When the 36-percent line binds, every unit of monthly debt payment subtracts several times itself from the price ceiling through the mortgage arithmetic: clearing a 400-a-month car loan can raise the ceiling by tens of thousands, a trade nobody at the showroom mentions. When the housing line binds, income and rate are the levers. The calculator names which world you are in, which converts vague affordability anxiety into a specific to-do list, usually starring the [debt payoff planner](/tools/debt-payoff-planner/).",
+      "The ceiling-versus-budget distinction is stated with intent: the ratios are the bank's protection, not your comfort, and living at the ceiling leaves nothing for the boiler, the child or the rate rise. The number to carry into viewings is your own, set below the bank's, and deciding it at a desk beats deciding it in a bidding war. Lenders also vary, stretching to 43 percent total debt in some markets, so the classic 28/36 here is the conservative baseline it always was. The [rent vs buy calculator](/tools/rent-vs-buy-calculator/) asks whether to buy at all, and the [down payment calculator](/tools/down-payment-calculator/) grows the deposit that moves every number here.",
+      "The two-ratio structure also explains a pattern that confuses buyers: two households with identical incomes receiving very different ceilings. The debt-free household is housing-ratio bound and hears a big number; the car-financed, card-carrying household is debt-ratio bound and hears a smaller one, sometimes dramatically so. Neither bank is being arbitrary; the ratios are just pricing different balance sheets, and the calculator shows exactly which line is doing it to yours."
+    ],
+    "useCases": [
+      "First-time buyers run it before their first viewing and are spared the classic heartbreak of falling for a home the ratios were never going to allow. Couples run it with both incomes and all debts and get the honest combined ceiling plus the debt-clearing insight that often reshapes their year.",
+      "People planning a purchase in two years use it in reverse: pick a target price and see what deposit and debt position make the ratios work, which becomes a plan with monthly numbers. And anyone whose broker quotes a surprisingly high ceiling runs the classic ratios to see how much stretch is in the quote, information worth having before borrowing at the edge."
+    ],
+    "faqs": [
+      {
+        "q": "What exactly is the 28/36 rule?",
+        "a": "Two caps lenders apply: housing costs within 28% of gross monthly income, and all debt payments including housing within 36%. The lower cap after your debts is your maximum payment, which the mortgage formula converts into a loan and, with your deposit, a price."
+      },
+      {
+        "q": "Gross or net income?",
+        "a": "Gross, before tax: that is how the lending ratios are defined. It feels generous precisely because it is the bank's risk math, not your budget; your own comfort test should use take-home pay and real spending."
+      },
+      {
+        "q": "Which debts count?",
+        "a": "Recurring obligations: loan payments, card minimums, financing agreements, support payments. Utilities and subscriptions do not. The ratios care about committed debt service, which is also why clearing a loan moves the ceiling so much."
+      },
+      {
+        "q": "My bank offered more than this. How?",
+        "a": "Many markets allow higher back-end ratios, to 43% or beyond, and some products stretch further. The classic 28/36 is the conservative standard; offers above it are the bank buying more risk, some of it yours. The gap between the two numbers is worth seeing."
+      },
+      {
+        "q": "How does the deposit change things?",
+        "a": "It adds directly to the price ceiling, and past thresholds like 20% it also removes loan insurance and unlocks better rates, which raise the ceiling again through the payment arithmetic. The down payment calculator turns a target deposit into a monthly plan."
+      },
+      {
+        "q": "Is my income data stored?",
+        "a": "No. The ratios run in your browser and nothing you enter goes anywhere."
+      },
+      {
+        "q": "Do student loans count in the ratios?",
+        "a": "Their monthly payments do, like any recurring obligation, and long student repayment schedules can bind the debt ratio for years. Income-contingent systems vary in how lenders count them; the honest move is entering the actual monthly amount your statement shows."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

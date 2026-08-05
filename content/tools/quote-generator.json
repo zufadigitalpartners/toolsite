@@ -1,0 +1,82 @@
+{
+  "name": "Quote Generator",
+  "icon": "file-text",
+  "emoji": "📄",
+  "category": "content/categories/ecommerce.json",
+  "popular": false,
+  "order": 6,
+  "short": "A professional quote PDF with validity date and terms. No signup, no watermark.",
+  "seo": {
+    "metaTitle": "Free Quote Generator: Professional PDF, No Signup",
+    "metaDescription": "Create a professional quote or estimate PDF with your logo, line items, tax and validity date. Built in your browser; nothing uploaded, no watermark.",
+    "keywords": [
+      "quote generator",
+      "free quote template",
+      "estimate generator",
+      "quotation maker",
+      "price quote pdf",
+      "quote template for freelancers"
+    ]
+  },
+  "content": {
+    "intro": [
+      "A quote is the document that wins or loses the job before any work exists: it tells a client what they will get, what it costs, and quietly, by its tidiness, whether you are the kind of operator who delivers. Sending that as a loose email paragraph invites loose treatment; sending it as a clean PDF with a number, a validity date and terms changes how the conversation goes. This generator builds that PDF in your browser, no account, no watermark, nothing uploaded.",
+      "It shares its engine and your saved details with our invoice generator: your business block and logo, entered once, appear here ready, and the quote you send today becomes next week's invoice with the same look and half the typing. The quote-specific fields are the ones that matter legally and commercially: a validity date, so old prices die on schedule, and a terms line for deposits and revisions, so the deal's shape is in writing from the first document."
+    ],
+    "howto": [
+      "Fill in your business details and logo once; they are saved in this browser for every document tool here.",
+      "Enter the client, a quote number, and the validity date; thirty days is customary.",
+      "Add line items with quantities and rates; per-line discounts show negotiated goodwill explicitly.",
+      "Add tax if it applies, and your terms: deposit, timeline, what a revision costs.",
+      "Check the totals, then download the PDF and send it.",
+      "Job accepted? Rebuild it as an invoice in the invoice tool; your details are already there."
+    ],
+    "benefits": [
+      "The validity date is the quiet hero: prices move, and a quote without an expiry is an open option against you, redeemable in eight months when your costs have risen. Thirty days is customary, shorter is fine in volatile trades, and the field makes the protection automatic. The explicit discount column earns its place too, because showing a struck-through concession communicates value in negotiation the way silently lowering a rate never does; clients remember discounts they can see.",
+      "The engine's qualities carry over: logo, clean layout, exact arithmetic, WinAnsi-safe text handling that warns rather than crashes, and the same privacy argument as everything on this site, which for quotes means your pricing and your client list stay on your device instead of seasoning some template site's database. The [invoice generator](/tools/invoice-generator/) closes the loop when the job lands, the [receipt maker](/tools/receipt-maker/) acknowledges the deposit your terms asked for, and the [freelance rate calculator](/tools/freelance-rate-calculator/) sets the floor under every rate this document quotes.",
+      "A quoting habit that pays for itself: quote slightly more scope than asked, itemized, with the optional lines marked. Clients strike what they do not want, feel in control doing it, and frequently keep lines you would never have dared bundle silently. The itemized PDF is the stage for that move, and the discount column is its partner, letting generosity be visible where it earns goodwill instead of invisible where it earns nothing."
+    ],
+    "useCases": [
+      "Freelancers quote projects with scope lines and a deposit term, then convert to invoices on acceptance, one look throughout. Trades quote materials and labour lines with a short validity in volatile-price seasons, which is most seasons now. Agencies send tiered quotes as separate PDFs, letting the client choose a number rather than negotiate a paragraph.",
+      "Sellers answer request-for-quote emails from businesses, which expect a document, not a chat reply, and often cannot buy without one for their records. And anyone whose informal estimate later became a dispute learns the lesson this tool encodes: the deal's shape belongs in writing, dated, before work begins."
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between a quote and an estimate?",
+        "a": "Convention: a quote is a firm offer at stated prices, an estimate is a best guess subject to change. This document's fixed lines and validity date make it a quote; call it an estimate in the title line and soften the terms if your trade works that way."
+      },
+      {
+        "q": "Is a quote legally binding?",
+        "a": "In many places an accepted quote forms the basis of a contract for the stated scope and price, which is exactly why the validity date and terms lines matter. For large or risky jobs, a proper contract beats any single document; the quote is the opening, not the whole."
+      },
+      {
+        "q": "Why does my quote need an expiry?",
+        "a": "Because costs move and options against you should not live forever: a validity date lets prices die politely without a confrontation. Clients accept it as standard practice, because it is."
+      },
+      {
+        "q": "Can I reuse the quote as the invoice?",
+        "a": "That is the workflow this family of tools is built for: same engine, same saved details, same look. Open the invoice generator, re-enter the accepted lines, and the client sees continuity from first document to last."
+      },
+      {
+        "q": "Is my pricing data uploaded anywhere?",
+        "a": "No. The PDF is drawn in your browser; your rates, clients and terms exist only on your device and in the files you choose to send."
+      },
+      {
+        "q": "Can I add my logo?",
+        "a": "Yes: PNG or JPG under 300 KB, saved in this browser and shared across all the document tools here. Our image compressor shrinks an oversized logo in seconds."
+      },
+      {
+        "q": "Should I show hourly rates or fixed prices?",
+        "a": "Fixed lines win where you can scope confidently: they sell outcomes, protect your speed advantage, and avoid rate-anchoring. Hourly suits genuinely open-ended work, with an estimate range in the terms. Mixing both on one quote, fixed for the known and hourly for the unknown, is honest and common."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

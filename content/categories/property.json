@@ -1,0 +1,18 @@
+{
+  "name": "Property Tools",
+  "emoji": "🏠",
+  "color": "#475569",
+  "order": 5,
+  "icon": "home",
+  "desc": "Rent or buy, afford, yield and split. The housing math, done honestly.",
+  "seo": {
+    "heading": "Property calculators for the biggest decision you make",
+    "paragraphs": [
+      "Housing is the largest number in almost everyone's life, and the calculators around it are mostly owned by people selling mortgages or listings. The tools here have no side: the arithmetic runs in your browser, shows its assumptions, and stores nothing.",
+      "The [rent vs buy calculator](/tools/rent-vs-buy-calculator/) runs both paths year by year and finds the break-even, the [home affordability calculator](/tools/home-affordability-calculator/) applies the lending ratios banks actually use, and the [down payment calculator](/tools/down-payment-calculator/) turns a target into a monthly saving plan. For landlords and investors, the [rental yield calculator](/tools/rental-yield-calculator/) computes gross yield, net yield and cash-on-cash return, and the [property appreciation calculator](/tools/property-appreciation-calculator/) projects value growth honestly. The [rent split calculator](/tools/rent-split-calculator/) settles the flatmate question by room size or income, with the reasoning visible.",
+      "The [mortgage payment calculator](/tools/mortgage-payment-calculator/), [amortization schedule](/tools/amortization-schedule/) and [loan comparison](/tools/loan-comparison/) in our finance section complete the pipeline from first viewing to final payment."
+    ],
+    "metaTitle": "Property Calculators: Rent vs Buy, Yield, Affordability",
+    "metaDescription": "Free property calculators: rent vs buy break-even, home affordability by lending ratios, rental yield, down payment plans and fair rent splitting."
+  }
+}

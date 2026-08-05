@@ -1,0 +1,82 @@
+{
+  "name": "Life Insurance Calculator",
+  "icon": "umbrella",
+  "emoji": "☂️",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 16,
+  "short": "The DIME method: how much cover your family actually needs.",
+  "seo": {
+    "metaTitle": "Life Insurance Calculator: DIME Needs Analysis",
+    "metaDescription": "Work out how much life insurance your family needs with the DIME method: debts, income replacement, mortgage and education, minus what exists. Private.",
+    "keywords": [
+      "life insurance calculator",
+      "how much life insurance do i need",
+      "dime method",
+      "life cover calculator",
+      "income replacement insurance",
+      "term insurance amount"
+    ]
+  },
+  "content": {
+    "intro": [
+      "How much life insurance is enough is a question with a famous conflict of interest: the person usually answering it earns commission on the answer. The industry's own honest framework, the one independent advisers actually use, is called DIME: Debts, Income replacement, Mortgage, Education. Add what your family would need under each, subtract what they would already have, and the remainder is the cover worth shopping for. This calculator runs that framework in the open, on your device, with no quote form waiting at the end.",
+      "The fields are the framework: outstanding debts so they die with you rather than transferring; years of income so the household stands while it reorganizes; the mortgage so the home is never in question; education so the plans survive; and existing cover and savings, subtracted, because insurance should fill a gap, not duplicate what exists. The output includes the gap as a multiple of income, which is the sanity check against both under- and over-selling."
+    ],
+    "howto": [
+      "Enter debts that would outlive you, excluding the mortgage, which has its own field.",
+      "Enter your yearly income and the years the family would need it replaced; until the youngest is independent is the common anchor.",
+      "Enter the mortgage balance so the home is settled outright.",
+      "Add an education fund if children's studies are part of the plan.",
+      "Enter existing life cover, employer death benefits and savings the family could use.",
+      "Read the gap. That number, as term insurance for the years that matter, is what to shop for."
+    ],
+    "benefits": [
+      "The subtraction line is the part sellers skip: existing employer cover, a partner's income, savings already built all reduce what needs buying, and a calculator with no commission has no reason to hide them. The multiple-of-income line guards from both directions, since common guidance lands between seven and twelve times income for a young family, and a DIME result far outside that range usually means an input worth rechecking rather than an exotic situation.",
+      "The framework also quietly recommends the product shape without naming products: a need defined by debts that shrink, children who grow up and a mortgage that amortizes is a need that falls over time, which is what level term insurance for a chosen period matches at a fraction of the cost of investment-wrapped policies. That observation is arithmetic, not advice, and the page keeps the distinction: it computes the need, states the assumptions, and leaves the buying to you and, ideally, an adviser paid by you rather than by the policy. The [net worth calculator](/tools/net-worth-calculator/) feeds the existing-assets line honestly, and the [mortgage payment calculator](/tools/mortgage-payment-calculator/) keeps the housing numbers current.",
+      "One structural honesty of DIME worth naming: it prices the survivors' needs, not the life, which is why it beats income-multiplier folklore in both directions. A high earner with no dependants and a paid-off house needs little cover whatever ten-times-salary says; a modest earner with four young children and a large mortgage needs more than any multiplier suggests. Needs analysis follows the actual family, and the calculator's fields are that family, itemized."
+    ],
+    "useCases": [
+      "New parents are the moment this calculation exists for: dependants arrive, and the question changes from whether to how much. Ten minutes here, before any sales conversation, means entering that conversation with a number instead of receiving one. Homeowners re-run it after buying, since the mortgage line usually doubles the answer, and again after each major life change: another child, a big raise, a partner stopping work.",
+      "People with employer cover use the subtraction to find the real gap, which is frequently substantial since workplace policies commonly cap at two to four times salary. Single-income households run it to price the uncomfortable truth that the earner's death is also the family's financial event. And people being sold large investment-linked policies bring the DIME number as the anchor the pitch must argue against."
+    ],
+    "faqs": [
+      {
+        "q": "What is the DIME method?",
+        "a": "A needs analysis: Debt, Income replacement, Mortgage, Education, summed, minus existing cover and savings. It answers what your death would cost the household, which is what insurance exists to cover, rather than a salesperson's multiplier."
+      },
+      {
+        "q": "How many years of income should I replace?",
+        "a": "Until the household stands without it: commonly until the youngest child is independent, so 10 to 20 years for young families, less as dependants age. A surviving partner's own income shortens it further; enter your family's honest number."
+      },
+      {
+        "q": "Term or whole-of-life?",
+        "a": "The DIME need is temporary by construction: debts amortize, children grow up. Level term for the matching period covers it cheaply, which is why independent advisers reach for it first. Whole-of-life bundles investment into insurance at a large ongoing cost; buying them separately usually wins. That is arithmetic; your adviser knows your specifics."
+      },
+      {
+        "q": "Should both partners be insured?",
+        "a": "Both incomes the household depends on need the analysis, and a non-earning partner's work has replacement cost too: childcare and household management priced in the market are startling. Run the calculator once per person, not once per family."
+      },
+      {
+        "q": "Does the calculator sell or recommend policies?",
+        "a": "No. It computes a number and keeps your inputs on your device: no quote form, no callback, no data collected. Take the number to whatever market or adviser you trust."
+      },
+      {
+        "q": "How often should I recalculate?",
+        "a": "At every structural change: child, house, big raise, partner's work changing, debts cleared. Between events, the need mostly falls as the mortgage shrinks and children age, which is worth knowing at renewal time."
+      },
+      {
+        "q": "Does existing employer cover count fully?",
+        "a": "Count it, but note its condition: workplace cover typically ends with the job, and health changes between jobs can make replacing it expensive or impossible. Many advisers count only a portion of employer cover for long-horizon needs, or recommend owning the core cover personally precisely so no employer controls it."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

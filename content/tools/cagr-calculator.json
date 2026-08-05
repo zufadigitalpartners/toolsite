@@ -1,0 +1,82 @@
+{
+  "name": "CAGR Calculator",
+  "icon": "activity",
+  "emoji": "📊",
+  "category": "content/categories/finance.json",
+  "popular": false,
+  "order": 12,
+  "short": "The one honest growth rate: compound annual growth between any two values.",
+  "seo": {
+    "metaTitle": "CAGR Calculator: Compound Annual Growth Rate",
+    "metaDescription": "Compute CAGR from start value, end value and years, with total growth and doubling time. The honest way to compare investments over different periods.",
+    "keywords": [
+      "cagr calculator",
+      "compound annual growth rate",
+      "annualized return calculator",
+      "investment growth calculator",
+      "rule of 72",
+      "average annual return"
+    ]
+  },
+  "content": {
+    "intro": [
+      "A fund brags it doubled in seven years; a stock gained 40% in three; your property rose 80% in twelve. Which grew fastest? Raw percentages over different periods cannot be compared, and this confusion is where investment marketing lives. The honest comparison is CAGR, the compound annual growth rate: the single steady yearly rate that would turn the start value into the end value over the period. It reduces every growth story to one comparable number.",
+      "Enter start, end and years; read the CAGR, the total change, and the doubling time by the rule of 72. The doubling in seven years works out to 10.4% a year; the 40% in three to 11.9%; the 80% in twelve to 5%. Suddenly the stories rank themselves, which is precisely why the sellers of the slowest one never quote it this way."
+    ],
+    "howto": [
+      "Enter the value at the start of the period.",
+      "Enter the value at the end, with dividends or rent reinvested included if you want total return.",
+      "Enter the years between, fractions included: 2.5 years works.",
+      "Read the CAGR, the total change and the doubling time.",
+      "Compare investments by running each through; the CAGR column is the ranking.",
+      "Check any claimed return the same way: advertised growth over a stated period, reduced to the honest yearly rate."
+    ],
+    "benefits": [
+      "CAGR's virtue is that it cannot be gamed by period selection: 'up 300%' means nothing until the years are known, and CAGR forces the years into the number. Its limitation is stated just as plainly by this page: it smooths the path. An investment that crawled sideways for nine years and tripled in the tenth shares a CAGR with one that climbed steadily, and only one of them was holdable by an actual human. CAGR describes endpoints; volatility describes the journey; both matter and neither substitutes for the other.",
+      "The rule-of-72 line makes rates tangible: at 10% money doubles roughly every 7.2 years, at 5% every 14.4, and feeling that difference in years does more for decision-making than the percentages themselves. The calculator pairs with the [compound interest calculator](/tools/compound-interest-calculator/) for projecting forward at a chosen rate, the [inflation calculator](/tools/inflation-calculator/) for converting nominal CAGR into real, and the [FIRE calculator](/tools/fire-calculator/) where the assumed growth rate becomes a retirement date.",
+      "CAGR also quietly reframes fees and taxes: a fund returning 9% gross with 1.5% yearly costs is a 7.5% CAGR machine, and over twenty years that gap compounds into a third of the final pot. Running the calculator on gross and net endpoints makes fee drag visceral in a way percentage points never manage, which is worth an afternoon of anyone's time before choosing where decades of savings live."
+    ],
+    "useCases": [
+      "Fund fact-checking is the classic: marketing quotes cumulative growth over a flattering period, the calculator reduces it to CAGR, and the comparison against a boring index fund becomes possible. Property owners annualize a decade of appreciation and, often for the first time, compare it against what equities did over the same years, an exercise with famously humbling results in either direction.",
+      "Business owners compute revenue CAGR across years for pitches and planning, where 'we grew 15% a year for four years' beats four disconnected percentages. Salary earners annualize a career: the raise from 40,000 to 65,000 over eight years is a 6.3% CAGR, a number worth knowing against inflation's. And skeptics of any 'we turned X into Y' story have, in three fields, the instrument that deflates it to a rate."
+    ],
+    "faqs": [
+      {
+        "q": "What exactly is CAGR?",
+        "a": "The compound annual growth rate: the constant yearly rate that carries the start value to the end value over the period. Formula: the ratio of end to start, raised to one over the years, minus one. It exists to make different periods comparable."
+      },
+      {
+        "q": "How is it different from average annual return?",
+        "a": "The arithmetic average of yearly returns overstates growth because gains and losses compound asymmetrically: +50% then −50% averages 0% but leaves you down 25%. CAGR uses only endpoints, so it reflects what actually happened to the money."
+      },
+      {
+        "q": "Should dividends be included?",
+        "a": "For total return, yes: use an end value with dividends or rent reinvested. Price-only CAGR understates equity returns substantially over long periods, which is a favourite trick of both bulls and bears, in opposite directions."
+      },
+      {
+        "q": "What is the rule of 72?",
+        "a": "A mental shortcut: 72 divided by the growth rate approximates the doubling time in years. At 8%, about nine years. The calculator computes it from your CAGR because rates communicate poorly and doubling times communicate well."
+      },
+      {
+        "q": "Can CAGR be negative?",
+        "a": "Yes: an end value below the start produces a negative rate, the steady yearly shrinkage matching the loss. The doubling line shows n/a, since nothing doubles by shrinking."
+      },
+      {
+        "q": "Does CAGR tell me about risk?",
+        "a": "No, and this page says so rather than letting the number imply smoothness. Two investments with identical CAGR can differ wildly in volatility, drawdowns and the odds you would have held on. Endpoints are not journeys."
+      },
+      {
+        "q": "What time period should I measure over?",
+        "a": "The longest honest one: short windows are noise wearing a trend costume, and three-year CAGRs sell a lot of bad funds. Ten years spans market moods; anything under three is weather. Whatever period you pick, compare alternatives over the same one."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}

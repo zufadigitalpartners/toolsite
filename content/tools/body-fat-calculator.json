@@ -1,0 +1,82 @@
+{
+  "name": "Body Fat Calculator",
+  "icon": "gauge",
+  "emoji": "📏",
+  "category": "content/categories/health.json",
+  "popular": false,
+  "order": 3,
+  "short": "The US Navy tape method: body fat percent from a few measurements.",
+  "seo": {
+    "metaTitle": "Body Fat Calculator: US Navy Tape Method",
+    "metaDescription": "Estimate body fat percentage with the US Navy circumference method: a tape measure, three numbers, a validated formula. Bands included. Private.",
+    "keywords": [
+      "body fat calculator",
+      "navy body fat",
+      "body fat percentage",
+      "measure body fat at home",
+      "waist neck measurement",
+      "body composition calculator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "The scale tells you weight; it refuses to say what the weight is made of, and that composition is what actually changes how bodies look, perform and age. Laboratory answers exist, from DEXA scans to displacement pods, at laboratory prices. Between the scale and the lab sits a method the US Navy developed to assess thousands of sailors with nothing but tape measures: circumference equations over waist, neck and, for women, hips, validated against the fancy methods and accurate within a few percentage points for most bodies.",
+      "This calculator runs the Navy equations in their metric form. Measure as directed, enter the numbers, and read the estimate with the standard category bands beside it. The tool checks plausibility rather than printing absurdities: measurements that cannot produce a real result, usually a swapped waist and neck or inches entered as centimetres, get an error message instead of a nonsense percentage."
+    ],
+    "howto": [
+      "Measure your waist at navel height, relaxed, tape level and snug but not compressing.",
+      "Measure the neck just below the larynx, tape sloping slightly down at the front.",
+      "Women: measure the hips at their widest point.",
+      "Enter height and the measurements in centimetres.",
+      "Read the percentage and the category band it lands in.",
+      "Re-measure monthly, same time of day, same conditions; the trend is the real instrument."
+    ],
+    "benefits": [
+      "The method's honest accuracy, within three to four points of a scan for most physiques, sounds coarse until the alternative comparisons arrive: consumer bioimpedance scales swing more than that between a morning and an evening reading, and BMI cannot tell a lifter from a couch. Where the tape wins everything is consistency: the same person, measured the same way monthly, gets a trend that tracks real composition change reliably, and the trend is what training and diet decisions actually need. Measured drop of two points across a cut is signal; any single reading is weather.",
+      "The bands give the number context without moralizing: essential fat, athletic, fit, average and above, with different ranges by sex because physiology differs. The tool also names its blind spots plainly: very muscular necks and shoulders read lean, the very lean read less accurately, and no circumference method sees visceral versus subcutaneous distribution. For the questions the tape cannot answer, scans exist; for tracking a body across months of work, this method, free and repeatable, is the practical instrument. The [calorie calculator](/tools/calorie-calculator/) and [macro calculator](/tools/macro-calculator/) are the levers the trend evaluates, and the [ideal weight calculator](/tools/ideal-weight-calculator/) shows why composition beats scale-weight as a target at all.",
+      "The measurement ritual matters more than the formula, so the tool's instructions are strict: same tape, same landmarks, same morning conditions, monthly. Measured sloppily, the method produces noise that discourages; measured consistently, a two-point drop over a cut is unambiguous progress even if the absolute level is somewhat off. Precision you cannot repeat is worth less than consistency you can, which is the entire philosophy of tape-based tracking."
+    ],
+    "useCases": [
+      "Cutters and bulkers use the monthly reading to verify the scale's story: weight down with body fat flat means muscle is leaving, a correction the [macro calculator]'s protein anchor exists for; weight up with fat flat is the lean gain everyone claims and few measure. People starting from higher percentages get something gentler: a number that moves convincingly with effort, unlike scale weight with its water-retention theatrics.",
+      "Ex-athletes returning to training benchmark honestly against their memory. Tape-and-notebook people, suspicious of gadget scales, get a validated formula instead of impedance guesswork. And anyone whose BMI slanders them, the muscular especially, uses the Navy number as the fairer witness."
+    ],
+    "faqs": [
+      {
+        "q": "How accurate is the Navy method?",
+        "a": "Within three to four percentage points of laboratory scans for most people, per validation studies. Its repeatability is the real asset: measured consistently, the month-to-month trend reflects true change even where the absolute level is somewhat off."
+      },
+      {
+        "q": "When and how should I measure?",
+        "a": "Morning, before eating, tape snug but never compressing, level around the body, relaxed stance. Waist at the navel, neck below the larynx, hips at the widest. Same conditions every time; consistency is most of the method's accuracy."
+      },
+      {
+        "q": "Why does it need hip measurement for women?",
+        "a": "The female equation was validated with hips included because fat distribution differs by sex, and the extra circumference materially improves the estimate. Without it the male equation would misread most female bodies."
+      },
+      {
+        "q": "My result seems too high or too low. Why?",
+        "a": "Check units and placement first: inches entered as centimetres, waist measured at the narrowest rather than the navel, tape compressed. Genuinely muscular necks read lean; very lean physiques read less precisely. If the reading is consistent, track its change and let a scan settle the absolute level if it matters."
+      },
+      {
+        "q": "What is a healthy body fat percentage?",
+        "a": "Broad bands: men roughly 6-13% athletic, 14-17% fit, 18-24% average; women 14-20%, 21-24%, 25-31%, with essential minimums below which health suffers. Health lives in ranges, not points, and behaviour beats percentile-chasing."
+      },
+      {
+        "q": "Is my data stored?",
+        "a": "No. Measurements compute in your browser and vanish with the tab: body data is nobody's analytics."
+      },
+      {
+        "q": "Why did my number jump since yesterday?",
+        "a": "Daily circumference moves with food, salt, water and training pump, none of which are fat. The method is calibrated for monthly trend reading, not daily oscillation watching; measuring daily manufactures anxiety from noise."
+      }
+    ]
+  },
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  }
+}
