@@ -625,6 +625,139 @@ export default defineConfig({
           },
         ],
       },
+
+      // ---------- BLOG ----------
+      {
+        name: "post",
+        label: "Blog posts",
+        path: "content/posts",
+        format: "json",
+        ui: {
+          filename: {
+            readonly: false,
+            slugify,
+            description: "This becomes the address: /blog/<filename>/",
+          },
+          router: ({ document }) => `/blog/${document._sys.filename}/`,
+          defaultItem: () => ({
+            title: "New article",
+            excerpt: "One or two sentences describing what the reader gets. This shows on the blog index and in Google.",
+            metaTitle: "New article",
+            metaDescription: "Around 150 characters, containing the phrase somebody would search for.",
+            date: new Date().toISOString().slice(0, 10),
+            readMinutes: 5,
+            cover: "",
+            coverAlt: "",
+            outbound: { label: "", url: "", note: "" },
+            related: [],
+            sections: [
+              {
+                heading: "First heading",
+                paragraphs: [
+                  "Open with the problem, not with an introduction to the problem. Links like [image compressor](/tools/image-compressor/) belong inside sentences, and **bold** works.",
+                ],
+              },
+            ],
+            faqs: [],
+          }),
+        },
+        fields: [
+          { type: "string", name: "title", label: "Title", required: true },
+          {
+            type: "string",
+            name: "excerpt",
+            label: "Summary",
+            ui: { component: "textarea" },
+            description: "Shown on the blog index and used as the description if the SEO one is empty.",
+          },
+          {
+            type: "string",
+            name: "date",
+            label: "Published date",
+            description: "Write it as 2026-08-05. Used for sorting and shown on the article.",
+          },
+          { type: "number", name: "readMinutes", label: "Reading time in minutes", description: "Leave empty and it is worked out from the word count." },
+          {
+            type: "image",
+            name: "cover",
+            label: "Featured image",
+            description:
+              "Optional. Leave it empty and a cover is drawn from the title, which means an article is never published without one. Around 1200 by 630 works best if you do upload.",
+          },
+          { type: "string", name: "coverAlt", label: "Featured image description", description: "What the image shows, for screen readers and for Google." },
+          {
+            type: "reference",
+            name: "category",
+            label: "Related category",
+            collections: ["category"],
+            description: "Colours the article and decides which tools appear beside it.",
+          },
+          {
+            type: "string",
+            name: "relatedTools",
+            label: "Tools to show beside the article",
+            list: true,
+            description: "Tool filenames like image-compressor, one per item. Leave empty and the category's tools are used.",
+          },
+          {
+            type: "object",
+            name: "outbound",
+            label: "Outbound link",
+            description: "One link to a genuinely authoritative source. It signals to Google that the article is researched rather than spun.",
+            fields: [
+              { type: "string", name: "label", label: "Link text" },
+              { type: "string", name: "url", label: "URL" },
+              { type: "string", name: "note", label: "Why it is worth reading", ui: { component: "textarea" } },
+            ],
+          },
+          {
+            type: "object",
+            name: "sections",
+            label: "Article sections",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.heading || "section" }) },
+            fields: [
+              { type: "string", name: "heading", label: "Heading" },
+              paragraphList("paragraphs", "Paragraphs", "[links](/tools/slug/) and **bold** work"),
+              {
+                type: "string",
+                name: "bullets",
+                label: "Bullet list (optional)",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "callout",
+                label: "Highlighted note (optional)",
+                ui: { component: "textarea" },
+                description: "Pulled out in a box. One per section at most, or they stop standing out.",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "faqs",
+            label: "FAQs",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.q || "question" }) },
+            fields: [
+              { type: "string", name: "q", label: "Question" },
+              { type: "string", name: "a", label: "Answer", ui: { component: "textarea" } },
+            ],
+          },
+          {
+            type: "object",
+            name: "seo",
+            label: "SEO meta",
+            fields: [
+              { type: "string", name: "metaTitle", label: "Meta title" },
+              { type: "string", name: "metaDescription", label: "Meta description", ui: { component: "textarea" } },
+              { type: "string", name: "keywords", label: "Keywords", list: true },
+            ],
+          },
+        ],
+      },
     ],
   },
 });

@@ -1,0 +1,114 @@
+{
+  "title": "How to compress an image to an exact file size",
+  "excerpt": "Portals that demand under 200 KB, forms that reject your photo, and the quality setting that will not tell you what it produces. Here is how to hit a number reliably.",
+  "date": "2026-08-05",
+  "category": "content/categories/image.json",
+  "relatedTools": [
+    "image-compressor",
+    "image-resizer",
+    "image-to-pdf",
+    "image-to-base64"
+  ],
+  "coverAlt": "",
+  "outbound": {
+    "label": "MDN: HTMLCanvasElement.toBlob()",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob",
+    "note": "The browser API every in-browser compressor is built on, including ours. Worth a look if you want to understand why the quality setting behaves the way it does."
+  },
+  "seo": {
+    "metaTitle": "Compress an Image to an Exact File Size (200 KB, 100 KB)",
+    "metaDescription": "Government forms and exam portals demand exact file sizes. Here is why the quality slider cannot hit them, and the method that can.",
+    "keywords": [
+      "compress image to 200kb",
+      "reduce image file size",
+      "compress image to exact size",
+      "resize image for form upload",
+      "compress jpg online"
+    ]
+  },
+  "sections": [
+    {
+      "heading": "The problem nobody warns you about",
+      "paragraphs": [
+        "You have filled in a visa application, an exam registration or a job portal, you reach the photo upload, and it tells you the file must be under 200 KB. Your photo is 4.2 MB. So you find a compressor, drag the quality slider to somewhere that feels right, download the result, and it is 340 KB. You try again. Now it is 90 KB and your face has gone blocky.",
+        "The reason this is frustrating is that the tool is answering a different question to the one you asked. You asked for a size. It offered you a quality setting. Those two things are related, but not in a way anyone can predict by eye, because how much a photo compresses depends almost entirely on what is in it."
+      ],
+      "callout": "A quality slider cannot tell you what size you will get, because the answer depends on the picture. Two photos at the same quality can differ by a factor of ten."
+    },
+    {
+      "heading": "Why quality 80 is not a file size",
+      "paragraphs": [
+        "JPEG compression works by throwing away detail your eye is unlikely to miss. The quality number decides how aggressively it does that, but the resulting file size depends on how much detail was there to begin with.",
+        "A photograph of a plain wall compresses to almost nothing at any quality, because there is very little information in it. A photograph of a market, full of edges and textures and small objects, stays large even at low quality, because there is a great deal of information and the encoder is trying to keep it. Same setting, wildly different results.",
+        "This is why every article that tells you to use quality 80 is giving you a starting point rather than an answer. It is a good starting point. It just is not what a portal asked for."
+      ]
+    },
+    {
+      "heading": "The method that actually hits a number",
+      "paragraphs": [
+        "The reliable approach is not to guess a quality and check the size. It is to work backwards from the size, by trying qualities and narrowing in, which is a technique called bisection.",
+        "It works like this. Try the middle quality. If the file comes out too big, the answer is somewhere lower, so try the middle of the lower half. If it comes out small enough, save it as your current best answer but try higher, because there might be a better looking version that still fits. Repeat about seven times and you land within a few percent of the target, at the best quality that fits.",
+        "Doing this by hand means seven downloads and a lot of checking file properties. Our [image compressor](/tools/image-compressor/) does it automatically: set a target size and it runs the search for you, then tells you what it landed on. The quick sizes are there because those are the limits that actually come up: 50 KB, 100 KB, 200 KB, 500 KB and 1 MB."
+      ],
+      "bullets": [
+        "**Set the target, not the quality.** Type 200 KB and let the tool find the quality.",
+        "**Check the width too.** A 4000 pixel wide photo squeezed to 200 KB looks far worse than a 1200 pixel one at the same size. Most portals display the photo small anyway.",
+        "**Use JPG for photographs.** PNG is lossless, so a quality setting does nothing to it. A photo saved as PNG is enormous and no amount of compressing will fix that until you convert it."
+      ]
+    },
+    {
+      "heading": "When the target is impossible",
+      "paragraphs": [
+        "Sometimes a size simply cannot be reached at the current dimensions. A detailed 4000 by 3000 photograph cannot become 50 KB and still be recognisable, because even at the lowest useful quality there is too much image there.",
+        "The correct answer then is not to keep lowering quality until it turns to mush. It is to make the picture smaller. Halving the width quarters the number of pixels, and a 1500 pixel wide photo at a decent quality looks far better than a 4000 pixel one crushed to the same file size. Our compressor does this automatically when the target cannot be reached by quality alone, and tells you it has, so you are not left wondering why the dimensions changed.",
+        "If you would rather control that yourself, the [image resizer](/tools/image-resizer/) sets the dimensions first, and then compressing to a target becomes easy."
+      ]
+    },
+    {
+      "heading": "What most compressors do with your photo",
+      "paragraphs": [
+        "Almost every free image compressor uploads your file to a server, compresses it there, and sends it back. For a photograph of your lunch that is fine. For the documents these limits usually apply to, it is worth a moment's thought: passport pages, identity cards, signed forms, degree certificates and bank statements.",
+        "You are handing that file to a company you found on the first page of Google, and trusting a deletion policy you have not read. Some of them are perfectly reputable. You cannot tell which from the outside.",
+        "Your browser has been able to decode and re-encode images by itself for over a decade, using the canvas API. There is no technical need to upload anything. Our compressor uses that, which means the file never leaves your device. The simplest way to prove it to yourself is to load the page, turn off your internet connection, and compress something anyway. It still works."
+      ],
+      "callout": "Load the tool, disconnect from the internet, then compress a photo. If it still works, nothing was being uploaded. That test takes ten seconds and it is worth doing on any tool you hand a document to."
+    },
+    {
+      "heading": "A note on what gets stripped",
+      "paragraphs": [
+        "Compressing a photo through a canvas removes its metadata: the camera model, the date, the settings, and on a phone photo, usually the GPS coordinates of where it was taken.",
+        "That is normally described as a limitation. For the documents people compress for forms, it is closer to a feature. A photograph of a document taken at home carries your home's location in it unless something removes it, and most people have no idea.",
+        "If you need the metadata kept, compress with a desktop tool that preserves EXIF. For everything else, losing it is one less thing to worry about."
+      ]
+    },
+    {
+      "heading": "Getting it into the right format",
+      "paragraphs": [
+        "Some portals want a PDF rather than an image, which catches people out at the last step. If yours does, the [image to PDF converter](/tools/image-to-pdf/) will turn one or several photos into a single PDF, in the order you choose, and it also runs entirely in your browser.",
+        "Others want the image embedded in something, which is where [image to Base64](/tools/image-to-base64/) is useful, though that is more of a developer job than a form-filling one."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How do I compress an image to exactly 200 KB?",
+      "a": "Set 200 KB as a target rather than choosing a quality. A tool that supports targets will try several quality levels and settle on the best one that fits. Our image compressor stops once it is within about four percent of your number, which is as close as JPEG lets you get."
+    },
+    {
+      "q": "Why does the same quality setting give different file sizes?",
+      "a": "Because file size depends on how much detail is in the picture. A plain background compresses to almost nothing; a busy street scene stays large. The quality number controls how hard the encoder tries, not what it ends up with."
+    },
+    {
+      "q": "Does compressing ruin the photo?",
+      "a": "At sensible settings, no. Most photographs lose 60 to 90 percent of their file size before any difference is visible on screen. It becomes noticeable when you force a very small target on a very large image, which is when reducing the width is the better move."
+    },
+    {
+      "q": "Should I use JPG, PNG or WebP?",
+      "a": "JPG for photographs, which is what forms want. PNG for screenshots and anything with sharp text or transparency, though it will be larger. WebP is smaller than both and fine for websites, but many upload forms still reject it."
+    },
+    {
+      "q": "Is it safe to compress a passport photo online?",
+      "a": "Only if the tool does not upload it. Most do. Check whether the site says the work happens in your browser, and test it by disconnecting from the internet after the page loads. If it still works, nothing is being sent."
+    }
+  ]
+}

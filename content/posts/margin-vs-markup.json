@@ -1,0 +1,131 @@
+{
+  "title": "Margin vs markup: the mistake that quietly costs you money",
+  "excerpt": "A 50 percent markup is a 33 percent margin. Mixing the two up is the most expensive arithmetic error in small business, and almost everybody makes it at least once.",
+  "date": "2026-08-02",
+  "category": "content/categories/ecommerce.json",
+  "relatedTools": [
+    "profit-margin-calculator",
+    "shopify-fee-calculator",
+    "percentage-calculator",
+    "percentage-increase-calculator"
+  ],
+  "coverAlt": "",
+  "outbound": {
+    "label": "Corporate Finance Institute: gross margin ratio",
+    "url": "https://corporatefinanceinstitute.com/resources/accounting/gross-margin-ratio/",
+    "note": "A thorough walk through the formal definition, with a worked example and notes on how the healthy range shifts between industries."
+  },
+  "seo": {
+    "metaTitle": "Margin vs Markup: The Difference, and Why It Costs You",
+    "metaDescription": "A 50 percent markup is only a 33 percent margin. Here is the difference, the conversion, and the pricing mistake it causes.",
+    "keywords": [
+      "margin vs markup",
+      "profit margin calculator",
+      "how to calculate margin",
+      "markup to margin conversion",
+      "pricing formula"
+    ]
+  },
+  "sections": [
+    {
+      "heading": "Two numbers, one common disaster",
+      "paragraphs": [
+        "You buy something for 100 and sell it for 150. What is your margin?",
+        "A lot of people say 50 percent. That is the markup. The margin is 33.3 percent. Both numbers describe the same transaction, they just divide by different things, and the gap between them is where a surprising amount of small business money goes missing.",
+        "It matters because targets get set in one and prices get calculated in the other. Someone decides the business needs a 40 percent margin, then prices everything at cost plus 40 percent, and the business runs at 28.6 percent for a year without anybody noticing why the numbers never quite work."
+      ],
+      "callout": "Markup divides profit by cost. Margin divides profit by price. Same profit, different denominator, and margin is always the smaller number."
+    },
+    {
+      "heading": "The two formulas",
+      "paragraphs": [
+        "Take a product that costs you 100 and sells for 150. The profit is 50.",
+        "Markup asks: how much did I add on top of what I paid? 50 divided by 100 is 50 percent.",
+        "Margin asks: how much of what the customer paid do I keep? 50 divided by 150 is 33.3 percent.",
+        "Margin is the one that matters for running a business, because it tells you what share of your revenue is actually available to cover rent, wages, advertising and everything else. Markup is a pricing instruction, useful when you are standing in front of a spreadsheet of costs deciding what to charge."
+      ],
+      "bullets": [
+        "**Markup** = (price minus cost) divided by cost",
+        "**Margin** = (price minus cost) divided by price",
+        "**Markup to margin**: markup divided by (1 plus markup). A 50 percent markup becomes 0.5 / 1.5 = 33.3 percent margin.",
+        "**Margin to markup**: margin divided by (1 minus margin). A 40 percent margin needs 0.4 / 0.6 = 66.7 percent markup."
+      ]
+    },
+    {
+      "heading": "A conversion table worth memorising",
+      "paragraphs": [
+        "The relationship is not linear, which is what makes it hard to estimate by feel. As the numbers get bigger the two diverge dramatically."
+      ],
+      "bullets": [
+        "**20% markup** = 16.7% margin",
+        "**33% markup** = 25% margin",
+        "**50% markup** = 33.3% margin",
+        "**66.7% markup** = 40% margin",
+        "**100% markup** = 50% margin (the only place people usually get right, because doubling is intuitive)",
+        "**150% markup** = 60% margin",
+        "**300% markup** = 75% margin"
+      ]
+    },
+    {
+      "heading": "Why this bites hardest online",
+      "paragraphs": [
+        "In a physical shop the mistake costs you the gap between the two numbers, which is bad enough. Online there is a second layer, because the price the customer pays is not the money you receive.",
+        "A payment processor takes a percentage plus a fixed amount per transaction. A marketplace takes a commission. A shipping cost may or may not be covered by what you charged for postage. All of that comes out before you get to the profit you calculated.",
+        "The fixed part of the transaction fee is the one that catches people out. On a 200 sale, a fee of 2.9 percent plus 0.30 is 6.10, which barely registers. On a 5 sale the same fee is 0.45, which is nine percent of the order. Businesses selling low-priced items sometimes discover their bestseller is their least profitable product.",
+        "Our [Shopify fee calculator](/tools/shopify-fee-calculator/) works backwards from what you want to keep, so you can see what a product has to sell for rather than guessing and finding out at the end of the month."
+      ]
+    },
+    {
+      "heading": "The discount trap",
+      "paragraphs": [
+        "Here is where margin arithmetic stops being academic. A 20 percent discount does not cost you 20 percent of your profit. It costs you 20 percent of your price, which is a much larger share of your profit.",
+        "On a product costing 100 and selling at 150, your profit is 50. Discount by 20 percent and the price drops to 120. Your profit is now 20. You gave away 30, which is sixty percent of your profit, in exchange for a discount that sounded modest.",
+        "To make the same total profit you would need to sell two and a half times as many units. That is the calculation to run before a sale, not after it, and it is why businesses on thin margins cannot discount their way to growth no matter how much volume it brings."
+      ],
+      "callout": "On a 33 percent margin, a 20 percent discount wipes out 60 percent of your profit. The thinner the margin, the more violent the effect."
+    },
+    {
+      "heading": "What a healthy margin looks like",
+      "paragraphs": [
+        "There is no universal right answer, because it depends entirely on how much handling each sale requires and what your other costs are.",
+        "Groceries and electronics run on very thin gross margins, often under fifteen percent, and survive on volume and on tightly controlled operations. General retail tends to sit somewhere between forty and fifty. Software and digital products can run past eighty because the cost of one more copy is close to nothing.",
+        "The number that actually matters is whether your gross margin covers everything gross margin has to cover. If advertising costs you 15 of every 100 in revenue and your gross margin is 20 percent, you are running a business for five percent, and one bad month erases the year.",
+        "Our [profit margin calculator](/tools/profit-margin-calculator/) shows margin and markup side by side from the same inputs, which is the fastest way to stop confusing them, and it works out the selling price you need for a target margin so you are not solving the algebra by hand."
+      ]
+    },
+    {
+      "heading": "Working the other direction",
+      "paragraphs": [
+        "Most pricing questions in practice are backwards ones. Not what is my margin, but what should I charge to get the margin I need.",
+        "The formula is: price = cost divided by (1 minus target margin). For a 40 percent margin on something costing 60, that is 60 / 0.6 = 100. Notice that is a 66.7 percent markup, not a 40 percent one, which is exactly the trap from the start of this article.",
+        "If you are adjusting existing prices rather than setting new ones, the [percentage increase calculator](/tools/percentage-increase-calculator/) handles the everyday version of the question, and the [percentage calculator](/tools/percentage-calculator/) covers the rest."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is margin or markup more important?",
+      "a": "Margin, for understanding the business, because it tells you what share of revenue you keep. Markup is more useful at the moment you set a price from a known cost. Problems come from setting a target in margin and applying it as markup."
+    },
+    {
+      "q": "How do I convert markup to margin?",
+      "a": "Divide the markup by one plus the markup. A 50 percent markup is 0.5 / 1.5 = 33.3 percent margin. Going the other way, divide the margin by one minus the margin, so a 40 percent margin needs a 66.7 percent markup."
+    },
+    {
+      "q": "What price gives me a 40 percent margin?",
+      "a": "Divide your cost by 0.6. Something costing 60 needs to sell for 100. The general form is cost divided by one minus the target margin, and the two numbers must both be decimals for it to work."
+    },
+    {
+      "q": "Can margin be more than 100 percent?",
+      "a": "No. Margin is a share of the selling price, so it cannot exceed 100 percent, and reaching 100 would mean the product cost you nothing. Markup has no ceiling: something costing 1 and selling for 100 is a 9900 percent markup and a 99 percent margin."
+    },
+    {
+      "q": "Should payment fees come out of gross margin?",
+      "a": "They are usually treated as a cost of sale, which means yes, they reduce gross margin. The reason to include them is practical rather than accounting: a fee that is a fixed amount per order hits small orders disproportionately, and you will not see that unless it is in the calculation."
+    },
+    {
+      "q": "How much does a discount really cost?",
+      "a": "Divide the discount by your margin to see the share of profit it consumes. Twenty percent off a product at a 33 percent margin costs about 60 percent of the profit on that sale, which is why deep discounting on thin margins rarely works out."
+    }
+  ]
+}

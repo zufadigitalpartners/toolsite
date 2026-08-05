@@ -1,0 +1,122 @@
+{
+  "title": "Why Excel ruins your CSV files, and how to stop it",
+  "excerpt": "Leading zeros vanish, long numbers turn into scientific notation, and dates get rewritten. Excel is not broken. It is guessing, and here is how to stop it guessing.",
+  "date": "2026-08-03",
+  "category": "content/categories/spreadsheet.json",
+  "relatedTools": [
+    "csv-viewer",
+    "csv-to-json",
+    "json-to-csv",
+    "remove-duplicate-lines",
+    "excel-formula-generator"
+  ],
+  "coverAlt": "",
+  "outbound": {
+    "label": "Microsoft: format numbers as text",
+    "url": "https://support.microsoft.com/en-us/office/format-numbers-as-text-583160db-936b-4e52-bdff-6f1863518ba4",
+    "note": "Microsoft's own instructions for stopping Excel converting a column, which is the fix for most of the problems in this article."
+  },
+  "seo": {
+    "metaTitle": "Why Excel Ruins CSV Files (And How to Stop It)",
+    "metaDescription": "Leading zeros disappear, references become scientific notation, dates get rewritten. Why Excel does this to CSV files and how to open one safely.",
+    "keywords": [
+      "excel csv leading zeros",
+      "excel ruins csv",
+      "csv scientific notation",
+      "open csv without excel changing it",
+      "excel csv date format"
+    ]
+  },
+  "sections": [
+    {
+      "heading": "The three things that go wrong",
+      "paragraphs": [
+        "Open a CSV in Excel and three specific kinds of damage happen, usually without anybody noticing until much later.",
+        "Leading zeros disappear. A postcode column of 01234 becomes 1234. Phone numbers lose their zero. Account references that were carefully padded to eight digits come out short.",
+        "Long numbers become scientific notation. A sixteen digit order reference displays as 1.23457E+15, and if the file is saved in that state the actual digits are gone, not just hidden.",
+        "Dates get rewritten. A column of 03/04/2026 means the third of April in most of the world and the fourth of March in the United States, and Excel picks based on your machine's locale rather than on the file."
+      ],
+      "callout": "None of this produces an error message. The file opens, looks broadly right, and the damage is only visible if you know which column to check."
+    },
+    {
+      "heading": "Excel is not broken, it is guessing",
+      "paragraphs": [
+        "A CSV file is just text. It contains no information about what any column means. 01234 is five characters; whether that is a number, a postcode or a product code is something a human knows and the file does not say.",
+        "So Excel guesses. It looks at each column, decides what type it probably is, and converts. Most of the time this is helpful, which is exactly why it is dangerous: it is right often enough that people stop expecting it to be wrong.",
+        "The critical part is that the conversion happens at import, before you have seen anything. By the time the sheet is on screen the decision is made, and if you save the file the original text is gone."
+      ]
+    },
+    {
+      "heading": "How to open a CSV without letting Excel touch it",
+      "paragraphs": [
+        "The reliable method is to stop double-clicking the file. Double-clicking runs the automatic import with all the guessing turned on.",
+        "Instead, open Excel first with a blank workbook, then use Data, then Get Data or From Text, and import the file through the wizard. The wizard lets you set each column's type before anything is converted, and the one you want for anything that is an identifier rather than a quantity is Text.",
+        "That is the fix Microsoft themselves document, and it works. It is also several steps, which is why almost nobody does it, and why the same problem keeps happening."
+      ],
+      "bullets": [
+        "**Set identifier columns to Text.** Postcodes, phone numbers, product codes, order references, anything with a leading zero.",
+        "**Never save over the original.** Once Excel has converted a column and you save, the original text is unrecoverable from that file.",
+        "**Check before you import anywhere.** If the CSV is going into a database or another system, look at it first. A silently corrupted import is much harder to unpick later."
+      ]
+    },
+    {
+      "heading": "Look at the file before Excel does",
+      "paragraphs": [
+        "The faster habit is to read the CSV somewhere that does not convert anything, and only then decide what to do with it.",
+        "Our [CSV viewer](/tools/csv-viewer/) shows the file exactly as stored, character for character. It works out the separator on its own, handles quoted fields containing commas and line breaks properly, and never changes a value. It also flags two things that are hard to see by eye: empty cells, and rows that have a different number of columns to the header.",
+        "That last one is worth explaining, because it is the most common defect in exported data and the hardest to spot. If one value contains an unquoted comma, that row splits into an extra field, and every column after it shifts by one. The file still opens. The data is just wrong from that row onwards."
+      ]
+    },
+    {
+      "heading": "The other quiet problem: duplicates",
+      "paragraphs": [
+        "Excel's own Remove Duplicates only matches exactly. So Ayesha@Example.com and ayesha@example.com both survive, and so does anything carrying a trailing space you cannot see.",
+        "On a mailing list you pay for by contact, that is money. On a customer import it is two records for one person, and support usually finds out before you do.",
+        "Our [remove duplicate lines](/tools/remove-duplicate-lines/) tool lets you decide what counts as the same thing: exact, ignoring case, ignoring spaces at the ends, or both. It can also invert the question and show only the repeats, which is auditing a list rather than cleaning it, and is usually the more useful answer when you are trying to find out how bad the data is."
+      ]
+    },
+    {
+      "heading": "Moving data out of spreadsheets",
+      "paragraphs": [
+        "Most data starts in a spreadsheet and most software wants JSON, so that conversion happens constantly, and it is another place types get destroyed.",
+        "A converter that is clever about types will turn 007 into 7 and destroy an employee number. Our [CSV to JSON converter](/tools/csv-to-json/) is deliberately narrow about it: only plain integers and decimals become numbers, and anything with a leading zero or an unusual character stays a string, because that is an identifier. It also renames duplicate column headings rather than letting one silently overwrite the other, which is how a whole column disappears.",
+        "Going the other way, [JSON to CSV](/tools/json-to-csv/) handles the same job in reverse."
+      ]
+    },
+    {
+      "heading": "And while we are here: the formula traps",
+      "paragraphs": [
+        "Since we are on the subject of Excel behaving in ways that are documented but surprising, three worth knowing.",
+        "SUMIF and SUMIFS take their arguments in opposite orders. SUMIF puts the column you are adding last; SUMIFS puts it first. This is deliberate and it catches almost everyone at least once.",
+        "MATCH without a trailing zero assumes your data is sorted and returns wrong answers rather than an error, which is far worse than failing.",
+        "And VLOOKUP physically cannot look to the left of the column it searches, which is why so many people conclude it is broken. Our [Excel formula generator](/tools/excel-formula-generator/) builds these from plain English boxes and puts the trap next to each one."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Why does Excel remove leading zeros from my CSV?",
+      "a": "Because it decides the column is a number, and numbers do not have leading zeros. 01234 becomes 1234. The fix is to import through Data, Get Data rather than double-clicking, and set that column's type to Text before the import runs."
+    },
+    {
+      "q": "How do I stop Excel changing my dates?",
+      "a": "Set the column to Text during import, or store dates in ISO format as 2026-08-05, which is unambiguous. The trouble comes from formats like 03/04/2026 that mean different things in different countries, and Excel chooses based on your machine rather than the file."
+    },
+    {
+      "q": "What is scientific notation and why did my number become that?",
+      "a": "It is a short way of writing very large numbers, so 1234567890123456 becomes 1.23457E+15. Excel does it to long numbers automatically. If you save the file in that state the actual digits are lost, which is why long references should always be imported as Text."
+    },
+    {
+      "q": "Is there a way to open a CSV without Excel touching it?",
+      "a": "Yes. Read it in something that does not convert anything, which is what our CSV viewer is for. It shows exactly what is stored, and you can then decide whether Excel needs to be involved at all."
+    },
+    {
+      "q": "Why does my CSV have rows with too many columns?",
+      "a": "Almost always an unquoted comma inside a value. A correct CSV writer wraps such values in quotes; not all of them do. The result is one field splitting into two and every column after it shifting, which is why the warning is worth paying attention to."
+    },
+    {
+      "q": "Does any of this apply to Google Sheets?",
+      "a": "Some of it. Sheets also converts on import, though it is a little less aggressive about long numbers. The safest habit is the same: look at the raw file first, and set identifier columns to plain text."
+    }
+  ]
+}

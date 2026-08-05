@@ -168,6 +168,7 @@ export default function RootLayout({ children }) {
                 }))}
               />
               <Link href="/tools/">{ui("nav.allTools", "All tools")}</Link>
+              <Link href="/blog/">{ui("nav.blog", "Blog")}</Link>
               <Link href="/about/">{ui("nav.about", "About")}</Link>
             </nav>
           </div>
@@ -200,6 +201,7 @@ export default function RootLayout({ children }) {
                 <h3>{ui("nav.footerSiteHeading", "Site")}</h3>
                 <ul>
                   <li><Link href="/tools/">{ui("nav.allTools", "All tools")}</Link></li>
+                  <li><Link href="/blog/">{ui("nav.blog", "Blog")}</Link></li>
                   {footerPages("site").map((page) => (
                     <li key={page.slug}>
                       <Link href={`/${page.slug}/`}>

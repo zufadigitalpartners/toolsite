@@ -1,0 +1,114 @@
+{
+  "title": "How many hashtags to use on each platform",
+  "excerpt": "Thirty is normal on Instagram and looks like spam on X. Three is the whole strategy on YouTube. Here is the real number for each platform, and why they differ so much.",
+  "date": "2026-08-04",
+  "category": "content/categories/social.json",
+  "relatedTools": [
+    "hashtag-generator",
+    "instagram-hashtag-generator",
+    "youtube-hashtag-generator",
+    "hashtag-counter",
+    "caption-formatter"
+  ],
+  "coverAlt": "",
+  "outbound": {
+    "label": "YouTube Help: using hashtags",
+    "url": "https://support.google.com/youtube/answer/6390658",
+    "note": "YouTube's own documentation, including the rule that using more than fifteen hashtags causes it to ignore all of them. Worth reading because almost nobody knows that one."
+  },
+  "seo": {
+    "metaTitle": "How Many Hashtags Per Platform: The Real Numbers",
+    "metaDescription": "Instagram allows 30, X drops off after 2, YouTube ignores all of them past 15. The working number for every platform, and the reasoning behind each.",
+    "keywords": [
+      "how many hashtags",
+      "hashtags per platform",
+      "instagram hashtag limit",
+      "youtube hashtag rules",
+      "twitter hashtags"
+    ]
+  },
+  "sections": [
+    {
+      "heading": "There is no universal number",
+      "paragraphs": [
+        "The single most common social media mistake is writing one caption and pasting it everywhere. The words usually survive the trip. The hashtags almost never do, because every platform treats them differently, and the differences are much larger than people expect.",
+        "Thirty hashtags is unremarkable on Instagram. The same thirty on X make the post look automated and measurably reduce engagement. On YouTube, more than fifteen causes the platform to ignore every single one. On Facebook they do almost nothing regardless. On Pinterest they are not really hashtags at all, they are keywords."
+      ]
+    },
+    {
+      "heading": "The numbers, platform by platform",
+      "paragraphs": [
+        "Here is where each one actually lands. These are working numbers rather than the maximums, because the maximum is rarely the right answer."
+      ],
+      "bullets": [
+        "**Instagram: 30 allowed, 8 to 15 works better.** The cap is thirty and going over does not fail the post, the extras are simply ignored. Quantity has never been the variable that matters here; the mix of sizes is.",
+        "**TikTok: 3 to 6.** There is no hard cap, but the caption has a character limit the tags share with your text, and a wall of tags reads as spam. Hashtags help TikTok categorise the video, which is a real job but a small one.",
+        "**YouTube: 3, and never more than 15.** Only the first three appear above your title, and those are the only ones anyone clicks. Past fifteen, YouTube ignores all of them.",
+        "**LinkedIn: 3 to 5, at the end of the post.** More than that starts to look like marketing rather than a person talking.",
+        "**X: 1 or 2.** Engagement measurably drops as the count rises past two, and 280 characters means every tag is taking space from the thing people actually respond to.",
+        "**Facebook: 2 or 3, and honestly they do very little.** Reach on Facebook comes from friends, groups and shares, not from subject tags.",
+        "**Pinterest: 4 to 8 descriptive keywords.** They function as search terms in the description rather than as browsable feeds."
+      ],
+      "callout": "If you remember one thing: the number that works on Instagram is roughly fifteen times the number that works on X. Copying between them is why so many people conclude hashtags do not work."
+    },
+    {
+      "heading": "Why Instagram is the odd one out",
+      "paragraphs": [
+        "Instagram is the only major platform where a long list of hashtags is normal, and that is because it is the only one where hashtag pages are genuinely browsed. People follow hashtags there. They do not, in any real numbers, on Facebook or X.",
+        "But the thirty allowance leads almost everyone into the same trap: filling it with the biggest tags in their category. A post tagged with a hashtag carrying several hundred million posts is competing with everything else posted in that same minute, and it is out of sight in seconds.",
+        "What works is a spread. A couple of large tags for the brief burst of reach, a solid group of medium ones where your post stays visible for hours, and a set of small specific ones where far fewer people are looking but the ones who are chose that exact subject. That last group is where smaller accounts get almost all their reach, and it is the group most people skip.",
+        "Our [Instagram hashtag generator](/tools/instagram-hashtag-generator/) builds that mix rather than handing you thirty of the biggest, and it labels each group with what it actually does so the reasoning is visible."
+      ]
+    },
+    {
+      "heading": "The YouTube rule almost nobody knows",
+      "paragraphs": [
+        "YouTube hashtags work in a way that catches out even experienced creators. Only the first three appear as clickable links above your video title. Everything after that sits in the description doing very little.",
+        "And there is a hard rule in YouTube's own documentation: use more than fifteen hashtags on a video and YouTube ignores all of them, including the first three. Channels have been stuffing thirty tags into descriptions for years and achieving precisely nothing.",
+        "So the entire YouTube hashtag strategy is: pick three good ones, make them the clearest search terms for your subject, and stop. Our [YouTube hashtag generator](/tools/youtube-hashtag-generator/) defaults to three for exactly this reason."
+      ]
+    },
+    {
+      "heading": "What matters more than the count",
+      "paragraphs": [
+        "It is worth saying plainly that hashtags are not the lever people hope they are. On TikTok, whether someone watches past the first two seconds matters enormously more than any tag. On YouTube, the title and thumbnail decide almost everything. On Instagram, the first frame of your image and the opening line of your caption do more work than the tag list.",
+        "Hashtags help a platform understand what your post is about so it knows who to try it on. That is genuinely useful and it is worth doing properly. It is not a substitute for a post people want to watch.",
+        "The other thing that quietly costs people: repeating an identical block of tags on every post. It narrows you to the same audience every time and reads as automated. Keep the medium tags that work and change the specific ones to match what each post is actually about."
+      ]
+    },
+    {
+      "heading": "Checking before you publish",
+      "paragraphs": [
+        "Most of the ways a hashtag set fails are silent. Tags past the limit are ignored rather than rejected. Repeated tags waste your allowance without telling you. Hashtags made only of numbers are not hashtags on any platform and simply sit there.",
+        "The [hashtag counter](/tools/hashtag-counter/) checks a finished caption against the real limits for each platform and flags all of those. It also shows how much of your caption appears before the More link, which on Instagram is about 125 characters, so you can see whether the first thing anyone reads is your opening line or a wall of tags.",
+        "And if your line breaks keep collapsing into one paragraph when you post, the [caption formatter](/tools/caption-formatter/) fixes that, which is a different problem with an equally annoying cause."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does using all 30 hashtags on Instagram help?",
+      "a": "Not reliably. The cap is thirty but most accounts do better with eight to fifteen chosen carefully. Filling all thirty with broad tags is the most common way to get no reach at all, because your post disappears in every one of them within seconds."
+    },
+    {
+      "q": "Do hashtags in the first comment work better?",
+      "a": "No. It makes no measurable difference to reach, despite years of advice claiming otherwise. It does keep the caption clean in the feed, which is a reasonable presentation choice on its own."
+    },
+    {
+      "q": "Is #fyp worth using on TikTok?",
+      "a": "No. It appears on an enormous share of all uploads, which makes it meaningless as a signal. It neither helps nor hurts much, it just uses characters that could describe your video."
+    },
+    {
+      "q": "Why do hashtags perform badly on X?",
+      "a": "Partly the format, since a 280 character post cannot spare the space, and partly the culture, since long tag lists there are associated with spam and promotional accounts. One or two well chosen tags outperform five."
+    },
+    {
+      "q": "Should I use trending hashtags?",
+      "a": "Only when your post genuinely belongs in that conversation. Attaching a trending tag to something unrelated puts you in front of people expecting something else, and their immediate scroll is a stronger negative signal than the tag is a positive one."
+    },
+    {
+      "q": "Do hashtags count towards the character limit?",
+      "a": "Yes, on every platform. They are part of the caption text, which matters most on X and Pinterest where the limits are tight."
+    }
+  ]
+}

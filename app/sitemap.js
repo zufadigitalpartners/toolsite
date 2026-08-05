@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { tools, categories } from "@/lib/tools";
 import { indexablePages } from "@/lib/pages";
+import { posts } from "@/lib/posts";
 
 // Static-export compatible: Next.js renders this to /sitemap.xml at build time.
 export const dynamic = "force-static";
@@ -11,7 +12,17 @@ export default function sitemap() {
   const entries = [
     { url: `${base}/`, priority: 1.0, changeFrequency: "weekly" },
     { url: `${base}/tools/`, priority: 0.9, changeFrequency: "weekly" },
+    { url: `${base}/blog/`, priority: 0.8, changeFrequency: "weekly" },
   ];
+
+  for (const post of posts) {
+    entries.push({
+      url: `${base}/blog/${post.slug}/`,
+      lastModified: post.date || undefined,
+      priority: 0.7,
+      changeFrequency: "monthly",
+    });
+  }
 
   // Every CMS page that is not marked noindex. Legal pages carry noindex
   // so they stay out of here automatically.

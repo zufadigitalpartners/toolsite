@@ -1372,6 +1372,277 @@ input.mono-out {
   background: transparent;
 }
 
+/* ================= BLOG ================= */
+.blog-index { max-width: 1140px; }
+.blog-index h1 { margin-bottom: var(--s3); }
+.blog-index .lead { max-width: 60ch; }
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--s6) var(--s5);
+  margin-top: var(--s7);
+}
+.blog-card { min-width: 0; }
+.bc-cover {
+  display: block;
+  aspect-ratio: 1200 / 630;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.bc-cover img, .bc-cover svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bc-cover span { display: block; height: 100%; }
+
+.bc-body { padding-top: var(--s3); }
+.bc-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--s2);
+}
+.bc-cat { display: inline-flex; align-items: center; gap: 5px; }
+.bc-cat svg { color: var(--cc); flex: 0 0 14px; }
+
+.blog-card h2, .blog-card h3 {
+  font-size: var(--t-20);
+  line-height: 1.3;
+  letter-spacing: var(--ls-20);
+  margin: 0 0 var(--s2);
+}
+.blog-card h2 a, .blog-card h3 a { color: var(--ink); }
+.blog-card h2 a:hover, .blog-card h3 a:hover { color: var(--accent); text-decoration: none; }
+.blog-card p {
+  font-family: var(--font-sans);
+  font-size: var(--t-14);
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+  max-width: 46ch;
+}
+
+/* ---- the article ---- */
+.blog-post { padding-top: var(--s6); padding-bottom: var(--s8); }
+.bp-header { max-width: 68ch; }
+.bp-header h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(31px, 5vw, 44px);
+  line-height: 1.08;
+  letter-spacing: var(--ls-39);
+  margin: 0 0 var(--s4);
+}
+.bp-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 1.05rem + .3vw, 21px);
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 var(--s4);
+}
+.bp-byline {
+  display: flex;
+  gap: var(--s4);
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bp-cover {
+  margin: var(--s6) 0 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--ink);
+}
+.bp-cover img, .bp-cover svg { width: 100%; height: auto; display: block; aspect-ratio: 1200/630; object-fit: cover; }
+.bp-cover span { display: block; }
+.bp-cover figcaption {
+  padding: var(--s3) var(--s4);
+  background: var(--surface-2);
+  border-top: 1px solid var(--line);
+  font-size: var(--t-14);
+  color: var(--muted);
+}
+
+.blog-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: var(--s8);
+  align-items: start;
+  margin-top: var(--s7);
+}
+@media (max-width: 980px) {
+  .blog-body { grid-template-columns: 1fr; gap: var(--s7); }
+}
+
+/* The article reuses the tool page's prose settings so the site reads as
+   one publication rather than two. */
+.blog-article {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 1.05rem + .3vw, 20px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 68ch;
+  font-variant-numeric: proportional-nums oldstyle-nums;
+  font-feature-settings: "pnum", "onum";
+}
+.blog-article p { margin: 0 0 1.35em; overflow-wrap: break-word; }
+.blog-article h2 {
+  font-family: var(--font-sans);
+  font-size: var(--t-31);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: var(--ls-31);
+  color: var(--ink);
+  margin: 2.2em 0 .5em;
+  padding-top: var(--s5);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 88px;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.blog-article section:first-of-type h2 { margin-top: 0; }
+.blog-article ul { padding-left: 1.4em; margin: 0 0 1.35em; }
+.blog-article li { margin-bottom: .5em; }
+.blog-article strong { font-weight: 600; }
+.blog-article a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
+}
+.blog-article a:hover { text-decoration-color: var(--accent); }
+
+.bp-toc {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  padding: var(--s4) var(--s5);
+  margin-bottom: var(--s6);
+}
+.bp-toc h2 {
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  font-weight: 400;
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--s2);
+  padding: 0;
+  border: 0;
+}
+.bp-toc ol { margin: 0; padding-left: 1.3em; font-family: var(--font-sans); font-size: var(--t-14); }
+.bp-toc li { margin-bottom: 4px; }
+.bp-toc a { color: var(--ink-2); text-decoration: none; }
+.bp-toc a:hover { color: var(--accent); text-decoration: underline; }
+
+.bp-callout {
+  border-left: 2px solid var(--cc);
+  background: var(--surface-2);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: var(--s4) var(--s5);
+  margin: 0 0 1.35em;
+}
+.bp-callout p { margin: 0; font-family: var(--font-sans); font-size: var(--t-16); line-height: 1.55; color: var(--ink); }
+
+/* One outbound link, deliberately given its own block rather than buried in
+   a paragraph, because a source worth citing is worth seeing. */
+.bp-source {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  padding: var(--s4) var(--s5);
+  margin: var(--s6) 0 0;
+}
+.bp-source h2 {
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  font-weight: 400;
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--s2);
+  padding: 0;
+  border: 0;
+}
+.bp-source a {
+  font-family: var(--font-sans);
+  font-size: var(--t-16);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  text-decoration: none;
+}
+.bp-source a:hover { text-decoration: underline; }
+.bp-source p { font-family: var(--font-sans); font-size: var(--t-14); color: var(--muted); margin: var(--s2) 0 0; }
+
+.blog-rail {
+  position: sticky;
+  top: 88px;
+  align-self: start;
+  border-left: 1px solid var(--line);
+  padding-left: var(--s5);
+  display: grid;
+  gap: var(--s6);
+  min-width: 0;
+}
+@media (max-width: 980px) {
+  .blog-rail {
+    position: static;
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: var(--s5);
+  }
+}
+.blog-rail h3 {
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  font-weight: 400;
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--s3);
+  padding-bottom: var(--s2);
+  border-bottom: 1px solid var(--line);
+}
+.blog-rail .pw-chips { display: grid; gap: 0; }
+.blog-rail .pw-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  font-family: var(--font-sans);
+  font-size: var(--t-14);
+  font-weight: 500;
+  color: var(--ink);
+  min-height: 44px;
+}
+.blog-rail .pw-chip:first-child { border-top: 0; }
+.blog-rail .pw-chip .t-icon { color: var(--cc); flex: 0 0 16px; }
+.blog-rail .pw-chip:hover { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 560px) {
+  .blog-list { gap: var(--s5); margin-top: var(--s6); }
+  .bp-cover { margin-top: var(--s5); }
+  .blog-body { margin-top: var(--s6); }
+  .blog-article { font-size: 18px; line-height: 1.62; }
+  .blog-article h2 { font-size: var(--t-25); letter-spacing: var(--ls-25); margin-top: 1.8em; padding-top: var(--s4); }
+  .bp-toc, .bp-source { padding: var(--s4); }
+}
+
 /* ================= BROWSE PANEL ================= */
 /* The whole catalogue, one step from anywhere. Replaced a dropdown that
    listed only the nine categories, which made reaching any single tool a

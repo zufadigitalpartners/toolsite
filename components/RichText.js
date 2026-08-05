@@ -24,7 +24,10 @@ function renderBold(text, keyBase) {
   return parts;
 }
 
-export default function RichText({ text, className }) {
+// `as` exists because a list item needs a span, not a paragraph. A <p>
+// inside an <li> is valid but forces the browser's paragraph margins into
+// the list, which pulls the bullets apart.
+export default function RichText({ text, className, as: Tag = "p" }) {
   const parts = [];
   let last = 0;
   let match;
@@ -42,5 +45,5 @@ export default function RichText({ text, className }) {
     last = match.index + match[0].length;
   }
   if (last < text.length) parts.push(...renderBold(text.slice(last), parts.length));
-  return <p className={className}>{parts}</p>;
+  return <Tag className={className}>{parts}</Tag>;
 }
