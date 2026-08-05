@@ -3,7 +3,7 @@
   "emoji": "🔄",
   "icon": "scaling",
   "category": "content/categories/pdf.json",
-  "popular": true,
+  "popular": false,
   "order": 3,
   "short": "Straighten pages that were scanned sideways, all of them or just some.",
   "seo": {

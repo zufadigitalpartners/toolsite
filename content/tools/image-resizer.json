@@ -2,7 +2,7 @@
   "name": "Image Resizer",
   "emoji": "📐",
   "category": "content/categories/image.json",
-  "popular": true,
+  "popular": false,
   "order": 20,
   "short": "Resize images to exact dimensions without uploading them.",
   "code": {

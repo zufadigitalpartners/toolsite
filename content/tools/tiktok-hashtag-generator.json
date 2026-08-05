@@ -3,7 +3,7 @@
   "emoji": "🎵",
   "icon": "sparkles",
   "category": "content/categories/social.json",
-  "popular": true,
+  "popular": false,
   "order": 7,
   "short": "Get three to six TikTok hashtags that categorise your video properly.",
   "code": {

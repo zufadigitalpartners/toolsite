@@ -3,7 +3,7 @@
   "emoji": "📸",
   "icon": "sparkles",
   "category": "content/categories/social.json",
-  "popular": true,
+  "popular": false,
   "order": 6,
   "short": "Build a 30-safe Instagram hashtag set that mixes big, medium and small tags.",
   "code": {

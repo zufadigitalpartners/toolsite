@@ -2,7 +2,7 @@
   "name": "Unit Converter",
   "emoji": "📏",
   "category": "content/categories/calculators.json",
-  "popular": true,
+  "popular": false,
   "order": 19,
   "short": "Convert length, weight, temperature, volume, area, speed and data.",
   "code": {

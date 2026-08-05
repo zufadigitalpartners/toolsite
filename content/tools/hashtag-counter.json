@@ -3,7 +3,7 @@
   "emoji": "🔢",
   "icon": "percent",
   "category": "content/categories/social.json",
-  "popular": true,
+  "popular": false,
   "order": 2,
   "short": "Paste your caption and check it against the real limits before you post.",
   "code": {

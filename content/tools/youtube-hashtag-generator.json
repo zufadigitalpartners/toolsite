@@ -3,7 +3,7 @@
   "emoji": "▶️",
   "icon": "sparkles",
   "category": "content/categories/social.json",
-  "popular": true,
+  "popular": false,
   "order": 8,
   "short": "Pick the three hashtags that show above your title, without tripping the 15 limit.",
   "code": {

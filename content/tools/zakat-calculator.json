@@ -3,7 +3,7 @@
   "icon": "moon-star",
   "emoji": "🌙",
   "category": "content/categories/finance.json",
-  "popular": true,
+  "popular": false,
   "order": 5,
   "short": "Work out your zakat: assets, nisab check, and the 2.5% due.",
   "code": {

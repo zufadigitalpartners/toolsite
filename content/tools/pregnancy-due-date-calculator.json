@@ -3,7 +3,7 @@
   "icon": "calendar-days",
   "emoji": "🤰",
   "category": "content/categories/health.json",
-  "popular": true,
+  "popular": false,
   "order": 6,
   "short": "Due date by Naegele's rule, with weeks along and trimester milestones.",
   "seo": {

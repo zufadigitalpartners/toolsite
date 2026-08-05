@@ -2,7 +2,7 @@
   "name": "Age Calculator",
   "emoji": "🎂",
   "category": "content/categories/calculators.json",
-  "popular": true,
+  "popular": false,
   "order": 6,
   "short": "Find your exact age in years, months and days from your birth date.",
   "code": {

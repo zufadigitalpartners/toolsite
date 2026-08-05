@@ -11,6 +11,46 @@ import { posts, coverSvg } from "@/lib/posts";
 // Icons for the trust strip, in the order the CMS lists the items.
 const WHY_ICONS = ["badge-check", "shield", "user-x", "smartphone"];
 
+/* Three curated rows replaced thirteen identical category grids.
+   Thirteen was what a category-per-section homepage grows into once the
+   site passes a hundred tools: a wall nobody scrolls, where the strongest
+   tools sit level with the weakest. These rows are chosen by the job the
+   visitor arrived with, cross the category lines on purpose, and each one
+   makes an argument. Browsing still lives in the deck above, the browse
+   panel and the category pages. */
+const SHOWCASE = [
+  {
+    id: "files",
+    eyebrow: "Files",
+    heading: "Your files never leave your device",
+    copy:
+      "Converting a passport scan or a client contract usually means uploading it to a company you found on page one of Google. These do the work in your browser instead. Load one, disconnect from the internet, and it still runs.",
+    slugs: ["pdf-to-jpg", "heic-to-jpg", "image-compressor", "merge-pdf"],
+    href: "/category/pdf/",
+    linkLabel: "All file tools",
+  },
+  {
+    id: "business",
+    eyebrow: "Business documents",
+    heading: "Paperwork that looks like a real company sent it",
+    copy:
+      "Invoice, quote, receipt, purchase order, credit note and packing slip, all from one engine so they match. Add your logo once and it appears on every one. No account, no watermark, no counter ticking toward a paywall.",
+    slugs: ["invoice-generator", "quote-generator", "receipt-maker", "purchase-order-generator"],
+    href: "/category/ecommerce/",
+    linkLabel: "All business tools",
+  },
+  {
+    id: "money",
+    eyebrow: "Money",
+    heading: "Money questions, answered with the working shown",
+    copy:
+      "Most finance calculators are lead-generation forms that want your email before the answer. These show the arithmetic, name their assumptions, and keep every number you type on your own machine.",
+    slugs: ["rent-vs-buy-calculator", "mortgage-payment-calculator", "debt-payoff-planner", "fire-calculator"],
+    href: "/category/finance/",
+    linkLabel: "All money tools",
+  },
+];
+
 export default function Home() {
   // Everything the search box needs and nothing it does not. Flattened here
   // so the client never receives a tool's code, article or SEO block.
@@ -108,35 +148,38 @@ export default function Home() {
             </span>
           </div>
           <div className="grid">
-            {popularTools().slice(0, 8).map((t) => (
+            {popularTools().slice(0, 12).map((t) => (
               <ToolCard key={t.slug} tool={t} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ CATEGORY SECTIONS ============ */}
-      {categories.map((cat) => (
-        <section className="section" id={`cat-${cat.id}`} key={cat.id}>
-          <div className="container">
-            <div className="section-head" style={{ "--cat-color": cat.color }}>
-              <h2>
-                <Icon name={cat.icon} emoji={cat.emoji} size={20} className="h-icon" />
-                {cat.name}
-              </h2>
-              <Link className="view-all" href={`/category/${cat.id}/`}>
-                {ui("home.viewAll", "View all {count}", { count: toolsByCategory(cat.id).length })}
-                <Icon name="arrow-right" size={16} />
-              </Link>
+      {/* ============ SHOWCASE ROWS ============ */}
+      {SHOWCASE.map((row) => {
+        const rowTools = row.slugs.map((s) => tools.find((t) => t.slug === s)).filter(Boolean);
+        if (!rowTools.length) return null;
+        return (
+          <section className="section showcase" id={row.id} key={row.id}>
+            <div className="container">
+              <div className="sc-intro">
+                <div className="section-eyebrow">{row.eyebrow}</div>
+                <h2>{row.heading}</h2>
+                <p>{row.copy}</p>
+                <Link className="view-all" href={row.href}>
+                  {row.linkLabel}
+                  <Icon name="arrow-right" size={16} />
+                </Link>
+              </div>
+              <div className="grid">
+                {rowTools.map((t) => (
+                  <ToolCard key={t.slug} tool={t} />
+                ))}
+              </div>
             </div>
-            <div className="grid">
-              {toolsByCategory(cat.id).slice(0, 4).map((t) => (
-                <ToolCard key={t.slug} tool={t} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
       {/* ============ BLOG ============ */}
       {latestPosts.length > 0 && (

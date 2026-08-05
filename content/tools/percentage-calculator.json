@@ -2,7 +2,7 @@
   "name": "Percentage Calculator",
   "emoji": "％",
   "category": "content/categories/calculators.json",
-  "popular": true,
+  "popular": false,
   "order": 11,
   "short": "Work out percentages, increases, decreases and percentage change.",
   "code": {

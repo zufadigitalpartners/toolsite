@@ -3,7 +3,7 @@
   "emoji": "💰",
   "icon": "percent",
   "category": "content/categories/ecommerce.json",
-  "popular": true,
+  "popular": false,
   "order": 1,
   "short": "Work out margin and markup together, or the price that hits the margin you want.",
   "code": {

@@ -3,7 +3,7 @@
   "emoji": "✂️",
   "icon": "scaling",
   "category": "content/categories/pdf.json",
-  "popular": true,
+  "popular": false,
   "order": 2,
   "short": "Pull out the pages you need, or break a long PDF into equal pieces.",
   "seo": {

@@ -3,7 +3,7 @@
   "emoji": "#️⃣",
   "icon": "sparkles",
   "category": "content/categories/social.json",
-  "popular": true,
+  "popular": false,
   "order": 1,
   "short": "One tool for every platform, with the right number of tags for each.",
   "code": {

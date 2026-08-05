@@ -3,7 +3,7 @@
   "emoji": "🔊",
   "icon": "align-left",
   "category": "content/categories/text.json",
-  "popular": true,
+  "popular": false,
   "order": 5,
   "short": "Have any text read aloud, in your choice of voice, without an account.",
   "code": {

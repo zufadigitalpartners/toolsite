@@ -3,7 +3,7 @@
   "icon": "candlestick",
   "emoji": "📈",
   "category": "content/categories/crypto.json",
-  "popular": true,
+  "popular": false,
   "order": 1,
   "short": "What a trade actually made after both fees, and the real break-even price.",
   "seo": {

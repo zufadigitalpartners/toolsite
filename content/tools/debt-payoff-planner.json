@@ -3,7 +3,7 @@
   "icon": "coins",
   "emoji": "💳",
   "category": "content/categories/finance.json",
-  "popular": true,
+  "popular": false,
   "order": 1,
   "short": "Turn a pile of debts into a dated plan. Snowball and avalanche, side by side.",
   "code": {

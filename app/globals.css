@@ -742,6 +742,41 @@ html.rvl-css .hero-stat {
 .section-head[style*="--cat-color"] {
   border-bottom: 2px solid var(--cc);
 }
+
+/* Showcase rows: an argument on the left, its evidence on the right.
+   The asymmetry is the point. Thirteen identical category grids read as a
+   directory; a claim beside the four tools that back it reads as a case. */
+.showcase .container {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+.sc-intro { position: sticky; top: calc(var(--header-h, 64px) + 24px); }
+.sc-intro h2 {
+  /* Clamped rather than fixed at 31: these headlines are sentences, and a
+     sentence at 31px on a 375px screen wraps to four lines of shouting. */
+  font-size: clamp(var(--t-25), 4.5vw, var(--t-31));
+  font-weight: 700;
+  letter-spacing: var(--ls-31);
+  line-height: 1.15;
+  margin: 0 0 var(--s3);
+  text-wrap: balance;
+}
+.sc-intro p {
+  color: var(--ink-2);
+  margin: 0 0 var(--s4);
+  max-width: 46ch;
+}
+.sc-intro .view-all { font-weight: 600; }
+/* The showcase grid holds exactly four, so two columns keeps the cards
+   large enough to read rather than shrinking them to fit a wide row. */
+.showcase .grid { grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); }
+
+@media (max-width: 900px) {
+  .showcase .container { grid-template-columns: 1fr; }
+  .sc-intro { position: static; }
+}
 .section-head h2 {
   font-size: var(--t-25);
   font-weight: 700;
@@ -2049,6 +2084,17 @@ input.mono-out {
 .footer-grid li { margin-bottom: var(--s2); }
 .footer-grid a { color: #c2cad8; }
 .footer-grid a:hover { color: var(--on-ink); }
+/* The category links close each family's column, so they get a rule above
+   them and the muted tone that says "and the rest are through here". */
+.footer-grid .f-cat {
+  color: var(--on-ink-3);
+  font-size: var(--t-13);
+}
+.footer-grid li.f-first {
+  margin-top: var(--s3);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--on-ink-line);
+}
 .footer-bottom {
   margin-top: var(--s6);
   padding-top: var(--s4);

@@ -3,7 +3,7 @@
   "emoji": "📄",
   "icon": "file-image",
   "category": "content/categories/pdf.json",
-  "popular": true,
+  "popular": false,
   "order": 25,
   "short": "Turn photos or scans into one PDF, in order, without uploading them.",
   "code": {

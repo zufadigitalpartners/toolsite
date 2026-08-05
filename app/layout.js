@@ -37,6 +37,27 @@ export const metadata = {
 
 // Organization + WebSite schema, emitted once site-wide so Google can
 // tie every page back to one brand and offer a sitelinks search box.
+/* Footer families, five columns instead of one per category. */
+const FOOTER_FAMILIES = [
+  { id: "files", label: "Files and images", cats: ["pdf", "image"] },
+  { id: "money", label: "Money and property", cats: ["finance", "property", "crypto"] },
+  { id: "life", label: "Health and everyday", cats: ["health", "calculators"] },
+  { id: "work", label: "Business and content", cats: ["ecommerce", "social", "spreadsheet"] },
+  { id: "build", label: "Text and developer", cats: ["text", "developer", "generators"] },
+];
+
+/* A category added in the CMS that nobody thought to place here would
+   otherwise vanish from the footer without a word. Unplaced ones join the
+   last family instead, so the failure is visible rather than silent. */
+function footerFamilies() {
+  const placed = new Set(FOOTER_FAMILIES.flatMap((f) => f.cats));
+  const orphans = categories.map((c) => c.id).filter((id) => !placed.has(id));
+  if (!orphans.length) return FOOTER_FAMILIES;
+  return FOOTER_FAMILIES.map((f, i) =>
+    i === FOOTER_FAMILIES.length - 1 ? { ...f, cats: [...f.cats, ...orphans] } : f
+  );
+}
+
 const siteLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -180,23 +201,43 @@ export default function RootLayout({ children }) {
         <footer className="site-footer">
           <div className="container">
             <div className="footer-grid">
-              {categories.map((cat) => (
-                <div key={cat.id}>
-                  <h3>{cat.name}</h3>
-                  <ul>
-                    {/* Capped so the footer does not keep growing as tools
-                        are added. The rest live on the category page. */}
-                    {toolsByCategory(cat.id).slice(0, site.footerToolLimit).map((t) => (
-                      <li key={t.slug}>
-                        <Link href={`/tools/${t.slug}/`}>{t.name}</Link>
-                      </li>
-                    ))}
-                    <li>
-                      <Link href={`/category/${cat.id}/`}>{ui("nav.footerViewAll", "View all →")}</Link>
-                    </li>
-                  </ul>
-                </div>
-              ))}
+              {/* Grouped into families rather than one column per category.
+                  Thirteen columns was a mega-footer that scrolled longer than
+                  some pages; five reads at a glance and every link survives,
+                  each family ending in links to its category pages. */}
+              {footerFamilies().map((fam) => {
+                const famCats = fam.cats.map((id) => categories.find((c) => c.id === id)).filter(Boolean);
+                // Round-robin across the family's categories so a 22-tool
+                // category cannot crowd a 5-tool one out of its own column.
+                const lists = famCats.map((c) => toolsByCategory(c.id));
+                const famTools = [];
+                for (let i = 0; famTools.length < site.footerToolLimit * 2; i++) {
+                  const before = famTools.length;
+                  for (const l of lists) {
+                    if (l[i] && famTools.length < site.footerToolLimit * 2) famTools.push(l[i]);
+                  }
+                  if (famTools.length === before) break;
+                }
+                return (
+                  <div key={fam.id}>
+                    <h3>{fam.label}</h3>
+                    <ul>
+                      {famTools.map((t) => (
+                        <li key={t.slug}>
+                          <Link href={`/tools/${t.slug}/`}>{t.name}</Link>
+                        </li>
+                      ))}
+                      {famCats.map((c, i) => (
+                        <li key={c.id} className={i === 0 ? "f-first" : undefined}>
+                          <Link href={`/category/${c.id}/`} className="f-cat">
+                            {ui("nav.footerAllIn", "All {name} →", { name: c.name })}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
               <div>
                 <h3>{ui("nav.footerSiteHeading", "Site")}</h3>
                 <ul>

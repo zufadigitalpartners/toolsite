@@ -3,7 +3,7 @@
   "icon": "flame",
   "emoji": "🔥",
   "category": "content/categories/finance.json",
-  "popular": true,
+  "popular": false,
   "order": 2,
   "short": "Your financial independence number, and the year you reach it.",
   "code": {

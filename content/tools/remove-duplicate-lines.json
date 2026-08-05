@@ -3,7 +3,7 @@
   "emoji": "🧹",
   "icon": "align-left",
   "category": "content/categories/spreadsheet.json",
-  "popular": true,
+  "popular": false,
   "order": 31,
   "short": "Paste a list and strip out repeats, with counts and the order kept.",
   "code": {

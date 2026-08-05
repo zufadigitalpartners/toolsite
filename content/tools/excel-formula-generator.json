@@ -3,7 +3,7 @@
   "emoji": "🧮",
   "icon": "table",
   "category": "content/categories/spreadsheet.json",
-  "popular": true,
+  "popular": false,
   "order": 24,
   "short": "Build VLOOKUP, SUMIF, IF and the rest by filling in boxes instead of remembering the order.",
   "code": {

@@ -3,7 +3,7 @@
   "emoji": "🏷️",
   "icon": "percent",
   "category": "content/categories/ecommerce.json",
-  "popular": true,
+  "popular": false,
   "order": 2,
   "short": "See what actually lands in your account after payment fees, and which plan pays off.",
   "code": {
