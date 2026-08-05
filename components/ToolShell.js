@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ui } from "@/lib/site";
+import { site, ui } from "@/lib/site";
 import { getTool, getCategory } from "@/lib/tools";
 import { relatedTools } from "@/lib/related";
 import { getToolContent } from "@/lib/content";
@@ -62,6 +62,51 @@ export default function ToolShell({ slug, children }) {
     ],
   };
 
+  // The tool itself. WebApplication rather than SoftwareApplication because
+  // nothing is installed, and Google's rich results treat the two the same.
+  // price 0 is stated explicitly: an offer with no price is ignored, and
+  // "free" is the single strongest thing we have to say about these pages.
+  const appLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: tool.name,
+    url: absUrl(`/tools/${tool.slug}/`),
+    description: content?.seo?.metaDescription || tool.short,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires a modern browser with JavaScript enabled",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
+
+  // HowTo needs at least two steps to be eligible, and a one-step "how to"
+  // is not a how-to anyway, so anything shorter is left out rather than
+  // emitted and rejected.
+  const howToLd =
+    howto.length > 1
+      ? {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: `${howToHeading} ${tool.name.toLowerCase()}`,
+          totalTime: "PT1M",
+          tool: { "@type": "HowToTool", name: tool.name },
+          step: howto.map((s, i) => {
+            const text = stripLinks(String(s));
+            // Google wants a short label plus the full instruction. The first
+            // sentence is the label the author already wrote; "Step 3" is not.
+            const first = text.split(/(?<=[.!?])\s/)[0];
+            return {
+              "@type": "HowToStep",
+              position: i + 1,
+              name: first.length > 90 ? `${first.slice(0, 87)}...` : first,
+              text,
+              url: absUrl(`/tools/${tool.slug}/#${anchor(howToHeading)}`),
+            };
+          }),
+        }
+      : null;
+
   const faqLd = faqs?.length
     ? {
         "@context": "https://schema.org",
@@ -76,7 +121,9 @@ export default function ToolShell({ slug, children }) {
 
   return (
     <div className="container tool-page" style={{ "--cat-color": cat.color }}>
+      <JsonLd data={appLd} />
       <JsonLd data={breadcrumbLd} />
+      {howToLd && <JsonLd data={howToLd} />}
       {faqLd && <JsonLd data={faqLd} />}
 
       <div className="breadcrumb">
