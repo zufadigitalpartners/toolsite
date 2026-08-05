@@ -1,0 +1,82 @@
+{
+  "name": "HEIC to JPG",
+  "icon": "images",
+  "emoji": "📱",
+  "category": "content/categories/image.json",
+  "popular": true,
+  "order": 5,
+  "short": "Convert iPhone HEIC photos to JPG files that open everywhere. In your browser, no upload.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "HEIC to JPG Converter: iPhone Photos, No Upload",
+    "metaDescription": "Convert HEIC photos from an iPhone to JPG entirely in your browser. Batch convert, pick the quality, download one file or a ZIP. No upload, no signup.",
+    "keywords": [
+      "heic to jpg",
+      "convert heic to jpg",
+      "heic converter",
+      "iphone photo to jpg",
+      "heic to jpeg online",
+      "open heic on windows"
+    ]
+  },
+  "content": {
+    "intro": [
+      "HEIC is the format iPhones have used since 2017, and it is genuinely better than JPG at storing a photo in half the space. The problem is everything else: Windows machines that show a broken thumbnail, web forms that reject the upload, printing kiosks that have never heard of it, clients who reply asking what this file is. At that moment nobody wants a lecture about codecs; they want a JPG.",
+      "So this converter takes your HEIC photos and produces JPGs on your own device. If your browser can decode HEIC natively, as Safari can, conversion is instant. If not, a decoder loads into the page and does the work locally. Either way your photos are never uploaded, which matters more for a camera roll than for almost anything else: personal photos carry faces, places and, in their metadata, GPS coordinates. Convert thirty at once and take the ZIP."
+    ],
+    "howto": [
+      "Drop your HEIC photos onto the box, or press Choose files. You can add up to thirty at a time.",
+      "Set the JPG quality slider if you want to. 90% is the default and is visually identical to the original for photographs.",
+      "Watch the list fill in as each photo converts. Each row shows the size before and after.",
+      "Press Save next to any single photo, or Download all as ZIP for the batch.",
+      "The names are kept, so IMG_4032.heic becomes IMG_4032.jpg and your photos stay sorted.",
+      "If one file fails, the rest continue; the failed row tells you what went wrong."
+    ],
+    "benefits": [
+      "Two things separate this from the first page of HEIC converter results. First, nothing is uploaded. A camera roll is about as private as data gets, and most converter sites quietly ship every photo to their server, convert it there, and keep it for a retention period they describe vaguely if at all. Here the decoding happens in your browser's memory; unplug your internet after the page loads and it still works. Second, batch conversion with sensible names and a single ZIP, because the real-world version of this problem is never one photo, it is the forty photos of the kitchen renovation the builder just sent from an iPhone.",
+      "A side effect worth knowing: converting through a canvas strips the photo's metadata, including the GPS location where it was taken. For photos headed to a marketplace listing or a public post, that is a feature. If you want to see exactly what was in there before it went, our [EXIF remover](/tools/exif-remover/) shows the full metadata of any JPG, and the [image compressor](/tools/image-compressor/) takes over when the converted JPG also needs to hit a size limit.",
+      "The quality slider deserves a sentence, because the default matters. At 90%, a JPG of a photograph is indistinguishable from the source on any screen at any reasonable zoom; the differences exist only for pixel-level comparison tools. Sliding lower buys smaller files at a visible cost, which is occasionally the right trade for email attachments. Sliding to 100% is almost never right: the files balloon and the eye gains nothing. If what you actually need is a specific file size, say 200 KB for a portal, convert here at 90% and then hand the JPG to our image compressor, which can hit an exact number."
+    ],
+    "useCases": [
+      "Windows users receiving iPhone photos are the single biggest case: the email attachment or WhatsApp export that will not open. Drop, convert, done. Sellers photograph products on an iPhone and then discover the marketplace only takes JPG or PNG; the whole shoot converts here in one batch. Office workers get HEIC photos from colleagues for a report or slide deck and need them in a format Office actually places.",
+      "Printing is the other reliable one. Kiosks, pharmacy photo counters and online print services widely reject HEIC, so the holiday album gets converted here first. Same for insurance claims, rental inspections and building documentation, where photos taken on a phone must be uploaded to a portal built years before HEIC existed. In all of these, the photos are personal; converting them without uploading them is the point."
+    ],
+    "faqs": [
+      {
+        "q": "Are my photos uploaded?",
+        "a": "No. Decoding happens in your browser, either natively or through a decoder that loads into the page. The photos themselves never leave your device. Load the page, go offline, convert: it works."
+      },
+      {
+        "q": "Will the JPG look worse than the HEIC?",
+        "a": "At the default 90% quality, no visible difference for photographs. The JPG will be somewhat larger than the HEIC because JPG is an older, less efficient format; that is the price of compatibility."
+      },
+      {
+        "q": "What happens to the location data in my photos?",
+        "a": "It is removed. Conversion redraws the image through a canvas, which drops EXIF metadata including GPS coordinates. For photos being sent to strangers or posted publicly, treat that as a bonus."
+      },
+      {
+        "q": "Why did one of my files fail?",
+        "a": "Occasionally a file with a .heic name is actually something else, or uses an unusual variant. The row tells you what failed, and the other photos convert normally. Photos straight off an iPhone convert reliably."
+      },
+      {
+        "q": "Can I convert HEIC to PNG instead?",
+        "a": "This tool outputs JPG because that is what portals and printers want, and PNG versions of photographs are enormous. If you need PNG for a specific reason, convert to JPG here and use an image editor for the final step."
+      },
+      {
+        "q": "How do I stop my iPhone using HEIC?",
+        "a": "Settings, Camera, Formats, then Most Compatible. Your phone will shoot JPG from then on, at roughly double the storage per photo. Keeping HEIC and converting when needed is honestly the better trade."
+      },
+      {
+        "q": "Why is my JPG bigger than the HEIC was?",
+        "a": "Because HEIC really is a better compressor; that is why Apple switched. Expect the JPG to be roughly one and a half to two times the HEIC's size at the same visual quality. You are trading storage efficiency for the ability to open the file anywhere, which is usually the right trade at the moment you need it."
+      }
+    ]
+  }
+}

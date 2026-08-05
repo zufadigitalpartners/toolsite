@@ -1,0 +1,86 @@
+{
+  "name": "Reorder PDF Pages",
+  "icon": "list-reorder",
+  "emoji": "🔀",
+  "category": "content/categories/pdf.json",
+  "popular": false,
+  "order": 8,
+  "short": "Rearrange the pages of a PDF into any order and save a new copy.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Reorder PDF Pages: Rearrange and Save, No Upload",
+    "metaDescription": "Move PDF pages into any order in your browser and save a new copy. Reverse a back-to-front scan in one click. No upload, no signup, no watermark.",
+    "keywords": [
+      "reorder pdf pages",
+      "rearrange pdf",
+      "move pdf pages",
+      "change pdf page order",
+      "reverse pdf pages",
+      "organize pdf online"
+    ]
+  },
+  "content": {
+    "intro": [
+      "I made this after watching a scanner produce a document in exactly the wrong order for the third time in a week. Sheet feeders that scan the last page first, double-sided documents assembled inside out, a report where the appendix belongs before the summary because a client said so: page order problems are constant, and the usual fix, printing the thing out and scanning it again in the right order, is absurd.",
+      "This tool loads your PDF on your own device, shows each page as a row, and lets you move pages up, down or straight to the top until the order is right. One button reverses the entire document, which fixes the classic back-to-front scan in a single click. Saving writes a brand new PDF; your original file is never modified, and neither file is ever uploaded anywhere."
+    ],
+    "howto": [
+      "Drop your PDF onto the box, or press Choose a file.",
+      "Each page appears as a row showing its position and where it started.",
+      "Use the arrows to move a page one step, or the top arrow to send it straight to position one.",
+      "Scanned the whole thing backwards? Press Reverse all pages and the document flips end to end.",
+      "Press Reset order at any point to get back to the original arrangement.",
+      "Press Save reordered PDF. A new file lands in your downloads; the original stays untouched."
+    ],
+    "benefits": [
+      "The honest benefit is that this does one small job without ceremony. Most PDF suites bury page reordering three menus deep behind a subscription, and most online tools want the file uploaded first. Ours moves pages with buttons rather than drag and drop, which sounds less flashy but works identically with a mouse, a finger on a phone, and a keyboard, and does not fall apart when the page list is longer than the screen. Moving is instant because nothing re-renders; the actual page copying happens once, when you save.",
+      "It is also built to be one station in a production line. Pages in the wrong order and some upside down? Fix rotation with [rotate PDF](/tools/rotate-pdf/) after reordering here. Blank pages from the scanner's duplex pass? [Delete them](/tools/delete-pages-from-pdf/) first. Several documents to combine in a specific sequence? [Merge PDF](/tools/merge-pdf/) controls file order, then this tool fine-tunes page order inside the result. Each tool stays simple because it refuses to become the others.",
+      "One design decision worth defending: the list shows page numbers and origins rather than thumbnails. Thumbnails feel friendlier, but rendering every page of a 200-page document before you can start moving things is a long wait for pretty pictures, and on a phone they are too small to read anyway. Numbers appear instantly for any size of document, the moved rows are labelled so you can see at a glance what changed, and if you genuinely need to see the pages while you work, open the document in a second tab. Instant beats decorative for a tool you use in the middle of another task."
+    ],
+    "useCases": [
+      "Scanner owners are the biggest group. Feeders that take the stack face down produce reversed documents, and duplex scans sometimes interleave front and back sides in an order only the scanner understands. Reverse all pages fixes the first in one press; the arrows untangle the second in a minute. Office workers assembling board packs move the summary to the front and the appendices to the back after merging, because the merge order never quite matches the reading order.",
+      "Students rearrange thesis chapters after a supervisor asks for a different structure. Freelancers move the quote page ahead of the terms in a proposal. Anyone printing a booklet reorders pages into imposition order. And because the file never leaves the device, the same tool is safe for the documents where order matters most: contracts, filings and anything with a court stamp on it."
+    ],
+    "faqs": [
+      {
+        "q": "Is the original file changed?",
+        "a": "No. Saving builds a completely new PDF from the pages of the old one in your chosen order. The file you added stays exactly as it was, and nothing is uploaded anywhere in between."
+      },
+      {
+        "q": "Why buttons instead of drag and drop?",
+        "a": "Because buttons work the same with a mouse, a touchscreen and a keyboard, and they do not misfire while the list scrolls. Dragging row 3 to row 38 of a long document is genuinely worse than pressing an arrow a few times."
+      },
+      {
+        "q": "Can I reverse the whole document at once?",
+        "a": "Yes. Reverse all pages flips the document end to end, which is the one-click fix for a stack scanned back to front."
+      },
+      {
+        "q": "Does reordering lose quality?",
+        "a": "No. Pages are copied whole, with their text, images and resolution exactly as they were. This is structural surgery, not a re-render."
+      },
+      {
+        "q": "What happens to bookmarks and links?",
+        "a": "Internal links and bookmarks point at page positions that no longer exist after a shuffle, so they are not carried across. Content on the pages is unaffected."
+      },
+      {
+        "q": "Is there a page limit?",
+        "a": "No fixed one. The practical limit is your device's memory; documents of several hundred pages are routine on any modern machine."
+      },
+      {
+        "q": "Can I duplicate a page rather than just move it?",
+        "a": "Not in this tool; each page appears exactly once in the output. Duplicating is rarer and belongs to a different job. If you need one page twice, save two copies with different orders and merge the relevant parts with our merge PDF tool."
+      },
+      {
+        "q": "My scanner interleaved fronts and backs. What is the fastest fix?",
+        "a": "That is the classic duplex pattern: pages arrive as 1, 3, 5 and then 6, 4, 2, or some variant. Reverse the second half mentally first: use the arrows to send the last page to its true position, and work inward. For a long document it is quicker to scan the two passes as separate files, reverse one here, and interleave them with the merge tool. Once you have done it a single time the pattern becomes obvious."
+      }
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "Excel to CSV",
+  "icon": "table-down",
+  "emoji": "📥",
+  "category": "content/categories/spreadsheet.json",
+  "popular": false,
+  "order": 5,
+  "short": "Turn an Excel file into clean CSV, one file per sheet, without opening Excel.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Excel to CSV Converter: Every Sheet, No Upload",
+    "metaDescription": "Convert XLSX and XLS files to CSV in your browser. Handles multiple sheets, keeps leading zeros as displayed, quotes fields correctly. No upload.",
+    "keywords": [
+      "excel to csv",
+      "xlsx to csv",
+      "convert excel to csv online",
+      "xls to csv converter",
+      "excel to csv without excel",
+      "spreadsheet to csv"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Half the systems in the world speak CSV and the other half send you XLSX, which is how this converter earns its place. An import tool wants comma-separated values, the supplier sent a workbook with four sheets, and the machine you are on right now does not have Excel installed. Or it does, and you would simply rather not open it for a save-as.",
+      "Drop the workbook here and each sheet becomes its own CSV, previewed before you commit. The conversion reads the file on your device, keeps cell values the way Excel displayed them rather than the way it stored them, and writes CSV with correct quoting, the kind that survives values containing commas, quotes and line breaks. A small marker at the front of the file tells Excel to read it back as UTF-8, so accented names and non-Latin scripts round-trip instead of turning to mojibake."
+    ],
+    "howto": [
+      "Drop your Excel file onto the box, or press Choose a file. XLSX, XLS, XLSM and ODS all work.",
+      "If the workbook has several sheets, tabs appear; click through them to see each one.",
+      "Check the preview table and the row and column counts against what you expect.",
+      "Press Download CSV for the current sheet, or Download every sheet to get them all, named after their sheet names.",
+      "Feed the CSV to whatever wanted it: the import tool, the database, the script.",
+      "Something looks off? Open the result in our CSV viewer before importing anywhere that matters."
+    ],
+    "benefits": [
+      "The conversion choices are where this tool earns trust, because Excel-to-CSV is where data quietly dies. Values are taken as displayed, not as stored: a cell showing 007 exports as 007, not 7, and a date column exports as the dates you saw, not serial numbers like 45231. Quoting follows the CSV standard strictly, so an address containing a comma does not silently split into two columns and shift everything after it. Trailing empty rows are trimmed. Every sheet is reachable, which matters because the sheet you need is never the first one; it is the one called Final v2 (use this).",
+      "The other half of the argument is where the conversion happens. Spreadsheets are the most sensitive files an ordinary business handles: customer lists, payroll, margins by product. The convert-online sites upload the whole workbook to their servers. This one reads it in your browser's memory and nothing more; disconnect from the internet after the page loads and it works identically. Once converted, the natural next stops are the [CSV viewer](/tools/csv-viewer/) to sanity-check the output, [remove duplicate lines](/tools/remove-duplicate-lines/) to clean a contact export, or [CSV to JSON](/tools/csv-to-json/) when the destination is code rather than a spreadsheet.",
+      "The preview exists because the errors worth catching are visible ones. Eight rows are enough to spot the three classic workbook surprises: a title row above the real headers, merged cells that arrive as blanks in odd places, and a second header row halfway down where someone restarted the table. Catching those here costs seconds; catching them after an import has written 4,000 wrong rows into a live system costs an afternoon. If the preview looks wrong, fix the sheet in your spreadsheet app first; a converter that silently guesses your intent would be worse than one that shows you the truth."
+    ],
+    "useCases": [
+      "Imports are the daily driver: e-commerce platforms, mailing list tools, accounting systems and CRMs that all want CSV while the data lives in a workbook. Developers convert a client's spreadsheet into something a script can parse without wrestling a spreadsheet library into the build. Analysts on locked-down machines convert files no local Excel exists to open.",
+      "The multi-sheet case deserves its own mention, because save-as in Excel exports only the active sheet, and everyone discovers this after sending the wrong one. Here the tabs make the choice explicit and Download every sheet removes it entirely. And people migrating between systems, say a supplier's product workbook into a shop platform, convert here first because the preview catches the surprise header rows and merged-cell artefacts before the import tool chokes on them."
+    ],
+    "faqs": [
+      {
+        "q": "Is my spreadsheet uploaded?",
+        "a": "No. The workbook is parsed in your browser and never transmitted. For files full of customer and revenue data, that is the whole reason to use this over the first search result."
+      },
+      {
+        "q": "Will my leading zeros survive?",
+        "a": "Yes, with one honest caveat. The export takes what Excel displayed, so a cell formatted as text or showing 007 exports as 007. If Excel had already converted the value to the number 7 when the file was made, the zeros were gone before this tool ever saw it; our article on Excel and CSV covers that trap."
+      },
+      {
+        "q": "How are dates handled?",
+        "a": "As displayed. A column showing 05/08/2026 exports exactly that. Excel stores dates as serial numbers underneath, and a converter that exports raw values gives you 46239 instead of a date; this one deliberately does not."
+      },
+      {
+        "q": "What about formulas?",
+        "a": "The result of the formula is exported, not the formula. CSV has no concept of =SUM(), so the last calculated value is what travels, which is what an import expects."
+      },
+      {
+        "q": "Why does Excel show weird characters when I reopen the CSV?",
+        "a": "Excel assumes CSVs are in an old regional encoding unless the file starts with a UTF-8 marker. Ours does, so names like Müller and Karachi's Urdu labels survive the round trip. If another tool objects to the marker, it is three bytes at the start of the file and safe to strip."
+      },
+      {
+        "q": "Can it convert CSV back to Excel?",
+        "a": "Not this tool; it converts one direction. Most spreadsheet apps open a CSV directly, and for the data-shaped jobs around it, our CSV viewer, CSV to JSON and JSON to CSV cover the pipeline."
+      }
+    ]
+  }
+}

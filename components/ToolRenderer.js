@@ -31,6 +31,24 @@ const RotatePdf = pdfTool(() => import("@/components/tools/pdf/RotatePdf"));
 const DeletePdfPages = pdfTool(() => import("@/components/tools/pdf/DeletePdfPages"));
 const PdfPageNumbers = pdfTool(() => import("@/components/tools/pdf/PdfPageNumbers"));
 const WatermarkPdf = pdfTool(() => import("@/components/tools/pdf/WatermarkPdf"));
+const PdfToJpg = pdfTool(() => import("@/components/tools/pdf/PdfToJpg"));
+const ReorderPdf = pdfTool(() => import("@/components/tools/pdf/ReorderPdf"));
+
+// Same rule for every other tool that carries a heavy dependency or canvas
+// logic: it arrives with its own page and never taxes the shared bundle.
+const lazyTool = (loader) => dynamic(loader, {
+  ssr: false,
+  loading: () => <p className="note">Loading the tool…</p>,
+});
+
+const HeicToJpg = lazyTool(() => import("@/components/tools/HeicToJpg"));
+const ImageToText = lazyTool(() => import("@/components/tools/ImageToText"));
+const ExifRemover = lazyTool(() => import("@/components/tools/ExifRemover"));
+const ExcelToCsv = lazyTool(() => import("@/components/tools/ExcelToCsv"));
+const InvoiceGenerator = lazyTool(() => import("@/components/tools/InvoiceGenerator"));
+const BarcodeGenerator = lazyTool(() => import("@/components/tools/BarcodeGenerator"));
+const SignatureMaker = lazyTool(() => import("@/components/tools/SignatureMaker"));
+const SpinTheWheel = lazyTool(() => import("@/components/tools/SpinTheWheel"));
 
 // Tools that ship as real React components. Anything not listed here falls
 // back to the code stored on the tool in TinaCMS, which is how new tools
@@ -52,6 +70,17 @@ export const BUILT_IN_TOOLS = {
   "delete-pages-from-pdf": DeletePdfPages,
   "add-page-numbers-to-pdf": PdfPageNumbers,
   "watermark-pdf": WatermarkPdf,
+  "pdf-to-jpg": PdfToJpg,
+  "reorder-pdf-pages": ReorderPdf,
+
+  "heic-to-jpg": HeicToJpg,
+  "image-to-text": ImageToText,
+  "exif-remover": ExifRemover,
+  "excel-to-csv": ExcelToCsv,
+  "invoice-generator": InvoiceGenerator,
+  "barcode-generator": BarcodeGenerator,
+  "signature-maker": SignatureMaker,
+  "spin-the-wheel": SpinTheWheel,
 };
 
 // Reads the grouped shape and the older flat one.

@@ -1,0 +1,78 @@
+{
+  "name": "Spin the Wheel",
+  "icon": "wheel",
+  "emoji": "🎡",
+  "category": "content/categories/generators.json",
+  "popular": false,
+  "order": 6,
+  "short": "Put names on a wheel, spin it, get a fair winner. For classrooms, giveaways and lunch.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Spin the Wheel: Random Name Picker, Provably Fair",
+    "metaDescription": "A spinning wheel that picks a random name fairly. Paste your list, spin, remove winners as you go. Runs in your browser, works offline, no signup.",
+    "keywords": [
+      "spin the wheel",
+      "random name picker",
+      "wheel of names",
+      "random picker wheel",
+      "giveaway winner picker",
+      "name wheel spinner"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Some decisions deserve a spreadsheet, and some deserve a wheel. Who presents first, who wins the giveaway, which of six equally acceptable lunch options happens today: for these, a colourful wheel that clicks around and lands on an answer is not just a picker, it is the ceremony that makes the answer accepted. Nobody argues with the wheel.",
+      "This one takes a list of names, one per line, and turns it into a wheel you spin with a button. The winner is announced when the wheel stops, previous winners are kept in a list underneath, and one press removes the winner so the next spin runs on whoever is left, which is exactly the loop a raffle needs. It runs entirely in your browser, so it works on the classroom machine with the flaky connection and the projector nobody understands."
+    ],
+    "howto": [
+      "Type or paste your names into the box, one per line. Up to sixty fit on the wheel.",
+      "The wheel redraws as you edit; each name gets an equal slice.",
+      "Press Spin the wheel. It turns for about five seconds and eases to a stop.",
+      "The name under the pointer is the winner, announced in large type next to the wheel.",
+      "Running an elimination? Press the remove button and the winner leaves the wheel for the next spin.",
+      "Previous winners stay listed below, so a multi-prize draw keeps its history visible."
+    ],
+    "benefits": [
+      "Fairness here is a design fact, not a vibe. Every name gets a slice of identical size, and the spin length comes from the browser's cryptographic random generator, the same source that secures web encryption. The winner is whatever slice physics leaves under the pointer; the tool does not secretly pick a winner first and steer the animation to it, which, for the record, is how it is often done elsewhere. Run it a thousand times and the distribution is flat. That matters surprisingly much in a classroom, where the fastest way to lose the room is a picker the kids decide is rigged.",
+      "The small conveniences are chosen for real sessions. Removing a winner takes one press because raffles have multiple prizes and nobody should win twice. The history list survives the session so you can read the podium back at the end. Sixty names keep readable labels; beyond that a wheel stops being a wheel and becomes a pie chart of despair, and our [random number generator](/tools/random-number-generator/) does the job cleanly for lists of any size. If the draw feeds a giveaway post, the [hashtag generator](/tools/hashtag-generator/) and [caption formatter](/tools/caption-formatter/) finish the announcement.",
+      "The five-second spin length is deliberate theatre. Instant answers feel arbitrary; a spin that visibly slows and could plausibly land either side of a boundary is what makes the result feel earned, and five seconds is about how long a room holds its breath. The easing curve is fixed and identical for every spin, so the drama never changes the odds: by the time the animation begins, the physics of where it will stop is already set by the random draw, and the wheel is simply showing you."
+    ],
+    "useCases": [
+      "Teachers are the heaviest users of wheels like this: picking who reads next, assigning presentation order, choosing which group goes first, all with a prop that turns a groan into a game. The equal-odds design is not decoration there; children audit fairness harder than any regulator. Offices use it for the standing decisions nobody wants to own: who runs standup, who takes the support rota, whose turn the coffee run is.",
+      "Giveaways are the other big one. Small shops and creators paste in the entrants and spin on camera, because an animated draw reads as more trustworthy to an audience than a name appearing in a box, and the winner history doubles as the record. Families settle film night and restaurant choices. Sports coaches make training pairings. Anywhere a group needs a decision that everyone will accept, the wheel provides the theatre that makes randomness feel fair."
+    ],
+    "faqs": [
+      {
+        "q": "Is it actually fair?",
+        "a": "Yes, and by construction rather than promise. Slices are equal, the spin distance comes from the browser's cryptographic random source, and the winner is read from where the wheel physically stops. There is no pre-chosen winner behind the animation."
+      },
+      {
+        "q": "How many names can I add?",
+        "a": "Sixty. Past that the labels stop being readable and the slices stop being visible, which defeats the point of a wheel. For bigger draws, number your list and use our random number generator, which handles any size."
+      },
+      {
+        "q": "Can the same person win twice?",
+        "a": "Only if you leave them on the wheel. After each spin, one press removes the winner, which is the standard raffle flow. If repeat wins are fine for your use, simply do not remove anyone."
+      },
+      {
+        "q": "Does it work offline?",
+        "a": "Yes. Once the page has loaded, the wheel needs nothing from the network, which makes it reliable on school and venue connections. Nothing you type is sent anywhere either; the names never leave the device."
+      },
+      {
+        "q": "Can I use it for a public giveaway?",
+        "a": "Yes, and spinning it on screen or on camera is exactly how people use it. Keep the winner history visible as your record. For legal promotions with terms and conditions, check your local rules about draws; the wheel provides the randomness, not the compliance."
+      },
+      {
+        "q": "Why did my duplicate names get separate slices?",
+        "a": "Each line is a slice, so a name entered twice has twice the odds. That is occasionally what you want, weighted odds for a double entry, and our remove duplicate lines tool cleans the list when it is not."
+      }
+    ]
+  }
+}

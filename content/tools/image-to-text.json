@@ -1,0 +1,86 @@
+{
+  "name": "Image to Text",
+  "icon": "scan-text",
+  "emoji": "🔎",
+  "category": "content/categories/image.json",
+  "popular": true,
+  "order": 6,
+  "short": "Pull the text out of a photo or screenshot so you can copy and edit it.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Image to Text: Copy Text From Photos and Screenshots",
+    "metaDescription": "Extract text from photos and screenshots with OCR that runs in your browser. 18 languages. The image is never uploaded. Copy the text or save it as a file.",
+    "keywords": [
+      "image to text",
+      "extract text from image",
+      "ocr online",
+      "copy text from screenshot",
+      "photo to text",
+      "picture to text converter"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Somebody sends a screenshot of an address instead of the address. A recipe exists only as a photo of a cookbook page. A quote you need is inside a slide someone photographed in a meeting. Retyping is the tax you pay every time text gets trapped inside an image, and I got tired of paying it, so this tool reads the text back out.",
+      "It runs Tesseract, the open source recognition engine, compiled to run inside your browser. That design carries one honest trade-off which the tool tells you about as it works: the first run downloads the recognition model for your language, a few megabytes, from a content network. Your image is not in that transaction. The picture itself is read entirely on your device and never leaves it, which is what separates this from the OCR sites that quietly collect every document dropped on them."
+    ],
+    "howto": [
+      "Choose the language of the text first. This matters more than image quality; each language has its own model.",
+      "Drop a photo or screenshot onto the box, or press Choose an image. PNG, JPG, WebP and BMP all work.",
+      "The first run in a language downloads its model; after that it is cached and starts immediately.",
+      "Wait a few seconds while the image is read on your device. A confidence score appears with the result.",
+      "Fix anything the recognition got wrong directly in the text box; it is editable.",
+      "Press Copy text, or Download .txt if you want it as a file."
+    ],
+    "benefits": [
+      "The privacy design is the headline. OCR is exactly the category where uploads hurt, because the things people extract text from are receipts, contracts, ID cards, prescriptions and confidential slides. Here the recognition engine comes to your device instead of your document going to a server. The second benefit is languages: eighteen of them, including Urdu, Hindi, Arabic, Chinese and Japanese, each a separate model fetched only when you pick it. The third is editability. Recognition is never perfect, so the output sits in a box you can correct before copying, with a confidence score that tells you honestly how much checking it needs.",
+      "It pairs naturally with the other tools here. A PDF page becomes an image with [PDF to JPG](/tools/pdf-to-jpg/), then becomes text here. A blurry photo reads better after the [image resizer](/tools/image-resizer/) scales it up. And once you have the text, the [word counter](/tools/word-counter/) and [case converter](/tools/case-converter/) take over. Text should be text; this tool is the door back into that world.",
+      "A practical note on getting good results, learned from watching where recognition fails. Flat, straight and well-lit beats high resolution every time: a 1200-pixel photo taken square-on reads better than a 4000-pixel photo taken at an angle under a lamp. Crop to just the text before running when you can, because busy backgrounds cost accuracy. And when a result comes back below about 80% confidence, read it against the image before trusting it anywhere important; the score exists precisely so the tool never pretends to a certainty it does not have."
+    ],
+    "useCases": [
+      "Students photograph textbook pages and whiteboards, then need the content in their notes as actual text. Office workers receive screenshots of tables, error messages and old documents where the original file is long gone. Extracting a serial number from a photo of a device label beats squinting and retyping it wrong. Translators start by getting the source text out of the image it arrived in.",
+      "Small businesses digitise paper: supplier price lists, handwritten-adjacent invoices, old menus that exist only as laminated card. Genealogists pull names and dates from photographed certificates. And everyone, constantly, copies a phone number or address out of a screenshot that should have been a message in the first place. If text is visible in an image, it can usually be text again."
+    ],
+    "faqs": [
+      {
+        "q": "Is my image uploaded to a server?",
+        "a": "No. The recognition runs in your browser. The only download is the engine and language model themselves, fetched once and cached. Your picture stays on your device throughout."
+      },
+      {
+        "q": "How accurate is it?",
+        "a": "On a clean screenshot or a sharp photo of printed text, very accurate. On skewed, blurry or low-light photos, expect errors, which is why the output is editable and comes with a confidence score. Handwriting is mostly beyond it; this is a printed-text engine."
+      },
+      {
+        "q": "Which languages are supported?",
+        "a": "Eighteen, including English, Spanish, French, German, Portuguese, Urdu, Hindi, Arabic, Russian, Japanese, Korean and simplified Chinese. Pick the language before running; using the wrong model is the main cause of bad results."
+      },
+      {
+        "q": "Why is the first run slow?",
+        "a": "The engine and your language's model download on first use, a few megabytes. They are cached afterwards, so the second image starts reading immediately. The recognition itself takes a few seconds per image."
+      },
+      {
+        "q": "Can it read a PDF?",
+        "a": "Not directly, but the pipeline is two steps: turn the pages into images with our PDF to JPG tool, then read each page here. For scanned PDFs this is exactly how the desktop suites do it internally."
+      },
+      {
+        "q": "Why does my photographed table come out scrambled?",
+        "a": "OCR reads text, not layout. Multi-column layouts and tables come out as lines of text in reading order, which usually needs rearranging. For a table, extract the text, then rebuild the rows in a spreadsheet."
+      },
+      {
+        "q": "Is my text stored anywhere after extraction?",
+        "a": "No. The result lives in the box on your screen until you copy it, download it or leave the page. There is no history, no account and no server-side record, because the text never reached a server in the first place."
+      },
+      {
+        "q": "Can it read two languages in one image?",
+        "a": "One model runs at a time, so mixed-language documents read best in the language that dominates. Latin-alphabet mixes such as English with French mostly survive either model, because the letters overlap. For a document that switches between scripts, say English and Urdu, run it twice with each language selected and combine the results."
+      }
+    ]
+  }
+}

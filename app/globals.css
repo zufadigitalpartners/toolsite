@@ -1875,6 +1875,77 @@ input.mono-out {
 .pdfw-btns button:hover { background: var(--surface-2); }
 .pdfw-opts { margin-top: var(--s5); padding-top: var(--s4); border-top: 1px solid var(--line); }
 
+/* Option rows inside a tool: label + control pairs that wrap on phones. */
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3) var(--s5);
+  align-items: end;
+  margin: var(--s3) 0;
+}
+.field-row label {
+  display: grid;
+  gap: 6px;
+  font-size: var(--t-14);
+  font-weight: 500;
+  min-width: 0;
+}
+.field-row select,
+.field-row textarea,
+.field-row input[type="text"],
+.field-row input[type="number"],
+.field-row input[type="date"] {
+  font: inherit;
+  padding: 9px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink);
+  max-width: 100%;
+}
+.field-row input[type="range"] { accent-color: var(--accent); }
+
+/* Page grid for PDF-to-image output. */
+.p2j-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+  gap: var(--s4);
+  margin-top: var(--s5);
+}
+.p2j-page {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--surface);
+}
+.p2j-page img { width: 100%; height: auto; display: block; }
+.p2j-page figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+/* Small data preview tables (Excel to CSV, EXIF viewer). */
+.table-scroll { overflow-x: auto; margin-top: var(--s4); }
+.mini-table { border-collapse: collapse; font-size: var(--t-13); width: 100%; }
+.mini-table td, .mini-table th {
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  text-align: left;
+  white-space: nowrap;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mini-table th { background: var(--surface-2); font-weight: 600; }
+
 /* ================= THE ARTICLE ================= */
 /* The most important surface on the site: it is most of the page area and
    the entire acquisition channel. Serif body under sans headings, at a

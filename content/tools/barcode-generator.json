@@ -1,0 +1,78 @@
+{
+  "name": "Barcode Generator",
+  "icon": "barcode",
+  "emoji": "📊",
+  "category": "content/categories/ecommerce.json",
+  "popular": false,
+  "order": 5,
+  "short": "Make Code 128 and EAN-13 barcodes as crisp SVG or PNG, ready for labels.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Barcode Generator: Code 128 and EAN-13, Free SVG",
+    "metaDescription": "Generate Code 128 and EAN-13 barcodes in your browser and download them as SVG or PNG. Check digits computed and verified. No signup, no watermark.",
+    "keywords": [
+      "barcode generator",
+      "code 128 generator",
+      "ean 13 generator",
+      "free barcode maker",
+      "barcode svg",
+      "product barcode generator"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Barcodes are one of those jobs that surface suddenly: a marketplace wants an EAN on the listing, a warehouse wants Code 128 labels on the bins, a till system needs codes for products that never had them. The barcode generator sites that come up first are plastered with ads, watermark the download, or generate the image on their server at a resolution chosen in 2009.",
+      "This one draws the barcode in your browser and hands you a vector SVG, which stays razor sharp at any print size, or a high-resolution PNG if your label software insists. It speaks the two symbologies that cover nearly every small-business need: Code 128 for SKUs, serials and anything alphanumeric, and EAN-13 for retail products. The EAN check digit is computed for you from 12 digits, and if you paste a full 13-digit code with a wrong check digit, the tool tells you instead of printing a barcode no scanner will accept."
+    ],
+    "howto": [
+      "Pick the type. Code 128 for internal SKUs, serials and text; EAN-13 for retail product numbers.",
+      "Type the value. The barcode redraws live as you type; there is no generate button.",
+      "For EAN-13, paste either 12 digits, and the check digit is added, or all 13, and it is verified.",
+      "Decide whether the value is printed under the bars. For labels people also read by eye, keep it on.",
+      "Download SVG for label design software and print shops, or PNG for tools that only place bitmaps.",
+      "Print one sample and scan it with your till or phone before running a full sheet of labels."
+    ],
+    "benefits": [
+      "The technical choices are the product here. SVG output matters because barcodes live or die on edge sharpness: a blurry bar edge is a misread, and bitmap barcodes blur the moment a label template scales them. A vector cannot blur. The PNG export renders at triple resolution with smoothing disabled for the same reason. Under the hood, the encoder validates rather than hopes: EAN-13 check digits are computed and verified, characters that cannot appear in a Code 128 are rejected with an explanation, and all-digit values are automatically packed in the denser Code C variant, which makes the printed code shorter and easier to scan.",
+      "It also refuses to do the thing the ad-covered sites do, which is generate something that looks like a barcode without honouring the standard. Every code this tool produces follows the symbology specification, quiet zones included. Pair it with the [QR code generator](/tools/qr-code-generator/) when the payload is a link rather than a product number, and with the [Shopify product CSV generator](/tools/shopify-product-csv-generator/) when the barcodes are going into a product import; the [invoice generator](/tools/invoice-generator/) rounds out the paperwork side of a small operation.",
+      "A note on sizing, because it decides whether labels scan. The reliable minimum for Code 128 on a laser printer is about 3 cm wide for a short SKU; EAN-13 has a nominal size of 3.73 cm wide and scanners tolerate down to about 80 percent of that. Height matters less than people think, but very squat barcodes force perfect aim, so keep at least 1 cm. And leave the quiet zones alone: the empty margins either side are part of the code, and a label template that crops them produces a barcode that looks fine and never scans."
+    ],
+    "useCases": [
+      "Small product businesses hit this the day they graduate from selling at markets to selling through anything with a scanner. Each product needs an EAN on the packaging, and the print shop wants vector artwork. Warehouses and storage units label shelves and bins with Code 128 because it packs letters and numbers into a scannable strip, and any USB scanner reads it into a spreadsheet as if typed. Libraries, equipment rooms and IT departments tag assets the same way.",
+      "Retailers add barcodes to products that arrive without them, so the till stops needing a lookup book. Event organisers encode ticket numbers. Workshops label customer jobs so a scan pulls up the order. None of these people want barcode software with a licence server; they want twelve labels by lunchtime, which is the job this does."
+    ],
+    "faqs": [
+      {
+        "q": "Which type should I use?",
+        "a": "Selling through retail or marketplaces: EAN-13, which is what product databases and tills expect. Anything internal, SKUs, serials, shelf locations, tickets: Code 128, which holds letters, digits and punctuation and is what USB scanners handle best."
+      },
+      {
+        "q": "Can I just invent an EAN-13 number for my product?",
+        "a": "For purely internal use, yes, any 12 digits plus the computed check digit will scan. To sell through retailers or marketplaces you need officially assigned numbers from GS1, the body that issues them, because invented codes collide with real products in shared databases."
+      },
+      {
+        "q": "Why SVG rather than PNG?",
+        "a": "A barcode is machine-read geometry, and vectors keep the bar edges mathematically sharp at any size. Use the SVG wherever your software accepts it; the PNG exists for tools that cannot place vectors and is rendered at triple resolution to compensate."
+      },
+      {
+        "q": "Why does it say my check digit is wrong?",
+        "a": "The last digit of an EAN-13 is arithmetic over the first twelve, and the tool computes it. A mismatch means a typo somewhere in the number, and a printed barcode with that mismatch would be rejected by scanners anyway. Paste the first 12 digits and let the correct check digit be added."
+      },
+      {
+        "q": "Will these scan reliably?",
+        "a": "The encodings follow the specifications, including quiet zones. In practice scanning problems come from printing: too small, low contrast, glossy laminate glare. Print black on white at 3 cm wide or more and test one label with your actual scanner before a full run."
+      },
+      {
+        "q": "Is anything sent to a server?",
+        "a": "No. The encoding is a few hundred lines of arithmetic running in your browser. Type a confidential serial number in here and it goes nowhere."
+      }
+    ]
+  }
+}

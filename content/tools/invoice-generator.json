@@ -1,0 +1,78 @@
+{
+  "name": "Invoice Generator",
+  "icon": "receipt",
+  "emoji": "🧾",
+  "category": "content/categories/ecommerce.json",
+  "popular": true,
+  "order": 4,
+  "short": "Fill in a form, download a clean invoice PDF. No account, no watermark, no nonsense.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Free Invoice Generator: PDF Download, No Signup",
+    "metaDescription": "Make a professional invoice PDF in your browser. Line items, tax, any currency. No account, no watermark, and your numbers never touch a server.",
+    "keywords": [
+      "invoice generator",
+      "free invoice maker",
+      "invoice template pdf",
+      "create invoice online",
+      "invoice generator no signup",
+      "freelance invoice"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Every free invoice generator I tried before building this one had the same trick: fill in the whole form, press download, and there is the signup wall, or the watermark, or the seventh field asking for your phone number so a sales team can call about the premium plan. An invoice is a table with some totals. It does not justify an account.",
+      "So this is the version I wanted. Fill in who you are, who the client is, the line items and the tax, and press download. A clean A4 PDF lands in your downloads folder, drawn entirely on your device. Your business details are remembered in this browser so the next invoice starts half filled in, but they are stored only on your machine; the amounts, the client names and everything else never touch a server, because nothing here has a server to touch."
+    ],
+    "howto": [
+      "Fill in your name or business name and your details: address, email, tax number, whatever belongs on your invoices. These are saved in this browser for next time.",
+      "Fill in the client's name and details. These are deliberately not saved, so yesterday's client never ends up on today's invoice.",
+      "Set the invoice number, date, due date and currency.",
+      "Add line items: a description, a quantity and a rate each. The totals update as you type.",
+      "Add tax if it applies. Name it what your country calls it, VAT, GST or sales tax, and set the percentage.",
+      "Check the totals in the summary row, then press Download invoice PDF."
+    ],
+    "benefits": [
+      "The obvious benefit is what is missing: no account, no watermark, no invoice counter ticking towards a paywall, no email required to receive your own document. The less obvious one is privacy, and for invoices it is not theoretical. An invoice states who you work with, what you charge them and where you bank. Every hosted invoice service holds that for all its users; this page holds it nowhere, because the PDF is drawn in your browser with the same library our PDF tools use, and the only copy that ever exists is the one in your downloads folder.",
+      "The remembering is done with the same care. Your own block, name and details, persists on this device because it is identical on every invoice you send. The client block resets every time on purpose; auto-filling the previous client is exactly how the wrong company name ends up on a bill, and no autofill is worth that email. If your line items involve working out what to charge, the [profit margin calculator](/tools/profit-margin-calculator/) gets you from cost to price, and the [percentage calculator](/tools/percentage-calculator/) handles quick tax arithmetic before it goes in the form.",
+      "One more habit the form quietly encourages: sequential invoice numbers. The number field starts at INV-001 and it is worth continuing the sequence rather than typing something ad hoc each time, because a gap-free sequence is the first thing a bookkeeper or tax inspector looks for. Keep a note of where you are up to; the tool deliberately does not track it for you, because an invoice register belongs in your records, not in a browser cache that clears when you clean cookies."
+    ],
+    "useCases": [
+      "Freelancers are the obvious first group: a design job wraps up, the client asks for an invoice, and this produces one in two minutes without commitment to some platform's free tier. Side businesses and market sellers invoice occasionally enough that a subscription tool is absurd but often enough that a Word template with last month's client still in it is dangerous. Tutors, cleaners, tradespeople and anyone billing by the hour fill in quantity and rate and let the arithmetic take care of itself.",
+      "Small shops use it for the wholesale side, where a business buyer wants a proper document with a tax line. People renting out a room or equipment issue receipts that look professional rather than typed. And plenty of users are on the other side of the table: they need to send a self-billing invoice or a simple document a bookkeeper will accept, in a currency the fancy tools charge extra for. The currency list here includes Rs and AED alongside the usual suspects, because our users are not all in San Francisco."
+    ],
+    "faqs": [
+      {
+        "q": "Is this really free, and where is the catch?",
+        "a": "Free, no account, no watermark, no limit on how many invoices you create. The site earns from being useful enough that you come back and tell people. The invoice itself is yours entirely."
+      },
+      {
+        "q": "Where are my details stored?",
+        "a": "Your own business block is kept in this browser's local storage on this device, so the next invoice starts filled in. Client details and amounts are not stored at all. Nothing is transmitted; there is no server side to this tool."
+      },
+      {
+        "q": "Is a PDF invoice legally valid?",
+        "a": "In most places an invoice is valid based on what it contains, not what software made it: names and addresses, a unique number, a date, line descriptions, amounts and any tax breakdown. Check what your tax authority requires on an invoice, put those fields in, and this PDF serves fine. For specific legal requirements, ask an accountant rather than a website."
+      },
+      {
+        "q": "Can I put my logo on it?",
+        "a": "Not in this version. The layout is deliberately clean text, which reads as professional everywhere and keeps the tool instant. A logo option may come later."
+      },
+      {
+        "q": "What if my client's name is not in Latin letters?",
+        "a": "The built-in PDF font covers Latin scripts and common symbols. Characters outside that, for example Urdu or Chinese, come out as question marks, and the tool warns you when that happens. For those invoices, write the romanised name."
+      },
+      {
+        "q": "Why did my seventeenth line item not appear?",
+        "a": "The invoice is one A4 page by design, which fits roughly a dozen items. Past what fits, items are cut rather than silently shrunk to unreadable. For a very long bill, split it into two invoices or attach a detailed statement."
+      }
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "Signature Maker",
+  "icon": "signature",
+  "emoji": "✍️",
+  "category": "content/categories/generators.json",
+  "popular": false,
+  "order": 5,
+  "short": "Draw or type your signature and download it as a transparent PNG.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "Signature Maker: Draw or Type, Transparent PNG",
+    "metaDescription": "Draw your signature with a mouse, finger or stylus, or type it in a script style, and download a transparent PNG. Nothing is uploaded, ever.",
+    "keywords": [
+      "signature maker",
+      "draw signature online",
+      "signature generator",
+      "transparent signature png",
+      "electronic signature image",
+      "create signature"
+    ]
+  },
+  "content": {
+    "intro": [
+      "Somewhere between printing a page, signing it, and photographing it slightly crooked under bad light, everyone decides there must be a better way to get their signature into a document. There is, and it does not require an e-signing subscription: a decent PNG of your signature with a transparent background drops into Word, PDF editors, email footers and design tools as if it were written there.",
+      "This tool makes that PNG. Draw with whatever you have, mouse, finger or stylus, with an undo that removes one stroke at a time rather than nuking the whole attempt. Or type your name and pick a script style, which is exactly what the e-signing platforms do when you choose their fonts. Either way the download is a crisp PNG at print resolution with a transparent background, tightly cropped to the signature itself. And because a signature is the definition of something that should not be uploaded to a random website, this one is generated entirely on your device."
+    ],
+    "howto": [
+      "Pick Draw it or Type it. Drawing looks personal; typing looks like what e-sign services produce, and both are accepted in practice.",
+      "For drawing: pick a colour and pen thickness, then sign in the box. A stylus or finger gives the most natural line; a mouse takes an attempt or two.",
+      "Made a wobbly stroke? Undo stroke removes just the last one, so a good signature with one bad tail is rescued, not restarted.",
+      "For typing: enter your name and pick the style that suits, formal or flowing.",
+      "Press Download PNG. The image is cropped tight to the signature with a transparent background, at triple resolution so it prints sharp.",
+      "Place it in your document, scale to size, and it sits on the line like ink."
+    ],
+    "benefits": [
+      "The output is the point: transparent background, tight crop, triple resolution. Those three details are what separate a usable signature image from the grey-boxed, fuzzy-edged photos people crop out of scans. Transparency means the signature sits over a signature line without a white rectangle around it. The crop means you scale the signature, not a canvas of empty space. The resolution means it stays sharp when the document prints. The drawing surface treats mouse, touch and stylus as one input, so signing on a phone with a finger works exactly like signing on a laptop trackpad.",
+      "And there is the matter of where your signature goes, which is nowhere. A signature is a credential; it is the mark that authorises things. Uploading it to a converter site to get a PNG back is a strange trade, and this tool exists so you never make it. Everything renders on your device. Once you have the PNG, our [image to PDF converter](/tools/image-to-pdf/) turns a signed page back into a document, the [image resizer](/tools/image-resizer/) scales the PNG if an app demands specific dimensions, and the [image compressor](/tools/image-compressor/) shrinks it for an email footer.",
+      "A word on why the crop is tight, because it is the detail people notice last. Signature images made by photographing paper arrive with acres of margin, and when you scale them onto a signature line you are scaling the margin too, so the visible signature ends up tiny. This tool crops to the ink with a small consistent padding, which means the size you scale to is the size you get. Combined with the transparent background, the result behaves like a rubber stamp: place, scale, done, on any document at any size."
+    ],
+    "useCases": [
+      "Contracts and forms are the everyday case: the PDF arrives, your PDF reader can place an image, and this PNG is the image. Remote workers sign offer letters, leases and permission slips without a printer being involved. Small business owners put a signature on invoices and quotes, which measurably changes how personal a document feels, and drop one into the email footer next to their name.",
+      "Designers place client signatures on certificates and letterheads. Teachers sign report comments. Artists sign digital work before exporting. And people with unreliable printers, which is most people, keep a good PNG of their signature the way they keep a scan of their passport: made once, used for years. The typed mode covers the person who has never liked their handwriting and would rather ship the tidy script version."
+    ],
+    "faqs": [
+      {
+        "q": "Is a PNG signature legally binding?",
+        "a": "In many everyday contexts an image of your signature placed with intent to sign is accepted, and typed signatures are how major e-sign platforms work. But binding depends on the document and jurisdiction, and some documents require wet ink or certified e-signing. For anything high-stakes, ask the receiving party what they accept."
+      },
+      {
+        "q": "Is my signature uploaded anywhere?",
+        "a": "No, and for this tool that is non-negotiable. Drawing, rendering and export all happen in your browser. Disconnect from the internet after loading the page and everything still works."
+      },
+      {
+        "q": "Why does my mouse signature look shaky?",
+        "a": "Because mice are terrible pens; everyone's first attempt looks like a lie detector readout. Try a thicker pen setting, sign larger than feels natural, and use Undo stroke liberally. Or sign on your phone with a finger, which comes out far more natural."
+      },
+      {
+        "q": "How do I get this into a PDF?",
+        "a": "Most PDF readers can place an image: look for Fill and Sign or Add Image. Word and Google Docs insert it like any picture. Because the background is transparent, it sits cleanly over the signature line."
+      },
+      {
+        "q": "The download has a transparent background. Some app shows it black. Why?",
+        "a": "A few apps render transparency as black in previews. Place the image anyway and it almost always composites correctly. If an app genuinely cannot handle transparency, place the PNG over white in any editor and re-export."
+      },
+      {
+        "q": "Which colour should I pick?",
+        "a": "Ink, the default dark blue-black, reads as pen on paper and photocopies well. Pure blue is the convention some offices want because it distinguishes originals from copies. Plain black is safest for documents that will be scanned or faxed."
+      }
+    ]
+  }
+}

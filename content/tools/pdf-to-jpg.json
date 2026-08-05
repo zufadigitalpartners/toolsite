@@ -1,0 +1,82 @@
+{
+  "name": "PDF to JPG",
+  "icon": "file-image",
+  "emoji": "🖼️",
+  "category": "content/categories/pdf.json",
+  "popular": true,
+  "order": 7,
+  "short": "Turn every page of a PDF into a JPG or PNG image, right in your browser.",
+  "code": {
+    "html": "",
+    "css": "",
+    "js": "",
+    "needsNetwork": false,
+    "apiKey": "",
+    "apiBaseUrl": ""
+  },
+  "seo": {
+    "metaTitle": "PDF to JPG Converter: Every Page, No Upload",
+    "metaDescription": "Convert PDF pages to JPG or PNG images entirely in your browser. Pick the resolution, save one page or all of them as a ZIP. No upload, no signup.",
+    "keywords": [
+      "pdf to jpg",
+      "pdf to image",
+      "convert pdf to jpg online",
+      "pdf to png",
+      "pdf pages to images",
+      "pdf to jpg without upload"
+    ]
+  },
+  "content": {
+    "intro": [
+      "I built this PDF to JPG converter because the job comes up constantly and almost every site that offers it wants your document on their server first. You need one page of a contract as an image for a presentation, a scanned form as a JPG for a portal that refuses PDFs, or a whole brochure as pictures for social media. Those are ten-second jobs, and they do not require handing a company your file.",
+      "This one renders your PDF with the same engine Firefox uses to display PDFs, drawing each page onto a canvas on your own device and encoding it as a JPG or PNG. Every page appears as a preview, you save the ones you want individually, or grab all of them in one ZIP. The file never leaves your computer, which you can prove by loading this page and then switching off your internet before converting."
+    ],
+    "howto": [
+      "Drop your PDF onto the box, or press Choose a file.",
+      "Pick a format. JPG makes small files and suits pages with photos or scans. PNG is lossless and keeps fine text perfectly sharp.",
+      "Pick an image size. Standard is fine for screens, High suits documents you will zoom into, Maximum is for print.",
+      "Watch the pages render one by one. Each page shows its size under the preview.",
+      "Press Save under any single page you want, or Download all as ZIP for everything at once.",
+      "Changed your mind about format or size? Switch the dropdowns and the whole document re-renders with the new settings."
+    ],
+    "benefits": [
+      "The reason to use this converter over the well-known ones is simple: your document is never uploaded. Contracts, medical letters, bank statements and ID scans are exactly the kinds of PDF people convert, and they are exactly the files that should not sit in an unknown company's temporary storage under a deletion policy you have never read. Everything here happens in your browser's memory. The second advantage is control over resolution, which most converters do not offer. A page rendered at 1500 pixels is fine on screen but fuzzy when printed; the Maximum setting renders at 4000 pixels along the long edge, which survives print and heavy cropping.",
+      "It also plays well with the rest of the site. If you only need some pages converted, [split the PDF](/tools/split-pdf/) first and feed the extract in here. Going the other way, our [image to PDF converter](/tools/image-to-pdf/) rebuilds a PDF from images. And if what you actually want is the text on the page rather than a picture of it, the [image to text tool](/tools/image-to-text/) reads your converted page and hands you the words.",
+      "A word on how the sizes were chosen, because they are not arbitrary. Standard, 1500 pixels, matches what a full-screen laptop display can actually show, so anything more is wasted bytes for a web upload. High, 2400 pixels, is the point where zooming into a contract clause or a table stays sharp. Maximum, 4000 pixels, covers 300 DPI printing of an A4 page, which is the standard the print industry works to. Picking from three honest presets beats typing a DPI number you would have to look up anyway, and it keeps the interface out of your way when all you want is a picture of page six."
+    ],
+    "useCases": [
+      "The classic case is a portal or form that accepts images but not PDFs: visa applications, marketplace listings, school systems. Convert the page, upload the JPG, done. Presenters pull one page out of a report to drop into a slide, because pasting a PDF into PowerPoint reliably ends in tears. Social media managers turn a PDF flyer into an image because Instagram and Facebook do not display PDFs at all.",
+      "Sellers photograph well with it too: a product spec sheet becomes a listing image, a certificate becomes a trust badge on a shop page. And people archiving paperwork convert statements to images so they can be viewed on any device without a PDF reader. In every one of those cases the document is private, which is the whole argument for converting it on your own machine."
+    ],
+    "faqs": [
+      {
+        "q": "Does my PDF get uploaded anywhere?",
+        "a": "No. The rendering runs in your browser using the same engine Firefox ships for displaying PDFs. Load the page, disconnect from the internet, and convert: it works, because there is no server involved."
+      },
+      {
+        "q": "Should I pick JPG or PNG?",
+        "a": "JPG for scans, photos and anything going to a portal, because the files are much smaller. PNG for pages full of fine text or line drawings that must stay perfectly crisp, and for anything you plan to edit further."
+      },
+      {
+        "q": "What resolution should I use?",
+        "a": "Standard, 1500 pixels, is enough for screens and most uploads. High, 2400 pixels, is right for documents people will zoom into. Maximum, 4000 pixels, is for printing. Bigger is not free: a 40-page PDF at Maximum produces a heavy ZIP."
+      },
+      {
+        "q": "Can I convert just one page?",
+        "a": "Every page gets its own Save button, so convert the whole file and take only the page you need. If the document is huge, split it first with our split PDF tool and convert the extract."
+      },
+      {
+        "q": "Why does my converted page look different from the viewer?",
+        "a": "Very rare fonts or interactive form fields can render differently outside a full PDF application. For ordinary documents, scans and exports from Office the output matches what you see in a viewer."
+      },
+      {
+        "q": "Does it work with password-protected PDFs?",
+        "a": "Not while they are locked. Open the file in the app that set the password and save an unprotected copy first. A tool that silently stripped protection would be doing something you did not ask for."
+      },
+      {
+        "q": "How long does a big document take?",
+        "a": "Rendering runs about a second per page at Standard size on an ordinary laptop, longer at Maximum. The pages appear as they finish, so you can save early pages while later ones are still rendering. A 100-page scan at Maximum will make the fan spin; that is the honest cost of doing the work on your own machine instead of someone else's."
+      }
+    ]
+  }
+}
