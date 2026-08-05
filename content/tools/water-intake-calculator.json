@@ -20,30 +20,30 @@
   },
   "content": {
     "intro": [
-      "The eight-glasses rule is hydration's most successful piece of folklore: nobody can find its evidence, it ignores body size entirely, and it has outlived every attempt at correction. Actual guidance scales with the body doing the drinking: around 33 millilitres per kilogram per day as a baseline, more when training sweats it out, more again in real heat. An 55-kilogram person and a 100-kilogram person are not the same glass count, and no slogan survives that arithmetic.",
-      "This calculator runs the weight-based guideline with additions for exercise minutes and hot climates, and returns litres and, for the glass-minded, 250 ml glasses. It is presented as what it is: a guideline for healthy people, with thirst acknowledged as a working signal rather than the enemy, and the whole thing clearly outside medical territory, which kidney and heart conditions decisively are."
+      "The eight-glasses rule is hydration's most successful piece of folklore: nobody can find its evidence, it ignores body size entirely, and it has outlived every attempt at correction. Actual guidance scales with the body doing the drinking: around 33 milliliters per kilogram per day as a baseline, more when training sweats it out, more again in real heat. An 55-kilogram person and a 100-kilogram person are not the same glass count, and no slogan survives that arithmetic.",
+      "This calculator runs the weight-based guideline with additions for exercise minutes and hot climates, and returns liters and, for the glass-minded, 250 ml glasses. It is presented as what it is: a guideline for healthy people, with thirst acknowledged as a working signal rather than the enemy, and the whole thing clearly outside medical territory, which kidney and heart conditions decisively are."
     ],
     "howto": [
       "Enter your weight in kilograms.",
       "Add your usual daily exercise minutes; sweat is the main variable after size.",
       "Set the climate: hot seasons and hot countries add a real amount.",
-      "Read the daily guideline in litres and glasses.",
+      "Read the daily guideline in liters and glasses.",
       "Spread it across the day rather than dosing it; thirst plus pale-straw urine is the working check.",
       "Count tea and coffee toward it, because physiology does, whatever the myth says."
     ],
     "benefits": [
       "Retiring myths is half this page's value: caffeine's diuretic effect is far too weak to un-drink a cup, so tea and coffee count; food contributes roughly a fifth of intake already; clear urine is not the goal, pale straw is; and drinking far beyond need buys bathroom trips, not detoxification, with genuine (if rare) danger at endurance-event extremes. Hydration culture has drifted into performative gallon-jugs, and a weight-scaled guideline with honest caveats is the correction.",
-      "The additions are sized from sports-medicine practice: roughly 350 ml per half hour of exercise, half a litre for genuinely hot conditions, both editable by how your body actually runs. The guideline framing is kept deliberately strict: healthy adults, ordinary conditions, thirst still respected as a signal, and medical conditions, kidney and heart above all, referred to doctors in plain words rather than fine print. Beside the [calorie calculator](/tools/calorie-calculator/) and [macro calculator](/tools/macro-calculator/), it completes the unglamorous basics that outperform every supplement aisle.",
+      "The additions are sized from sports-medicine practice: roughly 350 ml per half hour of exercise, half a liter for genuinely hot conditions, both editable by how your body actually runs. The guideline framing is kept deliberately strict: healthy adults, ordinary conditions, thirst still respected as a signal, and medical conditions, kidney and heart above all, referred to doctors in plain words rather than fine print. Beside the [calorie calculator](/tools/calorie-calculator/) and [macro calculator](/tools/macro-calculator/), it completes the unglamorous basics that outperform every supplement aisle.",
       "Timing advice earns a sentence because it changes adherence: a glass with each meal and one between them covers most guidelines without counting, and front-loading the day beats evening catch-up, which mostly buys interrupted sleep. Habit stacking, water attached to existing meals, is how the number becomes automatic, which is the only way any daily number survives."
     ],
     "useCases": [
-      "Gym-goers size their intake to training days versus rest days and stop copying a training partner twice their size. People in hot summers or hot countries, Karachi in June being the motivating example, see the climate line acknowledge what their bodies already reported. Headache-prone desk workers try the boring fix first, since mild dehydration is a documented headache trigger and the cheapest one to rule out.",
+      "Gym-goers size their intake to training days versus rest days and stop copying a training partner twice their size. People in hot summers or hot countries, Phoenix in July being the motivating example, see the climate line acknowledge what their bodies already reported. Headache-prone desk workers try the boring fix first, since mild dehydration is a documented headache trigger and the cheapest one to rule out.",
       "Parents get sane per-weight numbers for teenagers in sports instead of marketing-driven bottle counts. And the gallon-jug crowd meets a calculator that respectfully suggests their kidneys are working hard for no prize, which some of them even believe."
     ],
     "faqs": [
       {
         "q": "Is the 8 glasses rule wrong?",
-        "a": "It is unscaled folklore: fine as a vague average, wrong for most individuals. Two litres over-waters a small sedentary person and under-waters a big one training in heat. Weight-based arithmetic replaces the slogan with your number."
+        "a": "It is unscaled folklore: fine as a vague average, wrong for most individuals. Two liters over-waters a small sedentary person and under-waters a big one training in heat. Weight-based arithmetic replaces the slogan with your number."
       },
       {
         "q": "Do tea and coffee count?",
@@ -51,7 +51,7 @@
       },
       {
         "q": "Can I drink too much water?",
-        "a": "Yes, though it takes effort: drinking far beyond losses dilutes blood sodium, and endurance events where people over-drink on schedule have caused genuine emergencies. The guideline plus thirst is the sane zone; forcing litres beyond it serves nothing."
+        "a": "Yes, though it takes effort: drinking far beyond losses dilutes blood sodium, and endurance events where people over-drink on schedule have caused genuine emergencies. The guideline plus thirst is the sane zone; forcing liters beyond it serves nothing."
       },
       {
         "q": "Does food count toward the total?",
@@ -59,7 +59,7 @@
       },
       {
         "q": "How do I know if I am drinking enough?",
-        "a": "Thirst is a working signal for most healthy people, and urine colour is the practical gauge: pale straw is right, dark means drink, fully clear means ease off. Two mechanical checks beat any app streak."
+        "a": "Thirst is a working signal for most healthy people, and urine color is the practical gauge: pale straw is right, dark means drink, fully clear means ease off. Two mechanical checks beat any app streak."
       },
       {
         "q": "Does this apply to medical conditions?",

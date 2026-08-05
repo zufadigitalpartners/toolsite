@@ -64,7 +64,7 @@
       "paragraphs": [
         "You should not take our word for this, and you do not have to. There is a test that takes ten seconds and works on any web tool that claims to be local.",
         "Open the page and wait for it to finish loading. Then disconnect from the internet, by turning off wifi or unplugging the cable. Now use the tool.",
-        "If it works, nothing was being uploaded, because there was nowhere to upload it to. If it hangs or shows an error, your file was going somewhere. That is the whole test, and it is more reliable than any privacy policy, because it observes behaviour rather than describing intent.",
+        "If it works, nothing was being uploaded, because there was nowhere to upload it to. If it hangs or shows an error, your file was going somewhere. That is the whole test, and it is more reliable than any privacy policy, because it observes behavior rather than describing intent.",
         "A more thorough version: open your browser's developer tools, go to the Network tab, and watch while you use the tool. Uploads are visible there as requests with your file's size attached."
       ],
       "callout": "Load the page, turn off your internet, then use the tool. Working offline is proof. A privacy policy is a promise."

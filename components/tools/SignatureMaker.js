@@ -170,7 +170,7 @@ export default function SignatureMaker() {
       <div className="pdfw-opts">
         <div className="field-row">
           <label>
-            Colour
+            Color
             <select value={color} onChange={(e) => setColor(e.target.value)}>
               {COLORS.map((c) => (<option key={c.v} value={c.v}>{c.label}</option>))}
             </select>
@@ -218,7 +218,7 @@ export default function SignatureMaker() {
           <label className="field-row" style={{ display: "block" }}>
             Your name
             <input type="text" value={typed} onChange={(e) => setTyped(e.target.value)}
-              placeholder="Zunair Javed" autoComplete="off" />
+              placeholder="Alex Morgan" autoComplete="off" />
           </label>
           {typed.trim() && (
             <div style={{ font: `52px ${FONTS[font].css}`, color, padding: "18px 8px", overflowX: "auto" }}>

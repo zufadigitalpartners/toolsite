@@ -7,10 +7,10 @@ import { zakat, GRAMS_PER_TOLA, NISAB_GOLD_GRAMS, NISAB_SILVER_GRAMS } from "@/l
 
    Two decisions came from watching this tool confuse its first users.
 
-   Tola first: in Pakistan and across South Asia nobody owns "87 grams"
-   of gold, they own 7.5 tola, and the classical nisab constants ARE tola
-   figures (7.5 tola gold, 52.5 tola silver, at 11.664 g each). The unit
-   toggle speaks both languages and converts exactly.
+   Both units: grams by default for the wider audience, tola one click
+   away because South Asian users and their diaspora count gold that way,
+   and the classical nisab constants are tola figures at heart (7.5 tola
+   gold, 52.5 tola silver, at 11.664 g each). Conversion is exact.
 
    Nisab as a typed amount second: authorities publish each year's nisab
    as a currency figure, and a cash-only user should never be blocked by
@@ -21,7 +21,7 @@ import { zakat, GRAMS_PER_TOLA, NISAB_GOLD_GRAMS, NISAB_SILVER_GRAMS } from "@/l
 const fmt = (n) => new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Math.round(n));
 
 export default function ZakatCalculator() {
-  const [unit, setUnit] = useState("tola");
+  const [unit, setUnit] = useState("gram");
   const [cash, setCash] = useState("");
   const [goldQty, setGoldQty] = useState("");
   const [goldPrice, setGoldPrice] = useState("");
@@ -90,8 +90,8 @@ export default function ZakatCalculator() {
           <label>
             Gold and silver unit
             <select value={unit} onChange={(e) => setUnit(e.target.value)}>
-              <option value="tola">Tola</option>
               <option value="gram">Grams</option>
+              <option value="tola">Tola</option>
             </select>
           </label>
           <label>Gold, {unitLabel}<input type="number" min="0" step="any" inputMode="decimal" value={goldQty} placeholder={unit === "tola" ? "7.5" : "87.48"} onChange={(e) => setGoldQty(e.target.value)} /></label>
@@ -107,7 +107,7 @@ export default function ZakatCalculator() {
 
         <p className="note">
           <b>3.</b> The nisab threshold. Zakat is due only if your net wealth reaches it.
-          The classical thresholds are 52.5 tola of silver ({NISAB_SILVER_GRAMS} g) or 7.5 tola of gold ({NISAB_GOLD_GRAMS} g);
+          The classical thresholds are {NISAB_SILVER_GRAMS} g of silver (52.5 tola) or {NISAB_GOLD_GRAMS} g of gold (7.5 tola);
           most authorities publish the silver-based figure in currency every year.
         </p>
         <div className="field-row">

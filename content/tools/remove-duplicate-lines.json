@@ -30,7 +30,7 @@
   },
   "content": {
     "intro": [
-      "Removing duplicates is one of those jobs that sounds trivial until you try it on real data. Excel's own remove duplicates only matches exactly, so Ayesha@Example.com and ayesha@example.com both survive, and so does any value with a trailing space you cannot see. This tool lets you decide what counts as the same thing: exact, ignoring case, ignoring spaces at the ends, or both. It keeps the original order by default, can sort instead, and can show how many times each value appeared, which is often the more useful answer. It can also flip the question and show you only the duplicates, or only the values that appear exactly once. Everything runs in your browser."
+      "Removing duplicates is one of those jobs that sounds trivial until you try it on real data. Excel's own remove duplicates only matches exactly, so Anna@Example.com and anna@example.com both survive, and so does any value with a trailing space you cannot see. This tool lets you decide what counts as the same thing: exact, ignoring case, ignoring spaces at the ends, or both. It keeps the original order by default, can sort instead, and can show how many times each value appeared, which is often the more useful answer. It can also flip the question and show you only the duplicates, or only the values that appear exactly once. Everything runs in your browser."
     ],
     "howto": [
       "Paste your list into the box, one item per line. Copying a column straight out of Excel gives you exactly that.",
@@ -54,7 +54,7 @@
       },
       {
         "q": "What is the difference between the matching options?",
-        "a": "Exact treats any difference as a different value. Ignore case treats Ayesha and ayesha as the same. Ignore spaces removes whitespace at the start and end before comparing. Both does the two together, which catches the largest number of real duplicates."
+        "a": "Exact treats any difference as a different value. Ignore case treats Anna and anna as the same. Ignore spaces removes whitespace at the start and end before comparing. Both does the two together, which catches the largest number of real duplicates."
       },
       {
         "q": "Can I see which lines were duplicated instead of removing them?",

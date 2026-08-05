@@ -28,7 +28,7 @@ const config = {
     if (v.sex === "female" && !(hip > 0)) return null;
     const bf = navyBodyFat({ sex: v.sex, cm, waist, neck, hip });
     if (bf === null || bf < 1 || bf > 70) {
-      return { error: "Those measurements do not combine into a plausible result. The usual culprit is the waist and neck being swapped, or inches entered as centimetres." };
+      return { error: "Those measurements do not combine into a plausible result. The usual culprit is the waist and neck being swapped, or inches entered as centimeters." };
     }
     const bands = v.sex === "male" ? BANDS_M : BANDS_F;
     const band = bands.find(([, lo, hi]) => bf >= lo && bf <= hi)?.[0] || (bf < bands[0][1] ? "Below essential" : "Above");

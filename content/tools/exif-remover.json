@@ -29,7 +29,7 @@
   "content": {
     "intro": [
       "Every photo from a phone or camera carries a hidden passenger list: the device that took it, the moment it was taken, the camera settings, and very often the exact GPS coordinates of where you were standing. Post that photo, email it, list something for sale with it, and the passenger list travels along. Most people have never seen it, which is why the first thing this tool does is show it to you.",
-      "Drop in a JPG and the metadata appears as a table. If there are GPS coordinates, they are called out separately with a map link, because a photo taken at home is a photo that knows your address. Then one button downloads a clean copy with all of it removed. The removal is byte surgery on the file's structure, not a re-save, so the image itself is untouched: every pixel identical, same resolution, same colours, just none of the story attached. And since this is a privacy tool, it would be absurd to upload your photo anywhere; everything runs on your device."
+      "Drop in a JPG and the metadata appears as a table. If there are GPS coordinates, they are called out separately with a map link, because a photo taken at home is a photo that knows your address. Then one button downloads a clean copy with all of it removed. The removal is byte surgery on the file's structure, not a re-save, so the image itself is untouched: every pixel identical, same resolution, same colors, just none of the story attached. And since this is a privacy tool, it would be absurd to upload your photo anywhere; everything runs on your device."
     ],
     "howto": [
       "Drop a JPG photo onto the box, or press Choose a photo.",
@@ -40,7 +40,7 @@
       "The status line tells you how many bytes of metadata were removed. The pixels are byte-for-byte identical."
     ],
     "benefits": [
-      "The first benefit is seeing before scrubbing. Most strippers are a black box: file in, file out, trust us. This one shows you exactly what the photo was carrying, which is worth doing once even for the education; people are reliably shocked to find their home coordinates in a photo of a sofa they were selling. The second is that cleaning does not touch the image. Tools that strip metadata by re-saving the JPG re-compress it, quietly costing quality on every pass. Ours copies the image data untouched and simply leaves the metadata segments out, so the clean copy is pixel-identical. The colour profile is deliberately kept, because dropping it visibly shifts colours on wide-gamut photos.",
+      "The first benefit is seeing before scrubbing. Most strippers are a black box: file in, file out, trust us. This one shows you exactly what the photo was carrying, which is worth doing once even for the education; people are reliably shocked to find their home coordinates in a photo of a sofa they were selling. The second is that cleaning does not touch the image. Tools that strip metadata by re-saving the JPG re-compress it, quietly costing quality on every pass. Ours copies the image data untouched and simply leaves the metadata segments out, so the clean copy is pixel-identical. The color profile is deliberately kept, because dropping it visibly shifts colors on wide-gamut photos.",
       "Around the site, this is the inspection room. Photos that go through the [image compressor](/tools/image-compressor/) or [HEIC to JPG converter](/tools/heic-to-jpg/) lose their metadata as a side effect of re-encoding; this tool is for when you want the original pixels kept and only the metadata gone, or when you want to see what is in a file before deciding. For a whole listing's worth of product shots, run each through and check the location warning goes away.",
       "It is worth knowing what EXIF is for, so the removal is a choice rather than a reflex. Photographers rely on it: the settings that made a shot, lenses used, copyright lines, and the timestamps photo libraries sort by. Strip a photo you plan to keep and your library may file it under today's date instead of the day it was taken. The right habit is to keep your originals as they are and clean the copies that leave the house. That is why this tool never modifies the file you drop in; it always writes a separate clean copy with its own name."
     ],
@@ -59,7 +59,7 @@
       },
       {
         "q": "What kinds of data are removed?",
-        "a": "EXIF (camera, settings, dates, GPS), XMP editing history, Photoshop resource blocks and free-text comments. The colour profile is kept on purpose, because removing it changes how the photo looks."
+        "a": "EXIF (camera, settings, dates, GPS), XMP editing history, Photoshop resource blocks and free-text comments. The color profile is kept on purpose, because removing it changes how the photo looks."
       },
       {
         "q": "Do social media sites strip EXIF for me?",

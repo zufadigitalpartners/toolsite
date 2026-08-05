@@ -8,7 +8,7 @@ export default function WatermarkPdf() {
   const [opacity, setOpacity] = useState(15);
   const [angle, setAngle] = useState(45);
   const [size, setSize] = useState(60);
-  const [colour, setColour] = useState("grey");
+  const [color, setColor] = useState("grey");
 
   const COLOURS = {
     grey: [0.35, 0.35, 0.38],
@@ -27,7 +27,7 @@ export default function WatermarkPdf() {
         const f = files[0];
         const doc = await PDFDocument.load(f.buf, { ignoreEncryption: true });
         const font = await doc.embedFont(StandardFonts.HelveticaBold);
-        const [r, g, b] = COLOURS[colour] || COLOURS.grey;
+        const [r, g, b] = COLOURS[color] || COLOURS.grey;
         const fs = Math.max(10, Math.min(200, +size || 60));
         const rad = ((+angle || 0) * Math.PI) / 180;
 
@@ -65,8 +65,8 @@ export default function WatermarkPdf() {
           </div>
           <div className="input-2col" style={{ marginTop: 14 }}>
             <label>
-              <span>Colour</span>
-              <select className="tool-text" value={colour} onChange={(e) => setColour(e.target.value)}>
+              <span>Color</span>
+              <select className="tool-text" value={color} onChange={(e) => setColor(e.target.value)}>
                 <option value="grey">Grey</option>
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>

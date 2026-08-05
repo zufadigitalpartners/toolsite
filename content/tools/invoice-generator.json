@@ -46,7 +46,7 @@
     ],
     "useCases": [
       "Freelancers are the obvious first group: a design job wraps up, the client asks for an invoice, and this produces one in two minutes without commitment to some platform's free tier. Side businesses and market sellers invoice occasionally enough that a subscription tool is absurd but often enough that a Word template with last month's client still in it is dangerous. Tutors, cleaners, tradespeople and anyone billing by the hour fill in quantity and rate and let the arithmetic take care of itself.",
-      "Small shops use it for the wholesale side, where a business buyer wants a proper document with a tax line. People renting out a room or equipment issue receipts that look professional rather than typed. And plenty of users are on the other side of the table: they need to send a self-billing invoice or a simple document a bookkeeper will accept, in a currency the fancy tools charge extra for. The currency list here includes Rs and AED alongside the usual suspects, because our users are not all in San Francisco."
+      "Small shops use it for the wholesale side, where a business buyer wants a proper document with a tax line. People renting out a room or equipment issue receipts that look professional rather than typed. And plenty of users are on the other side of the table: they need to send a self-billing invoice or a simple document a bookkeeper will accept, in a currency the fancy tools charge extra for. The currency list runs from $, £ and € to Rs and AED, because invoices cross borders more often than invoice tools admit."
     ],
     "faqs": [
       {

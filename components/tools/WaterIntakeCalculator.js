@@ -30,7 +30,7 @@ const config = {
         { num: glasses + " glasses", label: "In 250 ml glasses" },
       ],
       notes: [
-        `The base is ${fmt(kg * 33 / 1000, 1)} litres for your weight, plus ${fmt((num(v.exercise) / 30) * 0.35, 1)} for training${v.climate === "hot" ? " and half a litre for the heat" : ""}. Food typically contributes another fifth on top of what you drink, and tea and coffee count toward the total despite the myth.`,
+        `The base is ${fmt(kg * 33 / 1000, 1)} liters for your weight, plus ${fmt((num(v.exercise) / 30) * 0.35, 1)} for training${v.climate === "hot" ? " and half a liter for the heat" : ""}. Food typically contributes another fifth on top of what you drink, and tea and coffee count toward the total despite the myth.`,
         "This is a guideline, not a prescription: thirst is a working signal for most healthy people, and pale-straw urine is the practical check. Kidney or heart conditions change the rules entirely, and that conversation belongs to a doctor, not a calculator.",
       ],
     };

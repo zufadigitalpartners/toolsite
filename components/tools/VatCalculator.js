@@ -71,7 +71,7 @@ export default function VatCalculator() {
             </p>
           )}
           <p className="note">
-            Common rates: 18% Pakistan sales tax, 20% UK VAT, 5% UAE and Saudi VAT, 15% South Africa.
+            Common rates: 20% UK VAT, 10% Australian GST, 5% Canadian GST, 19 to 25% across the EU, 18% Pakistan.
             Rates change by budget year and by goods; use the rate on your invoice. Computed on this device.
           </p>
         </>

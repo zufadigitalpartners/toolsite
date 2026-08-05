@@ -62,7 +62,7 @@
       },
       {
         "q": "What happens to emoji and punctuation?",
-        "a": "They are removed, because a hashtag ends at the first character that is not a letter, number or underscore. Leaving them in would silently truncate the tag, so stripping them is the safer behaviour."
+        "a": "They are removed, because a hashtag ends at the first character that is not a letter, number or underscore. Leaving them in would silently truncate the tag, so stripping them is the safer behavior."
       },
       {
         "q": "Why were some items dropped?",

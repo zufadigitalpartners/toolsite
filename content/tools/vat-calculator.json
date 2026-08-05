@@ -29,7 +29,7 @@
   "content": {
     "intro": [
       "Adding tax to a price is easy and everyone gets it right. Taking tax back out of a total is where the mistakes live, and they are everywhere: in expense claims, in bookkeeping, in quotes compared against invoices. The tax inside a gross price of 118 at 18% is 18, not 21.24, because the 18% was charged on the net 100, not on the 118. Subtracting 18% of the gross is the classic error, it always overstates the tax, and spreadsheets full of it are reconciled painfully every month.",
-      "This calculator does both directions correctly. Add mode takes a net price and a rate and gives the gross; remove mode takes a tax-inclusive total and pulls out the exact net and tax by dividing rather than subtracting. Preset buttons cover the rates people actually meet, from 5% in the Gulf to 25% in Scandinavia, with Pakistan's 18% sales tax in the middle. It works for VAT, GST and any percentage sales tax, because underneath the local name it is the same arithmetic."
+      "This calculator does both directions correctly. Add mode takes a net price and a rate and gives the gross; remove mode takes a tax-inclusive total and pulls out the exact net and tax by dividing rather than subtracting. Preset buttons cover the rates people actually meet, from 5% in the Gulf to 25% in Scandinavia, with the UK's 20% and Australia's 10% GST among the presets. It works for VAT, GST and any percentage sales tax, because underneath the local name it is the same arithmetic."
     ],
     "howto": [
       "Pick the direction. Add tax when you have a net price and need the total; take tax out when you have a receipt total and need the net.",

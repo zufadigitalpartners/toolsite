@@ -33,7 +33,7 @@
     ],
     "howto": [
       "Pick Draw it or Type it. Drawing looks personal; typing looks like what e-sign services produce, and both are accepted in practice.",
-      "For drawing: pick a colour and pen thickness, then sign in the box. A stylus or finger gives the most natural line; a mouse takes an attempt or two.",
+      "For drawing: pick a color and pen thickness, then sign in the box. A stylus or finger gives the most natural line; a mouse takes an attempt or two.",
       "Made a wobbly stroke? Undo stroke removes just the last one, so a good signature with one bad tail is rescued, not restarted.",
       "For typing: enter your name and pick the style that suits, formal or flowing.",
       "Press Download PNG. The image is cropped tight to the signature with a transparent background, at triple resolution so it prints sharp.",
@@ -70,7 +70,7 @@
         "a": "A few apps render transparency as black in previews. Place the image anyway and it almost always composites correctly. If an app genuinely cannot handle transparency, place the PNG over white in any editor and re-export."
       },
       {
-        "q": "Which colour should I pick?",
+        "q": "Which color should I pick?",
         "a": "Ink, the default dark blue-black, reads as pen on paper and photocopies well. Pure blue is the convention some offices want because it distinguishes originals from copies. Plain black is safest for documents that will be scanned or faxed."
       }
     ]

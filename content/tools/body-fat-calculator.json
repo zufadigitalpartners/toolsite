@@ -21,13 +21,13 @@
   "content": {
     "intro": [
       "The scale tells you weight; it refuses to say what the weight is made of, and that composition is what actually changes how bodies look, perform and age. Laboratory answers exist, from DEXA scans to displacement pods, at laboratory prices. Between the scale and the lab sits a method the US Navy developed to assess thousands of sailors with nothing but tape measures: circumference equations over waist, neck and, for women, hips, validated against the fancy methods and accurate within a few percentage points for most bodies.",
-      "This calculator runs the Navy equations in their metric form. Measure as directed, enter the numbers, and read the estimate with the standard category bands beside it. The tool checks plausibility rather than printing absurdities: measurements that cannot produce a real result, usually a swapped waist and neck or inches entered as centimetres, get an error message instead of a nonsense percentage."
+      "This calculator runs the Navy equations in their metric form. Measure as directed, enter the numbers, and read the estimate with the standard category bands beside it. The tool checks plausibility rather than printing absurdities: measurements that cannot produce a real result, usually a swapped waist and neck or inches entered as centimeters, get an error message instead of a nonsense percentage."
     ],
     "howto": [
       "Measure your waist at navel height, relaxed, tape level and snug but not compressing.",
       "Measure the neck just below the larynx, tape sloping slightly down at the front.",
       "Women: measure the hips at their widest point.",
-      "Enter height and the measurements in centimetres.",
+      "Enter height and the measurements in centimeters.",
       "Read the percentage and the category band it lands in.",
       "Re-measure monthly, same time of day, same conditions; the trend is the real instrument."
     ],
@@ -55,11 +55,11 @@
       },
       {
         "q": "My result seems too high or too low. Why?",
-        "a": "Check units and placement first: inches entered as centimetres, waist measured at the narrowest rather than the navel, tape compressed. Genuinely muscular necks read lean; very lean physiques read less precisely. If the reading is consistent, track its change and let a scan settle the absolute level if it matters."
+        "a": "Check units and placement first: inches entered as centimeters, waist measured at the narrowest rather than the navel, tape compressed. Genuinely muscular necks read lean; very lean physiques read less precisely. If the reading is consistent, track its change and let a scan settle the absolute level if it matters."
       },
       {
         "q": "What is a healthy body fat percentage?",
-        "a": "Broad bands: men roughly 6-13% athletic, 14-17% fit, 18-24% average; women 14-20%, 21-24%, 25-31%, with essential minimums below which health suffers. Health lives in ranges, not points, and behaviour beats percentile-chasing."
+        "a": "Broad bands: men roughly 6-13% athletic, 14-17% fit, 18-24% average; women 14-20%, 21-24%, 25-31%, with essential minimums below which health suffers. Health lives in ranges, not points, and behavior beats percentile-chasing."
       },
       {
         "q": "Is my data stored?",

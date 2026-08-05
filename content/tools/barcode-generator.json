@@ -46,7 +46,7 @@
     ],
     "useCases": [
       "Small product businesses hit this the day they graduate from selling at markets to selling through anything with a scanner. Each product needs an EAN on the packaging, and the print shop wants vector artwork. Warehouses and storage units label shelves and bins with Code 128 because it packs letters and numbers into a scannable strip, and any USB scanner reads it into a spreadsheet as if typed. Libraries, equipment rooms and IT departments tag assets the same way.",
-      "Retailers add barcodes to products that arrive without them, so the till stops needing a lookup book. Event organisers encode ticket numbers. Workshops label customer jobs so a scan pulls up the order. None of these people want barcode software with a licence server; they want twelve labels by lunchtime, which is the job this does."
+      "Retailers add barcodes to products that arrive without them, so the till stops needing a lookup book. Event organizers encode ticket numbers. Workshops label customer jobs so a scan pulls up the order. None of these people want barcode software with a licence server; they want twelve labels by lunchtime, which is the job this does."
     ],
     "faqs": [
       {

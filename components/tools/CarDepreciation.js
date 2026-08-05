@@ -33,7 +33,7 @@ const config = {
       },
       notes: [
         `By year five the car is worth about ${fmt(y5.value)}: depreciation of ${fmt(y5.lost)} dwarfs most fuel and insurance bills over the same period, it just never sends an invoice. This is the number to weigh when choosing new against three years old, where someone else has already paid the steep first years.`,
-        "The curve is a planning model, not a valuation: condition, mileage, colour and market swings move real prices. For selling or insurance disputes, use actual market listings for your exact model and year.",
+        "The curve is a planning model, not a valuation: condition, mileage, color and market swings move real prices. For selling or insurance disputes, use actual market listings for your exact model and year.",
       ],
     };
   },

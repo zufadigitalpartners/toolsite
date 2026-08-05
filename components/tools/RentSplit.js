@@ -49,7 +49,7 @@ export default function RentSplit() {
         <div className="field-row" key={i}>
           <label style={{ flex: "1.4 1 140px" }}>
             {i === 0 ? "Name" : ""}
-            <input type="text" value={p.name} placeholder={["Ayesha", "Bilal", "Sara"][i % 3]}
+            <input type="text" value={p.name} placeholder={["Alex", "Sam", "Jordan"][i % 3]}
               onChange={(e) => set(i, "name", e.target.value)} />
           </label>
           {method !== "equal" && (

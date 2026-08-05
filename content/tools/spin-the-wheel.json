@@ -28,7 +28,7 @@
   },
   "content": {
     "intro": [
-      "Some decisions deserve a spreadsheet, and some deserve a wheel. Who presents first, who wins the giveaway, which of six equally acceptable lunch options happens today: for these, a colourful wheel that clicks around and lands on an answer is not just a picker, it is the ceremony that makes the answer accepted. Nobody argues with the wheel.",
+      "Some decisions deserve a spreadsheet, and some deserve a wheel. Who presents first, who wins the giveaway, which of six equally acceptable lunch options happens today: for these, a colorful wheel that clicks around and lands on an answer is not just a picker, it is the ceremony that makes the answer accepted. Nobody argues with the wheel.",
       "This one takes a list of names, one per line, and turns it into a wheel you spin with a button. The winner is announced when the wheel stops, previous winners are kept in a list underneath, and one press removes the winner so the next spin runs on whoever is left, which is exactly the loop a raffle needs. It runs entirely in your browser, so it works on the classroom machine with the flaky connection and the projector nobody understands."
     ],
     "howto": [

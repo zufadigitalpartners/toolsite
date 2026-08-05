@@ -39,7 +39,7 @@
     "faqs": [
       {
         "q": "Are the removed pages really gone?",
-        "a": "Yes. The tool builds a new document from the pages you kept rather than marking the others as deleted, so their content is not carried into the saved file. That is the safer behaviour when you removed them for privacy reasons."
+        "a": "Yes. The tool builds a new document from the pages you kept rather than marking the others as deleted, so their content is not carried into the saved file. That is the safer behavior when you removed them for privacy reasons."
       },
       {
         "q": "How do I say which pages to remove?",

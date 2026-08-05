@@ -8,7 +8,7 @@
   "short": "Mark a document as a draft or a copy before you send it on.",
   "seo": {
     "metaTitle": "Watermark PDF: Add DRAFT or CONFIDENTIAL, Free",
-    "metaDescription": "Add a text watermark across every page of a PDF in your browser. Choose the wording, angle, colour and how faint it sits. Nothing uploaded.",
+    "metaDescription": "Add a text watermark across every page of a PDF in your browser. Choose the wording, angle, color and how faint it sits. Nothing uploaded.",
     "keywords": [
       "watermark pdf",
       "add watermark to pdf",
@@ -19,12 +19,12 @@
   },
   "content": {
     "intro": [
-      "A watermark answers a question before anyone asks it: is this the final version, and is it meant to be passed on. DRAFT across a proposal stops it being quoted back at you as a commitment. CONFIDENTIAL on a document you had to share sets an expectation. COPY on a certificate makes clear which one is the original. This adds that text diagonally across every page of a PDF, in your choice of wording, colour, angle and strength, in your browser and without uploading the document. That last part matters, because the documents that need marking are the ones you would least like sitting on someone else's server."
+      "A watermark answers a question before anyone asks it: is this the final version, and is it meant to be passed on. DRAFT across a proposal stops it being quoted back at you as a commitment. CONFIDENTIAL on a document you had to share sets an expectation. COPY on a certificate makes clear which one is the original. This adds that text diagonally across every page of a PDF, in your choice of wording, color, angle and strength, in your browser and without uploading the document. That last part matters, because the documents that need marking are the ones you would least like sitting on someone else's server."
     ],
     "howto": [
       "Drop in the PDF you want to mark.",
       "Type the wording. DRAFT, CONFIDENTIAL, COPY, a client name, or anything up to forty characters.",
-      "Pick a colour and an angle. Diagonal is the convention and it reads clearly without following any line of text.",
+      "Pick a color and an angle. Diagonal is the convention and it reads clearly without following any line of text.",
       "Set how faint it should be. Around fifteen percent is visible without fighting the words underneath.",
       "Press Add the watermark. Every page is marked and the file downloads."
     ],

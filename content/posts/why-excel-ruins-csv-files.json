@@ -70,7 +70,7 @@
     {
       "heading": "The other quiet problem: duplicates",
       "paragraphs": [
-        "Excel's own Remove Duplicates only matches exactly. So Ayesha@Example.com and ayesha@example.com both survive, and so does anything carrying a trailing space you cannot see.",
+        "Excel's own Remove Duplicates only matches exactly. So Anna@Example.com and anna@example.com both survive, and so does anything carrying a trailing space you cannot see.",
         "On a mailing list you pay for by contact, that is money. On a customer import it is two records for one person, and support usually finds out before you do.",
         "Our [remove duplicate lines](/tools/remove-duplicate-lines/) tool lets you decide what counts as the same thing: exact, ignoring case, ignoring spaces at the ends, or both. It can also invert the question and show only the repeats, which is auditing a list rather than cleaning it, and is usually the more useful answer when you are trying to find out how bad the data is."
       ]

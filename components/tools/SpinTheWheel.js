@@ -24,7 +24,7 @@ function randomTurns() {
 }
 
 export default function SpinTheWheel() {
-  const [names, setNames] = useState("Ayesha\nBilal\nSara\nHamza\nZainab\nOmar");
+  const [names, setNames] = useState("Emma\nLiam\nOlivia\nNoah\nAva\nJames");
   const [winner, setWinner] = useState("");
   const [history, setHistory] = useState([]);
   const [spinning, setSpinning] = useState(false);

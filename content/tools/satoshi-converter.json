@@ -47,7 +47,7 @@
       },
       {
         "q": "Why does the converter not show a live price?",
-        "a": "By design. Fetching a price would need a server call, ending the page's offline and no-tracking behaviour, and it would be one exchange's number rather than yours. Type the price from the screen you are actually transacting on; the conversion is then exact for your situation."
+        "a": "By design. Fetching a price would need a server call, ending the page's offline and no-tracking behavior, and it would be one exchange's number rather than yours. Type the price from the screen you are actually transacting on; the conversion is then exact for your situation."
       },
       {
         "q": "What are mBTC and bits, and does anyone use them?",

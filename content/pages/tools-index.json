@@ -5,7 +5,7 @@
   "subtitle": "Every tool we have built so far, grouped by what it does. All of them are free, none of them need an account, and every one runs inside your browser.",
   "sections": [
     {
-      "heading": "How this collection is organised",
+      "heading": "How this collection is organized",
       "paragraphs": [
         "We group tools by the job you are trying to finish rather than by how they work under the hood. If you are dealing with words on a page, you want the text tools. If you need the site to produce something for you, look in generators. If a number or a date is the answer you are after, the calculators section has it. And if you are debugging an API or a config file, the developer tools are built for exactly that.",
         "Every tool page follows the same layout. The tool itself sits at the top so you can start working immediately, and the explanation, step by step instructions and common questions sit below it. Nothing is hidden behind a signup form and nothing counts your usage."

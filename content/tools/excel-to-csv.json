@@ -67,7 +67,7 @@
       },
       {
         "q": "Why does Excel show weird characters when I reopen the CSV?",
-        "a": "Excel assumes CSVs are in an old regional encoding unless the file starts with a UTF-8 marker. Ours does, so names like Müller and Karachi's Urdu labels survive the round trip. If another tool objects to the marker, it is three bytes at the start of the file and safe to strip."
+        "a": "Excel assumes CSVs are in an old regional encoding unless the file starts with a UTF-8 marker. Ours does, so names like Müller and José survive the round trip. If another tool objects to the marker, it is three bytes at the start of the file and safe to strip."
       },
       {
         "q": "Can it convert CSV back to Excel?",

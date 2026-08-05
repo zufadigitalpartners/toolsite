@@ -10,7 +10,7 @@ import { fmtBytes } from "@/components/tools/pdf/PdfWorkspace";
    not a re-encode, so the pixels in the clean copy are identical to the
    original down to the last byte of image data. That is the difference
    between this and "compress it somewhere and hope": quality is untouched
-   and so is the file's colour profile.
+   and so is the file's color profile.
 
    The GPS row gets special treatment because it is the row that matters.
    A photo taken at home carries the house's coordinates, and most people

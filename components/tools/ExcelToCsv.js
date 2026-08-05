@@ -51,7 +51,7 @@ export default function ExcelToCsv() {
       const sheets = book.SheetNames.map((name) => {
         const ws = book.Sheets[name];
         // sheet_to_json with header:1 gives rows of formatted strings; from
-        // there the CSV writing is ours, so quoting behaviour is known
+        // there the CSV writing is ours, so quoting behavior is known
         // rather than whatever a library version does this month.
         const rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false, defval: "" });
         while (rows.length && rows[rows.length - 1].every((c) => c === "")) rows.pop();
