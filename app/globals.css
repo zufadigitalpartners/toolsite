@@ -1372,6 +1372,174 @@ input.mono-out {
   background: transparent;
 }
 
+/* ================= BROWSE PANEL ================= */
+/* The whole catalogue, one step from anywhere. Replaced a dropdown that
+   listed only the nine categories, which made reaching any single tool a
+   two step job once there were more than about twenty of them. */
+.bp-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(18, 20, 28, 0.42);
+  animation: bpVeil var(--d-base) linear;
+}
+@keyframes bpVeil { from { opacity: 0; } to { opacity: 1; } }
+
+.bp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(390px, 92vw);
+  z-index: 91;
+  background: var(--raised);
+  border-right: 1px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--e-overlay);
+  animation: bpIn var(--d-base) var(--ease);
+}
+@keyframes bpIn { from { transform: translateX(-100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .bp, .bp-veil { animation: none; }
+}
+
+.bp-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  padding: var(--s5) var(--s5) var(--s4);
+  border-bottom: 1px solid var(--line);
+}
+.bp-head h2 {
+  margin: 0;
+  font-size: var(--t-20);
+  font-weight: 700;
+  letter-spacing: var(--ls-20);
+}
+.bp-head p {
+  margin: 2px 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.bp-close {
+  margin-left: auto;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  position: relative;
+}
+.bp-close::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 44px; height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+.bp-search {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin: var(--s4) var(--s5) 0;
+  padding: 0 var(--s3);
+  height: var(--control-h);
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  box-shadow: var(--e-well);
+  color: var(--muted);
+}
+.bp-search:focus-within { border-color: var(--accent); background: var(--surface); }
+.bp-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 16px;   /* under 16 and iOS zooms the page on focus */
+  color: var(--ink);
+}
+.bp-search button {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+}
+
+.bp-body { flex: 1; overflow-y: auto; padding: var(--s4) var(--s5) var(--s6); }
+.bp-empty { color: var(--muted); font-size: var(--t-14); line-height: 1.5; padding: var(--s5) 0; }
+
+.bp-group { padding-top: var(--s4); }
+.bp-group + .bp-group { border-top: 1px solid var(--line); margin-top: var(--s3); }
+.bp-group h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin: 0 0 var(--s2);
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  font-weight: 400;
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  /* The heading text stays muted like every other micro-label on the site.
+     Only the icon carries the category colour, which is the same rule the
+     cards and section rules follow. */
+  color: var(--muted);
+  border: 0;
+  padding: 0;
+}
+.bp-group h3 svg { color: var(--cc); flex: 0 0 15px; }
+.bp-group h3 span {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.bp-group ul { list-style: none; margin: 0; padding: 0; }
+.bp-group li + li { border-top: 1px solid var(--line); }
+.bp-group a {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: 11px var(--s2);
+  margin: 0 calc(var(--s2) * -1);
+  border-radius: var(--r-sm);
+  color: var(--ink);
+  font-size: var(--t-14);
+  font-weight: 500;
+  line-height: 1.35;
+  min-height: 44px;
+  transition: background var(--d-fast) linear;
+}
+.bp-group a:hover { background: var(--surface-2); text-decoration: none; }
+.bp-group a svg { color: var(--cc); flex: 0 0 17px; }
+.bp-name { min-width: 0; }
+
+.bp-foot {
+  border-top: 1px solid var(--line);
+  padding: var(--s3) var(--s5);
+  font-family: var(--font-mono);
+  font-size: var(--t-12);
+  letter-spacing: var(--ls-12);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 /* ================= PDF TOOLS ================= */
 /* Shared by every PDF tool through components/tools/pdf/PdfWorkspace.js */
 .pdfw-drop {

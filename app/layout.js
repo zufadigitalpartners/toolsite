@@ -4,7 +4,7 @@ import { site, ui } from "@/lib/site";
 import { categories, toolsByCategory } from "@/lib/tools";
 import { footerPages, fill } from "@/lib/pages";
 import { OG_IMAGE } from "@/lib/seo";
-import CategoryMenu from "@/components/CategoryMenu";
+import BrowsePanel from "@/components/BrowsePanel";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
@@ -146,15 +146,25 @@ export default function RootLayout({ children }) {
               {logoParts[1] ? <span className="logo-soft">{logoParts[1]}</span> : null}
             </Link>
             <nav className="header-nav" aria-label="Main">
-              <CategoryMenu
-                label={ui("nav.categories", "Categories")}
-                items={categories.map((cat) => ({
+              {/* Built on the server and passed down as four fields per
+                  tool. The panel is a client component, so importing the
+                  registry inside it would send every tool's code and
+                  article to the browser. */}
+              <BrowsePanel
+                label={ui("nav.categories", "Browse tools")}
+                groups={categories.map((cat) => ({
                   id: cat.id,
                   name: cat.name,
                   color: cat.color,
                   icon: cat.icon,
                   emoji: cat.emoji,
-                  count: toolsByCategory(cat.id).length,
+                  tools: toolsByCategory(cat.id).map((t) => ({
+                    slug: t.slug,
+                    name: t.name,
+                    short: t.short,
+                    icon: t.icon,
+                    emoji: t.emoji,
+                  })),
                 }))}
               />
               <Link href="/tools/">{ui("nav.allTools", "All tools")}</Link>
