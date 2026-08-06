@@ -5,6 +5,7 @@ import { categories, toolsByCategory } from "@/lib/tools";
 import { footerPages, fill } from "@/lib/pages";
 import { OG_IMAGE } from "@/lib/seo";
 import BrowsePanel from "@/components/BrowsePanel";
+import ThemeToggle from "@/components/ThemeToggle";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
@@ -95,7 +96,8 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
-        <meta name="theme-color" content="#191817" />
+        <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Schibsted Grotesk for everything structural, Spectral for article
@@ -114,6 +116,14 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html:
               "try{if(CSS.supports('animation-timeline','view()')&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.className+=' rvl-css'}catch(e){}",
+          }}
+        />
+        {/* Theme, decided before first paint so dark mode never flashes
+            white. No saved choice follows the operating system. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('tip-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.dataset.theme='dark'}catch(e){}",
           }}
         />
         <script
@@ -191,6 +201,7 @@ export default function RootLayout({ children }) {
               <Link href="/tools/">{ui("nav.allTools", "All tools")}</Link>
               <Link href="/blog/">{ui("nav.blog", "Blog")}</Link>
               <Link href="/about/">{ui("nav.about", "About")}</Link>
+              <ThemeToggle />
             </nav>
           </div>
         </header>

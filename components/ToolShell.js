@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site, ui } from "@/lib/site";
-import { getTool, getCategory } from "@/lib/tools";
+import { getTool, getCategory, toolsByCategory } from "@/lib/tools";
 import { relatedTools } from "@/lib/related";
 import { getToolContent } from "@/lib/content";
 import { absUrl } from "@/lib/seo";
@@ -36,6 +36,8 @@ export default function ToolShell({ slug, children }) {
   const related = relatedTools(slug, 8);
   const nextUp = related.slice(0, 3);
   const content = getToolContent(slug);
+  // The left sidebar: this category's tools with the current one marked.
+  const siblings = toolsByCategory(cat.id).slice(0, 12);
 
   const faqs = content?.faqs || tool.faqs || [];
   const howto = content?.howto || tool.howto || [];
@@ -131,11 +133,50 @@ export default function ToolShell({ slug, children }) {
         <Link href={`/category/${cat.id}/`} className="bc-cat">{cat.name}</Link> › {tool.name}
       </div>
 
+      <div className="tool-columns">
+        {/* The category's other tools, wide screens only. Every tool page
+            becomes a doorway to its own family, which is where the second
+            page view comes from. */}
+        <aside className="tool-side" aria-label={`More ${cat.name}`}>
+          <h3>{cat.name}</h3>
+          {siblings.map((t) => (
+            <Link
+              key={t.slug}
+              href={`/tools/${t.slug}/`}
+              aria-current={t.slug === tool.slug ? "page" : undefined}
+            >
+              <Icon name={t.icon} emoji={t.emoji} size={15} className="ts-icon" />
+              {t.name}
+            </Link>
+          ))}
+          <Link href={`/category/${cat.id}/`} className="ts-all">
+            {ui("toolPage.sideAll", "View all")} →
+          </Link>
+        </aside>
+
+        <div className="tool-main">
       <h1 className="tool-title">
         <Icon name={tool.icon} emoji={tool.emoji} size={24} className="tt-icon" />
         {tool.name}
       </h1>
       <p className="tool-sub">{tool.short} {ui("toolPage.subSuffix", "100% free, no signup. Everything runs in your browser.")}</p>
+
+      {/* Four checkable claims, worn as pills like the reference, coloured
+          by state tokens rather than invented ratings. */}
+      <div className="tool-badges">
+        <span style={{ "--badge": "var(--ok)" }}>
+          <Icon name="badge-check" size={13} /> {ui("toolPage.badgeFree", "100% free")}
+        </span>
+        <span style={{ "--badge": "var(--accent)" }}>
+          <Icon name="user-x" size={13} /> {ui("toolPage.badgeNoSignup", "No sign-up")}
+        </span>
+        <span style={{ "--badge": "var(--accent-2)" }}>
+          <Icon name="shield" size={13} /> {ui("toolPage.badgePrivate", "Private by design")}
+        </span>
+        <span style={{ "--badge": "var(--cc)" }}>
+          <Icon name="smartphone" size={13} /> {ui("toolPage.badgeDevice", "Works on any device")}
+        </span>
+      </div>
 
       <div className="tool-panel">
         <div className="tool-panel__head">
@@ -232,6 +273,8 @@ export default function ToolShell({ slug, children }) {
             </div>
           </div>
         </aside>
+      </div>
+        </div>
       </div>
 
       {related.length > 0 && (

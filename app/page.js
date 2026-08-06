@@ -2,7 +2,6 @@ import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 import ToolCard from "@/components/ToolCard";
 import HeroMotion from "@/components/HeroMotion";
-import HeroScene from "@/components/HeroScene";
 import Icon from "@/lib/icons";
 import { site, ui } from "@/lib/site";
 import { tools, categories, toolsByCategory, popularTools, getCategory } from "@/lib/tools";
@@ -10,6 +9,29 @@ import { posts, coverSvg } from "@/lib/posts";
 
 // Icons for the trust strip, in the order the CMS lists the items.
 const WHY_ICONS = ["badge-check", "shield", "user-x", "smartphone"];
+
+/* The floating chips around the hero: six real categories, hand-placed.
+   Decoration that happens to be clickable, so they are hidden from the
+   accessibility tree and the tab order rather than being six extra stops. */
+const HERO_CHIPS = [
+  { cat: "pdf", style: { top: "12%", left: "6%" } },
+  { cat: "image", style: { top: "58%", left: "3%" } },
+  { cat: "finance", style: { top: "30%", left: "13%" } },
+  { cat: "crypto", style: { top: "14%", right: "6%" } },
+  { cat: "health", style: { top: "34%", right: "13%" } },
+  { cat: "ecommerce", style: { top: "62%", right: "4%" } },
+];
+
+/* Quick links under the search box: the searches people actually arrive
+   with, each one a real tool. */
+const POPULAR_SEARCHES = [
+  { slug: "pdf-to-jpg", label: "PDF to JPG" },
+  { slug: "image-compressor", label: "Compress image" },
+  { slug: "invoice-generator", label: "Invoice" },
+  { slug: "qr-code-generator", label: "QR code" },
+  { slug: "word-counter", label: "Word counter" },
+  { slug: "calorie-calculator", label: "Calories" },
+];
 
 /* Three curated rows replaced thirteen identical category grids.
    Thirteen was what a category-per-section homepage grows into once the
@@ -84,12 +106,24 @@ export default function Home() {
           <span className="b1" />
           <span className="b2" />
         </div>
-        <HeroScene />
+        {/* Floating category chips, wide screens only. */}
+        <div className="hero-chips" aria-hidden="true">
+          {HERO_CHIPS.map(({ cat, style }) => {
+            const c = getCategory(cat);
+            if (!c) return null;
+            return (
+              <Link key={cat} href={`/category/${cat}/`} className="hero-chip"
+                style={{ ...style, "--cc": c.color }} tabIndex={-1}>
+                <Icon name={c.icon} emoji={c.emoji} size={22} />
+              </Link>
+            );
+          })}
+        </div>
         <HeroMotion />
         <div className="hero-inner">
-          <div className="hero-eyebrow">
+          <div className="hero-pill hero-eyebrow">
             <span className="live-dot" aria-hidden="true" />
-            <span>{ui("home.heroEyebrow", "Runs locally · Nothing uploaded")}</span>
+            <span>{ui("home.heroEyebrow", "100% free · No sign-up · Nothing uploaded")}</span>
           </div>
 
           <h1>
@@ -103,13 +137,45 @@ export default function Home() {
               and article to the browser. */}
           <SearchBar items={searchIndex} />
 
-          <div className="hero-stats">
-            {site.hero.stats.map((stat, i) => (
-              <div className="hero-stat" key={i}>
-                <div className="hs-num">{stat.value.replace("{toolCount}", tools.length)}</div>
-                <div className="hs-label">{stat.label}</div>
-              </div>
+          <div className="hero-searches">
+            <span>{ui("home.popularSearches", "Popular:")}</span>
+            {POPULAR_SEARCHES.map((s) => (
+              <Link key={s.slug} href={`/tools/${s.slug}/`}>{s.label}</Link>
             ))}
+          </div>
+
+          {/* Four true facts. The reference puts invented user counts here;
+              ours are checkable claims, which sell better to the people
+              who check. */}
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <Icon name="badge-check" size={18} className="hs-icon" />
+              <div>
+                <span className="hs-num">{ui("home.fact1", "{count} tools", { count: tools.length })}</span>
+                <span className="hs-label">{ui("home.fact1Label", "free forever")}</span>
+              </div>
+            </div>
+            <div className="hero-stat">
+              <Icon name="user-x" size={18} className="hs-icon" />
+              <div>
+                <span className="hs-num">{ui("home.fact2", "No sign-up")}</span>
+                <span className="hs-label">{ui("home.fact2Label", "just open and use")}</span>
+              </div>
+            </div>
+            <div className="hero-stat">
+              <Icon name="shield" size={18} className="hs-icon" />
+              <div>
+                <span className="hs-num">{ui("home.fact3", "0 uploads")}</span>
+                <span className="hs-label">{ui("home.fact3Label", "files stay on your device")}</span>
+              </div>
+            </div>
+            <div className="hero-stat">
+              <Icon name="smartphone" size={18} className="hs-icon" />
+              <div>
+                <span className="hs-num">{ui("home.fact4", "Any device")}</span>
+                <span className="hs-label">{ui("home.fact4Label", "phone, tablet, laptop")}</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -151,6 +217,43 @@ export default function Home() {
             {popularTools().slice(0, 12).map((t) => (
               <ToolCard key={t.slug} tool={t} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ STATS BAND ============
+          Every number here is checkable against the site itself. */}
+      <section className="section" aria-label="Site facts">
+        <div className="container">
+          <div className="stats-band">
+            <div className="sb-item">
+              <Icon name="sparkles" size={22} className="sb-icon" />
+              <div>
+                <span className="sb-num">{tools.length}</span>
+                <span className="sb-label">{ui("home.bandTools", "free tools")}</span>
+              </div>
+            </div>
+            <div className="sb-item">
+              <Icon name="layers" size={22} className="sb-icon" />
+              <div>
+                <span className="sb-num">{categories.length}</span>
+                <span className="sb-label">{ui("home.bandCats", "categories")}</span>
+              </div>
+            </div>
+            <div className="sb-item">
+              <Icon name="shield" size={22} className="sb-icon" />
+              <div>
+                <span className="sb-num">0</span>
+                <span className="sb-label">{ui("home.bandUploads", "files uploaded, ever")}</span>
+              </div>
+            </div>
+            <div className="sb-item">
+              <Icon name="user-x" size={22} className="sb-icon" />
+              <div>
+                <span className="sb-num">0</span>
+                <span className="sb-label">{ui("home.bandAccounts", "accounts required")}</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
