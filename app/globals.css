@@ -2081,30 +2081,50 @@ input.mono-out {
 .bp-body { flex: 1; overflow-y: auto; padding: var(--s4) var(--s5) var(--s6); }
 .bp-empty { color: var(--muted); font-size: var(--t-14); line-height: 1.5; padding: var(--s5) 0; }
 
-.bp-group { padding-top: var(--s4); }
-.bp-group + .bp-group { border-top: 1px solid var(--line); margin-top: var(--s3); }
-.bp-group h3 {
+.bp-group { padding-top: var(--s2); }
+.bp-group + .bp-group { border-top: 1px solid var(--line); margin-top: var(--s2); }
+.bp-group h3 { margin: 0; }
+
+/* The category row is a real button now: bold name, count, and a chevron
+   that folds the list. Bold was asked for by the person who uses it on a
+   phone, and he was right: thirteen muted micro-labels in a scrolling
+   sheet gave the eye nothing to grab. */
+.bp-cat {
   display: flex;
   align-items: center;
   gap: var(--s2);
-  margin: 0 0 var(--s2);
+  width: 100%;
+  padding: 10px var(--s2);
+  margin: 0 calc(var(--s2) * -1);
+  border: 0;
+  border-radius: var(--r-sm);
+  background: none;
+  font-family: var(--font-sans);
+  font-size: var(--t-14);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  cursor: pointer;
+  min-height: 44px;
+  text-align: left;
+  transition: background var(--d-fast) linear;
+}
+.bp-cat:hover { background: var(--surface-2); }
+.bp-cat > svg:first-child { color: var(--cc); flex: 0 0 16px; }
+.bp-count {
+  margin-left: auto;
   font-family: var(--font-mono);
   font-size: var(--t-12);
   font-weight: 400;
-  letter-spacing: var(--ls-12);
-  text-transform: uppercase;
-  /* The heading text stays muted like every other micro-label on the site.
-     Only the icon carries the category colour, which is the same rule the
-     cards and section rules follow. */
   color: var(--muted);
-  border: 0;
-  padding: 0;
-}
-.bp-group h3 svg { color: var(--cc); flex: 0 0 15px; }
-.bp-group h3 span {
-  margin-left: auto;
   font-variant-numeric: tabular-nums;
 }
+.bp-chev {
+  color: var(--muted);
+  flex: 0 0 15px;
+  transition: transform var(--d-base) var(--ease);
+}
+.bp-cat[aria-expanded="true"] .bp-chev { transform: rotate(180deg); }
 
 .bp-group ul { list-style: none; margin: 0; padding: 0; }
 .bp-group li + li { border-top: 1px solid var(--line); }
