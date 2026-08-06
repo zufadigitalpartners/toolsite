@@ -6,6 +6,7 @@ import { footerPages, fill } from "@/lib/pages";
 import { OG_IMAGE } from "@/lib/seo";
 import BrowsePanel from "@/components/BrowsePanel";
 import ThemeToggle from "@/components/ThemeToggle";
+import MobileNav from "@/components/MobileNav";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
@@ -96,16 +97,14 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
-        <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#f8fafc" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Schibsted Grotesk for everything structural, Spectral for article
-            prose only, Chivo Mono for output and micro-labels. Schibsted was
-            chosen over the usual grotesques because it ships real tabular
-            figures, and half this site is calculators. */}
+        {/* Inter across the interface, per the design reference the owner
+            locked in. Chivo Mono stays for code and tool output, where a
+            mono face is function rather than styling. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&family=Spectral:ital,wght@0,400;0,600;1,400&family=Chivo+Mono:wght@400..500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=Chivo+Mono:wght@400..500&display=swap"
           rel="stylesheet"
         />
         {/* Opts this browser into the scroll-driven reveals, before first
@@ -118,12 +117,13 @@ export default function RootLayout({ children }) {
               "try{if(CSS.supports('animation-timeline','view()')&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.className+=' rvl-css'}catch(e){}",
           }}
         />
-        {/* Theme, decided before first paint so dark mode never flashes
-            white. No saved choice follows the operating system. */}
+        {/* Theme, decided before first paint so dark mode never flashes.
+            Light is the default for everyone; dark only ever comes from the
+            user's own toggle, never from the operating system. */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{var t=localStorage.getItem('tip-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.dataset.theme='dark'}catch(e){}",
+              "try{if(localStorage.getItem('tip-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}",
           }}
         />
         <script
@@ -207,6 +207,7 @@ export default function RootLayout({ children }) {
         </header>
 
         <main>{children}</main>
+        <MobileNav />
         <Reveal />
 
         <footer className="site-footer">

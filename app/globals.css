@@ -83,9 +83,12 @@
   --d-fast: 90ms;
   --d-base: 160ms;
 
-  /* ---------- fonts ---------- */
-  --font-sans:  'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Spectral', Georgia, 'Times New Roman', serif;
+  /* ---------- fonts ----------
+     Inter everywhere visible, per the reference the owner locked in.
+     --font-serif stays defined and points at Inter so the article styles
+     that reference it keep working without a second sweep. */
+  --font-sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono:  'Chivo Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
   --font-display: var(--font-sans);
   --font-body: var(--font-sans);
@@ -227,11 +230,11 @@ p, .tool-content li, .faq .a, .t-short, .c-desc { text-wrap: pretty; }
 .footer-grid h3,
 .tool-rail h3,
 .search-results .r-cat {
-  font-family: var(--font-mono);
-  font-size: var(--t-12);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
   line-height: 1.2;
-  letter-spacing: var(--ls-12);
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
@@ -1000,6 +1003,66 @@ html.rvl-css .hero-stat {
   margin-top: auto;
   padding-top: var(--s4);
   color: var(--muted);
+}
+
+/* The reference card's call to action. Plain text until hover, when the
+   arrow steps forward; the whole card was already the link. */
+.tool-card .t-open {
+  grid-column: 2;
+  margin-top: auto;
+  padding-top: var(--s3);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.tool-card .t-open svg { transition: transform var(--d-fast) var(--ease); }
+.tool-card:hover .t-open svg { transform: translateX(3px); }
+.tool-card:has(.t-open) .t-tag { display: none; }
+
+/* ================= MOBILE NAV ================= */
+/* Fixed bottom bar on phones only, per the reference. Sits above the
+   iOS home indicator via the safe-area inset. */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: color-mix(in srgb, var(--raised) 92%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+  padding: 6px max(8px, env(safe-area-inset-left)) calc(6px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-right));
+}
+.mobile-nav a,
+.mobile-nav button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 4px;
+  border: 0;
+  background: none;
+  border-radius: var(--r-sm);
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  cursor: pointer;
+}
+.mobile-nav a:hover,
+.mobile-nav button:hover { text-decoration: none; }
+.mobile-nav a[aria-current="page"] { color: var(--accent); }
+.mobile-nav a[aria-current="page"] svg { color: var(--accent); }
+@media (max-width: 760px) {
+  .mobile-nav { display: flex; }
+  body { padding-bottom: 68px; }
 }
 /* redundant inside a section that is already the category */
 .section[id^="cat-"] .t-tag { display: none; }

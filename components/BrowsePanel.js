@@ -27,6 +27,15 @@ export default function BrowsePanel({ label = "Browse", groups = [] }) {
   // asked for.
   useEffect(() => { setOpen(false); }, [pathname]);
 
+  // The mobile bottom bar's Search button lives in another component; it
+  // asks this panel to open through a window event rather than threading
+  // state up through the server layout.
+  useEffect(() => {
+    const openUp = () => setOpen(true);
+    window.addEventListener("tip-open-browse", openUp);
+    return () => window.removeEventListener("tip-open-browse", openUp);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => {

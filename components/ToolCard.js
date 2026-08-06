@@ -13,7 +13,10 @@ export default function ToolCard({ tool }) {
       <Icon name={tool.icon} emoji={tool.emoji} size={20} className="t-icon" />
       <div className="t-name">{tool.name}</div>
       <div className="t-short">{tool.short}</div>
-      <span className="t-tag">{cat?.name}</span>
+      <span className="t-open">
+        Open tool
+        <Icon name="arrow-right" size={14} />
+      </span>
     </Link>
   );
 }
