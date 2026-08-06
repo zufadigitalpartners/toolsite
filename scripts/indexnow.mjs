@@ -86,7 +86,12 @@ async function main() {
     if (res.ok) {
       log(`submitted ${urls.length} URLs for ${host} (HTTP ${res.status})`);
     } else {
-      log(`search engines returned HTTP ${res.status}, continuing anyway`);
+      // The body names the reason (e.g. UserForbiddedToAccessSite when the
+      // validator cannot fetch the key file). Weeks of silent 403s taught
+      // us that a status code alone hides everything that matters.
+      const body = await res.text().catch(() => "");
+      log(`REJECTED: HTTP ${res.status} ${body.slice(0, 300)}`);
+      log(`if this says UserForbiddedToAccessSite, check Cloudflare bot settings: the validator fetches ${body.includes("key") ? "the key file" : "the site"} from datacenter IPs`);
     }
   } catch (err) {
     log(`could not reach the endpoint (${err.message}), continuing anyway`);
