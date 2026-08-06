@@ -286,14 +286,27 @@ html.rvl .rvl-in { animation: rvlFade 200ms linear forwards; }
 }
 
 /* ================= HEADER ================= */
+/* The glass lives on a pseudo-element, not the header itself. A
+   backdrop-filter on an element makes it the containing block for every
+   fixed-position descendant, and the browse panel is a fixed-position
+   descendant: with the filter on the header, the panel positioned itself
+   inside a 64px strip and spilled down the page unpainted. A ::before is
+   not an ancestor, so the panel keeps the viewport. */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: color-mix(in srgb, var(--surface) 82%, transparent);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
 }
 
 /* The theme switch: one button, two glyphs, the active one visible. */

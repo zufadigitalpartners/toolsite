@@ -1,7 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import { site, ui } from "@/lib/site";
-import { categories, toolsByCategory } from "@/lib/tools";
+import { categories, tools, toolsByCategory } from "@/lib/tools";
 import { footerPages, fill } from "@/lib/pages";
 import { OG_IMAGE } from "@/lib/seo";
 import BrowsePanel from "@/components/BrowsePanel";
@@ -39,13 +39,21 @@ export const metadata = {
 
 // Organization + WebSite schema, emitted once site-wide so Google can
 // tie every page back to one brand and offer a sitelinks search box.
-/* Footer families, five columns instead of one per category. */
+/* Footer families, five columns instead of one per category. Each carries
+   its four strongest tools, hand-picked by search demand, not the first
+   four the registry happens to list: the footer is a shop window, and a
+   round-robin was filling it from the stockroom. */
 const FOOTER_FAMILIES = [
-  { id: "files", label: "Files and images", cats: ["pdf", "image"] },
-  { id: "money", label: "Money and property", cats: ["finance", "property", "crypto"] },
-  { id: "life", label: "Health and everyday", cats: ["health", "calculators"] },
-  { id: "work", label: "Business and content", cats: ["ecommerce", "social", "spreadsheet"] },
-  { id: "build", label: "Text and developer", cats: ["text", "developer", "generators"] },
+  { id: "files", label: "Files and images", cats: ["pdf", "image"],
+    top: ["merge-pdf", "pdf-to-jpg", "image-compressor", "heic-to-jpg"] },
+  { id: "money", label: "Money and property", cats: ["finance", "property", "crypto"],
+    top: ["debt-payoff-planner", "mortgage-payment-calculator", "rent-vs-buy-calculator", "crypto-profit-calculator"] },
+  { id: "life", label: "Health and everyday", cats: ["health", "calculators"],
+    top: ["calorie-calculator", "bmi-calculator", "pregnancy-due-date-calculator", "percentage-calculator"] },
+  { id: "work", label: "Business and content", cats: ["ecommerce", "social", "spreadsheet"],
+    top: ["invoice-generator", "quote-generator", "hashtag-generator", "excel-to-csv"] },
+  { id: "build", label: "Text and developer", cats: ["text", "developer", "generators"],
+    top: ["word-counter", "qr-code-generator", "password-generator", "json-formatter"] },
 ];
 
 /* A category added in the CMS that nobody thought to place here would
@@ -219,17 +227,12 @@ export default function RootLayout({ children }) {
                   each family ending in links to its category pages. */}
               {footerFamilies().map((fam) => {
                 const famCats = fam.cats.map((id) => categories.find((c) => c.id === id)).filter(Boolean);
-                // Round-robin across the family's categories so a 22-tool
-                // category cannot crowd a 5-tool one out of its own column.
-                const lists = famCats.map((c) => toolsByCategory(c.id));
-                const famTools = [];
-                for (let i = 0; famTools.length < site.footerToolLimit * 2; i++) {
-                  const before = famTools.length;
-                  for (const l of lists) {
-                    if (l[i] && famTools.length < site.footerToolLimit * 2) famTools.push(l[i]);
-                  }
-                  if (famTools.length === before) break;
-                }
+                // Exactly four, the hand-picked best. A missing slug simply
+                // drops out, so a renamed tool shortens the list instead of
+                // crashing the build.
+                const famTools = (fam.top || [])
+                  .map((slug) => tools.find((t) => t.slug === slug))
+                  .filter(Boolean);
                 return (
                   <div key={fam.id}>
                     <h3>{fam.label}</h3>
