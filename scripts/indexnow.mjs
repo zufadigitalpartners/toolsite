@@ -91,6 +91,23 @@ async function main() {
   } catch (err) {
     log(`could not reach the endpoint (${err.message}), continuing anyway`);
   }
+
+  // WebSub, on top: Google runs this hub itself and reads our RSS feed
+  // through it, which makes the ping the one sanctioned way to push a
+  // "something new is live" signal toward Google specifically. IndexNow
+  // covers Bing and friends; this covers the feed readers, Google's
+  // included.
+  try {
+    const feed = `https://${host}/feed.xml`;
+    const hub = await fetch("https://pubsubhubbub.appspot.com/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `hub.mode=publish&hub.url=${encodeURIComponent(feed)}`,
+    });
+    log(`websub ping for ${feed} (HTTP ${hub.status})`);
+  } catch (err) {
+    log(`websub hub unreachable (${err.message}), continuing anyway`);
+  }
 }
 
 // Whatever happens, the deploy succeeds.

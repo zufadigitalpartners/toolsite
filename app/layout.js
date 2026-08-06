@@ -104,6 +104,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href="/feed.xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
         <meta name="theme-color" content="#f8fafc" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
